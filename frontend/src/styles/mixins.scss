@@ -1,0 +1,225 @@
+/* region query */
+@mixin queryRegionVN {
+  *[data-region='vn'] {
+    @content;
+  }
+}
+
+@mixin queryRegionTW {
+  *[data-region='tw'] {
+    @content;
+  }
+}
+
+@mixin queryRegionTH {
+  *[data-region='th'] {
+    @content;
+  }
+}
+
+@mixin withRegion($region) {
+  html[data-region='#{$region}'] & {
+    @content;
+  }
+}
+
+/* os query */
+@mixin queryAndroid {
+  html[data-os='android'] {
+    @content;
+  }
+}
+
+@mixin queryIOS {
+  html[data-os='ios'] {
+    @content;
+  }
+}
+
+/* in-game query */
+@mixin queryInGameIphoneX {
+  html[data-is-iphonex-app='true'] {
+    @content;
+  }
+}
+
+/* media query */
+@mixin queryIphoneX {
+  @media only screen and #{$queryIphoneXPortrait} {
+    @content;
+  }
+  @media only screen and #{$queryIphoneXLandscape} {
+    @content;
+  }
+}
+
+@mixin queryIphone678Plus {
+  @media only screen and #{$queryIphone678PlusPortrait} {
+    @content;
+  }
+  @media only screen and #{$queryIphone678PlusLandscape} {
+    @content;
+  }
+}
+
+@mixin queryIphone678 {
+  @media only screen and #{$queryIphone678Portrait} {
+    @content;
+  }
+  @media only screen and #{$queryIphone678Landscape} {
+    @content;
+  }
+}
+
+@mixin queryIpad {
+  @media only screen and #{$queryIpadPortrait} {
+    @content;
+  }
+  @media only screen and #{$queryIpadLandscape} {
+    @content;
+  }
+}
+
+@mixin queryIpadPro {
+  @media only screen and #{$queryIpadProPortrait} {
+    @content;
+  }
+  @media only screen and #{$queryIpadProLandscape} {
+    @content;
+  }
+}
+
+/* fullscreen background */
+@mixin fullscreenBg($url) {
+  background: url($url) center center / 100% auto no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin position($pos, $top: null, $right: null, $bottom: null, $left: null, $z-index: null) {
+  position: $pos;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  z-index: $z-index;
+}
+
+@mixin sizeWH($width: null, $height: null, $display: null, $pos: null) {
+  width: $width;
+  height: $height;
+  display: $display;
+  position: $pos;
+}
+
+@mixin inlineBlockWH($width: null, $height: null) {
+  display: inline-block;
+  width: $width;
+  height: $height;
+}
+
+@mixin textMixin(
+  $color: null,
+  $size: null,
+  $weight: null,
+  $transform: null,
+  $decoration: null,
+  $align: null,
+  $style: null
+) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  font-style: $style;
+  text-transform: $transform;
+  text-decoration: $decoration;
+  text-align: $align;
+}
+
+@mixin ellipsis($e: n) {
+  overflow: hidden;
+  white-space: nowrap;
+  @if $e == e {
+    text-overflow: ellipsis;
+  }
+}
+
+/* full size */
+@mixin fullsize() {
+  width: 100%;
+  height: 100%;
+}
+
+/* full cover */
+@mixin fullcover() {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* align center */
+@mixin alignCenter() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flexCenter($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+/* clear float */
+@mixin clear() {
+  &::after {
+    content: ' ';
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+/* ellipsis */
+@mixin ellipsis() {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;
+}
+
+/* setup fullscreen */
+@mixin fullscreenSetup() {
+  /* force landscape */
+  @media only screen and (orientation: portrait) {
+    transform: rotate(90deg);
+    transform-origin: 50vmin 50vmin;
+  }
+}
+
+@function assetsUrl($path) {
+  @return url('#{$cdn}/#{$path}');
+}
+
+@mixin imageCDN($path, $width, $height, $mode: contain, $pos: center) {
+  @include sizeWH($width, $height);
+  background: url('#{$cdn}/#{$path}') $pos / $mode no-repeat;
+}
+
+@mixin i18nBgImg($paths...) {
+  @each $lang in $languages {
+    html:lang(#{$lang}) & {
+      $urls: ();
+      @each $path in $paths {
+        $urls: ($urls, assetsUrl('#{$lang}/#{$path}'));
+      }
+
+      background-image: $urls;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import './reset.scss';
+@import './fonts.scss';
+@import './mixins.scss';
+
+/* setup viewport */
+html {
+  @include fullscreenSetup();
+  background: #212121;
+  overflow: hidden;
+  overflow-y: auto;
+
+  body {
+    @include fullsize();
+  }
+}
