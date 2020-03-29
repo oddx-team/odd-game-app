@@ -1,11 +1,10 @@
-#app {
-  position: absolute;
-  width: 1200px;
-  height: 600px;
-  left: 90px;
-  top: 62px;
+@import './styles/global.scss';
 
-  background: #0f4c81;
-  border: 3px solid #003455;
-  box-sizing: border-box;
+#app {
+  @include textMixin(#212121, 0.24rem, $align: center);
+  @include flexCenter(row);
+  font-family: 'Shentox', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
