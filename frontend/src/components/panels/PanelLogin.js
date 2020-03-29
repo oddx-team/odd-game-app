@@ -17,7 +17,7 @@ function PanelLogin() {
         </div>
 
         <button className='btn-signin'>Sign in</button>
-        <button className='btn-signup'>Sign up?</button>
+        <button className='btn-register'>Sign up?</button>
       </form>
     </div>
   );
