@@ -10,7 +10,7 @@
 .form-login {
   @include imageCDN('frame-login.png', 4rem, 6rem);
   @include flexCenter(column);
-  margin-left: 0.8rem;
+  margin-left: 1.2rem;
 
   .title {
     @include textMixin(#000, 0.5rem, bold);
