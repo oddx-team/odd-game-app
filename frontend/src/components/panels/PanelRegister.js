@@ -5,7 +5,7 @@ import './PanelRegister.scss';
 function PanelRegister() {
   return (
     <div className='panel-register'>
-      <form className='form-login'>
+      <form className='form-register'>
         <div className='title'>Sign up</div>
         <div className='username'>
           <input type='text' placeholder='Nickname' />

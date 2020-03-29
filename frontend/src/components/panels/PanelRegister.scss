@@ -7,7 +7,7 @@
   position: relative;
 }
 
-.form-login {
+.form-register {
   @include imageCDN('frame-login.png', 4rem, 6rem);
   @include flexCenter(column);
   @include position(relative, $left: -0.5rem);
