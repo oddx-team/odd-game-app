@@ -42,6 +42,8 @@
 
   .btn-register {
     @include textMixin(#0f4c81, 0.2rem);
+    border: none;
+    background: transparent;
   }
 }
 
