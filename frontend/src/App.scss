@@ -1,0 +1,10 @@
+@import './styles/global.scss';
+
+#app {
+  @include textMixin(#212121, 0.24rem, $align: center);
+  @include flexCenter(row);
+  font-family: 'Shentox', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}

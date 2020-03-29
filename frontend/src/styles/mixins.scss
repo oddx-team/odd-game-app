@@ -1,3 +1,5 @@
+$cdn: '../cdn/assets';
+
 /* region query */
 @mixin queryRegionVN {
   *[data-region='vn'] {
