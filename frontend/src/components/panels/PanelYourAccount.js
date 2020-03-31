@@ -1,6 +1,4 @@
 import React from 'react';
-import PanelLogo from './PanelLogo';
-import PanelLogoWelcome from './PanelLogoWelcome';
 import './PanelYourAccount.scss';
 import PanelLoginForm from './PanelLoginForm';
 import PanelRegisterForm from './PanelRegisterForm';
@@ -8,7 +6,6 @@ import { useState } from 'react';
 
 function PanelYourAccount() {
   const [activeRegister, setActiveRegister] = useState();
-  console.log('reset' + activeRegister);
   const switchToResigter = () => setActiveRegister(true);
   const switchToLogin = () => setActiveRegister(false);
   return (
@@ -24,8 +21,21 @@ function PanelYourAccount() {
       />
       <div className='overlay-container'>
         <div className='overlay'>
-          <PanelLogo className='left-logo' />
-          <PanelLogoWelcome className='right-logo' />
+          <div className='panel-logo left-logo'>
+            <div className='logo'></div>
+            <div className='description'>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been abc.
+            </div>
+          </div>
+          <div className='panel-logo right-logo'>
+            <div className='welcome'>Welcome to</div>
+            <div className='welcome-logo'></div>
+            <div className='description'>
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been abc.
+            </div>
+          </div>
         </div>
       </div>
     </div>
