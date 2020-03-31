@@ -1,10 +1,11 @@
 import React from 'react';
-import './PanelLogo.scss';
+import './PanelLogoWelcome.scss';
 
-function PanelLogo(props) {
+function PanelLogoWelcome(props) {
   return (
     <div className={'panel-logo ' + props.className}>
-      <div className='logo'></div>
+      <div className="welcome">Welcome to</div>
+      <div className='welcome-logo'></div>
       <div className='description'>
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
         been abc.
@@ -13,4 +14,4 @@ function PanelLogo(props) {
   );
 }
 
-export default PanelLogo;
+export default PanelLogoWelcome;
