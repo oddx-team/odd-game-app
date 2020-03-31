@@ -4,7 +4,7 @@
   @include position(relative, -0.5rem);
   @include flexCenter(column);
   width: 4rem;
-  
+
   .welcome {
     @include textMixin(#fff, 0.5rem);
     margin: 1rem 0 -0.5rem 0;
