@@ -3,13 +3,12 @@
 .form-login {
   @include imageCDN('frame-login.png', 4rem, 6rem);
   @include flexCenter(column);
-  // margin-left: 1.2rem;
+  @include bringUpAndShow();
 
   .title {
     @include textMixin(#000, 0.5rem, bold);
     margin-bottom: 0.2rem;
   }
-
   .username {
     @include imageCDN('frame-input.png', 3rem, 0.8rem);
     position: relative;

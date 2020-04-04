@@ -2,13 +2,13 @@ import React from 'react';
 import './PanelLoginForm.scss';
 
 const PanelLoginForm = (props) => {
-  const handleToRegister = (e) => {
+  const switchToRegister = (e) => {
     e.preventDefault();
-    props.onSwitchForm();
+    props.switchForm();
   };
 
   return (
-    <form className={'form-login ' + props.className}>
+    <form className='form-login'>
       <div className='title'>Sign in</div>
       <div className='username'>
         <input type='text' placeholder='Nickname' />
@@ -17,9 +17,11 @@ const PanelLoginForm = (props) => {
         <input type='password' placeholder='Password' />
       </div>
 
-      <button className='btn-signin'>Sign in</button>
-      <button className='btn-register' onClick={handleToRegister}>
-        Sign up?
+      <button className='btn-signin' type='submit'>
+        <span>Sign in</span>
+      </button>
+      <button className='btn-register' onClick={switchToRegister}>
+        <span>Sign up?</span>
       </button>
     </form>
   );

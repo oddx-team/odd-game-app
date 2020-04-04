@@ -2,29 +2,38 @@ import React from 'react';
 import './PanelYourAccount.scss';
 import PanelLoginForm from './PanelLoginForm';
 import PanelRegisterForm from './PanelRegisterForm';
+import classNames from 'classnames';
 import { useState } from 'react';
 
 const PanelYourAccount = () => {
   const [activeRegister, setActiveRegister] = useState();
-  const switchToRegister = () => setActiveRegister(true);
-  const switchToLogin = () => setActiveRegister(false);
+  const switchForm = () => {
+    setActiveRegister(!activeRegister);
+  };
+
+  const containerClasses = classNames({
+    'form-container': true,
+    'show-register': activeRegister,
+  });
 
   return (
-    <div className={'panel-login ' + (activeRegister && 'active-register')}>
-      <PanelLoginForm className='form-container login-form' onSwitchForm={switchToRegister} />
-      <PanelRegisterForm className='form-container register-form' onSwitchForm={switchToLogin} />
+    <div className={containerClasses}>
+      <PanelLoginForm switchForm={switchForm} />
+      <PanelRegisterForm switchForm={switchForm} />
       <div className='overlay-container'>
         <div className='overlay'>
-          <div className='panel-logo left-logo'>
+          <div className='panel-logo left'>
             <div className='logo'></div>
             <div className='description'>
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
               has been abc.
             </div>
           </div>
-          <div className='panel-logo right-logo'>
-            <div className='welcome'>Welcome to</div>
-            <div className='welcome-logo'></div>
+          <div className='panel-logo right'>
+            <div className='welcome'>
+              <div className='title'>Welcome to</div>
+              <div className='logo' />
+            </div>
             <div className='description'>
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
               has been abc.

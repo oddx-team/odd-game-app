@@ -3,6 +3,7 @@
 .form-register {
   @include imageCDN('frame-login.png', 4rem, 6rem);
   @include flexCenter(column);
+  @include bringDownAndHide();
 
   .title {
     @include textMixin(#000, 0.5rem, bold);
