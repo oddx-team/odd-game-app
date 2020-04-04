@@ -1,11 +1,12 @@
 import React from 'react';
 import './PanelLoginForm.scss';
 
-function PanelLoginForm(props) {
-  const handleToResigter = e => {
+const PanelLoginForm = (props) => {
+  const handleToRegister = (e) => {
     e.preventDefault();
     props.onSwitchForm();
   };
+
   return (
     <form className={'form-login ' + props.className}>
       <div className='title'>Sign in</div>
@@ -17,11 +18,11 @@ function PanelLoginForm(props) {
       </div>
 
       <button className='btn-signin'>Sign in</button>
-      <button className='btn-register' onClick={handleToResigter}>
+      <button className='btn-register' onClick={handleToRegister}>
         Sign up?
       </button>
     </form>
   );
-}
+};
 
 export default PanelLoginForm;

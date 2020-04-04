@@ -4,13 +4,13 @@ import PanelLoginForm from './PanelLoginForm';
 import PanelRegisterForm from './PanelRegisterForm';
 import { useState } from 'react';
 
-function PanelYourAccount() {
+const PanelYourAccount = () => {
   const [activeRegister, setActiveRegister] = useState();
   const switchToRegister = () => setActiveRegister(true);
   const switchToLogin = () => setActiveRegister(false);
+
   return (
     <div className={'panel-login ' + (activeRegister && 'active-register')}>
-      {/* <PanelLogo /> */}
       <PanelLoginForm className='form-container login-form' onSwitchForm={switchToRegister} />
       <PanelRegisterForm className='form-container register-form' onSwitchForm={switchToLogin} />
       <div className='overlay-container'>
@@ -34,6 +34,6 @@ function PanelYourAccount() {
       </div>
     </div>
   );
-}
+};
 
 export default PanelYourAccount;
