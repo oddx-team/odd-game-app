@@ -2,7 +2,7 @@ import React from 'react';
 import './PanelRegisterForm.scss';
 
 function PanelRegisterForm(props) {
-  const handleToResigter = e => {
+  const handleToResigter = (e) => {
     e.preventDefault();
     props.onSwitchForm();
   };
