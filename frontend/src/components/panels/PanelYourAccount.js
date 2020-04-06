@@ -28,6 +28,7 @@ const PanelYourAccount = () => {
               has been abc.
             </div>
           </div>
+
           <div className='panel-logo right'>
             <div className='welcome'>
               <div className='title'>Welcome to</div>
