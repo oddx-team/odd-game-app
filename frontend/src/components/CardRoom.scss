@@ -1,0 +1,27 @@
+@import 'src/styles/global.scss';
+
+.card-room {
+  @include imageCDN('frame-game-room.png', 3rem, 4rem);
+  @include textMixin(#000, 0.2rem, $align: left);
+  padding: 0.25rem 0 0 0.2rem;
+  margin: 0.1rem 0.5rem 0 0;
+
+  div {
+    margin-bottom: 0.1rem;
+  }
+  .title {
+    @include textMixin(#000, 0.3rem, bold);
+    margin-bottom: 0.2rem;
+  }
+
+  .btn-join {
+    margin-top: 0.25rem;
+  }
+  .btn-join,
+  .btn-spectate {
+    @include imageCDN('btn-blue-short.png', 2.6rem, 0.6rem);
+    @include position(relative, $left: -0.05rem);
+    @include textMixin(#fff, 0.2rem, bold, uppercase);
+    margin-bottom: 0.1rem;
+  }
+}

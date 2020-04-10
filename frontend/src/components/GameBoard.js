@@ -9,7 +9,12 @@ const GameBoard = () => {
     <div className='game-board'>
       <GameBoardHeader />
 
-      <div className='rooms'>
+      <div className='card-rooms'>
+        <CardRoom />
+        <CardRoom />
+        <CardRoom />
+        <CardRoom />
+        <CardRoom />
         <CardRoom />
       </div>
     </div>
