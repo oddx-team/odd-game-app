@@ -1,0 +1,5 @@
+@import 'src/styles/global.scss';
+
+.game-board {
+  @include sizeWH(100%, 100%);
+}

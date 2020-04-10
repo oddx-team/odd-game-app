@@ -1,0 +1,21 @@
+@import 'src/styles/global.scss';
+
+.game-board-header {
+  @include sizeWH(15rem, 0.7rem);
+  border-bottom: 0.01rem solid #ddd;
+
+  .game-logo {
+    @include imageCDN('game-logo-small.png', 1.2rem, 0.6rem);
+    @include position(absolute, 0.05rem, $left: 1rem);
+  }
+
+  .search {
+    @include imageCDN('box-search.png', 4.48rem, 0.52rem);
+    @include position(absolute, 0.1rem, $left: 4rem);
+  }
+
+  .user {
+    @include imageCDN('icon-user.png', 0.6rem, 0.6rem);
+    @include position(absolute, 0.05rem, $right: 2rem);
+  }
+}

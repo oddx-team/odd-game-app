@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import './App.scss';
+import GameBoard from './components/GameBoard.js';
 import PanelYourAccount from './components/panels/PanelYourAccount';
 import PageNotFound from './components/PageNotFound';
+import './App.scss';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <div className='main'>
           <Switch>
             <Route exact path='/' component={PanelYourAccount} />
+            <Route exact path='/game' component={GameBoard} />
             {/* Default case: page not found */}
             <Route component={PageNotFound} />
           </Switch>
