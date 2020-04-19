@@ -1,5 +1,8 @@
 import React from 'react';
 import './GameBoardHeader.scss';
+import IconFriends from '../cdn/assets/icon-friends.png';
+import IconBell from '../cdn/assets/icon-bell.png';
+import Avatar from '../cdn/assets/avatar.png';
 
 const GameBoardHeader = () => {
   return (
@@ -10,7 +13,18 @@ const GameBoardHeader = () => {
         <div className='icon-search' />
         <input type='text' placeholder='Search' />
       </div>
-      <div className='user' />
+
+      <div className='profile'>
+        <div className='block wrapper btn-friends'>
+          <img src={IconFriends} />
+        </div>
+        <div className='block wrapper btn-noti'>
+          <img src={IconBell} />
+        </div>
+        <div className='user block round'>
+          <img src={Avatar} />
+        </div>
+      </div>
     </div>
   );
 };
