@@ -4,18 +4,36 @@
   @include sizeWH(100%, 100%);
   margin: 0 auto;
 
-  .card-rooms {
-    @include flexCenter(row);
+  .game-content {
     @include sizeWH(70%, 6rem);
     top: 0;
-    padding-left: 0.7rem;
+    padding-left: 0.5rem;
     border: 0.013rem solid #ddd;
     background: #fff;
-    justify-content: flex-start;
-    flex-wrap: wrap;
 
-    .section-title {
-      @include textMixin(#000, 0.3rem, bold);
+    .container {
+      & > .title {
+        @include textMixin(#000, 0.25rem, bold, $align: left);
+        margin-top: 0.1rem;
+        position: relative;
+
+        &::before {
+          content: '';
+          @include imageCDN('icon-play.png', 0.38rem, 0.38rem);
+          @include position(absolute, $top: 0rem, $left: 1.7rem);
+          cursor: pointer;
+        }
+      }
+
+      .subtitle {
+        @include textMixin(#000, 0.18rem, normal, $align: left);
+      }
+    }
+
+    .rooms {
+      @include flexCenter(row);
+      justify-content: flex-start;
+      flex-wrap: wrap;
     }
   }
 }

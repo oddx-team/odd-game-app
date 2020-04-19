@@ -11,9 +11,18 @@ const GameBoard = () => {
       <GameBoardHeader />
       <GameBoardNav />
 
-      <div className='card-rooms'>
-        <div className='section-title'>Game rooms:</div>
-        <CardRoom />
+      <div className='game-content'>
+        <div className='container'>
+          <div className='title'>Game rooms</div>
+          <div className='subtitle'>Select any room:</div>
+        </div>
+
+        <div className='rooms'>
+          <CardRoom />
+          <CardRoom />
+          <CardRoom />
+          <CardRoom />
+        </div>
       </div>
     </div>
   );

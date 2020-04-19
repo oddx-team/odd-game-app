@@ -9,8 +9,9 @@
   .tab-vn,
   .tab-global {
     @include sizeWH(1.9rem, 0.5rem);
-    @include textMixin(#000, 0.22rem);
-    padding-top: 0.1rem;
+    @include textMixin(#000, 0.21rem);
+    @include flexCenter(row);
+    padding-top: 0.05rem;
     cursor: pointer;
 
     &.active {
@@ -19,6 +20,11 @@
       border-right: 0.013rem solid #ddd;
       border-left: 0.013rem solid #ddd;
       font-weight: bold;
+    }
+
+    img {
+      @include sizeWH(0.3rem, 0.3rem);
+      margin-right: 0.05rem;
     }
   }
 }
