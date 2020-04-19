@@ -11,11 +11,6 @@ const GameBoard = () => {
 
       <div className='card-rooms'>
         <CardRoom />
-        <CardRoom />
-        <CardRoom />
-        <CardRoom />
-        <CardRoom />
-        <CardRoom />
       </div>
     </div>
   );

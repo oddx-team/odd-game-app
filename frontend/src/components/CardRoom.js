@@ -3,27 +3,29 @@ import './CardRoom.scss';
 
 const CardRoom = (props) => {
   return (
-    <div className='card-room'>
-      <div className='title'>Name room</div>
-      <div className='player'>
-        <strong>Player: </strong>
-        <span>KingName123</span>
-      </div>
-      <div className='room'>
-        <strong>Room: </strong>
-        <span>8/10</span>
-      </div>
-      <div className='spectator'>
-        <strong>Spectator: </strong>
-        <span>15</span>
-      </div>
-      <div className='spectator'>
-        <strong>Goal: </strong>
-        <span>8</span>
+    <div className='card fixed wrapper block'>
+      <div className='content'>
+        <div className='title'>Name room</div>
+        <div className='host'>
+          <strong>Host: </strong>
+          <span>Admin</span>
+        </div>
+        <div className='room'>
+          <strong>Room: </strong>
+          <span>8/10</span>
+        </div>
+        <div className='spectator'>
+          <strong>Spectators: </strong>
+          <span>15</span>
+        </div>
+        <div className='spectator'>
+          <strong>Status: </strong>
+          <span>In Progress</span>
+        </div>
       </div>
 
-      <button className='btn-join'>Join</button>
-      <button className='btn-spectate'>Spectate</button>
+      <button className='block accent btn-join'>Join</button>
+      <button className='block blue btn-spectate'>Spectate</button>
     </div>
   );
 };

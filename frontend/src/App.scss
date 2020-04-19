@@ -3,10 +3,18 @@
 #app {
   @include textMixin(#212121, 0.24rem, $align: center);
   @include flexCenter(row);
-  font-family: 'Shentox', sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-
   margin-bottom: 0.5rem;
+}
+
+.block {
+  border: transparent;
+  padding: 0.05rem 0.2rem 0.1rem;
+}
+
+:root {
+  --block-accent-color: red;
 }
