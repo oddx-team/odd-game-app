@@ -21,7 +21,7 @@ const GameBoardHeader = () => {
         <div className='block wrapper btn-noti'>
           <img src={IconBell} />
         </div>
-        <div className='user block round'>
+        <div className='block round user'>
           <img src={Avatar} />
         </div>
       </div>

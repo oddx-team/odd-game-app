@@ -6,9 +6,16 @@
 
   .card-rooms {
     @include flexCenter(row);
-    @include position(relative, $left: 0.7rem);
-    width: 90%;
+    @include sizeWH(70%, 6rem);
+    top: 0;
+    padding-left: 0.7rem;
+    border: 0.013rem solid #ddd;
+    background: #fff;
     justify-content: flex-start;
     flex-wrap: wrap;
+
+    .section-title {
+      @include textMixin(#000, 0.3rem, bold);
+    }
   }
 }

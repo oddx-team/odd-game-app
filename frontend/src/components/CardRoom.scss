@@ -21,13 +21,10 @@
   }
 }
 
-.block.blue::before {
-  background-color: #0088cc;
-}
-
 .content {
   @include textMixin(#000, 0.19rem, normal);
   padding: 0.1rem 0 0 0.2rem;
+
   div {
     margin-bottom: 0.08rem;
   }

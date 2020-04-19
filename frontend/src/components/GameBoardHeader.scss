@@ -18,7 +18,7 @@
   }
 
   .btn-menu {
-    @include imageCDN('icon-hamburger.png', 0.4rem, 0.4rem);
+    @include imageCDN('icon-hamburger.png', 0.38rem, 0.38rem);
     @include position(absolute, 0.15rem, $left: 3.5rem);
     cursor: pointer;
   }
@@ -44,7 +44,7 @@
 }
 
 .profile {
-  @include position(absolute, $top: 0.05rem, $left: 11rem);
+  @include position(absolute, $top: 0.05rem, $left: 11.5rem);
   @include flexCenter(row);
 
   div {
