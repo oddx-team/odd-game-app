@@ -55,4 +55,5 @@ export default () => {
 
   resetRoot();
   window.addEventListener('orientationchange', resetRoot);
+  window.addEventListener('resize', resetRoot);
 };

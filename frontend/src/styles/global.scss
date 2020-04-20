@@ -8,7 +8,7 @@ html {
   @include fullscreenSetup();
   background: #f1f1f1;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: hidden;
 
   body {
     @include fullsize();

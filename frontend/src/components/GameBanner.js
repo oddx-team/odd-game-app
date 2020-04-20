@@ -1,12 +1,13 @@
 import React from 'react';
-import './GameBoardHeader.scss';
 import IconFriends from '../cdn/assets/icon-friends.png';
 import IconBell from '../cdn/assets/icon-bell.png';
 import Avatar from '../cdn/assets/avatar.png';
 
-const GameBoardHeader = () => {
+import './GameBanner.scss';
+
+const GameBanner = () => {
   return (
-    <div className='game-board-header'>
+    <div className='game-banner'>
       <div className='game-logo'>Oddx</div>
       <div className='btn-menu' />
       <div className='search fixed wrapper block'>
@@ -29,4 +30,4 @@ const GameBoardHeader = () => {
   );
 };
 
-export default GameBoardHeader;
+export default GameBanner;

@@ -1,7 +1,7 @@
 @import 'src/styles/global.scss';
 
-.game-board-header {
-  @include sizeWH(100vmax, 0.7rem);
+.game-banner {
+  @include sizeWH(100%, 0.7rem);
   background: #2d2d2d;
 
   .game-logo {
@@ -19,13 +19,13 @@
 
   .btn-menu {
     @include imageCDN('icon-hamburger.png', 0.38rem, 0.38rem);
-    @include position(absolute, 0.15rem, $left: 3.5rem);
+    @include position(absolute, 0.1rem, $left: 3.5rem);
     cursor: pointer;
   }
 
   .search {
     @include sizeWH(4.48rem, 0.42rem);
-    @include position(absolute, 0.08rem, $left: 4rem);
+    @include position(absolute, 0rem, $left: 4rem);
     @include textMixin(#000, 0.2rem);
     @include flexCenter(row);
     padding-top: 0.05rem;
@@ -44,7 +44,7 @@
 }
 
 .profile {
-  @include position(absolute, $top: 0.05rem, $left: 11.5rem);
+  @include position(absolute, $top: 0rem, $right: 0.8rem);
   @include flexCenter(row);
 
   div {
