@@ -1,6 +1,7 @@
 import React from 'react';
 import GameBoardNav from './GameBoardNav';
 import CardRoom from './CardRoom';
+import GlobalChat from './GlobalChat';
 
 import './GameBoard.scss';
 
@@ -8,7 +9,7 @@ const GameBoard = () => {
   return (
     <div className='game-board'>
       <GameBoardNav />
-
+      <GlobalChat />
       <div className='game-content'>
         <div className='container'>
           <div className='title'>Game rooms</div>
