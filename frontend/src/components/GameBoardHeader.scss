@@ -1,7 +1,7 @@
 @import 'src/styles/global.scss';
 
 .game-board-header {
-  @include sizeWH(15rem, 0.7rem);
+  @include sizeWH(100vmax, 0.7rem);
   background: #2d2d2d;
 
   .game-logo {

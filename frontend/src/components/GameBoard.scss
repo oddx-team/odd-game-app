@@ -5,7 +5,7 @@
   margin: 0 auto;
 
   .game-content {
-    @include sizeWH(70%, 6rem);
+    @include sizeWH(80%);
     top: 0;
     padding-left: 0.5rem;
     border: 0.013rem solid #ddd;
