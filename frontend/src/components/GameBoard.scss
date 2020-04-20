@@ -5,11 +5,13 @@
   margin: 0 auto;
 
   .game-content {
-    @include sizeWH(80%);
+    @include sizeWH(80%, 6rem);
+    overflow-y: scroll;
     top: 0;
     padding-left: 0.5rem;
     border: 0.013rem solid #ddd;
     background: #fff;
+    padding-bottom: 0.5rem;
 
     .container {
       & > .title {

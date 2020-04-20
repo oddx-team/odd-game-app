@@ -3,7 +3,7 @@ import './CardRoom.scss';
 
 const CardRoom = (props) => {
   return (
-    <div className='card fixed wrapper block'>
+    <div className='card wrapper block'>
       <div className='content'>
         <div className='title'>Name room</div>
         <div className='host'>
