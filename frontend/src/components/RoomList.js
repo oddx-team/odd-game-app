@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import RoomListNav from './RoomListNav';
 import CardRoom from './CardRoom';
+import GlobalChat from './GlobalChat';
 
 import './RoomList.scss';
 
@@ -10,6 +11,7 @@ const RoomList = () => {
   return (
     <div className='room-list'>
       <RoomListNav />
+      <GlobalChat />
 
       <div className='content'>
         <div className='container'>

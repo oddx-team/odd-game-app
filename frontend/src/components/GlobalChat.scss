@@ -3,4 +3,22 @@
 .global-chat {
   background: #fff;
   border-left: 0.013rem solid #ddd;
+  display: grid;
+  grid-template-rows: 0.5rem auto 0.5rem;
+}
+
+.global-chat--banner {
+  @include flexCenter(row);
+  @include textMixin(#000, 0.21rem, bold);
+}
+
+.global-chat--content {
+  border-top: 0.013rem solid #ddd;
+}
+
+.global-chat--input {
+  @include textMixin(#000, 0.18rem);
+  @include flexCenter(row);
+  width: 100%;
+  border-top: 0.013rem solid #ddd;
 }
