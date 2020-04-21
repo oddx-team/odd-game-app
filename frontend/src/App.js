@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import PanelYourAccount from './components/panels/PanelYourAccount';
-import PageNotFound from './components/PageNotFound';
-import GameBanner from './components/GameBanner';
-import RoomList from './components/RoomList.js';
-import GameBoard from './components/GameBoard.js';
-import './App.scss';
+import PageNotFound from 'components/PageNotFound';
+import GameBanner from 'components/GameBanner';
+import RoomList from 'components/RoomList.js';
+import GameBoard from 'components/GameBoard.js';
+import 'App.scss';
 
 function App() {
   return (

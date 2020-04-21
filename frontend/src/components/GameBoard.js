@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Card from './Card.js';
+import OddCard from './odd/OddCard.js';
 
 const GameBoard = () => {
   return (
     <div className='game-board'>
-      <Card />
+      <OddCard />
     </div>
   );
 };

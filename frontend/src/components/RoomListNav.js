@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import IconNew from '../cdn/assets/icon-pokenew.png';
-import IconVN from '../cdn/assets/icon-vn.png';
-import IconGlobal from '../cdn/assets/icon-global.png';
+import IconNew from 'cdn/assets/icon-pokenew.png';
+import IconVN from 'cdn/assets/icon-vn.png';
+import IconGlobal from 'cdn/assets/icon-global.png';
 import './RoomListNav.scss';
 
 const RoomListNav = () => {
