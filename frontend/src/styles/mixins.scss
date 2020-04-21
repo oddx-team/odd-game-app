@@ -38,6 +38,15 @@ $cdn: '../cdn/assets';
   }
 }
 
+@mixin queryPhone {
+  html[data-os='android'] {
+    @content;
+  }
+  html[data-os='ios'] {
+    @content;
+  }
+}
+
 /* in-game query */
 @mixin queryInGameIphoneX {
   html[data-is-iphonex-app='true'] {
@@ -98,7 +107,14 @@ $cdn: '../cdn/assets';
   height: 100%;
 }
 
-@mixin position($pos, $top: null, $right: null, $bottom: null, $left: null, $z-index: null) {
+@mixin position(
+  $pos,
+  $top: null,
+  $right: null,
+  $bottom: null,
+  $left: null,
+  $z-index: null
+) {
   position: $pos;
   top: $top;
   right: $right;
