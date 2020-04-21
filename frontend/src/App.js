@@ -3,8 +3,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import PanelYourAccount from './components/panels/PanelYourAccount';
 import PageNotFound from './components/PageNotFound';
 import GameBanner from './components/GameBanner';
-import './App.scss';
 import RoomList from './components/RoomList.js';
+import GameBoard from './components/GameBoard.js';
+import './App.scss';
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <div className='main'>
           <Switch>
             <Route exact path='/' component={PanelYourAccount} />
-            <Route exact path='/game' component={RoomList} />
+            <Route exact path='/rooms' component={RoomList} />
+            <Route exact path='/play' component={GameBoard} />
             {/* Default case: page not found */}
             <Route component={PageNotFound} />
           </Switch>
