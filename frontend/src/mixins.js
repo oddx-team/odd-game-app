@@ -50,3 +50,21 @@ export const flexCenter = (direction) => {
     flex-direction: ${direction};
   `;
 };
+
+export const position = ({
+  pos,
+  top = null,
+  right = null,
+  bottom = null,
+  left = null,
+  zIndex = null,
+}) => {
+  return `
+    position: ${pos};
+    top: ${top};
+    right: ${right};
+    bottom: ${bottom};
+    left: ${left};
+    z-index: ${zIndex};
+  `;
+};
