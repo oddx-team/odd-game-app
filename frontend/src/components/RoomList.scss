@@ -48,7 +48,11 @@
 }
 
 @media (max-width: 1000px) {
+<<<<<<< HEAD:frontend/src/components/RoomList.scss
   .room-list {
+=======
+  .game-board {
+>>>>>>> Responsive game room layout, chat go down in small width window and disappear in phone:frontend/src/components/GameBoard.scss
     grid-template-columns: 1fr;
     grid-template-rows: 0.5rem auto 3rem;
 
@@ -67,7 +71,11 @@
 }
 
 @include queryPhone {
+<<<<<<< HEAD:frontend/src/components/RoomList.scss
   .room-list {
+=======
+  .game-board {
+>>>>>>> Responsive game room layout, chat go down in small width window and disappear in phone:frontend/src/components/GameBoard.scss
     grid-template-columns: 1fr;
     grid-template-rows: 0.5rem auto;
 
@@ -75,4 +83,8 @@
       display: none;
     }
   }
+<<<<<<< HEAD:frontend/src/components/RoomList.scss
 }
+=======
+}
+>>>>>>> Responsive game room layout, chat go down in small width window and disappear in phone:frontend/src/components/GameBoard.scss
