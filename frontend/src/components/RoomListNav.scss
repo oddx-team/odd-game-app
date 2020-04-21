@@ -1,6 +1,6 @@
 @import 'src/styles/global.scss';
 
-.game-board-nav {
+.room-list-nav {
   @include sizeWH(100%, 0.5rem);
   @include flexCenter(row);
   justify-content: flex-start;

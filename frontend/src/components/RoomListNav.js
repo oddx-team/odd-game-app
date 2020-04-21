@@ -3,9 +3,9 @@ import classNames from 'classnames';
 import IconNew from '../cdn/assets/icon-pokenew.png';
 import IconVN from '../cdn/assets/icon-vn.png';
 import IconGlobal from '../cdn/assets/icon-global.png';
-import './GameBoardNav.scss';
+import './RoomListNav.scss';
 
-const GameBoardNav = () => {
+const RoomListNav = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const active = (idx) => {
@@ -13,7 +13,7 @@ const GameBoardNav = () => {
   };
 
   return (
-    <div className='game-board-nav'>
+    <div className='room-list-nav'>
       <div className={classNames('tab-new', active(0))} onClick={(e) => setActiveIndex(0)}>
         <img src={IconNew} />
         <span>New</span>
@@ -30,4 +30,4 @@ const GameBoardNav = () => {
   );
 };
 
-export default GameBoardNav;
+export default RoomListNav;
