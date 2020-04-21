@@ -19,5 +19,6 @@
 .global-chat--input {
   @include textMixin(#000, 0.18rem);
   @include flexCenter(row);
+  width: 100%;
   border-top: 0.013rem solid #ddd;
 }

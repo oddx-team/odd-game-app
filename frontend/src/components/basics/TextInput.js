@@ -15,12 +15,12 @@ const TextInput = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={{width: '100%'}}>
       <input
         type='text'
         value={value}
         onChange={handleChange}
-        style={{ fontSize: '100%' }}
+        style={{ fontSize: '100%', width: '100%' }}
         placeholder={props.placeholder}
       />
       <input type='submit' value='Submit' style={{ display: 'none' }} />
