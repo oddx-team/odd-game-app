@@ -19,13 +19,6 @@
 .global-chat--input {
   @include textMixin(#000, 0.18rem);
   @include flexCenter(row);
-<<<<<<< HEAD
-<<<<<<< HEAD
   width: 100%;
-=======
->>>>>>> Add global chat
-=======
-  width: 100%;
->>>>>>> Responsive game room layout, chat go down in small width window and disappear in phone
   border-top: 0.013rem solid #ddd;
 }
