@@ -4,7 +4,7 @@ import IconLogo from 'cdn/assets/logo.png';
 import { sizeWH, textMixin, flexCenter, position } from 'mixins';
 
 const BlackCard = styled.div`
-  ${sizeWH('3rem', '3rem')}
+  ${sizeWH('3rem', '2.8rem')}
   background: #212121;
   border-radius: 0.05rem;
   padding: 0.2rem;
@@ -31,17 +31,18 @@ const BlackCard = styled.div`
       ${sizeWH('0.3rem', '0.3rem')}
     }
     span {
-      ${textMixin({ color: '#fff', size: '0.2rem' })}
+      ${textMixin({ color: '#fff', size: '0.22rem' })}
       ${position({
         pos: 'relative',
         left: '0.07rem',
       })}
+      font-family: 'Orbitron', sans-serif;
     }
   }
 
   #picker {
     ${flexCenter('row')}
-    ${position({ pos: 'absolute', bottom: '0.23rem', left: '2rem' })}
+    ${position({ pos: 'absolute', bottom: '0.2rem', left: '2rem' })}
 
     & > div:first-child {
       ${textMixin({ color: '#fff', size: '0.23rem', weight: 'bold', transform: 'uppercase' })}
@@ -53,7 +54,7 @@ const BlackCard = styled.div`
       ${sizeWH('0.27rem', '0.27rem')}
       background: #fff;
       border-radius: 50%;
-      padding-top: 0.02rem;
+      padding-top: 0.04rem;
     }
   }
 `;
@@ -64,7 +65,7 @@ const OddCard = (props) => {
       <div id='title'>Donald Trump has nominated ___ for his VP!</div>
       <div id='logo'>
         <img src={IconLogo} />
-        <span>Oddx Game</span>
+        <span>Oddx</span>
       </div>
       <div id='picker'>
         <div>Pick</div>
