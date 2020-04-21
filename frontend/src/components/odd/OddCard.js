@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import IconLogo from 'cdn/assets/logo.png';
 import { sizeWH, textMixin, flexCenter, position } from 'mixins';
 
-const BlackCard = styled.div`
+const StyledCard = styled.div`
   ${sizeWH('3rem', '2.8rem')}
   background: #212121;
   border-radius: 0.05rem;
@@ -61,7 +61,7 @@ const BlackCard = styled.div`
 
 const OddCard = (props) => {
   return (
-    <BlackCard>
+    <StyledCard>
       <div id='title'>Donald Trump has nominated ___ for his VP!</div>
       <div id='logo'>
         <img src={IconLogo} />
@@ -71,7 +71,7 @@ const OddCard = (props) => {
         <div>Pick</div>
         <div>2</div>
       </div>
-    </BlackCard>
+    </StyledCard>
   );
 };
 
