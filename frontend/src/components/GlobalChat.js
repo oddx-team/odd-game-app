@@ -14,7 +14,7 @@ const GlobalChat = () => {
       </div>
       <div className='global-chat--content'></div>
       <div className='global-chat--input'>
-        <OddTextInput placeholder='Type here' onSubmit={onMessageSubmit} />
+        <OddTextInput placeholder='Type a message' onSubmit={onMessageSubmit} />
       </div>
     </div>
   );
