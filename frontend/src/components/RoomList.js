@@ -8,6 +8,14 @@ import 'stylesheets/RoomList.scss';
 const RoomList = () => {
   const [rooms, setRooms] = useState(new Array(10).fill(null));
 
+  const handleJoin = (id) => (history) => {
+    history.push(`/play/${id}`);
+  };
+
+  const handleSpectator = (id) => (history) => {
+    history.push(`/play/${id}?spectator=true`);
+  };
+
   return (
     <div className='room-list'>
       <RoomListNav />
@@ -21,7 +29,12 @@ const RoomList = () => {
 
         <div className='rooms'>
           {rooms.map((_, i) => (
-            <CardRoom />
+            // {/* temporary --- later room should has id and set to key */}
+            <CardRoom
+              key={i}
+              onJoin={handleJoin(i)}
+              onSpectate={handleSpectator(i)}
+            />
           ))}
         </div>
       </div>
