@@ -20,6 +20,9 @@ const OddCard = (props) => {
 };
 
 const StyledCard = styled.div`
+  @import 'styles/global.scss';
+
+  @include sizeWH(3rem, 2.8rem);
   ${sizeWH('3rem', '2.8rem')}
   background: #212121;
   border-radius: 0.05rem;

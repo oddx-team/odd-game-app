@@ -1,5 +1,5 @@
 import React from 'react';
-import TextInput from './basics/TextInput';
+import OddTextInput from './oddx/OddTextInput';
 import './GlobalChat.scss';
 
 const GlobalChat = () => {
@@ -14,7 +14,7 @@ const GlobalChat = () => {
       </div>
       <div className='global-chat--content'></div>
       <div className='global-chat--input'>
-        <TextInput placeholder='Type here' onSubmit={onMessageSubmit} />
+        <OddTextInput placeholder='Type here' onSubmit={onMessageSubmit} />
       </div>
     </div>
   );

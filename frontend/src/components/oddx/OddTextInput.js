@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const TextInput = (props) => {
+const OddTextInput = (props) => {
   const [value, setValue] = useState();
 
   const handleChange = (event) => {
@@ -15,7 +15,7 @@ const TextInput = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{width: '100%'}}>
+    <form onSubmit={handleSubmit} style={{ width: '100%' }}>
       <input
         type='text'
         value={value}
@@ -28,9 +28,9 @@ const TextInput = (props) => {
   );
 };
 
-TextInput.propTypes = {
+OddTextInput.propTypes = {
   placeholder: PropTypes.string,
   onSubmit: PropTypes.func,
 };
 
-export default TextInput;
+export default OddTextInput;
