@@ -44,59 +44,56 @@
       padding-top: 0.02rem;
     }
   }
+}
 
-  &.white {
-    background: #fff;
+.odd-card.white {
+  background: #fff;
 
-    .card-title {
-      @include textMixin(#000, 0.25rem, $align: left);
+  .card-title {
+    @include textMixin(#000, 0.25rem, $align: left);
+  }
+  span {
+    color: #000;
+  }
+
+  .card-picker {
+    div:first-child {
+      color: #000;
     }
 
-    .card-logo {
-      span {
-        color: #000;
-      }
+    div:last-child {
+      color: #fff;
+      background: #000;
     }
+  }
+}
 
-    .card-picker {
-      div:first-child {
-        color: #000;
-      }
+.odd-card.medium {
+  @include sizeWH(2.2rem, 2rem);
 
-      div:last-child {
-        color: #fff;
-        background: #000;
-      }
+  .card-title {
+    font-size: 0.2rem;
+  }
+
+  .card-logo {
+    img {
+      @include sizeWH(0.22rem, 0.22rem);
+    }
+    span {
+      font-size: 0.18rem;
     }
   }
 
-  &.medium {
-    @include sizeWH(2.2rem, 2rem);
-
-    .card-title {
-      font-size: 0.2rem;
+  .card-picker {
+    left: 1.3rem;
+    div:first-child {
+      font-size: 0.19rem;
+      margin-right: 0.06rem;
     }
 
-    .card-logo {
-      img {
-        @include sizeWH(0.22rem, 0.22rem);
-      }
-      span {
-        font-size: 0.18rem;
-      }
-    }
-
-    .card-picker {
-      left: 1.3rem;
-      div:first-child {
-        font-size: 0.19rem;
-        margin-right: 0.06rem;
-      }
-
-      div:last-child {
-        @include sizeWH(0.23rem, 0.23rem);
-        font-size: 0.17rem;
-      }
+    div:last-child {
+      @include sizeWH(0.23rem, 0.23rem);
+      font-size: 0.17rem;
     }
   }
 }
