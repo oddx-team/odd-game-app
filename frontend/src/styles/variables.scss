@@ -1,4 +1,6 @@
 // Color variables
-$color-blue: #0088cc;
-$color-black: #212121;
-$color-green: #05ae86;
+$color-palette: (
+  'blue': #0088cc,
+  'black': #212121,
+  'green': #05ae86,
+);

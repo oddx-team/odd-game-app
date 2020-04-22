@@ -22,15 +22,15 @@ html {
   padding: 0.05rem 0.2rem 0.1rem;
 
   &.blue::before {
-    background-color: $color-blue;
+    background-color: map-get($color-palette, 'blue');
   }
   &.green::before {
-    background-color: $color-green;
+    background-color: map-get($color-palette, 'green');
   }
 }
 
 div.block {
   &.black::before {
-    background: $color-black;
+    background: map-get($color-palette, 'black');
   }
 }
