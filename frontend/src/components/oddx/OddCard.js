@@ -1,11 +1,10 @@
 import React from 'react';
 import IconLogo from 'cdn/assets/logo.png';
 import classNames from 'classnames';
-import styled from 'styled-components';
 import 'stylesheets/oddx/OddCard.scss';
 
 const OddCard = (props) => {
-  const cardClasses = classNames('block odd-card', props.className);
+  const cardClasses = classNames('block odd-card', { ...props });
 
   return (
     <div className={cardClasses}>

@@ -1,6 +1,6 @@
 @import 'styles/global.scss';
 
-.card {
+.card-room {
   @include sizeWH(2.8rem, 2.8rem);
   @include textMixin(#000, 0.2rem, $align: left);
   margin: 0.3rem 0.5rem 0 0;
@@ -21,7 +21,7 @@
   }
 }
 
-.content {
+.card-room-inner {
   @include textMixin(#000, 0.19rem, normal);
   padding: 0.1rem 0 0 0.2rem;
 

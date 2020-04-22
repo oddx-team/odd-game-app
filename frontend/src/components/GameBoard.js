@@ -6,10 +6,10 @@ import 'stylesheets/GameBoard.scss';
 const GameBoard = () => {
   return (
     <div className='game-board'>
-      <OddCard className='black' />
-      <OddCard className='white' />
-      <OddCard className='white medium' />
-      <OddCard className='black medium' />
+      <OddCard black />
+      <OddCard white />
+      <OddCard white medium />
+      <OddCard black medium />
     </div>
   );
 };

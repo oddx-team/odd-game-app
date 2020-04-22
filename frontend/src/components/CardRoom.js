@@ -3,8 +3,8 @@ import 'stylesheets/CardRoom.scss';
 
 const CardRoom = (props) => {
   return (
-    <div className='card wrapper block'>
-      <div className='content'>
+    <div className='card-room wrapper block'>
+      <div className='card-room-inner'>
         <div className='title'>Name room</div>
         <div className='host'>
           <strong>Host: </strong>
