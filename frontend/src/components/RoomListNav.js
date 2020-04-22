@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import IconNew from 'cdn/assets/icon-pokenew.png';
 import IconVN from 'cdn/assets/icon-vn.png';
 import IconGlobal from 'cdn/assets/icon-global.png';
-import './RoomListNav.scss';
+import 'stylesheets/RoomListNav.scss';
 
 const RoomListNav = () => {
   const [activeIndex, setActiveIndex] = useState(0);

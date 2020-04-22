@@ -1,5 +1,5 @@
 import React from 'react';
-import './CardRoom.scss';
+import 'stylesheets/CardRoom.scss';
 
 const CardRoom = (props) => {
   return (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import OddCard from './oddx/OddCard.js';
 
-import './GameBoard.scss';
+import 'stylesheets/GameBoard.scss';
 
 const GameBoard = () => {
   return (

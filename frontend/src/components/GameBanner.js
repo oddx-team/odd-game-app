@@ -2,8 +2,7 @@ import React from 'react';
 import IconFriends from 'cdn/assets/icon-friends.png';
 import IconBell from 'cdn/assets/icon-bell.png';
 import Avatar from 'cdn/assets/avatar.png';
-
-import './GameBanner.scss';
+import 'stylesheets/GameBanner.scss';
 
 const GameBanner = () => {
   return (

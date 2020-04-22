@@ -3,7 +3,7 @@ import RoomListNav from './RoomListNav';
 import CardRoom from './CardRoom';
 import GlobalChat from './GlobalChat';
 
-import './RoomList.scss';
+import 'stylesheets/RoomList.scss';
 
 const RoomList = () => {
   const [rooms, setRooms] = useState(new Array(10).fill(null));

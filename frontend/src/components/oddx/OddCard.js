@@ -1,6 +1,7 @@
 import React from 'react';
 import IconLogo from 'cdn/assets/logo.png';
 import classNames from 'classnames';
+import styled from 'styled-components';
 import 'stylesheets/oddx/OddCard.scss';
 
 const OddCard = (props) => {

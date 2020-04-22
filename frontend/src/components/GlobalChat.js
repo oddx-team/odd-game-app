@@ -1,6 +1,6 @@
 import React from 'react';
 import OddTextInput from './oddx/OddTextInput';
-import './GlobalChat.scss';
+import 'stylesheets/GlobalChat.scss';
 
 const GlobalChat = () => {
   const onMessageSubmit = (text) => {
