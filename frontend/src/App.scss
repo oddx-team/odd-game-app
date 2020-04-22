@@ -22,3 +22,9 @@
     background-color: #0088cc;
   }
 }
+
+div.block {
+  &.black::before {
+    background: #212121;
+  }
+}
