@@ -5,10 +5,10 @@ import classNames from 'classnames';
 import { sizeWH, textMixin, flexCenter, position } from 'mixins';
 
 const OddCard = (props) => {
-  const cardClass = classNames('block', props.className);
+  const cardClasses = classNames('block', props.className);
 
   return (
-    <StyledCard className={cardClass}>
+    <StyledCard className={cardClasses}>
       <div id='title'>Donald Trump has nominated ___ for his VP!</div>
       <div id='logo'>
         <img src={IconLogo} />
@@ -23,8 +23,6 @@ const OddCard = (props) => {
 };
 
 const StyledCard = styled.div`
-  @import 'styles/global.scss';
-
   ${sizeWH('3rem', '2.8rem')}
   background: #212121;
   border-radius: 0.05rem;

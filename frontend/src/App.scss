@@ -13,18 +13,3 @@
 .main {
   @include sizeWH(13.34rem, 100%, $pos: relative);
 }
-
-.block {
-  border: transparent;
-  padding: 0.05rem 0.2rem 0.1rem;
-
-  &.blue::before {
-    background-color: #0088cc;
-  }
-}
-
-div.block {
-  &.black::before {
-    background: #212121;
-  }
-}

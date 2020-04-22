@@ -2,6 +2,7 @@
 @import './fonts.scss';
 @import './mixins.scss';
 @import './animations.scss';
+@import './variables.scss';
 
 /* setup viewport */
 html {
@@ -12,5 +13,24 @@ html {
 
   body {
     @include fullsize();
+  }
+}
+
+// Setup customized blocks styles
+.block {
+  border: transparent;
+  padding: 0.05rem 0.2rem 0.1rem;
+
+  &.blue::before {
+    background-color: $color-blue;
+  }
+  &.green::before {
+    background-color: $color-green;
+  }
+}
+
+div.block {
+  &.black::before {
+    background: $color-black;
   }
 }
