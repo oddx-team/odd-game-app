@@ -1,110 +1,8 @@
 $cdn: '../cdn/assets';
 
-/* region query */
-@mixin queryRegionVN {
-  *[data-region='vn'] {
-    @content;
-  }
-}
-
-@mixin queryRegionTW {
-  *[data-region='tw'] {
-    @content;
-  }
-}
-
-@mixin queryRegionTH {
-  *[data-region='th'] {
-    @content;
-  }
-}
-
-@mixin withRegion($region) {
-  html[data-region='#{$region}'] & {
-    @content;
-  }
-}
-
-/* os query */
-@mixin queryAndroid {
-  html[data-os='android'] {
-    @content;
-  }
-}
-
-@mixin queryIOS {
-  html[data-os='ios'] {
-    @content;
-  }
-}
-
 @mixin queryPhone {
-  html[data-os='android'] {
-    @content;
-  }
+  html[data-os='android'],
   html[data-os='ios'] {
-    @content;
-  }
-}
-
-@mixin queryPhone {
-  html[data-os='android'] {
-    @content;
-  }
-  html[data-os='ios'] {
-    @content;
-  }
-}
-
-/* in-game query */
-@mixin queryInGameIphoneX {
-  html[data-is-iphonex-app='true'] {
-    @content;
-  }
-}
-
-/* media query */
-@mixin queryIphoneX {
-  @media only screen and #{$queryIphoneXPortrait} {
-    @content;
-  }
-  @media only screen and #{$queryIphoneXLandscape} {
-    @content;
-  }
-}
-
-@mixin queryIphone678Plus {
-  @media only screen and #{$queryIphone678PlusPortrait} {
-    @content;
-  }
-  @media only screen and #{$queryIphone678PlusLandscape} {
-    @content;
-  }
-}
-
-@mixin queryIphone678 {
-  @media only screen and #{$queryIphone678Portrait} {
-    @content;
-  }
-  @media only screen and #{$queryIphone678Landscape} {
-    @content;
-  }
-}
-
-@mixin queryIpad {
-  @media only screen and #{$queryIpadPortrait} {
-    @content;
-  }
-  @media only screen and #{$queryIpadLandscape} {
-    @content;
-  }
-}
-
-@mixin queryIpadPro {
-  @media only screen and #{$queryIpadProPortrait} {
-    @content;
-  }
-  @media only screen and #{$queryIpadProLandscape} {
     @content;
   }
 }
@@ -116,14 +14,7 @@ $cdn: '../cdn/assets';
   height: 100%;
 }
 
-@mixin position(
-  $pos,
-  $top: null,
-  $right: null,
-  $bottom: null,
-  $left: null,
-  $z-index: null
-) {
+@mixin position($pos, $top: null, $right: null, $bottom: null, $left: null, $z-index: null) {
   position: $pos;
   top: $top;
   right: $right;

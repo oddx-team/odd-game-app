@@ -30,11 +30,7 @@ const RoomList = () => {
         <div className='rooms'>
           {rooms.map((_, i) => (
             // {/* temporary --- later room should has id and set to key */}
-            <CardRoom
-              key={i}
-              onJoin={handleJoin(i)}
-              onSpectate={handleSpectator(i)}
-            />
+            <CardRoom key={i} onJoin={handleJoin(i)} onSpectate={handleSpectator(i)} />
           ))}
         </div>
       </div>

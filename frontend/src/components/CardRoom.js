@@ -28,16 +28,10 @@ const CardRoom = ({ onJoin, onSpectate }) => {
             </div>
           </div>
 
-          <button
-            className='block accent btn-join'
-            onClick={() => onJoin(history)}
-          >
+          <button className='block accent btn-join' onClick={() => onJoin(history)}>
             Join
           </button>
-          <button
-            className='block blue btn-spectate'
-            onClick={() => onSpectate(history)}
-          >
+          <button className='block blue btn-spectate' onClick={() => onSpectate(history)}>
             Spectate
           </button>
         </div>
