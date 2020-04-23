@@ -11,5 +11,5 @@
 }
 
 .main {
-  @include sizeWH(13.34rem, 100%, $pos: relative);
+  @include sizeWH(13.34rem, calc(100vmin - 0.7rem), $pos: relative);
 }

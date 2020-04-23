@@ -18,22 +18,25 @@ const RoomList = () => {
 
   return (
     <div className='room-list'>
-      <RoomListNav />
-      <GlobalChat />
-
-      <div className='content'>
-        <div className='container'>
-          <div className='title'>Game rooms</div>
-          <div className='subtitle'>Select any room:</div>
-        </div>
-
-        <div className='rooms'>
-          {rooms.map((_, i) => (
-            // {/* temporary --- later room should has id and set to key */}
-            <CardRoom key={i} onJoin={handleJoin(i)} onSpectate={handleSpectator(i)} />
-          ))}
+      <div className='content-and-nav-wrapper'>
+        <RoomListNav />
+  
+        <div className='content'>
+          <div className='container'>
+            <div className='title'>Game rooms</div>
+            <div className='subtitle'>Select any room:</div>
+          </div>
+  
+          <div className='rooms'>
+            {rooms.map((_, i) => (
+              // {/* temporary --- later room should has id and set to key */}
+              <CardRoom key={i} onJoin={handleJoin(i)} onSpectate={handleSpectator(i)} />
+            ))}
+          </div>
         </div>
       </div>
+
+      <GlobalChat />
     </div>
   );
 };
