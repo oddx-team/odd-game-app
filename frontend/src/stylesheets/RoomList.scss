@@ -11,7 +11,7 @@
   }
 
   & .content {
-    @include sizeWH(100%, 6rem);
+    @include sizeWH(100%, 80vmin);
     overflow-y: scroll;
     top: 0;
     border: 0.013rem solid #ddd;
