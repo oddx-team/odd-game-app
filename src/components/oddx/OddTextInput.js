@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const OddTextInput = (props) => {
+const OddTextInput = props => {
   const [value, setValue] = useState();
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     setValue(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     if (props.onSubmit) props.onSubmit(value);
     setValue('');
     event.preventDefault();
@@ -17,13 +17,13 @@ const OddTextInput = (props) => {
   return (
     <form onSubmit={handleSubmit} style={{ width: '100%' }}>
       <input
-        type='text'
+        type="text"
         value={value}
         onChange={handleChange}
         style={{ fontSize: '100%', width: '100%' }}
         placeholder={props.placeholder}
       />
-      <input type='submit' value='Submit' style={{ display: 'none' }} />
+      <input type="submit" value="Submit" style={{ display: 'none' }} />
     </form>
   );
 };
