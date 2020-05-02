@@ -22,6 +22,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "echo 'Linter is not ready yet'",
+    "test:coverage": "echo 'Test is not ready yet'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
