@@ -11,10 +11,7 @@ export default () => {
   // 1. is iphonex
   // 2. is in aov app
   const isIphonexApp =
-    vmin === 375 &&
-    vmax === 812 &&
-    window.devicePixelRatio === 3 &&
-    /(iphone)(?!.*safari)/gi.test(navigator.userAgent);
+    vmin === 375 && vmax === 812 && window.devicePixelRatio === 3 && /(iphone)(?!.*safari)/gi.test(navigator.userAgent);
   docEl.setAttribute('data-is-iphonex-app', `${isIphonexApp}`);
 
   // set data-os attribute

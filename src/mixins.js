@@ -12,7 +12,7 @@ export const textMixin = ({
   transform = null,
   decoration = null,
   align = null,
-  style = null,
+  style = null
 }) => {
   return `
     color: ${color};
@@ -42,7 +42,7 @@ export const alignCenter = () => {
   `;
 };
 
-export const flexCenter = (direction) => {
+export const flexCenter = direction => {
   return `
     display: flex;
     justify-content: center;
@@ -51,14 +51,7 @@ export const flexCenter = (direction) => {
   `;
 };
 
-export const position = ({
-  pos,
-  top = null,
-  right = null,
-  bottom = null,
-  left = null,
-  zIndex = null,
-}) => {
+export const position = ({ pos, top = null, right = null, bottom = null, left = null, zIndex = null }) => {
   return `
     position: ${pos};
     top: ${top};

@@ -6,22 +6,22 @@ import 'stylesheets/GameBanner.scss';
 
 const GameBanner = () => {
   return (
-    <div className='game-banner'>
-      <div className='game-logo'>Oddx</div>
-      <div className='btn-menu' />
-      <div className='search fixed wrapper block'>
-        <div className='icon-search' />
-        <input type='text' placeholder='Search' />
+    <div className="game-banner">
+      <div className="game-logo">Oddx</div>
+      <div className="btn-menu" />
+      <div className="search fixed wrapper block">
+        <div className="icon-search" />
+        <input type="text" placeholder="Search" />
       </div>
 
-      <div className='profile'>
-        <div className='block wrapper btn-friends'>
+      <div className="profile">
+        <div className="block wrapper btn-friends">
           <img src={IconFriends} />
         </div>
-        <div className='block wrapper btn-noti'>
+        <div className="block wrapper btn-noti">
           <img src={IconBell} />
         </div>
-        <div className='block round user'>
+        <div className="block round user">
           <img src={Avatar} />
         </div>
       </div>

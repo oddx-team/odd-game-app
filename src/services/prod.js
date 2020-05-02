@@ -17,9 +17,9 @@ function api(method, svc, data = {}) {
     data: utils.snakifyKeys(data),
     headers: {
       'Content-Type': 'application/json',
-      'Sso-Token': token,
+      'Sso-Token': token
     },
-    withCredentials: true,
+    withCredentials: true
   };
   return axios(params).then(resp => utils.camelizeKeys(resp.data));
 }
@@ -27,5 +27,5 @@ function api(method, svc, data = {}) {
 export default {
   getProfile() {
     return api('get', 'profile');
-  },
+  }
 };
