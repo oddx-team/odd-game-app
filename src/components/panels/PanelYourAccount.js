@@ -12,7 +12,7 @@ const PanelYourAccount = () => {
 
   const containerClasses = classNames({
     'form-container': true,
-    'show-register': activeRegister
+    'show-register': activeRegister,
   });
 
   return (

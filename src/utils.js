@@ -43,5 +43,5 @@ export default {
   snakifyStr,
   delay,
   camelizeKeys: convertCase(camelizeStr),
-  snakifyKeys: convertCase(snakifyStr)
+  snakifyKeys: convertCase(snakifyStr),
 };

@@ -12,7 +12,7 @@ export const textMixin = ({
   transform = null,
   decoration = null,
   align = null,
-  style = null
+  style = null,
 }) => {
   return `
     color: ${color};

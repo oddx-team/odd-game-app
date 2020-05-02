@@ -42,7 +42,7 @@ const CardRoom = ({ onJoin, onSpectate }) => {
 
 CardRoom.propTypes = {
   onJoin: PropTypes.func.isRequired,
-  onSpectate: PropTypes.func.isRequired
+  onSpectate: PropTypes.func.isRequired,
 };
 
 export default CardRoom;

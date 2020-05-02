@@ -6,7 +6,7 @@ export default {
     return utils.camelizeKeys({
       accountId: '123124215',
       region: 'sg',
-      language: 'en'
+      language: 'en',
     });
-  }
+  },
 };

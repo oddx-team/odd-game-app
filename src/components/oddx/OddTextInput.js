@@ -30,7 +30,7 @@ const OddTextInput = props => {
 
 OddTextInput.propTypes = {
   placeholder: PropTypes.string,
-  onSubmit: PropTypes.func
+  onSubmit: PropTypes.func,
 };
 
 export default OddTextInput;
