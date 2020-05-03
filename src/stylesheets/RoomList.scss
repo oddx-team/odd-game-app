@@ -2,12 +2,13 @@
 
 .room-list {
   @include sizeWH(100%, 100%);
-  margin: 0 auto;
   @include flexCenter(row);
+  justify-content: flex-start;
+  margin: 0 auto;
   align-items: stretch;
 
-  & > .content-and-nav-wrapper {
-    width: 80%;
+  .room-list-inner {
+    width: 78%;
   }
 
   & .content {
@@ -50,7 +51,7 @@
   .room-list {
     flex-direction: column;
 
-    & > .content-and-nav-wrapper {
+    .room-list-inner{
       flex: 1;
       width: 100%;
     }

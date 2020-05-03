@@ -18,7 +18,7 @@ const RoomList = () => {
 
   return (
     <div className="room-list">
-      <div className="content-and-nav-wrapper">
+      <div className="room-list-inner">
         <RoomListNav />
 
         <div className="content">
