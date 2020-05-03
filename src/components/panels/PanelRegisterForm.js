@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import 'stylesheets/panels/PanelRegisterForm.scss';
 
 const PanelRegisterForm = props => {
@@ -27,6 +28,10 @@ const PanelRegisterForm = props => {
       </button>
     </form>
   );
+};
+
+PanelRegisterForm.propTypes = {
+  switchForm: PropTypes.func.isRequired,
 };
 
 export default PanelRegisterForm;
