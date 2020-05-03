@@ -25,7 +25,7 @@ const GlobalChat = () => {
       };
       conn.onmessage = e => {
         const newMessages = JSON.parse(e.data);
-        setMessages(oldMessages => [...oldMessages, newMessages].reverse());
+        setMessages(oldMessages => [...oldMessages.reverse(), newMessages].reverse());
       };
     }
   }, []);
