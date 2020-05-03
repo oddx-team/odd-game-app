@@ -49,7 +49,7 @@ const GlobalChat = () => {
       <div styleName="chat-container">
         <div styleName="content">{messages.map((message, i) => <OddChatMessage {...message} key={i} />)}</div>
         <div styleName="input">
-          <OddTextInput placeholder="Type a message" onSubmit={onMessageSubmit} disabled={!ws || ws.readyState !== 1} />
+          <OddTextInput placeholder="Type a message" onSubmit={onMessageSubmit} />
         </div>
       </div>
     </div>
