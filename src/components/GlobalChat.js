@@ -12,7 +12,7 @@ const GlobalChat = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
-    getChats().then(chats => setMessages(chats.reverse()));
+    getChats().then(chats => setMessages(chats));
 
     if (window['WebSocket']) {
       const CHAT_WS_URI = '/api/v1/chat/ws';
