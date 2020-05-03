@@ -30,7 +30,7 @@
   },
   "scripts": {
     "dev": "NODE_ENV=development react-scripts start",
-    "link": "NODE_ENV=linking react-scripts start",
+    "staging": "NODE_ENV=staging react-scripts start",
     "build": "NODE_ENV=production react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint src/",

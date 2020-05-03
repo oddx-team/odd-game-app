@@ -28,4 +28,7 @@ export default {
   getProfile() {
     return api('get', 'profile');
   },
+  getChats() {
+    return api('get', 'v1/chat');
+  },
 };

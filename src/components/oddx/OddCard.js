@@ -10,7 +10,7 @@ const OddCard = props => {
     <div className={cardClasses}>
       <div className="card-title">Donald Trump has nominated ___ for his VP!</div>
       <div className="card-logo">
-        <img src={IconLogo} />
+        <img alt={'IconLogo'} src={IconLogo} />
         <span>Oddx</span>
       </div>
       <div className="card-picker">
