@@ -1,40 +1,49 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import CssModules from 'react-css-modules';
 import OddTextInput from './oddx/OddTextInput';
 import OddChatMessage from './oddx/OddChatMessage';
 import IconChat from 'cdn/assets/icon-chat.png';
 import styles from 'stylesheets/GlobalChat.module.scss';
 
+import Service from 'services';
+
 const GlobalChat = () => {
-  const onMessageSubmit = text => {
-    // handle new message here
+  const [ws, setWs] = useState(null);
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    getChats().then(chats => setMessages(chats));
+
+    if (window['WebSocket']) {
+      const CHAT_WS_URI = '/api/v1/chat/ws';
+      const wsProtocol = window.location.protocol !== 'https:' ? 'ws://' : 'wss://';
+      const conn = new WebSocket(wsProtocol + document.location.host + CHAT_WS_URI);
+      setWs(conn);
+
+      conn.onclose = () => {
+        // Connection closed
+      };
+      conn.onmessage = e => {
+        const newMessages = JSON.parse(e.data);
+        setMessages(oldMessages => [...oldMessages, newMessages]);
+      };
+    }
+  }, []);
+
+  const getChats = async () => {
+    return await Service.getChats();
   };
 
-  const messages = [
-    {
-      name: 'petabyte',
-      message: 'hello!',
-      time: '1:29AM',
-      online: false,
-    },
-    {
-      name: 'mocmeo',
-      message: 'nice to meet u! ',
-      time: '1:30AM',
-      online: true,
-    },
-    {
-      name: 'mocmeo',
-      message: 'Test test test testtttt testtt! Hahahah hahaa',
-      time: '1:30AM',
-      online: true,
-    },
-  ];
+  const onMessageSubmit = text => {
+    if (ws && ws.readyState === 1) {
+      ws.send(text);
+    }
+  };
 
   return (
     <div styleName="global-chat">
       <div styleName="chat-tab">
-        <img src={IconChat} />
+        <img alt={'IconChat'} src={IconChat} />
         <span>Chat Box</span>
       </div>
       <div styleName="chat-container">
