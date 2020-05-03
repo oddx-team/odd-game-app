@@ -16,6 +16,21 @@ function snakifyStr(str) {
   return str.replace(/(?:^|\.?)([A-Z])/g, (_, x) => `_${x.toLowerCase()}`);
 }
 
+function parseTime(timer) {
+  const parsedDate = new Date(timer);
+  const d = parsedDate.getDate();
+  const h = parsedDate.getHours();
+  const m = parsedDate.getMinutes();
+  const s = parsedDate.getSeconds();
+
+  return {
+    day: d.toString().padStart(2, '0'),
+    hours: h.toString().padStart(2, '0'),
+    mins: m.toString().padStart(2, '0'),
+    secs: s.toString().padStart(2, '0'),
+  };
+}
+
 function convertCase(convertFunc) {
   function converter(thing) {
     if (thing instanceof Array) {
@@ -44,4 +59,5 @@ export default {
   delay,
   camelizeKeys: convertCase(camelizeStr),
   snakifyKeys: convertCase(snakifyStr),
+  parseTime,
 };
