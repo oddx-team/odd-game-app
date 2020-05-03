@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PanelLoginForm from './PanelLoginForm';
 import PanelRegisterForm from './PanelRegisterForm';
 import classNames from 'classnames';
-import './PanelYourAccount.scss';
+import 'stylesheets/panels/PanelYourAccount.scss';
 
 const PanelYourAccount = () => {
   const [activeRegister, setActiveRegister] = useState();

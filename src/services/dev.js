@@ -9,15 +9,16 @@ export default {
       language: 'en',
     });
   },
+
   async getChats() {
     await utils.delay(50);
-    return utils.camelizeKeys([
-      {
-        user: 'Guest123456',
+    return utils.camelizeKeys(
+      new Array(10).fill(null).map((_, i) => ({
+        user: `Guest${i + 1}`,
         message: 'Hello World!',
-        time: 0,
+        time: Date.now(),
         online: false,
-      },
-    ]);
+      })),
+    );
   },
 };

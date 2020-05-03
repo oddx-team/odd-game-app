@@ -1,15 +1,13 @@
 import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import utils from 'utils';
 import IconAvatar from 'cdn/assets/icon-avatar.png';
 import { StyledMessage, Avatar, Status, Name, Message, Time } from 'stylesheets/oddx/OddChatMessage.style.js';
 
 const OddChatMessage = ({ user, message, time, online }) => {
+  const { hours, mins } = utils.parseTime(time);
   const onlineStatus = classNames({ online });
-
-  const date = new Date(time * 1000);
-  const hours = date.getHours();
-  const minutes = date.getMinutes().toString().length === 1 ? '0' + date.getMinutes() : date.getMinutes();
 
   return (
     <StyledMessage>
@@ -18,7 +16,7 @@ const OddChatMessage = ({ user, message, time, online }) => {
       <Name>{user}</Name>
       <Message>{message}</Message>
       <Time>
-        {hours}:{minutes}
+        {hours}:{mins}
       </Time>
     </StyledMessage>
   );

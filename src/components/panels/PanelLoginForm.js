@@ -1,5 +1,6 @@
 import React from 'react';
-import './PanelLoginForm.scss';
+import PropTypes from 'prop-types';
+import 'stylesheets/panels/PanelLoginForm.scss';
 
 const PanelLoginForm = props => {
   const switchToRegister = e => {
@@ -25,6 +26,10 @@ const PanelLoginForm = props => {
       </button>
     </form>
   );
+};
+
+PanelLoginForm.propTypes = {
+  switchForm: PropTypes.func.isRequired,
 };
 
 export default PanelLoginForm;
