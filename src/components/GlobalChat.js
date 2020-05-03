@@ -1,5 +1,6 @@
 import React from 'react';
 import OddTextInput from './oddx/OddTextInput';
+import IconChat from 'cdn/assets/icon-chat.png';
 import 'stylesheets/GlobalChat.scss';
 
 const GlobalChat = () => {
@@ -10,7 +11,8 @@ const GlobalChat = () => {
   return (
     <div className="global-chat">
       <div className="chat-tab">
-        <span>Chat room</span>
+        <img src={IconChat} />
+        <span>Chat Box</span>
       </div>
       <div className="chat-container">
         <div className="content" />
