@@ -16,13 +16,13 @@ const GameBanner = () => {
 
       <div className="profile">
         <div className="block wrapper btn-friends">
-          <img src={IconFriends} />
+          <img alt={'IconFriends'} src={IconFriends} />
         </div>
         <div className="block wrapper btn-noti">
-          <img src={IconBell} />
+          <img alt={IconBell} src={IconBell} />
         </div>
         <div className="block round user">
-          <img src={Avatar} />
+          <img alt={'Avatar'} src={Avatar} />
         </div>
       </div>
     </div>

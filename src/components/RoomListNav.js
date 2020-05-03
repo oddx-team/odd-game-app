@@ -14,11 +14,11 @@ const RoomListNav = () => {
   return (
     <div className="room-list-nav">
       <div className={classNames('tab-global', active(0))} onClick={e => setActiveIndex(0)}>
-        <img src={IconGlobal} />
+        <img alt={'IconGlobal'} src={IconGlobal} />
         <span>Global games</span>
       </div>
       <div className={classNames('tab-vn', active(1))} onClick={e => setActiveIndex(1)}>
-        <img src={IconVN} />
+        <img alt={'IconVN'} src={IconVN} />
         <span>VN games</span>
       </div>
     </div>
