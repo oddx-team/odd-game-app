@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import utils from 'utils';
-import IconAvatar from 'cdn/assets/icon-avatar.png';
 import { StyledMessage, Avatar, Status, Name, Message, Time } from 'stylesheets/oddx/OddChatMessage.style.js';
 
 const OddChatMessage = ({ user, message, time, online }) => {
@@ -11,7 +10,7 @@ const OddChatMessage = ({ user, message, time, online }) => {
 
   return (
     <StyledMessage>
-      <Avatar src={IconAvatar} />
+      <Avatar src={`https://www.tinygraphs.com/spaceinvaders/${user}?size=60`} />
       <Status className={onlineStatus} />
       <Name>{user}</Name>
       <Message>{message}</Message>

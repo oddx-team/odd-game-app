@@ -1,2 +1,3 @@
-/* eslint-disable global-require */
-export default (process.env.NODE_ENV === 'development' ? require('./dev').default : require('./prod').default);
+export default (process.env.REACT_APP_NODE_ENV === 'development' && process.env.REACT_APP_NODE_ENV !== 'alpha'
+  ? require('./dev').default
+  : require('./prod').default);

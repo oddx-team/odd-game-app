@@ -15,14 +15,14 @@ const PanelStart = () => {
     <div className="panel-start">
       <div className="logo" />
       <div className="extra">
-        <img src={BgLeft} className="left" />
-        <img src={BgRight} className="right" />
+        <img alt={'BgLeft'} src={BgLeft} className="left" />
+        <img alt={'BgRight'} src={BgRight} className="right" />
       </div>
 
       <div className="panel-start-inner">
         <div className="title">Play now</div>
         <div className="name wrapper block">
-          <input type="text" placeholder="Enter your name" />
+          <input type="text" placeholder="Enter your name" onKeyDown={e => e.key === 'Enter' && startGame()} />
         </div>
         <button className="btn-start block blue" onClick={() => startGame()}>
           Start

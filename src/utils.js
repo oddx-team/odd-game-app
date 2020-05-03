@@ -17,7 +17,7 @@ function snakifyStr(str) {
 }
 
 function parseTime(timer) {
-  const parsedDate = new Date(timer);
+  const parsedDate = new Date(timer * 1000);
   const d = parsedDate.getDate();
   const h = parsedDate.getHours();
   const m = parsedDate.getMinutes();
