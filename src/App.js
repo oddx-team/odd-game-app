@@ -11,9 +11,9 @@ function App() {
   return (
     <BrowserRouter>
       <div id="app">
-        <GameBanner />
-
+        <div className="header-bg" />
         <div className="main">
+          <GameBanner />
           <Switch>
             <Route exact path="/" component={PanelYourAccount} />
             <Route exact path="/rooms" component={RoomList} />

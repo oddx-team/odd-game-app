@@ -13,6 +13,7 @@
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.0",
+    "react-css-modules": "^4.7.11",
     "react-dom": "^16.13.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
@@ -28,8 +29,9 @@
     "prettier-eslint": "^8.8.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "dev": "NODE_ENV=development react-scripts start",
+    "link": "NODE_ENV=linking react-scripts start",
+    "build": "NODE_ENV=production react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint src/",
     "test:coverage": "echo 'Test is not ready yet'",

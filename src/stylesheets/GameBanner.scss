@@ -2,8 +2,6 @@
 
 .game-banner {
   @include sizeWH(100%, 0.7rem);
-  background: #2d2d2d;
-
   .game-logo {
     @include position(absolute, 0.12rem, $left: 1.2rem);
     @include textMixin(#fff, 0.4rem, bold);

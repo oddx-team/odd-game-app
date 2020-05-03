@@ -29,7 +29,7 @@ export default () => {
   // set width-to-height ratio
   docEl.setAttribute('data-width-to-height-ratio', `${vmaxSafe / vmin}`);
 
-  const baseWidth = 1334;
+  const baseWidth = 1470;
   const baseHeight = 750;
   const baseRatio = baseWidth / baseHeight;
 
