@@ -1,6 +1,7 @@
 import React from 'react';
-import IconAvatar from 'cdn/assets/icon-avatar.png';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
+import IconAvatar from 'cdn/assets/icon-avatar.png';
 import { StyledMessage, Avatar, Status, Name, Message, Time } from 'stylesheets/oddx/OddChatMessage.style.js';
 
 const OddChatMessage = ({ name, message, time, online }) => {
@@ -15,6 +16,13 @@ const OddChatMessage = ({ name, message, time, online }) => {
       <Time>{time}</Time>
     </StyledMessage>
   );
+};
+
+OddChatMessage.propTypes = {
+  name: PropTypes.string,
+  message: PropTypes.string,
+  time: PropTypes.string,
+  online: PropTypes.string,
 };
 
 export default OddChatMessage;

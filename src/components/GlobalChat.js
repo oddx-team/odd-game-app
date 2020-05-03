@@ -38,7 +38,7 @@ const GlobalChat = () => {
         <span>Chat Box</span>
       </div>
       <div styleName="chat-container">
-        <div styleName="content">{messages.map(message => <OddChatMessage {...message} />)}</div>
+        <div styleName="content">{messages.map((message, i) => <OddChatMessage {...message} key={i} />)}</div>
         <div styleName="input">
           <OddTextInput placeholder="Type a message" onSubmit={onMessageSubmit} />
         </div>
