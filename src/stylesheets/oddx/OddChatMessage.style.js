@@ -47,6 +47,7 @@ export const Message = styled.div`
   top: -0.2rem;
   left: 0.5rem;
   width: 2.7rem;
+  word-wrap: break-word;
 `;
 
 export const Time = styled.div`
