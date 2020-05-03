@@ -1,5 +1,5 @@
 import React from 'react';
-import './PanelRegisterForm.scss';
+import 'stylesheets/panels/PanelRegisterForm.scss';
 
 const PanelRegisterForm = props => {
   const switchToLogin = e => {
