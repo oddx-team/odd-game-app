@@ -9,12 +9,12 @@ const GlobalChat = () => {
 
   return (
     <div className="global-chat">
-      <div className="global-chat--banner">
+      <div className="chat-tab">
         <span>Chat room</span>
       </div>
-      <div className="global-chat--content-wrapper">
-        <div className="global-chat--content" />
-        <div className="global-chat--input">
+      <div className="chat-container">
+        <div className="content" />
+        <div className="input">
           <OddTextInput placeholder="Type a message" onSubmit={onMessageSubmit} />
         </div>
       </div>
