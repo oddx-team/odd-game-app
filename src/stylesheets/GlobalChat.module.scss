@@ -11,7 +11,7 @@
     @include flexCenter(row);
     @include textMixin(#000, 0.21rem, bold);
     @include sizeWH(1.5rem, 0.53rem);
-    @include position(absolute, 0, 1.6rem);
+    @include position(absolute, 0, 2rem);
     border-left: 0.013rem solid #ddd;
     border-right: 0.013rem solid #ddd;
     background: #fff;
@@ -25,7 +25,7 @@
 }
 
 .chat-container {
-  @include sizeWH(3.1rem, 92%);
+  @include sizeWH(3.5rem, 92%);
   @include position(absolute, 0.5rem, 0);
   border-left: 0.013rem solid #ddd;
   border-bottom: 0.013rem solid #ddd;
@@ -37,12 +37,14 @@
   .content {
     border-top: 0.013rem solid #ddd;;
     flex: 1;
+    overflow-y: auto;
+    
   }
 
   .input {
     @include textMixin(#000, 0.18rem);
     @include flexCenter(row);
-    @include sizeWH(2.8rem, 0.4rem);
+    @include sizeWH(3.3rem, 0.4rem);
     border-radius: 0.3rem;
     background: rgba($color: #000, $alpha: 0.05);
     margin: 0.1rem;

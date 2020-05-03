@@ -1,14 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import {
-  Title,
-  StyledCardRoom,
-  CardRoomInner,
-  ButtonJoin,
-  ButtonSpectate,
-  Action,
-} from 'stylesheets/CardRoom.style.js';
+import { Title, StyledCardRoom, CardRoomInner, ButtonJoin, ButtonSpectate } from 'stylesheets/CardRoom.style.js';
 
 const Text = ({ title, value }) => {
   const textStyle = {
@@ -50,6 +43,11 @@ const CardRoom = ({ onJoin, onSpectate }) => {
 CardRoom.propTypes = {
   onJoin: PropTypes.func.isRequired,
   onSpectate: PropTypes.func.isRequired,
+};
+
+Text.propTypes = {
+  title: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default CardRoom;
