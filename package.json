@@ -28,8 +28,9 @@
     "prettier-eslint": "^8.8.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "dev": "NODE_ENV=development react-scripts start",
+    "link": "NODE_ENV=linking react-scripts start",
+    "build": "NODE_ENV=production react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint src/",
     "test:coverage": "echo 'Test is not ready yet'",

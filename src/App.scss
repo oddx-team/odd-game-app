@@ -13,3 +13,9 @@
 .main {
   @include sizeWH(13.34rem, calc(100vmin - 0.7rem), $pos: relative);
 }
+
+.header-bg {
+  @include sizeWH(100%, 0.7rem);
+  @include position(absolute, 0);
+  background: #2d2d2d;
+}

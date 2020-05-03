@@ -9,11 +9,11 @@ const RoomList = () => {
   const [rooms] = useState(new Array(10).fill(null));
 
   const handleJoin = id => history => {
-    history.push(`/play/${id}`);
+    history.push('/play');
   };
 
   const handleSpectator = id => history => {
-    history.push(`/play/${id}?spectator=true`);
+    history.push('/play');
   };
 
   return (
