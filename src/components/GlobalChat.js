@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import CssModules from 'react-css-modules';
 import OddTextInput from './oddx/OddTextInput';
 import OddChatMessage from './oddx/OddChatMessage';
@@ -10,9 +10,10 @@ import Service from 'services';
 const GlobalChat = () => {
   const [ws, setWs] = useState(null);
   const [messages, setMessages] = useState([]);
+  const messagesEndRef = useRef(null);
 
   useEffect(() => {
-    getChats().then(chats => setMessages(chats));
+    getChats().then(chats => setMessages(chats || []));
 
     if (window['WebSocket']) {
       const CHAT_WS_URI = '/api/v1/chat/ws';
@@ -25,10 +26,16 @@ const GlobalChat = () => {
       };
       conn.onmessage = e => {
         const newMessages = JSON.parse(e.data);
-        setMessages(oldMessages => [...oldMessages, newMessages].reverse());
+        setMessages(oldMessages => [...oldMessages, newMessages]);
       };
     }
   }, []);
+
+  const scrollToBottom = () => {
+    messagesEndRef.current.scrollIntoView();
+  };
+
+  useEffect(scrollToBottom, [messages]);
 
   const getChats = async () => {
     return await Service.getChats();
@@ -47,7 +54,10 @@ const GlobalChat = () => {
         <span>Chat Box</span>
       </div>
       <div styleName="chat-container">
-        <div styleName="content">{messages.map((message, i) => <OddChatMessage {...message} key={i} />)}</div>
+        <div styleName="content">
+          {messages.map((message, i) => <OddChatMessage {...message} key={i} />)}
+          <div ref={messagesEndRef} />
+        </div>
         <div styleName="input">
           <OddTextInput placeholder="Type a message" onSubmit={onMessageSubmit} />
         </div>
