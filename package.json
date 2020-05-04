@@ -33,7 +33,7 @@
     "dev": "REACT_APP_NODE_ENV=development react-scripts start",
     "alpha": "REACT_APP_NODE_ENV=alpha react-scripts start",
     "staging": "REACT_APP_NODE_ENV=staging react-scripts start",
-    "build": "NODE_ENV=production react-scripts build",
+    "build": "REACT_APP_NODE_ENV=production GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "lint": "eslint src/",
     "test:coverage": "echo 'Test is not ready yet'",
