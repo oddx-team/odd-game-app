@@ -13,7 +13,7 @@ const GlobalChat = () => {
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
-    getChats().then(chats => setMessages(chats || []));
+    getChats().then(chats => setMessages(chats));
 
     if (window['WebSocket']) {
       const CHAT_WS_URI = '/api/v1/chat/ws';
@@ -22,7 +22,7 @@ const GlobalChat = () => {
       setWs(conn);
 
       conn.onclose = () => {
-        // Connection closed
+        setWs(null);
       };
       conn.onmessage = e => {
         const newMessages = JSON.parse(e.data);
@@ -55,7 +55,7 @@ const GlobalChat = () => {
       </div>
       <div styleName="chat-container">
         <div styleName="content">
-          {messages.map((message, i) => <OddChatMessage {...message} key={i} />)}
+          {messages && messages.length > 0 && messages.map((message, i) => <OddChatMessage {...message} key={i} />)}
           <div ref={messagesEndRef} />
         </div>
         <div styleName="input">
