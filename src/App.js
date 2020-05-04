@@ -18,6 +18,7 @@ function App() {
             <Route exact path="/" component={PanelStart} />
             <Route exact path="/rooms" component={RoomList} />
             <Route exact path="/play" component={GameBoard} />
+
             {/* Default case: page not found */}
             <Route component={PageNotFound} />
           </Switch>
