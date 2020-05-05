@@ -3,7 +3,8 @@ module.exports = {
     es6: true,
     browser: true,
     commonjs: true,
-    node: true
+    node: true,
+    jest: true
   },
   extends: ['eslint:recommended', 'plugin:react/recommended', 'prettier/react', 'prettier'],
   plugins: ['react', 'prettier'],
