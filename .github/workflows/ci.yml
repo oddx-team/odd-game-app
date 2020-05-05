@@ -27,6 +27,6 @@ jobs:
         run: |
           yarn install
           yarn lint
-          yarn test:coverage
+          CI=true yarn test:coverage
         env:
           CI: true

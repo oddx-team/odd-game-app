@@ -26,6 +26,7 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.9.1",
     "http-proxy-middleware": "^1.0.3",
+    "husky": "^4.2.5",
     "prettier": "1.13.5",
     "prettier-eslint": "^8.8.1"
   },
@@ -35,8 +36,8 @@
     "staging": "REACT_APP_NODE_ENV=staging react-scripts start",
     "build": "REACT_APP_NODE_ENV=production GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage",
     "lint": "eslint src/",
-    "test:coverage": "echo 'Test is not ready yet'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -53,5 +54,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "pre-push": "CI=true yarn test:coverage"
+    }
   }
 }
