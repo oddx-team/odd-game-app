@@ -44,8 +44,8 @@ const RoomList = () => {
 
           <div styleName="rooms">
             {rooms.map((_, i) => (
-              <div>
-                <CardRoom key={i} onJoin={handleJoin(i)} onSpectate={handleSpectator(i)} />
+              <div key={i}>
+                <CardRoom onJoin={handleJoin(i)} onSpectate={handleSpectator(i)} />
               </div>
             ))}
           </div>

@@ -1,5 +1,6 @@
 import React, { createContext, useReducer } from 'react';
 import { gameReducer } from '../reducers/gameReducer';
+import PropTypes from 'prop-types';
 
 export const GameContext = createContext();
 
@@ -18,6 +19,10 @@ const GameContextProvider = ({ children }) => {
       <div>{children}</div>
     </GameContext.Provider>
   );
+};
+
+GameContextProvider.propTypes = {
+  children: PropTypes.object,
 };
 
 export default GameContextProvider;
