@@ -2,29 +2,30 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import IconFriends from 'cdn/assets/icon-friends.png';
 import IconBell from 'cdn/assets/icon-bell.png';
-import 'stylesheets/GameBanner.scss';
+import CssModules from 'react-css-modules';
+import styles from 'stylesheets/GameBanner.module.scss';
 
 const GameBanner = () => {
   const history = useHistory();
   return (
-    <div className="game-banner">
-      <div className="game-logo" onClick={() => history.push('/')}>
+    <div styleName="game-banner">
+      <div styleName="game-logo" onClick={() => history.push('/')}>
         Oddx
       </div>
-      <div className="btn-menu" />
-      <div className="search fixed wrapper block">
-        <div className="icon-search" />
+      <div styleName="btn-menu" />
+      <div styleName="search" className="fixed wrapper block">
+        <div styleName="icon-search" />
         <input type="text" placeholder="Search" />
       </div>
 
-      <div className="profile">
-        <div className="block wrapper btn-friends">
+      <div styleName="profile">
+        <div className="block wrapper">
           <img alt={'IconFriends'} src={IconFriends} />
         </div>
-        <div className="block wrapper btn-noti">
+        <div className="block wrapper">
           <img alt={IconBell} src={IconBell} />
         </div>
-        <div className="block round user">
+        <div styleName="user" className="block round">
           <img alt={'Avatar'} src={`https://www.tinygraphs.com/spaceinvaders/${Date.now()}?size=100`} />
         </div>
       </div>
@@ -32,4 +33,4 @@ const GameBanner = () => {
   );
 };
 
-export default GameBanner;
+export default CssModules(GameBanner, styles);

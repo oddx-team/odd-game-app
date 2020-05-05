@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import utils from 'utils';
 import { StyledMessage, Avatar, Status, Name, Message, Time } from 'stylesheets/oddx/OddChatMessage.style.js';
+import { GameContext } from 'contexts/GameContext';
 
-const OddChatMessage = ({ user, message, time, online }) => {
+const OddChatMessage = ({ user, message, time }) => {
   const { hours, mins } = utils.parseTime(time);
-  const onlineStatus = classNames({ online });
+  const { state } = useContext(GameContext);
+  const onlineStatus = classNames({ online: state.online });
 
   return (
     <StyledMessage>
