@@ -1,7 +1,13 @@
 @import 'styles/global.scss';
 
 .game-banner {
-  @include sizeWH(100%, 0.7rem);
+  @include sizeWH(100%, 0.8rem);
+  background: #2d2d2d;
+
+  &.full {
+    @include sizeWH(100%, 0.7rem); 
+  }
+
   .game-logo {
     @include position(absolute, 0.12rem, $left: 1.2rem);
     @include textMixin(#fff, 0.4rem, bold);
@@ -15,9 +21,14 @@
     }
   }
 
+  .logo {
+    @include imageCDN('event-logo.png', 0.6rem, 0.6rem); 
+    @include alignCenter();
+  }
+
   .btn-menu {
-    @include imageCDN('icon-hamburger.png', 0.38rem, 0.38rem);
-    @include position(absolute, 0.1rem, $left: 3.5rem);
+    @include imageCDN('icon-hamburger.png', 0.32rem, 0.32rem);
+    @include position(absolute, 0.1rem, $left: 3.6rem);
     cursor: pointer;
   }
 
@@ -42,7 +53,7 @@
 }
 
 .profile {
-  @include position(absolute, $top: 0rem, $right: 0.8rem);
+  @include position(absolute, $top: 0.05rem, $right: 0.8rem);
   @include flexCenter(row);
 
   div {
@@ -57,10 +68,12 @@
   div.user {
     @include sizeWH(0.5rem, 0.5rem);
     border-radius: 50%;
+    position: relative;
 
     img {
-      @include sizeWH(0.4rem, 0.4rem);
-      left: 0rem;
+      @include sizeWH(0.42rem, 0.42rem);
+      left: 0.01rem;
+      top: 0.02rem;
       border-radius: 50%;
     }
   }

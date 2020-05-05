@@ -11,6 +11,13 @@ export default {
   },
 
   async getChats() {
-    return [];
+    return utils.camelizeKeys(
+      new Array(10).fill(null).map((_, i) => ({
+        user: `Guest${i + 1}`,
+        message: 'Hello World!',
+        time: Date.now(),
+        online: false,
+      })),
+    );
   },
 };

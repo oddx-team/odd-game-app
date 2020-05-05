@@ -3,6 +3,7 @@
 .panel-start {
   @include sizeWH(100%, 100%);
   background: #FAFBFD;
+  position: relative;
 
   &::before {
     content: '';
@@ -15,22 +16,24 @@
   .extra {
     .left {
       @include position(absolute, $left: 0);
+      @include sizeWH(3.3rem, 4rem);
       z-index: 1;
     }
     .right {
       @include position(absolute, $bottom: 0, $right: 0);
+      @include sizeWH(3rem, 4rem);
       z-index: 1;
     }
   }
 
   .logo {
     @include imageCDN('world.svg', 4rem, 4rem);
-    @include position(absolute, 2rem, $left: 2rem);
+    @include position(absolute, 1rem, $left: 2rem);
   }
 }
 
 .panel-start-inner {
-  @include position(absolute, 2.7rem, 2.2rem);
+  @include position(absolute, 2.4rem, 2.2rem);
   @include textMixin(#000, 0.35rem, bold);
 
   .name {
