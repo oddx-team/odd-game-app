@@ -8,7 +8,6 @@ import classNames from 'classnames';
 import IconFriends from 'cdn/assets/icon-friends.png';
 import IconBell from 'cdn/assets/icon-bell.png';
 import styles from 'stylesheets/GameBanner.module.scss';
-import { imageCDN } from 'mixins';
 
 const StyledCircleLogo = styled.div`
   position: absolute;
