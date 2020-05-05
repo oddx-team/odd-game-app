@@ -6,6 +6,7 @@ export const GameContext = createContext();
 const initialState = {
   globalChat: [],
   online: false,
+  fullBanner: true,
   error: null,
 };
 

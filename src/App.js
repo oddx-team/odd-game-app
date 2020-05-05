@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import PanelStart from './components/panels/PanelStart';
 import PageNotFound from 'components/PageNotFound';
@@ -11,9 +11,9 @@ import 'App.scss';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div id="app">
-        <GameContextProvider>
+    <GameContextProvider>
+      <BrowserRouter>
+        <div id="app">
           <div className="header-bg" />
           <div className="main">
             <GameBanner />
@@ -26,9 +26,9 @@ function App() {
               <Route component={PageNotFound} />
             </Switch>
           </div>
-        </GameContextProvider>
-      </div>
-    </BrowserRouter>
+        </div>
+      </BrowserRouter>
+    </GameContextProvider>
   );
 }
 

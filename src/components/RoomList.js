@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import CssModules from 'react-css-modules';
 import RoomListNav from './RoomListNav';
 import CardRoom from './CardRoom';
@@ -23,6 +23,13 @@ const RoomList = () => {
       type: 'UPDATE_ONLINE_STATUS',
     });
   };
+
+  useEffect(() => {
+    dispatch({
+      type: 'SET_FULL_BANNER',
+      fullBanner: true,
+    });
+  }, []);
 
   return (
     <div styleName="room-list">
