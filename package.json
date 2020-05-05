@@ -36,8 +36,8 @@
     "staging": "REACT_APP_NODE_ENV=staging react-scripts start",
     "build": "REACT_APP_NODE_ENV=production GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "react-scripts test --coverage",
     "lint": "eslint src/",
-    "test:coverage": "echo 'Test is not ready yet'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -58,7 +58,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "yarn lint",
-      "pre-push": "yarn test"
+      "pre-push": "CI=true yarn test:coverage"
     }
   }
 }
