@@ -1,0 +1,24 @@
+@import 'src/styles/global.scss';
+
+.leaderboard {
+  @include flexCenter(column);
+  @include sizeWH(2.9rem, 2.7rem);
+  @include position(absolute, 0.9rem, $right: -0.02rem);
+  border: 0.02rem solid #000;
+
+
+  .header {
+    @include flexCenter(row);
+    @include textMixin(#000, 0.21rem, bold);
+    @include sizeWH(1.52rem, 0.35rem);
+    @include position(absolute, -0.2rem, $left: 0.1rem);
+    justify-content: flex-start;
+    background: #f1f1f1;
+    padding-left: 0rem;
+
+    img {
+      @include sizeWH(0.3rem, 0.3rem);
+      margin-right: 0.05rem;
+    }
+  }
+}
