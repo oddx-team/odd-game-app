@@ -1,6 +1,7 @@
 import React from 'react';
 import CssModules from 'react-css-modules';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 import IconScore from 'cdn/assets/icon-scoreboard.png';
 import styles from 'stylesheets/GameBoardScore.module.scss';
@@ -80,5 +81,11 @@ const Points = styled.div`
   left: 0.4rem;
   font-size: 0.17rem;
 `;
+
+Player.propTypes = {
+  name: PropTypes.string,
+  points: PropTypes.string,
+  host: PropTypes.bool,
+};
 
 export default CssModules(GameBoardScore, styles);
