@@ -2,7 +2,7 @@ import React from 'react';
 import OddCard from './oddx/OddCard.js';
 
 import PlaygroundScore from './PlaygroundScore';
-import PlaygroundChat from './PlaygroundChat';
+import PlaygroundWidgets from './PlaygroundWidgets';
 import PlaygroundCollection from './PlaygroundCollection';
 import 'stylesheets/Playground.scss';
 
@@ -11,7 +11,7 @@ const Playground = () => {
     <div className="playground">
       <OddCard black />
       <PlaygroundScore />
-      <PlaygroundChat />
+      <PlaygroundWidgets />
       <PlaygroundCollection />
     </div>
   );

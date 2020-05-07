@@ -28,16 +28,24 @@
 
   .btn-menu {
     @include imageCDN('icon-hamburger.png', 0.32rem, 0.32rem);
-    @include position(absolute, 0.1rem, $left: 3.6rem);
+    @include position(absolute, 0.13rem, $left: 3.6rem);
     cursor: pointer;
   }
 
   .search {
-    @include sizeWH(4.48rem, 0.42rem);
-    @include position(absolute, 0rem, $left: 4rem);
+    @include sizeWH(3.2rem, 0.38rem);
+    @include position(absolute, 0.1rem, $left: 4.05rem);
     @include textMixin(#000, 0.2rem);
     @include flexCenter(row);
     padding-top: 0.05rem;
+    background: #BDBDBD;
+    // border-radius: 0.03rem;
+    transition: width 0.3s;
+
+    &:hover {
+      background: #FAFAFA;
+      width: 4.48rem;
+    }
 
     .icon-search {
       @include position(absolute, $top: 0.05rem, $left: 0.05rem);

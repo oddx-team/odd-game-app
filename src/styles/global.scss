@@ -27,6 +27,23 @@ html {
   &.green::before {
     background-color: map-get($color-palette, 'green');
   }
+
+  &::before {
+    content: "";
+    background: var(--block-background-color);
+    border: 0.03rem solid var(--block-text-color);
+    border-radius: 0.03rem;
+    position: absolute;
+    top: -0.02rem;
+    left: -0.02rem;
+  }
+
+  &::after {
+    border: 0.03rem solid var(--block-text-color);
+    border-radius: 0.03rem;
+    top: 0.03rem;
+    left: 0.03rem;
+  }
 }
 
 div.block {

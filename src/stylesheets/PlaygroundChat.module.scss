@@ -6,8 +6,8 @@
   background: #fff;
 
   .header {
-    @include textMixin(#fff, 0.22rem, bold, uppercase);
-    background: #0088cc;
+    @include textMixin(#000, 0.22rem, bold, uppercase);
+    background: #EFCA0D;
     height: 0.37rem;
     padding-top: 0.07rem;
     font-family: 'Shentox', sans-serif;
