@@ -13,10 +13,10 @@ const OddCard = props => {
         <img alt={'IconLogo'} src={IconLogo} />
         <span>Oddx</span>
       </div>
-      <div className="card-picker">
+      {/* <div className="card-picker">
         <div>Pick</div>
         <div>2</div>
-      </div>
+      </div> */}
     </div>
   );
 };
