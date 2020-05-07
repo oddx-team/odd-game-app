@@ -10,10 +10,10 @@ const PlaygroundChat = () => {
       <div styleName="header">Chat room</div>
       <div styleName="container">
         <div styleName="content">
-          <OddChatMessage user="admin" message="Hello world!" time={Date.now()} />
-          <OddChatMessage user="mocmeo" message="Hello world!" time={Date.now()} />
-          <OddChatMessage user="bigdaddy" message="Hello world!" time={Date.now()} />
-          <OddChatMessage user="mocmeo" message="Hello world!" time={Date.now()} />
+          <OddChatMessage user="admin" message="Hello world!" time={Date.now()} small />
+          <OddChatMessage user="mocmeo" message="Hello world!" time={Date.now()} small />
+          <OddChatMessage user="bigdaddy" message="Hello world!" time={Date.now()} small />
+          <OddChatMessage user="mocmeo" message="Hello world!" time={Date.now()} small />
         </div>
 
         <div styleName="input">

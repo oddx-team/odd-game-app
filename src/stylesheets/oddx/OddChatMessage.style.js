@@ -6,6 +6,15 @@ export const StyledMessage = styled.div`
   font-size: 0.19rem;
   padding: 0.1rem;
   margin-bottom: -0.2rem;
+
+  &.small {
+    font-size: 0.17rem;
+
+    img {
+      width: 0.35rem;
+      height: 0.35rem;
+    }
+  }
 `;
 
 export const Status = styled.div`
@@ -54,7 +63,7 @@ export const Time = styled.div`
   position: absolute;
   right: 0.15rem;
   top: 0.12rem;
-  font-size: 0.17rem;
+  font-size: 0.16rem;
   color: #212121;
 `;
 
