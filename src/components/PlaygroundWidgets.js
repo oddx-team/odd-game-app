@@ -4,7 +4,7 @@ import OddChatMessage from 'components/oddx/OddChatMessage';
 import OddTextInput from 'components/oddx/OddTextInput';
 import styles from 'stylesheets/PlaygroundChat.module.scss';
 
-const PlaygroundChat = () => {
+const PlaygroundWidgets = () => {
   return (
     <div styleName="playground-chat">
       <div styleName="header">Chat room</div>
@@ -24,4 +24,4 @@ const PlaygroundChat = () => {
   );
 };
 
-export default CssModules(PlaygroundChat, styles);
+export default CssModules(PlaygroundWidgets, styles);

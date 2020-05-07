@@ -31,7 +31,7 @@ const GameBanner = () => {
   const SearchBar = fullBanner && (
     <div>
       <div styleName="btn-menu" />
-      <div styleName="search" className="fixed wrapper block">
+      <div styleName="search">
         <div styleName="icon-search" />
         <input type="text" placeholder="Search" />
       </div>
