@@ -1,6 +1,6 @@
 @import 'styles/global.scss';
 
-.game-board {
+.playground {
   @include sizeWH(100%, 100%);
   @include flexCenter(row);
   justify-content: flex-start;

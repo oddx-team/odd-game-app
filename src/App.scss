@@ -1,13 +1,13 @@
-@import './styles/global.scss';
+@import 'styles/global.scss';
 
 #app {
+  @include flexCenter(column);
   @include textMixin(#212121, 0.24rem, $align: center);
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   margin-bottom: 0.5rem;
-  @include flexCenter(column);
 }
 
 .main {

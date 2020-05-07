@@ -4,7 +4,7 @@ import PanelStart from './components/panels/PanelStart';
 import PageNotFound from 'components/PageNotFound';
 import GameBanner from 'components/GameBanner';
 import RoomList from 'components/RoomList.js';
-import GameBoard from 'components/GameBoard.js';
+import GameBoard from 'components/Playground.js';
 
 import GameContextProvider from './contexts/GameContext.js';
 import 'App.scss';
