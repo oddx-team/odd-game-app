@@ -25,13 +25,13 @@ const PlaygroundWidgets = () => {
   return (
     <PlaygroundWrapper>
       <PlaygroundHeader>
-        <StyledTab active={active(0)} onClick={() => setActiveTab(0)} label="Scoreboard" />
-        <StyledTab active={active(1)} onClick={() => setActiveTab(1)} label="Chat room" />
+        <StyledTab active={active(0)} onClick={() => setActiveTab(0)} label="Chat room" />
+        <StyledTab active={active(1)} onClick={() => setActiveTab(1)} label="Scoreboard" />
       </PlaygroundHeader>
 
       <Container>
-        <div>{active(1) && <PanelChat />}</div>
-        <div>{active(0) && <PanelScoreboard />}</div>
+        <div>{active(0) && <PanelChat />}</div>
+        <div>{active(1) && <PanelScoreboard />}</div>
       </Container>
     </PlaygroundWrapper>
   );
