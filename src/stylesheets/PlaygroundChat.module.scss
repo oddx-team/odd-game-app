@@ -1,8 +1,8 @@
 @import 'src/styles/global.scss';
 
 .playground-chat {
-  @include position(absolute, $bottom: 0rem, $left: 10rem);
-  @include sizeWH(4.7rem, 2.7rem);
+  @include position(absolute, $bottom: 0rem, $left: 11rem);
+  @include sizeWH(3.8rem, 2.4rem);
   background: #fff;
 
   .header {
@@ -19,7 +19,7 @@
       border-top: 0.013rem solid #ddd;;
       flex: 1;
       overflow-y: auto;
-      height: 1.75rem;
+      height: 1.45rem;
     }
   }
 

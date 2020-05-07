@@ -5,13 +5,13 @@ import utils from 'utils';
 import { StyledMessage, Avatar, Status, Name, Message, Time } from 'stylesheets/oddx/OddChatMessage.style.js';
 import { GameContext } from 'contexts/GameContext';
 
-const OddChatMessage = ({ user, message, time }) => {
+const OddChatMessage = ({ user, message, time, small }) => {
   const { hours, mins } = utils.parseTime(time);
   const { state } = useContext(GameContext);
   const onlineStatus = classNames({ online: state.online });
 
   return (
-    <StyledMessage>
+    <StyledMessage className={classNames({ small })}>
       <Avatar src={`https://www.tinygraphs.com/spaceinvaders/${user}?size=60`} />
       <Status className={onlineStatus} />
       <Name>{user}</Name>

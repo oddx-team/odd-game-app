@@ -3,6 +3,7 @@ import OddCard from './oddx/OddCard.js';
 
 import PlaygroundScore from './PlaygroundScore';
 import PlaygroundChat from './PlaygroundChat';
+import PlaygroundCollection from './PlaygroundCollection';
 import 'stylesheets/Playground.scss';
 
 const Playground = () => {
@@ -11,6 +12,7 @@ const Playground = () => {
       <OddCard black />
       <PlaygroundScore />
       <PlaygroundChat />
+      <PlaygroundCollection />
     </div>
   );
 };
