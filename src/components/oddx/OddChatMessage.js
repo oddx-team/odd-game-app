@@ -28,6 +28,7 @@ OddChatMessage.propTypes = {
   message: PropTypes.string,
   time: PropTypes.number,
   online: PropTypes.bool,
+  small: PropTypes.bool,
 };
 
 export default OddChatMessage;
