@@ -3,7 +3,7 @@
 .leaderboard {
   @include flexCenter(column);
   @include sizeWH(2.9rem, 2.7rem);
-  @include position(absolute, 0.9rem, $right: -0.02rem);
+  @include position(absolute, 0.2rem, $right: -0.02rem);
   border: 0.02rem solid #000;
 
 

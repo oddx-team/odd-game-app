@@ -70,11 +70,9 @@
 
 .odd-card.medium {
   @include sizeWH(2.2rem, 2rem);
-
   .card-title {
     font-size: 0.2rem;
   }
-
   .card-logo {
     img {
       @include sizeWH(0.22rem, 0.22rem);
@@ -83,7 +81,6 @@
       font-size: 0.18rem;
     }
   }
-
   .card-picker {
     left: 1.3rem;
     div:first-child {
@@ -94,6 +91,43 @@
     div:last-child {
       @include sizeWH(0.23rem, 0.23rem);
       font-size: 0.17rem;
+    }
+  }
+}
+
+.odd-card.small {
+  @include sizeWH(1.8rem, 1.6rem);
+  padding: 0.1rem;
+  margin-top: 0.15rem;
+  margin-bottom: 0.3rem;
+  margin-right: 0.3rem;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  .card-title {
+    font-size: 0.17rem;
+  }
+  .card-logo {
+    margin-left: -0.1rem;
+    img {
+      @include sizeWH(0.2rem, 0.2rem);
+    }
+    span {
+      font-size: 0.17rem;
+    }
+  }
+  .card-picker {
+    left: 1rem;
+    div:first-child {
+      font-size: 0.15rem;
+      margin-right: 0.06rem;
+    }
+
+    div:last-child {
+      @include sizeWH(0.23rem, 0.23rem);
+      font-size: 0.16rem;
     }
   }
 }

@@ -4,7 +4,7 @@ import PanelStart from './components/panels/PanelStart';
 import PageNotFound from 'components/PageNotFound';
 import GameBanner from 'components/GameBanner';
 import RoomList from 'components/RoomList.js';
-import GameBoard from 'components/GameBoard.js';
+import Playground from 'components/Playground.js';
 
 import GameContextProvider from './contexts/GameContext.js';
 import 'App.scss';
@@ -20,7 +20,7 @@ function App() {
             <Switch>
               <Route exact path="/" component={PanelStart} />
               <Route exact path="/rooms" component={RoomList} />
-              <Route exact path="/play" component={GameBoard} />
+              <Route exact path="/play" component={Playground} />
 
               {/* Default case: page not found */}
               <Route component={PageNotFound} />
