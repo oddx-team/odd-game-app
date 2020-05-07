@@ -2,7 +2,7 @@
 
 .playground-chat {
   @include position(absolute, $bottom: 0rem, $left: 11rem);
-  @include sizeWH(3.8rem, 2.4rem);
+  @include sizeWH(3.7rem, 2.4rem);
   background: #fff;
 
   .header {
