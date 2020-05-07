@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import IconScore from 'cdn/assets/icon-scoreboard.png';
-import styles from 'stylesheets/GameBoardScore.module.scss';
+import styles from 'stylesheets/PlaygroundScore.module.scss';
 
 const Player = ({ name, points, host }) => {
   return (
@@ -18,7 +18,7 @@ const Player = ({ name, points, host }) => {
   );
 };
 
-const GameBoardScore = () => {
+const PlaygroundScore = () => {
   return (
     <div styleName="leaderboard">
       <div styleName="header">
@@ -88,4 +88,4 @@ Player.propTypes = {
   host: PropTypes.bool,
 };
 
-export default CssModules(GameBoardScore, styles);
+export default CssModules(PlaygroundScore, styles);
