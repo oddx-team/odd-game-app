@@ -3,6 +3,7 @@
 .playground {
   @include sizeWH(100%, 100%);
   @include flexCenter(row);
+  position: relative;
   justify-content: flex-start;
   margin: 0 auto;
   align-items: stretch;
