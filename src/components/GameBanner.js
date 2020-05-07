@@ -9,20 +9,6 @@ import IconFriends from 'cdn/assets/icon-friends.png';
 import IconBell from 'cdn/assets/icon-bell.png';
 import styles from 'stylesheets/GameBanner.module.scss';
 
-const StyledCircleLogo = styled.div`
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 1.2rem;
-  height: 1.2rem;
-  margin-top: 0.2rem;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: inset 0 0 25px 25px #fff;
-  box-shadow: 2px 7px 8px 0px #ddd;
-  z-index: 2;
-`;
-
 const GameBanner = () => {
   const history = useHistory();
   const { state } = useContext(GameContext);
@@ -66,5 +52,19 @@ const GameBanner = () => {
     </div>
   );
 };
+
+const StyledCircleLogo = styled.div`
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 0.2rem;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: inset 0 0 25px 25px #fff;
+  box-shadow: 2px 7px 8px 0px #ddd;
+  z-index: 2;
+`;
 
 export default CssModules(GameBanner, styles, { allowMultiple: true });
