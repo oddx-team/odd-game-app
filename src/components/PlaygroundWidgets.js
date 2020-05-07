@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import PanelChat from 'components/panels/PanelChat';
+import PanelScoreboard from 'components/panels/PanelScoreboard';
 import { PlaygroundWrapper, PlaygroundHeader, Tab, Container } from 'stylesheets/PlaygroundWidgets.style';
 
 const StyledTab = ({ active, label, onClick }) => {
@@ -24,12 +25,13 @@ const PlaygroundWidgets = () => {
   return (
     <PlaygroundWrapper>
       <PlaygroundHeader>
-        <StyledTab active={active(0)} onClick={() => setActiveTab(0)} label="Chat room" />
-        <StyledTab active={active(1)} onClick={() => setActiveTab(1)} label="Scoreboard" />
+        <StyledTab active={active(0)} onClick={() => setActiveTab(0)} label="Scoreboard" />
+        <StyledTab active={active(1)} onClick={() => setActiveTab(1)} label="Chat room" />
       </PlaygroundHeader>
 
       <Container>
-        <div>{active(0) && <PanelChat />}</div>
+        <div>{active(1) && <PanelChat />}</div>
+        <div>{active(0) && <PanelScoreboard />}</div>
       </Container>
     </PlaygroundWrapper>
   );
