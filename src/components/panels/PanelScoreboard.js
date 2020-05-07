@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
   StyledScoreboard,
   ScoreContainer,
@@ -34,6 +35,12 @@ const PanelScoreboard = () => {
       </ScoreContainer>
     </StyledScoreboard>
   );
+};
+
+Player.propTypes = {
+  name: PropTypes.string,
+  points: PropTypes.string,
+  host: PropTypes.bool,
 };
 
 export default PanelScoreboard;
