@@ -1,0 +1,34 @@
+@import 'src/styles/global.scss';
+
+.playground-chat {
+  @include position(absolute, $bottom: 0rem, $left: 10rem);
+  @include sizeWH(4.7rem, 2.7rem);
+  background: #fff;
+
+  .header {
+    @include textMixin(#fff, 0.22rem, bold, uppercase);
+    background: #0088cc;
+    height: 0.37rem;
+    padding-top: 0.07rem;
+    font-family: 'Shentox', sans-serif;
+  }
+
+  .container {
+    @include sizeWH(100%, 2.5rem);
+    .content {
+      border-top: 0.013rem solid #ddd;;
+      flex: 1;
+      overflow-y: auto;
+      height: 1.75rem;
+    }
+  }
+
+  .input {
+    @include textMixin(#000, 0.18rem);
+    @include flexCenter(row);
+    @include sizeWH(4.5rem, 0.4rem);
+    border-radius: 0.3rem;
+    background: rgba($color: #000, $alpha: 0.05);
+    margin: 0.1rem;
+  }
+}
