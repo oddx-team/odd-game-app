@@ -14,12 +14,11 @@
   }
 
   .container {
-    @include sizeWH(100%, 3rem);
-    .content {
-      border-top: 0.013rem solid #ddd;;
-      flex: 1;
-      overflow-y: auto;
-      height: 1.75rem;
-    }
+    @include flexCenter(row);
+    flex-wrap: wrap;
+    padding-left: 0.2rem;
+    justify-content: flex-start;
+    overflow-y: auto;
+    height: 2rem;
   }
 }
