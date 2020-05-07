@@ -19,7 +19,7 @@ html {
 // Setup customized blocks styles
 .block {
   border: transparent;
-  // padding: 0.05rem 0.2rem 0.1rem;
+  padding: 0.05rem 0.2rem 0.1rem;
 
   &.blue::before {
     background-color: map-get($color-palette, 'blue');

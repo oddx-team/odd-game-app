@@ -50,3 +50,17 @@
     }
   }
 }
+
+@include queryPhone {
+  .room-list {
+    .container {
+      .btn-toggle {
+        top: 0;
+        left: 8.4rem;
+      }
+    }
+  }
+}
+
+
+
