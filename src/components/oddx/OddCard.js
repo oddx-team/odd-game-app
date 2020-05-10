@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import IconLogo from 'cdn/assets/logo.png';
 import classNames from 'classnames';
 import 'stylesheets/oddx/OddCard.scss';
@@ -19,6 +20,12 @@ const OddCard = ({ color, size, text }) => {
       </div> */}
     </div>
   );
+};
+
+OddCard.propTypes = {
+  color: PropTypes.string,
+  size: PropTypes.string,
+  text: PropTypes.string,
 };
 
 export default OddCard;
