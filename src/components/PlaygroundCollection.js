@@ -17,7 +17,7 @@ const PlaygroundCollection = () => {
       <div styleName="container">
         {oddCards.map((card, i) => (
           <div key={i}>
-            <OddCard color={card.color} size="small" />
+            <OddCard {...card} size="small" />
           </div>
         ))}
       </div>

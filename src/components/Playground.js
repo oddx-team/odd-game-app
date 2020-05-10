@@ -3,10 +3,20 @@ import OddCard from './oddx/OddCard.js';
 
 import PlaygroundWidgets from './PlaygroundWidgets';
 import PlaygroundCollection from './PlaygroundCollection';
-import 'stylesheets/Playground.scss';
+import {
+  PlaygroundWrapper,
+  Header,
+  Container,
+  BlackCardContainer,
+  WhiteCardContainer,
+  LeftTitle,
+  RightTitle,
+  ButtonConfirm,
+  CardsList,
+} from 'stylesheets/Playground.style';
 
 const Playground = () => {
-  const oddCards = Array(3)
+  const oddCards = Array(5)
     .fill(null)
     .map((_, i) => ({
       text: 'Donald Trump has nominated __ for his VP',
@@ -18,30 +28,30 @@ const Playground = () => {
   };
 
   return (
-    <div className="playground">
-      <div className="message">Select a card to play!</div>
-      <div className="container">
-        <div className="card-black">
-          <div className="title">*Black card:</div>
-          <OddCard color="black" />
-          <button className="btn-select block gray">Confirm</button>
-        </div>
+    <PlaygroundWrapper>
+      <Header>Select a card to play!</Header>
+      <Container>
+        <BlackCardContainer>
+          <LeftTitle>*Black card:</LeftTitle>
+          <OddCard color="black" text="Donald Trump has nominated __ for his VP" />
+          <ButtonConfirm className="block gray">Confirm</ButtonConfirm>
+        </BlackCardContainer>
 
-        <div className="card-white">
-          <div className="title">The white cards played this round:</div>
-          <div className="cards">
+        <WhiteCardContainer>
+          <RightTitle>The white cards played this round:</RightTitle>
+          <CardsList>
             {oddCards.map((card, i) => (
               <div key={i}>
-                <OddCard color={card.color} size={getCardSize()} />
+                <OddCard {...card} size={getCardSize()} />
               </div>
             ))}
-          </div>
-        </div>
-      </div>
+          </CardsList>
+        </WhiteCardContainer>
+      </Container>
 
       <PlaygroundWidgets />
       <PlaygroundCollection />
-    </div>
+    </PlaygroundWrapper>
   );
 };
 

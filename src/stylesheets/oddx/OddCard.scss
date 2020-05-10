@@ -29,7 +29,7 @@
 
   .card-picker {
     @include flexCenter(row);
-    @include position(absolute, $bottom: 0.2rem, $left: 2rem);
+    @include position(absolute, $bottom: 0.2rem, $left: 1.75rem);
 
     div:first-child {
       @include textMixin(#fff, 0.23rem, bold, uppercase);
