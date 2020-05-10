@@ -15,17 +15,23 @@ const Text = ({ title, value }) => {
   );
 };
 
-const CardRoom = ({ onJoin, onSpectate }) => {
+const ROOM_STATUS = {
+  0: 'In process',
+  1: 'Open',
+  2: 'Busy',
+};
+
+const CardRoom = ({ onJoin, onSpectate, roomInfo: { name, host, maxPlayer, currentPlayer, spectator, statusId } }) => {
   return (
     <Route
       render={({ history }) => (
         <StyledCardRoom className="wrapper block">
           <CardRoomInner>
-            <Title>Name Room</Title>
-            <Text title="Host" value="Admin" />
-            <Text title="Room" value="8/10" />
-            <Text title="Spectators" value="15" />
-            <Text title="Status" value="In Progress" />
+            <Title> {name} </Title>
+            <Text title="Host" value={host.name} />
+            <Text title="Room" value={`${currentPlayer} / ${maxPlayer} `} />
+            <Text title="Spectators" value={`${spectator}`} />
+            <Text title="Status" value={ROOM_STATUS[statusId]} />
           </CardRoomInner>
 
           <ButtonJoin className="block accent" onClick={() => onJoin(history)}>
@@ -43,6 +49,7 @@ const CardRoom = ({ onJoin, onSpectate }) => {
 CardRoom.propTypes = {
   onJoin: PropTypes.func.isRequired,
   onSpectate: PropTypes.func.isRequired,
+  roomInfo: PropTypes.object,
 };
 
 Text.propTypes = {

@@ -5,9 +5,10 @@ import CardRoom from './CardRoom';
 import GlobalChat from './GlobalChat';
 import styles from 'stylesheets/RoomList.module.scss';
 import { GameContext } from 'contexts/GameContext';
+import { getRooms } from '../api/rooms';
 
 const RoomList = () => {
-  const [rooms] = useState(new Array(10).fill(null));
+  const [rooms, setRooms] = useState([]);
   const { dispatch } = useContext(GameContext);
 
   const handleJoin = id => history => {
@@ -29,6 +30,12 @@ const RoomList = () => {
       type: 'SET_FULL_BANNER',
       fullBanner: true,
     });
+    //
+    async function fectchData() {
+      const rooms = await getRooms();
+      setRooms(rooms);
+    }
+    fectchData();
   }, []);
 
   return (
@@ -43,9 +50,9 @@ const RoomList = () => {
           </button>
 
           <div styleName="rooms">
-            {rooms.map((_, i) => (
+            {rooms.map((roomInfo, i) => (
               <div key={i}>
-                <CardRoom onJoin={handleJoin(i)} onSpectate={handleSpectator(i)} />
+                <CardRoom roomInfo={roomInfo} onJoin={handleJoin(i)} onSpectate={handleSpectator(i)} />
               </div>
             ))}
           </div>
