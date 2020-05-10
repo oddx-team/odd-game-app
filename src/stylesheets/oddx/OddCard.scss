@@ -1,11 +1,11 @@
 @import 'styles/global.scss';
 
 .odd-card {
-  @include sizeWH(3rem, 2.8rem);
+  @include sizeWH(2.7rem, 2.3rem);
   background: #212121;
   border-radius: 0.05rem;
   padding: 0.2rem;
-  margin: 0.3rem 0.2rem 0 0;
+  margin-right: 0.2rem;
   position: relative;
   text-align: left;
 
@@ -29,7 +29,7 @@
 
   .card-picker {
     @include flexCenter(row);
-    @include position(absolute, $bottom: 0.2rem, $left: 2rem);
+    @include position(absolute, $bottom: 0.2rem, $left: 1.75rem);
 
     div:first-child {
       @include textMixin(#fff, 0.23rem, bold, uppercase);
@@ -97,10 +97,9 @@
 
 .odd-card.small {
   @include sizeWH(1.8rem, 1.6rem);
-  padding: 0.1rem;
-  margin-top: 0.15rem;
-  margin-bottom: 0.3rem;
-  margin-right: 0.3rem;
+  padding: 0.2rem;
+  margin-right: 0.2rem;
+  margin-bottom: 0.15rem;
 
   &:hover {
     transform: scale(1.1);

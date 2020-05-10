@@ -33,13 +33,13 @@
   }
 
   .search {
-    @include sizeWH(3.2rem, 0.38rem);
+    @include sizeWH(2.5rem, 0.38rem);
     @include position(absolute, 0.1rem, $left: 4.05rem);
     @include textMixin(#000, 0.2rem);
     @include flexCenter(row);
     padding-top: 0.05rem;
     background: #BDBDBD;
-    // border-radius: 0.03rem;
+    border-radius: 0.03rem;
     transition: width 0.3s;
 
     &:hover {

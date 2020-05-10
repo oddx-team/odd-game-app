@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const PlaygroundWrapper = styled.div`
+export const WidgetWrapper = styled.div`
   position: absolute;
   bottom: 0rem;
   left: 11rem;
@@ -9,7 +9,7 @@ export const PlaygroundWrapper = styled.div`
   background: #fff;
 `;
 
-export const PlaygroundHeader = styled.div`
+export const Header = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

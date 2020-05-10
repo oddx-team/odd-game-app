@@ -27,6 +27,9 @@ html {
   &.green::before {
     background-color: map-get($color-palette, 'green');
   }
+  &.gray::before {
+    background-color: map-get($color-palette, 'gray');
+  }
 
   &::before {
     content: "";
