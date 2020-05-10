@@ -1,11 +1,11 @@
 @import 'styles/global.scss';
 
 .odd-card {
-  @include sizeWH(3rem, 2.8rem);
+  @include sizeWH(2.7rem, 2.3rem);
   background: #212121;
   border-radius: 0.05rem;
   padding: 0.2rem;
-  margin: 0.3rem 0.2rem 0 0;
+  margin: 0.22rem 0.2rem 0 0;
   position: relative;
   text-align: left;
 
@@ -97,10 +97,8 @@
 
 .odd-card.small {
   @include sizeWH(1.8rem, 1.6rem);
-  padding: 0.1rem;
-  margin-top: 0.15rem;
-  margin-bottom: 0.3rem;
-  margin-right: 0.3rem;
+  padding: 0.2rem;
+  margin: 0.22rem 0.2rem 0 0;
 
   &:hover {
     transform: scale(1.1);

@@ -2,9 +2,48 @@
 
 .playground {
   @include sizeWH(100%, 100%);
-  @include flexCenter(row);
   position: relative;
-  justify-content: flex-start;
-  margin: 0 auto;
-  align-items: stretch;
+
+  .message {
+    @include textMixin(#000, 0.23rem, bold, $align: left);
+    padding: 0.1rem 0 0 0.2rem;
+  }
+
+  .container {
+    @include flexCenter(row);
+    justify-content: flex-start;
+
+    .card-black {
+      padding: 0.1rem 0 0 0.2rem;
+      text-align: left;
+  
+      .title {
+        @include textMixin(#000, 0.2rem, normal, $style: italic);
+        margin-bottom: -0.15rem;
+      }
+  
+      .btn-select {
+        @include textMixin(#fff, 0.21rem, bold); 
+        margin-left: 0rem;
+        width: 2.72rem;
+      }
+    }
+
+    .card-white {
+      padding: 0.1rem 0 0 0.2rem;
+      text-align: left;
+  
+      .title {
+        @include position(absolute, 0.48rem);
+        @include textMixin(#000, 0.2rem, normal, $style: italic);
+      }
+
+      .cards {
+        @include position(absolute, 0.58rem);
+        @include flexCenter(row);
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+    }
+  }
 }
