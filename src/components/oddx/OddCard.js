@@ -3,8 +3,8 @@ import IconLogo from 'cdn/assets/logo.png';
 import classNames from 'classnames';
 import 'stylesheets/oddx/OddCard.scss';
 
-const OddCard = props => {
-  const cardClasses = classNames('block odd-card', { ...props });
+const OddCard = ({ color, size }) => {
+  const cardClasses = classNames('block odd-card', color, size);
 
   return (
     <div className={cardClasses}>

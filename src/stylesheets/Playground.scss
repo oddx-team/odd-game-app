@@ -19,12 +19,10 @@
   
       .title {
         @include textMixin(#000, 0.2rem, normal, $style: italic);
-        margin-bottom: -0.15rem;
       }
   
       .btn-select {
         @include textMixin(#fff, 0.21rem, bold); 
-        margin-left: 0rem;
         width: 2.72rem;
       }
     }
@@ -39,8 +37,13 @@
       }
 
       .cards {
-        @include position(absolute, 0.58rem);
-        @include flexCenter(row);
+        @include position(absolute, 0.47rem, $left: 3.27rem);
+        display: flex;
+        padding-left: 0.1rem;
+        padding-top: 0.05rem;
+        margin-top: 0.2rem;
+        height: 3.55rem;
+        overflow-y: auto;
         flex-wrap: wrap;
         justify-content: flex-start;
       }
