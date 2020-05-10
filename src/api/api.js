@@ -37,7 +37,7 @@ axiosInstance.interceptors.response.use(
   },
   error => {
     if (STATUS_CODE.UNAUTHENTICATION_STATUS === error.response.status) {
-      console.log('Ex: Login lai di ban oi');
+      console.log('Ex: Login lai di ban oi'); // TODO toast or something
     }
     return Promise.reject(error);
   },
