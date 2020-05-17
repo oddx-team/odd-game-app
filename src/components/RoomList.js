@@ -24,12 +24,15 @@ const RoomList = () => {
     });
   };
 
-  useEffect(() => {
-    dispatch({
-      type: 'SET_FULL_BANNER',
-      fullBanner: true,
-    });
-  }, []);
+  useEffect(
+    () => {
+      dispatch({
+        type: 'SET_FULL_BANNER',
+        fullBanner: true,
+      });
+    },
+    [dispatch],
+  );
 
   return (
     <div styleName="room-list">

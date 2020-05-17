@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from 'react';
 import { gameReducer } from '../reducers/gameReducer';
 import PropTypes from 'prop-types';
 
-export const GameContext = createContext();
+export const GameContext = createContext(null, null);
 
 const initialState = {
   globalChat: [],
@@ -12,7 +12,7 @@ const initialState = {
 };
 
 const GameContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(gameReducer, initialState);
+  const [state, dispatch] = useReducer(gameReducer, initialState, undefined);
 
   return (
     <GameContext.Provider value={{ state, dispatch }}>
