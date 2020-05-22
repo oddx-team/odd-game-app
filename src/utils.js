@@ -52,6 +52,10 @@ function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function convertChar(num) {
+  return String.fromCharCode(num + 65);
+}
+
 export default {
   getParam,
   camelizeStr,
@@ -60,4 +64,5 @@ export default {
   camelizeKeys: convertCase(camelizeStr),
   snakifyKeys: convertCase(snakifyStr),
   parseTime,
+  convertChar,
 };

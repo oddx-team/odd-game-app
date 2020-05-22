@@ -1,9 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { GameContext } from 'contexts/GameContext';
-
-import BgLeft from 'cdn/assets/bg-extra-left.svg';
-import BgRight from 'cdn/assets/bg-extra-right.svg';
 import 'stylesheets/panels/PanelStart.scss';
 
 const PanelStart = () => {
@@ -25,8 +22,8 @@ const PanelStart = () => {
     <div className="panel-start">
       <div className="logo" />
       <div className="extra">
-        <img alt={'BgLeft'} src={BgLeft} className="left" />
-        <img alt={'BgRight'} src={BgRight} className="right" />
+        <div className="left" />
+        <div className="right" />
       </div>
 
       <div className="panel-start-inner">
