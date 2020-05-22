@@ -47,7 +47,7 @@ const GlobalChat = () => {
   };
 
   const scrollToBottom = () => {
-    lastRef.current.scrollIntoView({ behavior: 'smooth' });
+    lastRef.current.scrollIntoView();
   };
 
   const submitMessage = text => {

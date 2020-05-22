@@ -1,6 +1,6 @@
 @import 'styles/global.scss';
 
-.room-list-nav {
+.room-list-tab {
   @include sizeWH(100%, 0.5rem);
   @include flexCenter(row);
   justify-content: flex-start;

@@ -1,14 +1,47 @@
 import React, { useState, useContext, useEffect } from 'react';
 import CssModules from 'react-css-modules';
-import RoomListNav from './RoomListNav';
+import RoomListTab from './RoomListTab';
 import CardRoom from './CardRoom';
 import GlobalChat from './GlobalChat';
 import styles from 'stylesheets/RoomList.module.scss';
 import { GameContext } from 'contexts/GameContext';
 
+import Api from 'services';
+
 const RoomList = () => {
-  const [rooms] = useState(new Array(10).fill(null));
-  const { dispatch } = useContext(GameContext);
+  const [activeTab, setActiveTab] = useState(0);
+  const [rooms, setRooms] = useState([]);
+  const { state, dispatch } = useContext(GameContext);
+  const { enRooms, vnRooms } = state;
+
+  useEffect(() => setCurrentRooms(), [activeTab]);
+  useEffect(() => {
+    setFullBanner();
+    fetchRoomList();
+  }, []);
+
+  const setFullBanner = () => {
+    dispatch({
+      type: 'SET_FULL_BANNER',
+      fullBanner: true,
+    });
+  };
+
+  const fetchRoomList = async () => {
+    const [eRooms, vRooms] = await Promise.all([Api.getEnglishRooms(), Api.getVietnameseRooms()]);
+    setRooms(eRooms);
+    dispatch({
+      type: 'UPDATE_ROOM_LIST',
+      payload: {
+        enRooms: eRooms,
+        vnRooms: vRooms,
+      },
+    });
+  };
+
+  const setCurrentRooms = () => {
+    activeTab === 0 ? setRooms(enRooms) : setRooms(vnRooms);
+  };
 
   const handleJoin = id => history => {
     history.push('/play');
@@ -18,34 +51,22 @@ const RoomList = () => {
     history.push('/play');
   };
 
-  const updateOnlineStatus = () => {
-    dispatch({
-      type: 'UPDATE_ONLINE_STATUS',
-    });
-  };
-
-  useEffect(() => {
-    dispatch({
-      type: 'SET_FULL_BANNER',
-      fullBanner: true,
-    });
-  }, []);
-
   return (
     <div styleName="room-list">
       <div styleName="room-list-inner">
-        <RoomListNav />
+        <RoomListTab switchTab={idx => setActiveTab(idx)} activeTab={activeTab} />
+
         <div styleName="container">
           <div styleName="title">Game rooms</div>
           <div styleName="subtitle">Select any room:</div>
-          <button styleName="btn-toggle" className="block accent" onClick={updateOnlineStatus}>
+          <button styleName="btn-toggle" className="block accent">
             <span>Toggle</span>
           </button>
 
           <div styleName="rooms">
-            {rooms.map((_, i) => (
+            {rooms.map((room, i) => (
               <div key={i}>
-                <CardRoom onJoin={handleJoin(i)} onSpectate={handleSpectator(i)} />
+                <CardRoom {...room} onJoin={handleJoin(i)} onSpectate={handleSpectator(i)} />
               </div>
             ))}
           </div>

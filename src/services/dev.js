@@ -105,10 +105,12 @@ export default {
   async getEnglishRooms() {
     return utils.camelizeKeys(
       new Array(26).fill(null).map((_, i) => ({
+        id: i,
         name: `Room ${utils.convertChar(i)}`,
         host: `player${(i % 3) + 1}`,
-        maxPlayer: 10,
-        currentPlayer: Math.floor(Math.random() * 10),
+        total: 10,
+        current: Math.floor(Math.random() * 10),
+        viewers: Math.floor(Math.random() * 15),
         status: Math.floor(Math.random() * 3),
       })),
     );
@@ -117,10 +119,12 @@ export default {
   async getVietnameseRooms() {
     return utils.camelizeKeys(
       new Array(26).fill(null).map((_, i) => ({
+        id: i + 26,
         name: `Phòng ${utils.convertChar(i)}`,
         host: `player${(i % 3) + 1}`,
-        maxPlayer: 10,
-        currentPlayer: Math.floor(Math.random() * 10),
+        total: 10,
+        current: Math.floor(Math.random() * 10),
+        viewers: Math.floor(Math.random() * 15),
         status: Math.floor(Math.random() * 3),
       })),
     );

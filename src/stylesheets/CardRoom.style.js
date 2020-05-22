@@ -4,6 +4,7 @@ export const Title = styled.div`
   color: #000;
   font-size: 0.3rem;
   font-weight: bold;
+  margin-bottom: 0.08rem;
 `;
 
 export const CardRoomInner = styled.div`
