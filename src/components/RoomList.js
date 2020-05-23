@@ -52,9 +52,10 @@ const RoomList = () => {
 
   return (
     <RoomListWrapper>
+      <GlobalChat />
+
       <OuterWrapper>
         <RoomListTab switchTab={idx => setActiveTab(idx)} activeTab={activeTab} />
-
         <Container>
           <Title>
             <div>Game rooms</div>
@@ -72,8 +73,6 @@ const RoomList = () => {
           </RoomContainer>
         </Container>
       </OuterWrapper>
-
-      <GlobalChat />
     </RoomListWrapper>
   );
 };
