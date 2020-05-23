@@ -8,7 +8,7 @@ export const GameBannerWrapper = styled.div`
 
 export const MainLogo = styled.div`
   color: #fff;
-  font-size: 0.35rem;
+  font-size: 0.33rem;
   font-weight: bold;
   font-family: 'Orbitron', sans-serif;
   position: absolute;
