@@ -6,10 +6,8 @@ import PanelScoreboard from 'components/panels/PanelScoreboard';
 import { WidgetWrapper, Header, Tab, Container } from 'stylesheets/PlaygroundWidgets.style';
 
 const StyledTab = ({ active, label, onClick }) => {
-  const tabClass = classNames({ active });
-
   return (
-    <Tab className={tabClass} onClick={onClick}>
+    <Tab className={classNames({ active })} onClick={onClick}>
       {label}
     </Tab>
   );

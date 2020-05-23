@@ -1,11 +1,19 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { GameContext } from 'contexts/GameContext';
-import CssModules from 'react-css-modules';
 import RoomListTab from './RoomListTab';
 import CardRoom from './CardRoom';
 import GlobalChat from './GlobalChat';
+import IconPlay from 'cdn/assets/icon-play.png';
 import Api from 'services';
-import styles from 'stylesheets/RoomList.module.scss';
+import {
+  RoomListWrapper,
+  OuterWrapper,
+  Container,
+  Title,
+  Subtitle,
+  ButtonCreate,
+  RoomContainer,
+} from 'stylesheets/RoomList.style';
 
 const RoomList = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -43,32 +51,31 @@ const RoomList = () => {
   };
 
   return (
-    <div styleName="room-list">
-      <div styleName="room-list-inner">
+    <RoomListWrapper>
+      <OuterWrapper>
         <RoomListTab switchTab={idx => setActiveTab(idx)} activeTab={activeTab} />
 
-        <div styleName="container">
-          <div styleName="title">Game rooms</div>
-          <div styleName="subtitle">Select any room:</div>
-          <button styleName="btn-toggle" className="block accent">
-            <span>Create</span>
-          </button>
+        <Container>
+          <Title>
+            <div>Game rooms</div>
+            <img alt={'icon'} src={IconPlay} />
+          </Title>
+          <Subtitle>Select any room:</Subtitle>
+          <ButtonCreate className="block accent">Create</ButtonCreate>
 
-          <div styleName="rooms">
+          <RoomContainer>
             {rooms.map((room, i) => (
               <div key={i}>
                 <CardRoom {...room} />
               </div>
             ))}
-          </div>
-        </div>
-      </div>
+          </RoomContainer>
+        </Container>
+      </OuterWrapper>
 
-      <div className="room-list-chat">
-        <GlobalChat />
-      </div>
-    </div>
+      <GlobalChat />
+    </RoomListWrapper>
   );
 };
 
-export default CssModules(RoomList, styles);
+export default RoomList;
