@@ -45,6 +45,7 @@ export const ButtonConfirm = styled.button`
   color: #fff;
   font-size: 0.21rem;
   font-weight: bold;
+  text-transform: uppercase;
 `;
 
 export const CardsList = styled.div`

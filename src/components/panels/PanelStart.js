@@ -11,12 +11,15 @@ const PanelStart = () => {
     history.push('/rooms');
   };
 
-  useEffect(() => {
-    dispatch({
-      type: 'SET_FULL_BANNER',
-      fullBanner: false,
-    });
-  }, []);
+  useEffect(
+    () => {
+      dispatch({
+        type: 'SET_FULL_BANNER',
+        fullBanner: false,
+      });
+    },
+    [dispatch],
+  );
 
   return (
     <div className="panel-start">

@@ -1,0 +1,25 @@
+@import 'src/styles/global.scss';
+
+.playground-collection {
+  @include position(absolute, $bottom: 0rem, $left: 0rem);
+  @include sizeWH(10.9rem, 2.4rem);
+  background: #fff;
+
+  .header {
+    @include textMixin(#fff, 0.22rem, bold, uppercase);
+    background: #0277BD;
+    height: 0.37rem;
+    padding-top: 0.07rem;
+    font-family: 'Shentox', sans-serif;
+  }
+
+  .container {
+    @include flexCenter(row);
+    flex-wrap: wrap;
+    padding-top: 0.15rem;
+    padding-left: 0.2rem;
+    justify-content: flex-start;
+    overflow-y: auto;
+    height: 2rem;
+  }
+}
