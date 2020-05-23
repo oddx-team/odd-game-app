@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { StyledInput } from 'stylesheets/oddx/OddTextInput.style';
 
 const OddTextInput = props => {
@@ -18,7 +19,7 @@ const OddTextInput = props => {
   };
 
   return (
-    <StyledInput>
+    <StyledInput className={classNames({ small: props.small })}>
       <form onSubmit={handleSubmit} style={{ width: '100%' }}>
         <input
           type="text"
@@ -38,6 +39,7 @@ OddTextInput.propTypes = {
   placeholder: PropTypes.string,
   onSubmit: PropTypes.func,
   disabled: PropTypes.bool,
+  small: PropTypes.bool,
 };
 
 export default OddTextInput;

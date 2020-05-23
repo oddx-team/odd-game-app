@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import { GameContext } from 'contexts/GameContext';
+import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from 'stylesheets/GlobalChat.style';
 import OddTextInput from './oddx/OddTextInput';
 import OddChatMessage from './oddx/OddChatMessage';
 import IconChat from 'cdn/assets/icon-chat.png';
-import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from 'stylesheets/GlobalChat.style';
 
 import Api from 'services';
 

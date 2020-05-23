@@ -1,7 +1,7 @@
 @import 'styles/global.scss';
 
 .odd-card {
-  @include sizeWH(2.7rem, 2.3rem);
+  @include sizeWH(2.5rem, 2.1rem);
   background: #212121;
   border-radius: 0.05rem;
   padding: 0.2rem;
@@ -10,35 +10,35 @@
   text-align: left;
 
   .card-title {
-    @include textMixin(#fff, 0.25rem, $align: left);
+    @include textMixin(#fff, 0.22rem, $align: left);
   }
 
   .card-logo {
     @include flexCenter(row);
     @include position(absolute, $bottom: 0.2rem, $left: 0.2rem);
     img {
-      @include sizeWH(0.3rem, 0.3rem);
+      @include sizeWH(0.25rem, 0.25rem);
     }
 
     span {
       @include position(relative, $left: 0.07rem);
-      @include textMixin(#fff, 0.22rem);
+      @include textMixin(#fff, 0.21rem);
       font-family: 'Orbitron', sans-serif;
     }
   }
 
   .card-picker {
     @include flexCenter(row);
-    @include position(absolute, $bottom: 0.2rem, $left: 1.75rem);
+    @include position(absolute, $bottom: 0.2rem, $left: 1.63rem);
 
     div:first-child {
-      @include textMixin(#fff, 0.23rem, bold, uppercase);
+      @include textMixin(#fff, 0.2rem, bold, uppercase);
       margin-right: 0.06rem;
     }
 
     div:last-child {
-      @include textMixin(#212121, 0.2rem, $align: center);
-      @include sizeWH(0.27rem, 0.27rem);
+      @include textMixin(#212121, 0.19rem, $align: center);
+      @include sizeWH(0.24rem, 0.24rem);
       background: #fff;
       border-radius: 50%;
       padding-top: 0.02rem;
@@ -96,8 +96,8 @@
 }
 
 .odd-card.small {
-  @include sizeWH(1.8rem, 1.6rem);
-  padding: 0.2rem;
+  @include sizeWH(1.5rem, 1.3rem);
+  padding: 0.1rem;
   margin-right: 0.2rem;
   margin-bottom: 0.15rem;
 
@@ -106,21 +106,21 @@
   }
 
   .card-title {
-    font-size: 0.17rem;
+    font-size: 0.15rem;
   }
   .card-logo {
     margin-left: -0.1rem;
     img {
-      @include sizeWH(0.2rem, 0.2rem);
+      @include sizeWH(0.18rem, 0.18rem);
     }
     span {
-      font-size: 0.17rem;
+      font-size: 0.15rem;
     }
   }
   .card-picker {
-    left: 1rem;
+    left: 0.8rem;
     div:first-child {
-      font-size: 0.15rem;
+      font-size: 0.13rem;
       margin-right: 0.06rem;
     }
 

@@ -8,11 +8,14 @@ export const StyledMessage = styled.div`
   margin-bottom: -0.2rem;
 
   &.small {
-    font-size: 0.17rem;
+    font-size: 0.15rem;
+    margin-bottom: -0.27rem;
+    margin-top: -0.05rem;
 
     img {
-      width: 0.35rem;
-      height: 0.35rem;
+      width: 0.33rem;
+      height: 0.33rem;
+      margin-left: 0.05rem;
     }
   }
 `;
@@ -48,13 +51,13 @@ export const Name = styled.div`
   font-weight: bold;
   position: absolute;
   top: 0.1rem;
-  left: 0.6rem;
+  left: 0.57rem;
 `;
 
 export const Message = styled.div`
   position: relative;
   top: -0.2rem;
-  left: 0.5rem;
+  left: 0.47rem;
   width: 2.7rem;
   word-wrap: break-word;
 `;

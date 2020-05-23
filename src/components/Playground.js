@@ -34,7 +34,7 @@ const Playground = () => {
         <BlackCardContainer>
           <LeftTitle>*Black card:</LeftTitle>
           <OddCard color="black" text="Donald Trump has nominated __ for his VP" />
-          <ButtonConfirm className="block gray">Confirm</ButtonConfirm>
+          <ButtonConfirm className="block dark-blue">Confirm</ButtonConfirm>
         </BlackCardContainer>
 
         <WhiteCardContainer>

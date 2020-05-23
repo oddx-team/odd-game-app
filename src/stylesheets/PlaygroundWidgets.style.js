@@ -5,7 +5,7 @@ export const WidgetWrapper = styled.div`
   bottom: 0rem;
   left: 11rem;
   width: 3.7rem;
-  height: 2.4rem;
+  height: 1.85rem;
   background: #fff;
 `;
 
@@ -18,9 +18,9 @@ export const Header = styled.div`
 
 export const Tab = styled.div`
   width: 50%;
-  height: 0.4rem;
+  height: 0.3rem;
   color: #000;
-  font-size: 0.23rem;
+  font-size: 0.19rem;
   font-weight: bold;
   text-transform: uppercase;
   background: #ececec;

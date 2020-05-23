@@ -15,7 +15,7 @@ const PanelChat = () => {
           </div>
         ))}
       </ChatContent>
-      <OddTextInput placeholder="Type a message" />
+      <OddTextInput placeholder="Type a message" small />
     </StyledContainer>
   );
 };

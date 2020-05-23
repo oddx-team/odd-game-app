@@ -6,7 +6,7 @@ export const StyledScoreboard = styled.div`
   align-items: center;
   flex-direction: column;
   width: 3.7rem;
-  height: 2rem;
+  height: 1.55rem;
 `;
 
 export const ScoreContainer = styled.div`
@@ -14,6 +14,7 @@ export const ScoreContainer = styled.div`
   height: 100%;
   position: relative;
   overflow-y: auto;
+  margin-top: -0.1rem;
 `;
 
 export const StyledPlayer = styled.div`
@@ -21,11 +22,11 @@ export const StyledPlayer = styled.div`
   height: 0.53rem;
   position: relative;
   text-align: left;
-  font-size: 0.19rem;
+  font-size: 0.17rem;
   padding-left: 0.15rem;
   padding-top: 0.05rem;
 
-  &:nth-child(odd) {
+  &:nth-child(even) {
     background: #eee;
   }
 `;
@@ -44,9 +45,9 @@ export const Name = styled.strong`
 
 export const Points = styled.div`
   position: absolute;
-  top: 0.28rem;
+  top: 0.26rem;
   left: 0.55rem;
-  font-size: 0.17rem;
+  font-size: 0.16rem;
 `;
 
 export const Host = styled.div`
