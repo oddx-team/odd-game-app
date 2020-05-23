@@ -4,7 +4,7 @@ import RoomListTab from './RoomListTab';
 import CardRoom from './CardRoom';
 import GlobalChat from './GlobalChat';
 import IconPlay from 'cdn/assets/icon-play.png';
-import IconPlus from 'cdn/assets/icon-plus2.png';
+import IconPlus from 'cdn/assets/icon-plus.png';
 import Api from 'services';
 import {
   RoomListWrapper,

@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { useHistory } from 'react-router-dom';
 import { GameContext } from 'contexts/GameContext';
-import classNames from 'classnames';
 
 import IconBell from 'cdn/assets/icon-bell.png';
 import IconSearch2 from 'cdn/assets/icon-search.png';
@@ -48,7 +49,7 @@ const GameBanner = () => {
   const { fullBanner } = state;
 
   return (
-    <GameBannerWrapper className={classNames({ full: fullBanner })}>
+    <GameBannerWrapper>
       <MainLogo onClick={() => history.push('/')}>
         <img alt={'logo'} src={OddLogo} />
         <span>Oddx</span>
@@ -61,6 +62,10 @@ const GameBanner = () => {
       </ProfileContainer>
     </GameBannerWrapper>
   );
+};
+
+BannerExtra.propTypes = {
+  fullBanner: PropTypes.func.isRequired,
 };
 
 export default GameBanner;

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { GameContext } from 'contexts/GameContext';
 import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from 'stylesheets/GlobalChat.style';
 import OddTextInput from './oddx/OddTextInput';
@@ -82,6 +83,10 @@ const ChatTab = ({ title }) => {
       <span>{title}</span>
     </StyledTab>
   );
+};
+
+ChatTab.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 export default GlobalChat;

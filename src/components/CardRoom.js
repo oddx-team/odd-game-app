@@ -1,6 +1,6 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { Route } from 'react-router-dom';
 import { Title, StyledCardRoom, CardRoomInner, ButtonJoin, ButtonSpectate } from 'stylesheets/CardRoom.style.js';
 
 const Text = ({ title, value }) => {
