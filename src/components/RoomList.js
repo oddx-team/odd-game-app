@@ -27,6 +27,10 @@ const RoomList = () => {
     });
   };
 
+  const setCurrentRooms = () => {
+    activeTab === 0 ? setRooms(enRooms) : setRooms(vnRooms);
+  };
+
   const fetchRoomList = async () => {
     const [eRooms, vRooms] = await Promise.all([Api.getEnglishRooms(), Api.getVietnameseRooms()]);
     setRooms(eRooms);
@@ -39,18 +43,6 @@ const RoomList = () => {
     });
   };
 
-  const setCurrentRooms = () => {
-    activeTab === 0 ? setRooms(enRooms) : setRooms(vnRooms);
-  };
-
-  const handleJoin = id => history => {
-    history.push('/play');
-  };
-
-  const handleSpectator = id => history => {
-    history.push('/play');
-  };
-
   return (
     <div styleName="room-list">
       <div styleName="room-list-inner">
@@ -60,13 +52,13 @@ const RoomList = () => {
           <div styleName="title">Game rooms</div>
           <div styleName="subtitle">Select any room:</div>
           <button styleName="btn-toggle" className="block accent">
-            <span>Toggle</span>
+            <span>Create</span>
           </button>
 
           <div styleName="rooms">
             {rooms.map((room, i) => (
               <div key={i}>
-                <CardRoom {...room} onJoin={handleJoin(i)} onSpectate={handleSpectator(i)} />
+                <CardRoom {...room} />
               </div>
             ))}
           </div>

@@ -15,7 +15,15 @@ const Text = ({ title, value }) => {
   );
 };
 
-const CardRoom = ({ onJoin, onSpectate, ...props }) => {
+const CardRoom = props => {
+  const joinRoom = history => {
+    history.push('/play');
+  };
+
+  const spectateRoom = history => {
+    history.push('/play');
+  };
+
   return (
     <Route
       render={({ history }) => (
@@ -28,10 +36,10 @@ const CardRoom = ({ onJoin, onSpectate, ...props }) => {
             <Text title="Status" value="In Progress" />
           </CardRoomInner>
 
-          <ButtonJoin className="block accent" onClick={() => onJoin(history)}>
+          <ButtonJoin className="block accent" onClick={() => joinRoom(history)}>
             Join
           </ButtonJoin>
-          <ButtonSpectate className="block blue" onClick={() => onSpectate(history)}>
+          <ButtonSpectate className="block blue" onClick={() => spectateRoom(history)}>
             Spectate
           </ButtonSpectate>
         </StyledCardRoom>
@@ -41,8 +49,6 @@ const CardRoom = ({ onJoin, onSpectate, ...props }) => {
 };
 
 CardRoom.propTypes = {
-  onJoin: PropTypes.func.isRequired,
-  onSpectate: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   host: PropTypes.string.isRequired,
   current: PropTypes.number.isRequired,

@@ -3,7 +3,18 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import IconVN from 'cdn/assets/icon-vn.png';
 import IconGlobal from 'cdn/assets/icon-global.png';
-import 'stylesheets/RoomListTab.scss';
+import { TabContainer, StyledTab } from 'stylesheets/RoomListTab.style';
+
+const Tab = ({ active, text, onClick, global }) => {
+  const tabIcon = global ? IconGlobal : IconVN;
+
+  return (
+    <StyledTab className={classNames(active)} onClick={onClick}>
+      <img src={tabIcon} />
+      <span>{text}</span>
+    </StyledTab>
+  );
+};
 
 const RoomListTab = ({ activeTab, switchTab }) => {
   const active = idx => {
@@ -11,22 +22,23 @@ const RoomListTab = ({ activeTab, switchTab }) => {
   };
 
   return (
-    <div className="room-list-tab">
-      <div className={classNames('tab-global', active(0))} onClick={() => switchTab(0)}>
-        <img alt={'IconGlobal'} src={IconGlobal} />
-        <span>Global games</span>
-      </div>
-      <div className={classNames('tab-vn', active(1))} onClick={() => switchTab(1)}>
-        <img alt={'IconVN'} src={IconVN} />
-        <span>VN games</span>
-      </div>
-    </div>
+    <TabContainer>
+      <Tab active={active(0)} text="Global games" onClick={() => switchTab(0)} global />
+      <Tab active={active(1)} text="VN games" onClick={() => switchTab(1)} />
+    </TabContainer>
   );
 };
 
 RoomListTab.propTypes = {
-  activeTab: PropTypes.bool.isRequired,
+  activeTab: PropTypes.number.isRequired,
   switchTab: PropTypes.func.isRequired,
+};
+
+Tab.propTypes = {
+  active: PropTypes.bool.isRequired,
+  text: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+  global: PropTypes.bool.isRequired,
 };
 
 export default RoomListTab;
