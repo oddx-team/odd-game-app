@@ -1,12 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react';
+import { GameContext } from 'contexts/GameContext';
 import CssModules from 'react-css-modules';
 import RoomListTab from './RoomListTab';
 import CardRoom from './CardRoom';
 import GlobalChat from './GlobalChat';
-import styles from 'stylesheets/RoomList.module.scss';
-import { GameContext } from 'contexts/GameContext';
-
 import Api from 'services';
+import styles from 'stylesheets/RoomList.module.scss';
 
 const RoomList = () => {
   const [activeTab, setActiveTab] = useState(0);

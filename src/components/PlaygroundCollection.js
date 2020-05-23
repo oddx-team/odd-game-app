@@ -1,7 +1,6 @@
 import React from 'react';
-import CssModules from 'react-css-modules';
 import OddCard from './oddx/OddCard.js';
-import styles from 'stylesheets/PlaygroundCollection.module.scss';
+import { CollectionWrapper, Header, Content } from 'stylesheets/PlaygroundCollection.style';
 
 const PlaygroundCollection = () => {
   const oddCards = Array(15)
@@ -12,17 +11,17 @@ const PlaygroundCollection = () => {
     }));
 
   return (
-    <div styleName="playground-collection">
-      <div styleName="header">player Collection</div>
-      <div styleName="container">
+    <CollectionWrapper>
+      <Header>Player Collection</Header>
+      <Content>
         {oddCards.map((card, i) => (
           <div key={i}>
             <OddCard {...card} size="small" />
           </div>
         ))}
-      </div>
-    </div>
+      </Content>
+    </CollectionWrapper>
   );
 };
 
-export default CssModules(PlaygroundCollection, styles);
+export default PlaygroundCollection;
