@@ -2,22 +2,20 @@ import styled from 'styled-components';
 
 export const GameBannerWrapper = styled.div`
   width: 100%;
-  height: 0.8rem;
+  height: 0.6rem;
   background: #2d2d2d;
-  &.full {
-    height: 0.7rem;
-  }
 `;
 
 export const MainLogo = styled.div`
   color: #fff;
-  font-size: 0.4rem;
+  font-size: 0.35rem;
   font-weight: bold;
   font-family: 'Orbitron', sans-serif;
   position: absolute;
-  top: 0.12rem;
-  left: 1.2rem;
+  top: 0.1rem;
+  left: 1rem;
   cursor: pointer;
+
   img {
     width: 0.3rem;
     height: 0.3rem;
@@ -35,26 +33,34 @@ export const ProfileContainer = styled.div`
   flex-direction: row;
 `;
 
-export const IconWrapper = styled.div`
-  width: 0.45rem;
-  height: 0.4rem;
-  img {
-    width: 0.27rem;
-    height: 0.27rem;
-    position: absolute;
-    top: 0.02rem;
-    left: 0.05rem;
-  }
-`;
-
 export const IconUser = styled.img`
-  width: 0.45rem;
-  height: 0.45rem;
+  width: 0.4rem;
+  height: 0.4rem;
   border-radius: 50%;
   position: relative;
   left: 0.01rem;
-  top: 0rem;
+  top: 0.05rem;
   border-radius: 50%;
+  border: 0.02rem solid #fff;
+`;
+
+export const IconWrapper = styled(IconUser)`
+  width: 0.3rem;
+  height: 0.3rem;
+  margin-right: 0.07rem;
+  transition: background-color 0.4s;
+  border: none;
+
+  &:hover {
+    content: '';
+    background: #212121;
+    width: 0.4rem;
+    height: 0.4rem;
+    padding: 0.05rem;
+    border-radius: 50%;
+    position: relative;
+    left: 0.06rem;
+  }
 `;
 
 export const IconSearch = styled.img`
@@ -69,9 +75,9 @@ export const StyledCircleLogo = styled.div`
   position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
-  width: 1.2rem;
-  height: 1.2rem;
-  margin-top: 0.2rem;
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.1rem;
   background: #fff;
   border-radius: 50%;
   box-shadow: 2px 7px 8px 0px #ddd;
@@ -81,8 +87,8 @@ export const StyledCircleLogo = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 0.6rem;
-    height: 0.6rem;
+    width: 0.5rem;
+    height: 0.5rem;
   }
 `;
 

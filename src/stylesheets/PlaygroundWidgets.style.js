@@ -5,7 +5,7 @@ export const WidgetWrapper = styled.div`
   bottom: 0rem;
   left: 11rem;
   width: 3.7rem;
-  height: 1.85rem;
+  height: 1.83rem;
   background: #fff;
 `;
 
@@ -35,5 +35,5 @@ export const Tab = styled.div`
 
 export const Container = styled.div`
   width: 100%;
-  height: 2.5rem;
+  height: 2.2rem;
 `;

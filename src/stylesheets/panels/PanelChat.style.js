@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledContainer = styled.div`
   width: 100%;
-  height: 2rem;
+  height: 1rem;
 `;
 
 export const ChatContent = styled.div`

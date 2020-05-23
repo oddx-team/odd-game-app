@@ -56,11 +56,23 @@ export const Subtitle = styled.div`
 export const ButtonCreate = styled.button`
   position: absolute;
   top: 0.1rem;
-  left: 8.6rem;
+  left: 8.46rem;
   color: #fff;
   font-size: 0.22rem;
   font-weight: bold;
   text-transform: uppercase;
+  display: flex;
+
+  img {
+    weight: 0.23rem;
+    height: 0.23rem;
+    margin-left: -0.1rem;
+    margin-right: 0.02rem;
+  }
+  span {
+    position: relative;
+    top: 0.01rem;
+  }
 `;
 
 export const RoomContainer = styled.div`

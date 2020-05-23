@@ -4,6 +4,7 @@ import RoomListTab from './RoomListTab';
 import CardRoom from './CardRoom';
 import GlobalChat from './GlobalChat';
 import IconPlay from 'cdn/assets/icon-play.png';
+import IconPlus from 'cdn/assets/icon-plus2.png';
 import Api from 'services';
 import {
   RoomListWrapper,
@@ -62,7 +63,10 @@ const RoomList = () => {
             <img alt={'icon'} src={IconPlay} />
           </Title>
           <Subtitle>Select any room:</Subtitle>
-          <ButtonCreate className="block accent">Create</ButtonCreate>
+          <ButtonCreate className="block accent">
+            <img src={IconPlus} />
+            <span>Create</span>
+          </ButtonCreate>
 
           <RoomContainer>
             {rooms.map((room, i) => (

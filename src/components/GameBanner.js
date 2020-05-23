@@ -3,7 +3,6 @@ import { useHistory } from 'react-router-dom';
 import { GameContext } from 'contexts/GameContext';
 import classNames from 'classnames';
 
-import IconFriends from 'cdn/assets/icon-friends.png';
 import IconBell from 'cdn/assets/icon-bell.png';
 import IconSearch2 from 'cdn/assets/icon-search.png';
 import IconMenu from 'cdn/assets/icon-hamburger.png';
@@ -57,12 +56,7 @@ const GameBanner = () => {
       <BannerExtra fullBanner={fullBanner} />
 
       <ProfileContainer>
-        <IconWrapper className="block wrapper">
-          <img alt={'IconFriends'} src={IconFriends} />
-        </IconWrapper>
-        <IconWrapper className="block wrapper">
-          <img alt={IconBell} src={IconBell} />
-        </IconWrapper>
+        <IconWrapper alt={'bell'} src={IconBell} tabindex="0" />
         <IconUser alt={'Avatar'} src={`https://www.tinygraphs.com/spaceinvaders/${Date.now()}?size=100`} />
       </ProfileContainer>
     </GameBannerWrapper>
