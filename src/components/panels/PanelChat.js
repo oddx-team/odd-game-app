@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import OddChatMessage from 'components/oddx/OddChatMessage';
 import OddTextInput from 'components/oddx/OddTextInput';
-import { StyledContainer, ChatContent, StyledInput } from 'stylesheets/panels/PanelChat.style';
+import { StyledContainer, ChatContent } from 'stylesheets/panels/PanelChat.style';
 
 const PanelChat = () => {
   const [messages] = useState(new Array(6).fill(null));
@@ -15,10 +15,7 @@ const PanelChat = () => {
           </div>
         ))}
       </ChatContent>
-
-      <StyledInput>
-        <OddTextInput placeholder="Type a message" />
-      </StyledInput>
+      <OddTextInput placeholder="Type a message" />
     </StyledContainer>
   );
 };

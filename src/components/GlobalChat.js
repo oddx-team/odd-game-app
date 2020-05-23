@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
 import { GameContext } from 'contexts/GameContext';
-import CssModules from 'react-css-modules';
 import OddTextInput from './oddx/OddTextInput';
 import OddChatMessage from './oddx/OddChatMessage';
 import IconChat from 'cdn/assets/icon-chat.png';
-import styles from 'stylesheets/GlobalChat.module.scss';
+import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from 'stylesheets/GlobalChat.style';
 
 import Api from 'services';
 
@@ -57,27 +56,32 @@ const GlobalChat = () => {
   };
 
   return (
-    <div styleName="global-chat">
-      <div styleName="chat-tab">
-        <img alt={'IconChat'} src={IconChat} />
-        <span>Chat Box</span>
-      </div>
+    <GlobalChatWrapper>
+      <ChatTab title="Chat Box" />
 
-      <div styleName="chat-container">
-        <div styleName="content">
+      <StyledContainer>
+        <ChatContent>
           {globalChat.map((message, i) => (
             <div key={i}>
               <OddChatMessage {...message} />
             </div>
           ))}
           <div ref={lastRef} />
-        </div>
-        <div styleName="input">
-          <OddTextInput placeholder="Type a message" onSubmit={submitMessage} />
-        </div>
-      </div>
-    </div>
+        </ChatContent>
+
+        <OddTextInput placeholder="Type a message" onSubmit={submitMessage} />
+      </StyledContainer>
+    </GlobalChatWrapper>
   );
 };
 
-export default CssModules(GlobalChat, styles);
+const ChatTab = ({ title }) => {
+  return (
+    <StyledTab>
+      <img alt={'icon'} src={IconChat} />
+      <span>{title}</span>
+    </StyledTab>
+  );
+};
+
+export default GlobalChat;

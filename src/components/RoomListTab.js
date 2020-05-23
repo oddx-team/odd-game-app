@@ -10,7 +10,7 @@ const Tab = ({ active, text, onClick, global }) => {
 
   return (
     <StyledTab className={classNames(active)} onClick={onClick}>
-      <img src={tabIcon} />
+      <img alt={'icon'} src={tabIcon} />
       <span>{text}</span>
     </StyledTab>
   );
@@ -35,10 +35,10 @@ RoomListTab.propTypes = {
 };
 
 Tab.propTypes = {
-  active: PropTypes.bool.isRequired,
+  active: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  global: PropTypes.bool.isRequired,
+  global: PropTypes.bool,
 };
 
 export default RoomListTab;

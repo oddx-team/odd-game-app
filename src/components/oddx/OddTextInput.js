@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { StyledInput } from 'stylesheets/oddx/OddTextInput.style';
 
 const OddTextInput = props => {
   const [value, setValue] = useState('');
@@ -17,17 +18,19 @@ const OddTextInput = props => {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ width: '100%' }}>
-      <input
-        type="text"
-        value={value}
-        onChange={handleChange}
-        style={{ fontSize: '100%', width: '100%' }}
-        placeholder={props.placeholder}
-        disabled={props.disabled}
-      />
-      <input type="submit" value="Submit" style={{ display: 'none' }} disabled={props.disabled} />
-    </form>
+    <StyledInput>
+      <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+        <input
+          type="text"
+          value={value}
+          onChange={handleChange}
+          style={{ fontSize: '100%', width: '100%' }}
+          placeholder={props.placeholder}
+          disabled={props.disabled}
+        />
+        <input type="submit" value="Submit" style={{ display: 'none' }} disabled={props.disabled} />
+      </form>
+    </StyledInput>
   );
 };
 
