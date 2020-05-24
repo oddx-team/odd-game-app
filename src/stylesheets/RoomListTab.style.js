@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { imageCDN } from 'mixins';
 
 export const TabContainer = styled.div`
   width: 100%;
@@ -22,6 +23,12 @@ export const StyledTab = styled.div`
   align-items: center;
   flex-direction: row;
 
+  i {
+    ${imageCDN('icon-vn.png', '0.3rem', '0.3rem')};
+    margin-right: 0.05rem;
+    display: inline-block;
+  }
+
   &.active {
     background: #fff;
     height: 0.53rem;
@@ -31,9 +38,9 @@ export const StyledTab = styled.div`
     z-index: 1;
   }
 
-  img {
-    width: 0.3rem;
-    height: 0.3rem;
-    margin-right: 0.05rem;
+  &.global {
+    i {
+      ${imageCDN('icon-global.png', '0.3rem', '0.3rem')};
+    }
   }
 `;

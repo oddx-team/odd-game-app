@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import IconVN from 'cdn/assets/icon-vn.png';
-import IconGlobal from 'cdn/assets/icon-global.png';
 import { TabContainer, StyledTab } from 'stylesheets/RoomListTab.style';
 
 const Tab = ({ active, text, onClick, global }) => {
-  const tabIcon = global ? IconGlobal : IconVN;
-
   return (
-    <StyledTab className={classNames(active)} onClick={onClick}>
-      <img alt={'icon'} src={tabIcon} />
+    <StyledTab className={classNames({ active, global })} onClick={onClick}>
+      <i />
       <span>{text}</span>
     </StyledTab>
   );

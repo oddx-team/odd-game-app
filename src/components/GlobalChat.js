@@ -4,8 +4,6 @@ import { GameContext } from 'contexts/GameContext';
 import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from 'stylesheets/GlobalChat.style';
 import OddTextInput from './oddx/OddTextInput';
 import OddChatMessage from './oddx/OddChatMessage';
-import IconChat from 'cdn/assets/icon-chat.png';
-
 import Api from 'services';
 
 const GlobalChat = () => {
@@ -79,7 +77,7 @@ const GlobalChat = () => {
 const ChatTab = ({ title }) => {
   return (
     <StyledTab>
-      <img alt={'icon'} src={IconChat} />
+      <i />
       <span>{title}</span>
     </StyledTab>
   );

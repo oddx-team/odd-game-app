@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { imageCDN } from 'mixins';
 
 export const GlobalChatWrapper = styled.div`
   display: flex;
@@ -29,9 +30,9 @@ export const StyledTab = styled.div`
   right: 2rem;
   z-index: 1;
 
-  img {
-    width: 0.3rem;
-    height: 0.3rem;
+  i {
+    ${imageCDN('icon-chat.png', '0.3rem', '0.3rem')};
+    display: inline-block;
     margin-right: 0.05rem;
   }
 `;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { imageCDN } from 'mixins';
 
 export const PanelStartWrapper = styled.div`
   width: 100%;
@@ -16,25 +17,22 @@ export const PanelStartWrapper = styled.div`
   }
 `;
 
-export const Logo = styled.img`
-  width: 4rem;
-  height: 4rem;
+export const Logo = styled.div`
+  ${imageCDN('world.svg', '4rem', '4rem')};
   position: absolute;
   top: 1rem;
   left: 2rem;
 `;
 
-export const LeftOverlay = styled.img`
-  width: 2.6rem;
-  height: 4rem;
+export const LeftOverlay = styled.div`
+  ${imageCDN('bg-extra-left.svg', '2.6rem', '4rem')};
   position: absolute;
   left: 0;
   z-index: 1;
 `;
 
-export const RightOverlay = styled.img`
-  width: 3rem;
-  height: 4rem;
+export const RightOverlay = styled.div`
+  ${imageCDN('bg-extra-right.svg', '3rem', '4rem')};
   position: absolute;
   bottom: 0;
   right: 0;

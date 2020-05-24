@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import IconLogo from 'cdn/assets/logo.png';
+import IconLogo from 'assets/logo.png';
 import classNames from 'classnames';
 import 'stylesheets/oddx/OddCard.scss';
 

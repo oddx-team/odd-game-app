@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { imageCDN } from 'mixins';
 
 export const RoomListWrapper = styled.div`
   width: 100%;
@@ -36,13 +37,13 @@ export const Title = styled.div`
   margin-top: 0.1rem;
   position: relative;
 
-  img {
-    width: 0.38rem;
-    height: 0.38rem;
+  &::before {
+    content: '';
     position: absolute;
     left: 1.6rem;
     top: 0rem;
     cursor: pointer;
+    ${imageCDN('icon-play.png', '0.38rem', '0.38rem')};
   }
 `;
 
@@ -63,11 +64,11 @@ export const ButtonCreate = styled.button`
   text-transform: uppercase;
   display: flex;
 
-  img {
-    weight: 0.23rem;
-    height: 0.23rem;
+  i {
+    ${imageCDN('icon-plus.png', '0.23rem', '0.23rem')};
     margin-left: -0.1rem;
     margin-right: 0.02rem;
+    display: inline-block;
   }
   span {
     position: relative;

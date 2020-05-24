@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { imageCDN } from 'mixins';
 
 export const GameBannerWrapper = styled.div`
   width: 100%;
@@ -44,26 +45,25 @@ export const IconUser = styled.img`
   border: 0.02rem solid #fff;
 `;
 
-export const IconWrapper = styled(IconUser)`
-  width: 0.3rem;
-  height: 0.3rem;
+export const IconBell = styled.div`
+  position: relative;
+  top: 0.05rem;
   margin-right: 0.07rem;
   transition: background-color 0.4s;
-  border: none;
+  border-radius: 50%;
+  background: #212121;
+  width: 0.4rem;
+  height: 0.4rem;
+  padding: 0.05rem;
 
-  &:hover {
-    content: '';
-    background: #212121;
-    width: 0.4rem;
-    height: 0.4rem;
-    padding: 0.05rem;
-    border-radius: 50%;
-    position: relative;
-    left: 0.06rem;
+  i {
+    ${imageCDN('icon-bell.png', '0.3rem', '0.3rem')};
+    display: inline-block;
   }
 `;
 
-export const IconSearch = styled.img`
+export const IconSearch = styled.div`
+  ${imageCDN('icon-search.png', '0.27rem', '0.27rem')};
   position: absolute;
   top: 0.05rem;
   left: 0.05rem;
@@ -92,14 +92,13 @@ export const StyledCircleLogo = styled.div`
   }
 `;
 
-export const ButtonMenu = styled.img`
+export const ButtonMenu = styled.div`
+  ${imageCDN('icon-hamburger.png', '0.32rem', '0.32rem')};
   position: absolute;
   top: 0.13rem;
   left: 3.6rem;
   cursor: pointer;
   background: transparent;
-  width: 0.32rem;
-  height: 0.32rem;
 `;
 
 export const Wrapper = styled.div`

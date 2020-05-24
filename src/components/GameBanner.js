@@ -4,15 +4,12 @@ import classNames from 'classnames';
 import { useHistory } from 'react-router-dom';
 import { GameContext } from 'contexts/GameContext';
 
-import IconBell from 'cdn/assets/icon-bell.png';
-import IconSearch2 from 'cdn/assets/icon-search.png';
-import IconMenu from 'cdn/assets/icon-hamburger.png';
-import OddLogo from 'cdn/assets/logo.png';
+import OddLogo from 'assets/logo.png';
 import {
   GameBannerWrapper,
   MainLogo,
   ProfileContainer,
-  IconWrapper,
+  IconBell,
   IconUser,
   ButtonMenu,
   IconSearch,
@@ -26,10 +23,10 @@ const BannerExtra = ({ fullBanner }) => {
   return (
     <div>
       <Wrapper className={classNames({ hidden: !fullBanner })}>
-        <ButtonMenu alt={'icon'} src={IconMenu} />
+        <ButtonMenu />
 
         <StyledSearchBar>
-          <IconSearch alt={'icon'} src={IconSearch2} />
+          <IconSearch />
           <StyledInput type="text" placeholder="Search" />
         </StyledSearchBar>
       </Wrapper>
@@ -57,7 +54,9 @@ const GameBanner = () => {
       <BannerExtra fullBanner={fullBanner} />
 
       <ProfileContainer>
-        <IconWrapper alt={'bell'} src={IconBell} tabindex="0" />
+        <IconBell>
+          <i />
+        </IconBell>
         <IconUser alt={'Avatar'} src={`https://www.tinygraphs.com/spaceinvaders/${Date.now()}?size=100`} />
       </ProfileContainer>
     </GameBannerWrapper>
@@ -65,7 +64,7 @@ const GameBanner = () => {
 };
 
 BannerExtra.propTypes = {
-  fullBanner: PropTypes.func.isRequired,
+  fullBanner: PropTypes.bool.isRequired,
 };
 
 export default GameBanner;
