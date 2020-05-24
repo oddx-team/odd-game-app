@@ -64,7 +64,7 @@ const RoomList = () => {
           </Title>
           <Subtitle>Select any room:</Subtitle>
           <ButtonCreate className="block accent">
-            <img src={IconPlus} />
+            <img alt={'icon'} src={IconPlus} />
             <span>Create</span>
           </ButtonCreate>
 
