@@ -72,3 +72,12 @@ input:focus,
 button:focus {
   outline: none;
 }
+
+input {
+  background-color: transparent;
+  border: 0px;
+  outline: none;
+  box-shadow: none;
+  padding-left: 0.1rem;
+  font-size: 0.2rem;
+}

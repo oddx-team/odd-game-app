@@ -11,11 +11,11 @@
 }
 
 .main {
-  @include sizeWH(14.7rem, calc(100vmin - 0.7rem), $pos: relative);
+  @include sizeWH(14.7rem, calc(100vmin - 0.6rem), $pos: relative);
 }
 
 .header-bg {
-  @include sizeWH(100%, 0.7rem);
+  @include sizeWH(100%, 0.6rem);
   @include position(absolute, 0);
   background: #2d2d2d;
 }

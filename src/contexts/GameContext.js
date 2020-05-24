@@ -6,6 +6,9 @@ export const GameContext = createContext(null, null);
 
 const initialState = {
   globalChat: [],
+  enRooms: [],
+  vnRooms: [],
+  cards: [],
   online: false,
   fullBanner: true,
   error: null,
