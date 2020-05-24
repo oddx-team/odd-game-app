@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import PanelStart from './components/panels/PanelStart';
-import PageNotFound from 'components/PageNotFound';
-import GameBanner from 'components/GameBanner';
-import RoomList from 'components/RoomList.js';
-import Playground from 'components/Playground.js';
+import Header from 'components/Header';
+import PageLanding from './components/Page/Landing';
+import PageNotFound from 'components/Page/NotFound';
+import PageRooms from 'components/Page/Rooms';
+import PagePlayground from 'components/Page/Playground';
 
 import GameContextProvider from './contexts/GameContext.js';
 import 'App.scss';
@@ -16,11 +16,11 @@ function App() {
         <div id="app">
           <div className="header-bg" />
           <div className="main">
-            <GameBanner />
+            <Header />
             <Switch>
-              <Route exact path="/" component={PanelStart} />
-              <Route exact path="/rooms" component={RoomList} />
-              <Route exact path="/play" component={Playground} />
+              <Route exact path="/" component={PageLanding} />
+              <Route exact path="/rooms" component={PageRooms} />
+              <Route exact path="/play" component={PagePlayground} />
 
               {/* Default case: page not found */}
               <Route component={PageNotFound} />
