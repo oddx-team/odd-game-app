@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import utils from 'utils';
-import { StyledMessage, Avatar, Status, Name, Message, Time } from 'stylesheets/oddx/OddChatMessage.style.js';
+import { StyledMessage, Avatar, Status, Name, Message, Time } from './styled';
 import { GameContext } from 'contexts/GameContext';
 
 const OddChatMessage = ({ user, message, time, small }) => {

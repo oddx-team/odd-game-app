@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import PanelChat from 'components/panels/PanelChat';
-import PanelScoreboard from 'components/panels/PanelScoreboard';
+import PanelChat from './PanelChat';
+import PanelScoreboard from './PanelScoreboard';
 import { WidgetWrapper, Header, Tab, Container } from './styled';
 
 const StyledTab = ({ active, label, onClick }) => {

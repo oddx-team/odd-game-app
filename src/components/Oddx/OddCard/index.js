@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import IconLogo from 'assets/logo.png';
 import classNames from 'classnames';
-import 'stylesheets/oddx/OddCard.scss';
+import './styled.scss';
 
 const OddCard = ({ color, size, text }) => {
   const cardClasses = classNames('block odd-card', color, size);

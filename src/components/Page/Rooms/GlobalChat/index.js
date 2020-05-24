@@ -2,8 +2,8 @@ import React, { useEffect, useState, useRef, useContext } from 'react';
 import { GameContext } from 'contexts/GameContext';
 import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from './styled';
 import PropTypes from 'prop-types';
-import OddTextInput from 'components/oddx/OddTextInput';
-import OddChatMessage from 'components/oddx/OddChatMessage';
+import OddTextInput from 'components/Oddx/OddTextInput';
+import OddChatMessage from 'components/Oddx/OddChatMessage';
 import Api from 'services';
 
 const GlobalChat = () => {

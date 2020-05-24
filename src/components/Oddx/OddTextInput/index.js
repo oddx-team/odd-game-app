@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { StyledInput } from 'stylesheets/oddx/OddTextInput.style';
+import { StyledInput } from './styled';
 
 const OddTextInput = props => {
   const [value, setValue] = useState('');
