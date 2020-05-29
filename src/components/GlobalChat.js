@@ -21,14 +21,19 @@ const GlobalChat = () => {
       const conn = new WebSocket(wsProtocol + document.location.host + CHAT_WS_URI);
       setWs(conn);
 
-      conn.onclose = () => {
+      // Need to improve
+      ws.onclose = () => {
         setWs(null);
       };
-      conn.onmessage = e => {
+      ws.onmessage = e => {
         const newMessages = JSON.parse(e.data);
         setMessages(oldMessages => [...oldMessages, newMessages]);
       };
     }
+
+    return () => {
+      setWs(null);
+    };
   }, []);
 
   const scrollToBottom = () => {
