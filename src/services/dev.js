@@ -1,12 +1,17 @@
 import utils from '../utils';
 
 export default {
-  async getProfile() {
-    await utils.delay(50);
+  async registerUserName() {
+    await utils.delay(500);
     return utils.camelizeKeys({
-      accountId: '123124215',
-      region: 'sg',
-      language: 'en',
+      token: 'sampleToken',
+    });
+  },
+
+  async getMe() {
+    await utils.delay(500);
+    return utils.camelizeKeys({
+      userName: 'Test',
     });
   },
 
@@ -107,7 +112,7 @@ export default {
       new Array(26).fill(null).map((_, i) => ({
         id: i,
         name: `Room ${utils.convertChar(i)}`,
-        host: `player${(i % 3) + 1}`,
+        host: `Player${(i % 3) + 1}`,
         total: 10,
         current: Math.floor(Math.random() * 10),
         viewers: Math.floor(Math.random() * 15),
@@ -121,7 +126,7 @@ export default {
       new Array(26).fill(null).map((_, i) => ({
         id: i + 26,
         name: `Phòng ${utils.convertChar(i)}`,
-        host: `player${(i % 3) + 1}`,
+        host: `Player${(i % 3) + 1}`,
         total: 10,
         current: Math.floor(Math.random() * 10),
         viewers: Math.floor(Math.random() * 15),

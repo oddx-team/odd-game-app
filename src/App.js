@@ -6,10 +6,10 @@ import PageNotFound from 'components/Page/NotFound';
 import PageRooms from 'components/Page/Rooms';
 import PagePlayground from 'components/Page/Playground';
 
-import GameContextProvider from './contexts/GameContext.js';
+import GameContextProvider from 'contexts/GameContext.js';
 import 'App.scss';
 
-function App() {
+const App = () => {
   return (
     <GameContextProvider>
       <BrowserRouter>
@@ -22,7 +22,6 @@ function App() {
               <Route exact path="/rooms" component={PageRooms} />
               <Route exact path="/play" component={PagePlayground} />
 
-              {/* Default case: page not found */}
               <Route component={PageNotFound} />
             </Switch>
           </div>
@@ -30,6 +29,6 @@ function App() {
       </BrowserRouter>
     </GameContextProvider>
   );
-}
+};
 
 export default App;

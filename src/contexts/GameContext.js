@@ -1,10 +1,12 @@
 import React, { createContext, useReducer } from 'react';
-import { gameReducer } from '../reducers/gameReducer';
+import { gameReducer } from 'reducers/gameReducer';
 import PropTypes from 'prop-types';
 
 export const GameContext = createContext(null, null);
 
 const initialState = {
+  isLoggedIn: false,
+  userName: null,
   globalChat: [],
   enRooms: [],
   vnRooms: [],

@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { GameContext } from 'contexts/GameContext';
 
@@ -13,13 +13,22 @@ import {
   ButtonStart,
   Title,
 } from './styled';
+import Api from 'services';
 
 const PageLanding = () => {
+  const [userName, setUserName] = useState(null);
   const history = useHistory();
-  const { dispatch } = useContext(GameContext);
+  const { state, dispatch } = useContext(GameContext);
 
-  const startGame = () => {
-    history.push('/rooms');
+  const startGame = async () => {
+    if (!userName) return;
+
+    try {
+      await Api.registerUserName(userName);
+      history.push('/rooms');
+    } catch (err) {
+      alert('This username is picked!');
+    }
   };
 
   useEffect(
@@ -32,6 +41,15 @@ const PageLanding = () => {
     [dispatch],
   );
 
+  useEffect(
+    () => {
+      if (state.isLoggedIn) {
+        history.push('/rooms');
+      }
+    },
+    [state.isLoggedIn],
+  );
+
   return (
     <LandingWrapper>
       <Logo />
@@ -41,7 +59,13 @@ const PageLanding = () => {
       <Container>
         <Title>Play now</Title>
         <StyledNamePanel className="wrapper block">
-          <TextInput type="text" placeholder="Enter your name" onKeyDown={e => e.key === 'Enter' && startGame()} />
+          <TextInput
+            type="text"
+            placeholder="Enter your name"
+            value={userName}
+            onChange={e => setUserName(e.target.value)}
+            onKeyDown={e => e.key === 'Enter' && startGame()}
+          />
         </StyledNamePanel>
         <ButtonStart className="block blue" onClick={() => startGame()}>
           <span>Start</span>

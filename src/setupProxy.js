@@ -11,4 +11,12 @@ module.exports = function(app) {
       ws: true,
     }),
   );
+  app.use(
+    '/socket.io',
+    createProxyMiddleware({
+      target: serverURL,
+      changeOrigin: false,
+      ws: false,
+    }),
+  );
 };

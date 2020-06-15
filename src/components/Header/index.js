@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { useHistory } from 'react-router-dom';
@@ -18,6 +18,7 @@ import {
   StyledCircleLogo,
   Wrapper,
 } from './styled';
+import Api from 'services';
 
 const HeaderExtra = ({ fullBanner }) => {
   return (
@@ -42,12 +43,34 @@ const HeaderExtra = ({ fullBanner }) => {
 
 const Header = () => {
   const history = useHistory();
-  const { state } = useContext(GameContext);
+  const { state, dispatch } = useContext(GameContext);
   const { fullBanner } = state;
+
+  useEffect(
+    () => {
+      Api.getMe()
+        .then(data => {
+          const { userName } = data;
+          dispatch({
+            type: 'UPDATE_LOGIN',
+            isLoggedIn: true,
+            userName,
+          });
+        })
+        .catch(() => {
+          dispatch({
+            type: 'UPDATE_LOGIN',
+            isLoggedIn: false,
+            userName: null,
+          });
+        });
+    },
+    [dispatch],
+  );
 
   return (
     <HeaderWrapper>
-      <MainLogo onClick={() => history.push('/')}>
+      <MainLogo onClick={() => history.push(state.isLoggedIn ? '/rooms' : '/')}>
         <img alt={'logo'} src={OddLogo} />
         <span>Oddx</span>
       </MainLogo>
