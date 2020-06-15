@@ -26,11 +26,13 @@ const GlobalChat = () => {
   }, []);
 
   const fetchGlobalChats = async () => {
-    const messages = await Api.getChats();
-    dispatch({
-      type: 'UPDATE_GLOBAL_CHAT',
-      messages,
-    });
+    if (!globalChat.length) {
+      const messages = await Api.getChats();
+      dispatch({
+        type: 'UPDATE_GLOBAL_CHAT',
+        messages,
+      });
+    }
   };
 
   const initSocket = () => {
