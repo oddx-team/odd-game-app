@@ -110,14 +110,6 @@ export const StyledCircleLogo = styled.div`
   }
 `
 
-export const ButtonMenu = styled.div`
-  ${imageCDN('icon-hamburger.png', '0.27rem', '0.27rem')};
-  position: absolute;
-  top: 0.19rem;
-  right: 0.15rem;
-  cursor: pointer;
-`
-
 export const Wrapper = styled.div`
   &.hidden {
     visibility: hidden;

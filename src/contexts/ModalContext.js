@@ -5,7 +5,6 @@ import PropTypes from 'prop-types'
 export const ModalContext = createContext(null, null)
 
 const initialState = {
-  openMenu: false,
   error: null
 }
 

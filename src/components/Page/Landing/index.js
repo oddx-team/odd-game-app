@@ -16,7 +16,7 @@ import {
 import Api from 'services'
 
 const PageLanding = () => {
-  const [username, setusername] = useState('')
+  const [username, setUsername] = useState('')
   const history = useHistory()
   const { state, dispatch } = useContext(GameContext)
 
@@ -68,7 +68,7 @@ const PageLanding = () => {
             type='text'
             placeholder='Enter your name'
             value={username}
-            onChange={e => setusername(e.target.value)}
+            onChange={e => setUsername(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && startGame()}
           />
         </StyledNamePanel>
