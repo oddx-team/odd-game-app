@@ -50,18 +50,18 @@ const Header = () => {
     () => {
       Api.getMe()
         .then(data => {
-          const { userName } = data
+          const { username } = data
           dispatch({
             type: 'UPDATE_LOGIN',
             isLoggedIn: true,
-            userName
+            username
           })
         })
         .catch(() => {
           dispatch({
             type: 'UPDATE_LOGIN',
             isLoggedIn: false,
-            userName: null
+            username: null
           })
         })
     },
@@ -80,7 +80,12 @@ const Header = () => {
         <IconBell>
           <i />
         </IconBell>
+
         <IconUser alt='Avatar' src={`https://www.tinygraphs.com/spaceinvaders/${Date.now()}?size=100`} />
+        <div className='info'>
+          <div className='name'>winner</div>
+          <div className='points'>Points: 10.000</div>
+        </div>
       </ProfileContainer>
     </HeaderWrapper>
   )

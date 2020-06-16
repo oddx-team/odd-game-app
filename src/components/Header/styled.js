@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { imageCDN } from 'mixins'
 
 export const HeaderWrapper = styled.div`
@@ -26,12 +26,30 @@ export const MainLogo = styled.div`
 
 export const ProfileContainer = styled.div`
   position: absolute;
-  top: 0.05rem;
-  right: 0.8rem;
+  top: 0.04rem;
+  right: 0.4rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
+
+  .info {
+    margin-top: 0.09rem;
+    width: 1.4rem;
+    text-align: left;
+    .name {
+      color: #fff;
+      font-size: 0.17rem;
+      margin-left: 0.08rem;
+      text-align: left;
+    }
+  
+    .points {
+      color: #D9DEE0;
+      font-size: 0.14rem;
+      margin-left: 0.08rem;
+    }
+  }
 `
 
 export const IconUser = styled.img`

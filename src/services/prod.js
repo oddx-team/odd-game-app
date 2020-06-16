@@ -18,8 +18,8 @@ function api (method, svc, data = {}) {
 }
 
 export default {
-  registerUserName (userName) {
-    return api('post', 'authenticate/register', { userName })
+  registerUsername (username) {
+    return api('post', 'authenticate/register', { username })
   },
   getMe () {
     return api('get', 'authenticate/me')

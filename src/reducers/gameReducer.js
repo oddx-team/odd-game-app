@@ -1,7 +1,7 @@
 export const gameReducer = (state, action) => {
   switch (action.type) {
     case 'UPDATE_LOGIN':
-      return { ...state, isLoggedIn: action.isLoggedIn, userName: action.userName }
+      return { ...state, isLoggedIn: action.isLoggedIn, username: action.username }
     case 'UPDATE_ONLINE_STATUS':
       return { ...state, online: !state.online }
     case 'UPDATE_GLOBAL_CHAT':

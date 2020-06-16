@@ -6,7 +6,7 @@ export const GameContext = createContext(null, null)
 
 const initialState = {
   isLoggedIn: false,
-  userName: null,
+  username: null,
   globalChat: [],
   enRooms: [],
   vnRooms: [],
