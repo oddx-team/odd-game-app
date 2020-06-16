@@ -1,5 +1,4 @@
 import axios from 'axios'
-import utils from 'utils'
 
 const API = '/api'
 
@@ -9,7 +8,7 @@ function api (method, svc, data = {}) {
   const params = {
     method,
     url,
-    data: utils.snakifyKeys(data),
+    data,
     headers: {
       'Content-Type': 'application/json'
     }
