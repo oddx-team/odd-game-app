@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const WidgetWrapper = styled.div`
   position: absolute;
@@ -7,14 +7,14 @@ export const WidgetWrapper = styled.div`
   width: 3.7rem;
   height: 1.83rem;
   background: #fff;
-`;
+`
 
 export const Header = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-`;
+`
 
 export const Tab = styled.div`
   width: 50%;
@@ -31,9 +31,9 @@ export const Tab = styled.div`
   &.active {
     background: #efca0d;
   }
-`;
+`
 
 export const Container = styled.div`
   width: 100%;
   height: 2.2rem;
-`;
+`

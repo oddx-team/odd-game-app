@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const PlaygroundWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
-`;
+`
 
 export const Header = styled.div`
   padding: 0.1rem 0 0 0.2rem;
@@ -12,7 +12,7 @@ export const Header = styled.div`
   font-size: 0.23rem;
   font-weight: bold;
   text-align: left;
-`;
+`
 
 export const Container = styled.div`
   display: flex;
@@ -20,25 +20,25 @@ export const Container = styled.div`
   align-items: center;
   flex-direction: row;
   justify-content: flex-start;
-`;
+`
 
 export const BlackCardContainer = styled.div`
   padding: 0.1rem 0 0 0.2rem;
   text-align: left;
-`;
+`
 
-export const WhiteCardContainer = styled(BlackCardContainer)``;
+export const WhiteCardContainer = styled(BlackCardContainer)``
 
 export const LeftTitle = styled.div`
   color: #000;
   font-size: 0.2rem;
   font-style: italic;
-`;
+`
 
 export const RightTitle = styled(LeftTitle)`
   position: absolute;
   top: 0.48rem;
-`;
+`
 
 export const ButtonConfirm = styled.button`
   width: 2.52rem;
@@ -46,7 +46,7 @@ export const ButtonConfirm = styled.button`
   font-size: 0.21rem;
   font-weight: bold;
   text-transform: uppercase;
-`;
+`
 
 export const CardsList = styled.div`
   position: absolute;
@@ -60,4 +60,4 @@ export const CardsList = styled.div`
   overflow-y: auto;
   flex-wrap: wrap;
   justify-content: flex-start;
-`;
+`

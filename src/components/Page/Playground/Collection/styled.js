@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const CollectionWrapper = styled.div`
   width: 10.9rem;
@@ -7,7 +7,7 @@ export const CollectionWrapper = styled.div`
   position: absolute;
   bottom: 0rem;
   left: 0rem;
-`;
+`
 
 export const Header = styled.div`
   color: #fff;
@@ -18,7 +18,7 @@ export const Header = styled.div`
   height: 0.3rem;
   padding-top: 0.07rem;
   font-family: 'Shentox', sans-serif;
-`;
+`
 
 export const Content = styled.div`
   display: flex;
@@ -31,4 +31,4 @@ export const Content = styled.div`
   justify-content: flex-start;
   overflow-y: auto;
   height: 1.55rem;
-`;
+`

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { imageCDN } from 'mixins';
+import styled from 'styled-components'
+import { imageCDN } from 'mixins'
 
 export const TabContainer = styled.div`
   width: 100%;
@@ -9,7 +9,7 @@ export const TabContainer = styled.div`
   align-items: center;
   flex-direction: row;
   justify-content: flex-start;
-`;
+`
 
 export const StyledTab = styled.div`
   width: 1.9rem;
@@ -43,4 +43,4 @@ export const StyledTab = styled.div`
       ${imageCDN('icon-global.png', '0.3rem', '0.3rem')};
     }
   }
-`;
+`

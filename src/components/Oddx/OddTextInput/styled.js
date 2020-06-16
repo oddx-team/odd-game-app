@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledInput = styled.div`
   display: flex;
@@ -18,4 +18,4 @@ export const StyledInput = styled.div`
     padding-top: 0.05rem;
     border-radius: 0.1rem;
   }
-`;
+`

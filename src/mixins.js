@@ -2,8 +2,8 @@ export const sizeWH = (width, height) => {
   return `
     width: ${width};
     height: ${height};
-  `;
-};
+  `
+}
 
 export const textMixin = ({
   color = null,
@@ -12,7 +12,7 @@ export const textMixin = ({
   transform = null,
   decoration = null,
   align = null,
-  style = null,
+  style = null
 }) => {
   return `
     color: ${color};
@@ -22,16 +22,16 @@ export const textMixin = ({
     text-decoration: ${decoration};
     text-align: ${align};
     font-style: ${style};
-  `;
-};
+  `
+}
 
 export const imageCDN = (path, width, height, mode = 'contain', pos = 'center') => {
-  const cdn = './assets';
+  const cdn = './assets'
   return `
     ${sizeWH(width, height)}
     background: url(${require(`${cdn}/${path}`)}) ${pos} / ${mode} no-repeat;
-  `;
-};
+  `
+}
 
 export const alignCenter = () => {
   return `
@@ -39,8 +39,8 @@ export const alignCenter = () => {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%)
-  `;
-};
+  `
+}
 
 export const flexCenter = direction => {
   return `
@@ -48,8 +48,8 @@ export const flexCenter = direction => {
     justify-content: center;
     align-items: center;
     flex-direction: ${direction};
-  `;
-};
+  `
+}
 
 export const position = ({ pos, top = null, right = null, bottom = null, left = null, zIndex = null }) => {
   return `
@@ -59,5 +59,5 @@ export const position = ({ pos, top = null, right = null, bottom = null, left = 
     bottom: ${bottom};
     left: ${left};
     z-index: ${zIndex};
-  `;
-};
+  `
+}

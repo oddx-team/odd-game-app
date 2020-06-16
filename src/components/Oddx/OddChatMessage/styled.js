@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledMessage = styled.div`
   position: relative;
@@ -18,7 +18,7 @@ export const StyledMessage = styled.div`
       margin-left: 0.05rem;
     }
   }
-`;
+`
 
 export const Status = styled.div`
   position: absolute;
@@ -45,14 +45,14 @@ export const Status = styled.div`
       background: #1dba7b;
     }
   }
-`;
+`
 
 export const Name = styled.div`
   font-weight: bold;
   position: absolute;
   top: 0.1rem;
   left: 0.57rem;
-`;
+`
 
 export const Message = styled.div`
   position: relative;
@@ -60,7 +60,7 @@ export const Message = styled.div`
   left: 0.47rem;
   width: 2.7rem;
   word-wrap: break-word;
-`;
+`
 
 export const Time = styled.div`
   position: absolute;
@@ -68,10 +68,10 @@ export const Time = styled.div`
   top: 0.12rem;
   font-size: 0.16rem;
   color: #212121;
-`;
+`
 
 export const Avatar = styled.img`
   width: 0.42rem;
   height: 0.42rem;
   border-radius: 50%;
-`;
+`

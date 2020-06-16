@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import { GameContext } from 'contexts/GameContext';
+import React, { useState, useEffect, useContext } from 'react'
+import { useHistory } from 'react-router-dom'
+import { GameContext } from 'contexts/GameContext'
 
 import {
   LandingWrapper,
@@ -11,44 +11,44 @@ import {
   StyledNamePanel,
   TextInput,
   ButtonStart,
-  Title,
-} from './styled';
-import Api from 'services';
+  Title
+} from './styled'
+import Api from 'services'
 
 const PageLanding = () => {
-  const [userName, setUserName] = useState(null);
-  const history = useHistory();
-  const { state, dispatch } = useContext(GameContext);
+  const [userName, setUserName] = useState(null)
+  const history = useHistory()
+  const { state, dispatch } = useContext(GameContext)
 
   const startGame = async () => {
-    if (!userName) return;
+    if (!userName) return
 
     try {
-      await Api.registerUserName(userName);
-      history.push('/rooms');
+      await Api.registerUserName(userName)
+      history.push('/rooms')
     } catch (err) {
-      alert('This username is picked!');
+      // Insert error: Username is picked
     }
-  };
+  }
 
   useEffect(
     () => {
       dispatch({
         type: 'SET_FULL_BANNER',
-        fullBanner: false,
-      });
+        fullBanner: false
+      })
     },
-    [dispatch],
-  );
+    [dispatch]
+  )
 
   useEffect(
     () => {
       if (state.isLoggedIn) {
-        history.push('/rooms');
+        history.push('/rooms')
       }
     },
-    [state.isLoggedIn],
-  );
+    [state.isLoggedIn]
+  )
 
   return (
     <LandingWrapper>
@@ -58,21 +58,21 @@ const PageLanding = () => {
 
       <Container>
         <Title>Play now</Title>
-        <StyledNamePanel className="wrapper block">
+        <StyledNamePanel className='wrapper block'>
           <TextInput
-            type="text"
-            placeholder="Enter your name"
+            type='text'
+            placeholder='Enter your name'
             value={userName}
             onChange={e => setUserName(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && startGame()}
           />
         </StyledNamePanel>
-        <ButtonStart className="block blue" onClick={() => startGame()}>
+        <ButtonStart className='block blue' onClick={() => startGame()}>
           <span>Start</span>
         </ButtonStart>
       </Container>
     </LandingWrapper>
-  );
-};
+  )
+}
 
-export default PageLanding;
+export default PageLanding

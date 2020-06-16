@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import { imageCDN } from 'mixins';
+import styled from 'styled-components'
+import { imageCDN } from 'mixins'
 
 export const HeaderWrapper = styled.div`
   width: 100%;
   height: 0.6rem;
   background: #2d2d2d;
-`;
+`
 
 export const MainLogo = styled.div`
   color: #fff;
@@ -22,7 +22,7 @@ export const MainLogo = styled.div`
     height: 0.3rem;
     margin-right: 0.05rem;
   }
-`;
+`
 
 export const ProfileContainer = styled.div`
   position: absolute;
@@ -32,7 +32,7 @@ export const ProfileContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: row;
-`;
+`
 
 export const IconUser = styled.img`
   width: 0.4rem;
@@ -43,7 +43,7 @@ export const IconUser = styled.img`
   top: 0.05rem;
   border-radius: 50%;
   border: 0.02rem solid #fff;
-`;
+`
 
 export const IconBell = styled.div`
   position: relative;
@@ -60,7 +60,7 @@ export const IconBell = styled.div`
     ${imageCDN('icon-bell.png', '0.3rem', '0.3rem')};
     display: inline-block;
   }
-`;
+`
 
 export const IconSearch = styled.div`
   ${imageCDN('icon-search.png', '0.27rem', '0.27rem')};
@@ -69,7 +69,7 @@ export const IconSearch = styled.div`
   left: 0.05rem;
   width: 0.27rem;
   height: 0.27rem;
-`;
+`
 
 export const StyledCircleLogo = styled.div`
   position: absolute;
@@ -90,7 +90,7 @@ export const StyledCircleLogo = styled.div`
     width: 0.5rem;
     height: 0.5rem;
   }
-`;
+`
 
 export const ButtonMenu = styled.div`
   ${imageCDN('icon-hamburger.png', '0.32rem', '0.32rem')};
@@ -99,13 +99,13 @@ export const ButtonMenu = styled.div`
   left: 3.6rem;
   cursor: pointer;
   background: transparent;
-`;
+`
 
 export const Wrapper = styled.div`
   &.hidden {
     visibility: hidden;
   }
-`;
+`
 
 export const StyledSearchBar = styled.div`
   width: 2.5rem;
@@ -124,7 +124,7 @@ export const StyledSearchBar = styled.div`
     background: #fafafa;
     width: 4.48rem;
   }
-`;
+`
 
 export const StyledInput = styled.input`
   position: absolute;
@@ -132,4 +132,4 @@ export const StyledInput = styled.input`
   left: 0.05rem;
   width: 89%;
   margin-left: 0.2rem;
-`;
+`

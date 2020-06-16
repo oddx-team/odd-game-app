@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { imageCDN } from 'mixins';
+import styled from 'styled-components'
+import { imageCDN } from 'mixins'
 
 export const GlobalChatWrapper = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const GlobalChatWrapper = styled.div`
   right: 0;
   margin-left: 0.1rem;
   height: 100%;
-`;
+`
 
 export const StyledTab = styled.div`
   display: flex;
@@ -35,7 +35,7 @@ export const StyledTab = styled.div`
     display: inline-block;
     margin-right: 0.05rem;
   }
-`;
+`
 
 export const StyledContainer = styled.div`
   width: 3.5rem;
@@ -49,10 +49,10 @@ export const StyledContainer = styled.div`
   flex-direction: column;
   flex: 1;
   background: #fff;
-`;
+`
 
 export const ChatContent = styled.div`
   border-top: 0.013rem solid #ddd;
   flex: 1;
   overflow-y: auto;
-`;
+`

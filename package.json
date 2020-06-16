@@ -21,15 +21,10 @@
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
-    "babel-eslint": "10.0.3",
-    "eslint": "^6.6.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.0",
-    "eslint-plugin-react": "^7.9.1",
     "http-proxy-middleware": "^1.0.3",
     "husky": "^4.2.5",
     "prettier": "1.13.5",
-    "prettier-eslint": "^8.8.1"
+    "standard": "^14.3.4"
   },
   "scripts": {
     "dev": "REACT_APP_NODE_ENV=development react-scripts start",
@@ -38,11 +33,9 @@
     "build": "REACT_APP_NODE_ENV=production GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "test:coverage": "react-scripts test --coverage",
-    "lint": "eslint src/",
+    "lint": "standard",
+    "lint:fix": "standard --fix",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -54,6 +47,16 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "standard": {
+    "ignore": [
+      "build/*"
+    ],
+    "env": [
+      "jest",
+      "es6",
+      "browser"
     ]
   },
   "husky": {

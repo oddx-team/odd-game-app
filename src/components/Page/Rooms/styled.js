@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { imageCDN } from 'mixins';
+import styled from 'styled-components'
+import { imageCDN } from 'mixins'
 
 export const PageRoomWrapper = styled.div`
   width: 100%;
@@ -11,11 +11,11 @@ export const PageRoomWrapper = styled.div`
   justify-content: flex-start;
   margin: 0 auto;
   align-items: stretch;
-`;
+`
 
 export const OuterWrapper = styled.div`
   width: 75.5%;
-`;
+`
 
 export const Container = styled.div`
   width: 100%;
@@ -27,7 +27,7 @@ export const Container = styled.div`
   padding-left: 0.5rem;
   padding-bottom: 0.5rem;
   position: relative;
-`;
+`
 
 export const Title = styled.div`
   color: #000;
@@ -45,14 +45,14 @@ export const Title = styled.div`
     cursor: pointer;
     ${imageCDN('icon-play.png', '0.38rem', '0.38rem')};
   }
-`;
+`
 
 export const Subtitle = styled.div`
   color: #000;
   font-size: 0.18rem;
   font-weight: normal;
   text-align: left;
-`;
+`
 
 export const ButtonCreate = styled.button`
   position: absolute;
@@ -74,7 +74,7 @@ export const ButtonCreate = styled.button`
     position: relative;
     top: 0.01rem;
   }
-`;
+`
 
 export const RoomContainer = styled.div`
   justify-content: flex-start;
@@ -83,4 +83,4 @@ export const RoomContainer = styled.div`
   justify-content: left;
   align-items: center;
   flex-direction: row;
-`;
+`

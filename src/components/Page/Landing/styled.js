@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { imageCDN } from 'mixins';
+import styled from 'styled-components'
+import { imageCDN } from 'mixins'
 
 export const LandingWrapper = styled.div`
   width: 100%;
@@ -15,21 +15,21 @@ export const LandingWrapper = styled.div`
     clip-path: polygon(0 0, 100% 0, 68% 100%, 0% 100%);
     background: #fff;
   }
-`;
+`
 
 export const Logo = styled.div`
   ${imageCDN('world.svg', '4rem', '4rem')};
   position: absolute;
   top: 1rem;
   left: 2rem;
-`;
+`
 
 export const LeftOverlay = styled.div`
   ${imageCDN('bg-extra-left.svg', '2.6rem', '4rem')};
   position: absolute;
   left: 0;
   z-index: 1;
-`;
+`
 
 export const RightOverlay = styled.div`
   ${imageCDN('bg-extra-right.svg', '3rem', '4rem')};
@@ -37,7 +37,7 @@ export const RightOverlay = styled.div`
   bottom: 0;
   right: 0;
   z-index: 1;
-`;
+`
 
 export const Container = styled.div`
   position: absolute;
@@ -46,14 +46,14 @@ export const Container = styled.div`
   color: #000;
   font-size: 0.35rem;
   font-weight: bold;
-`;
+`
 
 export const StyledNamePanel = styled.div`
   padding-bottom: 0.1rem;
   position: relative;
   top: 0.1rem;
   left: 0rem;
-`;
+`
 
 export const TextInput = styled.input`
   font-size: 0.2rem;
@@ -61,7 +61,7 @@ export const TextInput = styled.input`
   width: 3.5rem;
   height: 0.45rem;
   padding-right: 0.1rem;
-`;
+`
 
 export const ButtonStart = styled.button`
   width: 3.5rem;
@@ -71,6 +71,6 @@ export const ButtonStart = styled.button`
   font-weight: bold;
   text-transform: uppercase;
   margin-top: 0.2rem;
-`;
+`
 
-export const Title = styled.div``;
+export const Title = styled.div``
