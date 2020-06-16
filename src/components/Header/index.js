@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { useHistory } from 'react-router-dom'
 import { GameContext } from 'contexts/GameContext'
+import { ModalContext } from 'contexts/ModalContext'
 
 import OddLogo from 'assets/logo.png'
+import HeaderMenu from '../HeaderMenu'
 import {
   HeaderWrapper,
   MainLogo,
@@ -24,8 +26,6 @@ const HeaderExtra = ({ fullBanner }) => {
   return (
     <div>
       <Wrapper className={classNames({ hidden: !fullBanner })}>
-        <ButtonMenu />
-
         <StyledSearchBar>
           <IconSearch />
           <StyledInput type='text' placeholder='Search' />
@@ -44,7 +44,9 @@ const HeaderExtra = ({ fullBanner }) => {
 const Header = () => {
   const history = useHistory()
   const { state, dispatch } = useContext(GameContext)
+  const { modalState, modalDispatch } = useContext(ModalContext)
   const { fullBanner } = state
+  const { openMenu } = modalState
 
   useEffect(
     () => {
@@ -68,6 +70,13 @@ const Header = () => {
     [dispatch]
   )
 
+  const toggleMenu = () => {
+    modalDispatch({
+      type: 'UPDATE_OPEN_MENU',
+      openMenu: !openMenu
+    })
+  }
+
   return (
     <HeaderWrapper>
       <MainLogo onClick={() => history.push(state.isLoggedIn ? '/rooms' : '/')}>
@@ -76,17 +85,22 @@ const Header = () => {
       </MainLogo>
       <HeaderExtra fullBanner={fullBanner} />
 
-      <ProfileContainer>
-        <IconBell>
-          <i />
-        </IconBell>
+      {state.isLoggedIn &&
+        <div>
+          <ProfileContainer>
+            <IconBell>
+              <i />
+            </IconBell>
 
-        <IconUser alt='Avatar' src={`https://www.tinygraphs.com/spaceinvaders/${Date.now()}?size=100`} />
-        <div className='info'>
-          <div className='name'>winner</div>
-          <div className='points'>Points: 10.000</div>
-        </div>
-      </ProfileContainer>
+            <IconUser alt='Avatar' src={`https://www.tinygraphs.com/spaceinvaders/${Date.now()}?size=100`} />
+            <div className='info'>
+              <div className='name'>{state.username}</div>
+              <div className='points'>Points: {state.points}</div>
+            </div>
+          </ProfileContainer>
+          <ButtonMenu onClick={() => toggleMenu()} />
+        </div>}
+      <HeaderMenu />
     </HeaderWrapper>
   )
 }

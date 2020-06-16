@@ -25,6 +25,11 @@ const PageLanding = () => {
 
     try {
       await Api.registerUsername(username)
+      dispatch({
+        type: 'UPDATE_LOGIN',
+        isLoggedIn: true,
+        username
+      })
       history.push('/rooms')
     } catch (err) {
       // Insert error: username is picked

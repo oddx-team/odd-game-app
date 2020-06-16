@@ -21,6 +21,9 @@ export default {
   registerUsername (username) {
     return api('post', 'authenticate/register', { username })
   },
+  logout () {
+    return api('post', 'authenticate/logout')
+  },
   getMe () {
     return api('get', 'authenticate/me')
   },

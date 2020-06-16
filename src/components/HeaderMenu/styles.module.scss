@@ -1,0 +1,38 @@
+@import 'styles/global.scss';
+
+.menu {
+  @include sizeWH(2.2rem, auto);
+  @include position(absolute, 0.6rem, 0.07rem);
+  background: #fff;
+  text-align: left;
+  z-index: 2;
+  box-shadow: 0 0.02rem 0.02rem 0 rgba(160, 159, 159, 0.2), 0 0.03rem 0.08rem 0 rgba(174, 172, 172, 0.19);
+  visibility: hidden;
+
+  &.open {
+    visibility: visible;
+  }
+
+  div {
+    @include textMixin(#656565, 0.18rem);
+    position: relative;
+    padding: 0.12rem 0 0.12rem 0.15rem;
+
+    &:hover {
+      background: #eee;
+      cursor: pointer;
+    }
+  }
+
+  .profile::before {
+    content: '';
+    @include imageCDN('icon-user.png', 0.26rem, 0.26rem);
+    @include position(absolute, 0.08rem, $right: 0.1rem);
+  }
+  .logout::before {
+    content: '';
+    @include imageCDN('icon-logout.png', 0.26rem, 0.26rem);
+    @include position(absolute, 0.08rem, $right: 0.1rem);
+  }
+}
+

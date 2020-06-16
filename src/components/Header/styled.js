@@ -111,12 +111,11 @@ export const StyledCircleLogo = styled.div`
 `
 
 export const ButtonMenu = styled.div`
-  ${imageCDN('icon-hamburger.png', '0.32rem', '0.32rem')};
+  ${imageCDN('icon-hamburger.png', '0.27rem', '0.27rem')};
   position: absolute;
-  top: 0.13rem;
-  left: 3.6rem;
+  top: 0.19rem;
+  right: 0.15rem;
   cursor: pointer;
-  background: transparent;
 `
 
 export const Wrapper = styled.div`

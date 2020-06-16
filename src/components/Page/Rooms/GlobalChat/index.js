@@ -2,8 +2,8 @@ import React, { useEffect, useRef, useContext } from 'react'
 import { GameContext } from 'contexts/GameContext'
 import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from './styled'
 import PropTypes from 'prop-types'
-import OddTextInput from 'components/Oddx/OddTextInput'
-import OddChatMessage from 'components/Oddx/OddChatMessage'
+import OddTextInput from 'components/UI/OddTextInput'
+import OddChatMessage from 'components/UI/OddChatMessage'
 
 import Api from 'services'
 import io from 'socket.io-client'
@@ -28,7 +28,6 @@ const GlobalChat = () => {
   const fetchGlobalChats = async () => {
     if (!globalChat.length) {
       const messages = await Api.getChats()
-      console.log(messages)
       dispatch({
         type: 'UPDATE_GLOBAL_CHAT',
         messages

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import OddChatMessage from 'components/Oddx/OddChatMessage'
-import OddTextInput from 'components/Oddx/OddTextInput'
+import OddChatMessage from 'components/UI/OddChatMessage'
+import OddTextInput from 'components/UI/OddTextInput'
 import { StyledContainer, ChatContent } from './styled'
 
 const PanelChat = () => {

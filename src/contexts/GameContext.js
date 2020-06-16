@@ -7,13 +7,13 @@ export const GameContext = createContext(null, null)
 const initialState = {
   isLoggedIn: false,
   username: null,
+  points: 0,
   globalChat: [],
   enRooms: [],
   vnRooms: [],
   cards: [],
   online: false,
-  fullBanner: true,
-  error: null
+  fullBanner: true
 }
 
 const GameContextProvider = ({ children }) => {
