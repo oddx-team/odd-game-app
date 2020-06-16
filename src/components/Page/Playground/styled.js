@@ -4,6 +4,7 @@ export const PlaygroundWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
+  background: #F9F9F9;
 `
 
 export const Header = styled.div`

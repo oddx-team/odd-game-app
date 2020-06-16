@@ -4,7 +4,15 @@ import RoomTabs from './RoomTabs'
 import RoomCard from './RoomCard'
 import GlobalChat from './GlobalChat'
 import Api from 'services'
-import { PageRoomWrapper, OuterWrapper, Container, Title, Subtitle, ButtonCreate, RoomContainer } from './styled'
+import {
+  PageRoomWrapper,
+  OuterWrapper,
+  Container,
+  Title,
+  Subtitle,
+  ButtonCreate,
+  RoomContainer
+} from './styled'
 
 const PageRooms = () => {
   const [activeTab, setActiveTab] = useState(0)

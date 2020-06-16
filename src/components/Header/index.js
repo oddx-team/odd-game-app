@@ -5,13 +5,13 @@ import { useHistory } from 'react-router-dom'
 import { GameContext } from 'contexts/GameContext'
 
 import OddLogo from 'assets/logo.png'
+import HeaderMenu from '../HeaderMenu'
 import {
   HeaderWrapper,
   MainLogo,
   ProfileContainer,
   IconBell,
   IconUser,
-  ButtonMenu,
   IconSearch,
   StyledInput,
   StyledSearchBar,
@@ -24,8 +24,6 @@ const HeaderExtra = ({ fullBanner }) => {
   return (
     <div>
       <Wrapper className={classNames({ hidden: !fullBanner })}>
-        <ButtonMenu />
-
         <StyledSearchBar>
           <IconSearch />
           <StyledInput type='text' placeholder='Search' />
@@ -76,17 +74,21 @@ const Header = () => {
       </MainLogo>
       <HeaderExtra fullBanner={fullBanner} />
 
-      <ProfileContainer>
-        <IconBell>
-          <i />
-        </IconBell>
+      {state.isLoggedIn &&
+        <div>
+          <ProfileContainer>
+            <IconBell>
+              <i />
+            </IconBell>
 
-        <IconUser alt='Avatar' src={`https://www.tinygraphs.com/spaceinvaders/${Date.now()}?size=100`} />
-        <div className='info'>
-          <div className='name'>winner</div>
-          <div className='points'>Points: 10.000</div>
-        </div>
-      </ProfileContainer>
+            <IconUser alt='Avatar' src={`https://www.tinygraphs.com/spaceinvaders/${Date.now()}?size=100`} />
+            <div className='info'>
+              <div className='name'>{state.username}</div>
+              <div className='points'>Points: {state.points}</div>
+            </div>
+          </ProfileContainer>
+          <HeaderMenu />
+        </div>}
     </HeaderWrapper>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import OddCard from 'components/Oddx/OddCard'
+import OddCard from 'components/UI/OddCard'
 import { CollectionWrapper, Header, Content } from './styled'
 
 const PlaygroundCollection = () => {
