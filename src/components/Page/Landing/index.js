@@ -16,18 +16,18 @@ import {
 import Api from 'services'
 
 const PageLanding = () => {
-  const [userName, setUserName] = useState(null)
+  const [username, setusername] = useState('')
   const history = useHistory()
   const { state, dispatch } = useContext(GameContext)
 
   const startGame = async () => {
-    if (!userName) return
+    if (!username) return
 
     try {
-      await Api.registerUserName(userName)
+      await Api.registerUsername(username)
       history.push('/rooms')
     } catch (err) {
-      // Insert error: Username is picked
+      // Insert error: username is picked
     }
   }
 
@@ -62,8 +62,8 @@ const PageLanding = () => {
           <TextInput
             type='text'
             placeholder='Enter your name'
-            value={userName}
-            onChange={e => setUserName(e.target.value)}
+            value={username}
+            onChange={e => setusername(e.target.value)}
             onKeyDown={e => e.key === 'Enter' && startGame()}
           />
         </StyledNamePanel>

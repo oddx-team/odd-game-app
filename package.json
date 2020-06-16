@@ -21,6 +21,8 @@
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
+    "babel-plugin-macros": "^2.8.0",
+    "babel-plugin-styled-components": "^1.10.7",
     "http-proxy-middleware": "^1.0.3",
     "husky": "^4.2.5",
     "prettier": "1.13.5",

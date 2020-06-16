@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { imageCDN } from 'mixins'
 
 export const GlobalChatWrapper = styled.div`

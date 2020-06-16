@@ -1,7 +1,7 @@
 import utils from 'utils'
 
 export default {
-  async registerUserName () {
+  async registerUsername () {
     await utils.delay(500)
     return utils.camelizeKeys({
       token: 'sampleToken'
@@ -11,14 +11,14 @@ export default {
   async getMe () {
     await utils.delay(500)
     return utils.camelizeKeys({
-      userName: 'Test'
+      username: 'Test'
     })
   },
 
   async getChats () {
     return utils.camelizeKeys(
       new Array(10).fill(null).map((_, i) => ({
-        user: `Guest${i + 1}`,
+        username: `Guest${i + 1}`,
         message: 'Hello World!',
         time: Date.now(),
         online: true

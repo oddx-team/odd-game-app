@@ -11,7 +11,7 @@ const PanelChat = () => {
       <ChatContent>
         {messages.map((_, i) => (
           <div key={i}>
-            <OddChatMessage user='admin' message='Hello world!' time={Date.now()} small />
+            <OddChatMessage username='admin' message='Hello world!' time={Date.now()} small />
           </div>
         ))}
       </ChatContent>

@@ -28,6 +28,7 @@ const GlobalChat = () => {
   const fetchGlobalChats = async () => {
     if (!globalChat.length) {
       const messages = await Api.getChats()
+      console.log(messages)
       dispatch({
         type: 'UPDATE_GLOBAL_CHAT',
         messages
@@ -37,9 +38,9 @@ const GlobalChat = () => {
 
   const initSocket = () => {
     window.socket = io()
-    window.socket.on('global chat', (userName, message) => {
+    window.socket.on('global chat', (username, message) => {
       const newMessage = {
-        userName,
+        username,
         message,
         time: new Date().getTime() / 1000
       }
