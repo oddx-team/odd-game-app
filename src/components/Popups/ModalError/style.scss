@@ -1,0 +1,56 @@
+@import 'styles/global.scss';
+
+.modal {
+  @include position(fixed, 0, 0, 0, 0, $z-index: 2);
+  @include flexCenter(row);
+  background: rgba(0, 0, 0, 0.65);
+  font-size: 0.3rem;
+  font-family: 'Shentox', sans-serif;
+}
+
+.dialog {
+  @include imageCDN('modals/popup-bg.png', 6rem, 4rem);
+  @include flexCenter(column);
+  position: relative;
+}
+
+.header {
+  @include sizeWH(100%, 0.57rem);
+  @include textMixin(#fff, 0.3rem, normal, uppercase, $align: center);
+  padding-top: 0.1rem;
+  background: #0477BD;
+  font-family: 'Oswald-Medium', sans-serif;
+  display: inline-block;
+}
+
+.btn-close {
+  @include position(absolute, 0.05rem, $right: 0.05rem, $bottom: 0);
+  @include imageCDN('modals/popup-close-icon.png', 0.4rem, 0.4rem);
+  padding: 0;
+  border: none;
+}
+
+.body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  overflow: auto;
+  color: #000;
+  font-family: 'Oswald', sans-serif;
+  text-align: center;
+  overflow-y: hidden;
+  padding-top: 0.2rem;
+}
+
+.footer {
+  @include flexCenter(column);
+  padding: 0.15rem 0.16rem 0.25rem;
+
+  .btn-confirm {
+    @include imageCDN('modals/popup-btn-confirm.png', 1.95rem, 0.53rem);
+    @include textMixin(#fff, 0.24rem, bold, uppercase);
+    font-family: 'Oswald', sans-serif;
+  }
+}
