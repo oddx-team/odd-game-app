@@ -5,8 +5,8 @@ export const ModalContext = createContext(null, null)
 
 const modalReducer = (state, action) => {
   switch (action.type) {
-    case 'UPDATE_OPEN_MENU':
-      return { ...state, openMenu: action.openMenu }
+    case 'UPDATE_ERROR':
+      return { ...state, error: action.error }
     default:
       return state
   }
@@ -20,7 +20,7 @@ const ModalContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(modalReducer, initialState, undefined)
 
   return (
-    <ModalContext.Provider value={{ modalState: state, modalDispatch: dispatch }}>
+    <ModalContext.Provider value={{ stateModal: state, dispatchModal: dispatch }}>
       <div>{children}</div>
     </ModalContext.Provider>
   )

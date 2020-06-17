@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { GameContext } from 'contexts/GameContext'
+import { ModalContext } from 'contexts/ModalContext'
 import classNames from 'classnames'
 import styles from './styles.module.scss'
 
@@ -9,6 +10,7 @@ import Api from 'services'
 export const HeaderMenu = () => {
   const history = useHistory()
   const { dispatch } = useContext(GameContext)
+  const { dispatchModal } = useContext(ModalContext)
   const [openMenu, setOpenMenu] = useState(false)
   const menuClass = openMenu
     ? classNames(styles.menu, styles.open)
@@ -24,6 +26,7 @@ export const HeaderMenu = () => {
       })
       history.push('/')
     } catch (err) {
+      dispatchModal({ type: 'UPDATE_ERROR', error: 'Something went terribly wrong!' })
     }
   }
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { GameContext } from 'contexts/GameContext'
+import { ModalContext } from 'contexts/ModalContext'
 
 import {
   LandingWrapper,
@@ -19,41 +20,32 @@ const PageLanding = () => {
   const [username, setUsername] = useState('')
   const history = useHistory()
   const { state, dispatch } = useContext(GameContext)
+  const { dispatchModal } = useContext(ModalContext)
 
   const startGame = async () => {
     if (!username) return
 
     try {
       await Api.registerUsername(username)
-      dispatch({
-        type: 'UPDATE_LOGIN',
-        isLoggedIn: true,
-        username
-      })
+      dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: true, username })
       history.push('/rooms')
     } catch (err) {
-      // Insert error: username is picked
+      dispatchModal({ type: 'UPDATE_ERROR', error: 'User name is picked already!' })
     }
   }
 
-  useEffect(
-    () => {
-      dispatch({
-        type: 'SET_FULL_BANNER',
-        fullBanner: false
-      })
-    },
-    [dispatch]
-  )
+  useEffect(() => {
+    dispatch({
+      type: 'SET_FULL_BANNER',
+      fullBanner: false
+    })
+  }, [dispatch])
 
-  useEffect(
-    () => {
-      if (state.isLoggedIn) {
-        history.push('/rooms')
-      }
-    },
-    [state.isLoggedIn]
-  )
+  useEffect(() => {
+    if (state.isLoggedIn) {
+      history.push('/rooms')
+    }
+  }, [state.isLoggedIn])
 
   return (
     <LandingWrapper>

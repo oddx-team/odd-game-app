@@ -29,7 +29,12 @@ export const TextInput = props => {
           placeholder={props.placeholder}
           disabled={props.disabled}
         />
-        <input type='submit' value='Submit' style={{ display: 'none' }} disabled={props.disabled} />
+        <input
+          type='submit'
+          value='Submit'
+          style={{ display: 'none' }}
+          disabled={props.disabled}
+        />
       </form>
     </StyledInput>
   )

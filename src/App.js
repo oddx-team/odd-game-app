@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Header } from 'components/Header'
 import { Loading } from 'components/Loading'
+import { Popups } from 'components/Popups'
 import PageLanding from 'pages/Landing'
 import PageNotFound from 'pages/NotFound'
 import PageRooms from 'pages/Rooms'
@@ -33,6 +34,7 @@ const App = () => {
             <div className='header-bg' />
             <div className='main'>
               <Header />
+              <Popups />
               <Switch>
                 <Route exact path='/' component={PageLanding} />
                 <PrivateRoute exact path='/rooms' component={PageRooms} />
