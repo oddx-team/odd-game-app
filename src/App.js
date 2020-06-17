@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Header } from 'components/Header'
+import { Loading } from 'components/Loading'
 import PageLanding from 'pages/Landing'
 import PageNotFound from 'pages/NotFound'
 import PageRooms from 'pages/Rooms'
@@ -13,10 +14,13 @@ import 'App.scss'
 const PrivateRoute = ({ component: Component, ...options }) => {
   const { state } = useContext(GameContext)
 
-  if (state.isLoggedIn) {
-    return <Component {...options} />
-  } else {
-    return <Redirect to='/' />
+  switch (state.isLoggedIn) {
+    case true:
+      return <Component {...options} />
+    case false:
+      return <Redirect to='/' />
+    default:
+      return <Loading />
   }
 }
 

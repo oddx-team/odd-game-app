@@ -21,7 +21,7 @@ const gameReducer = (state, action) => {
 }
 
 const initialState = {
-  isLoggedIn: false,
+  isLoggedIn: null,
   username: null,
   points: 0,
   globalChat: [],
