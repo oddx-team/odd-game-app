@@ -1,8 +1,16 @@
 import React, { createContext, useReducer } from 'react'
-import { modalReducer } from 'reducers/modalReducer'
 import PropTypes from 'prop-types'
 
 export const ModalContext = createContext(null, null)
+
+const modalReducer = (state, action) => {
+  switch (action.type) {
+    case 'UPDATE_OPEN_MENU':
+      return { ...state, openMenu: action.openMenu }
+    default:
+      return state
+  }
+}
 
 const initialState = {
   error: null

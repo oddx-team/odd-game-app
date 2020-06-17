@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import OddChatMessage from 'components/UI/OddChatMessage'
-import OddTextInput from 'components/UI/OddTextInput'
+import { ChatMessage } from 'components/ChatMessage'
+import { TextInput } from 'components/TextInput'
 import { StyledContainer, ChatContent } from './styled'
 
 const PanelChat = () => {
@@ -11,11 +11,11 @@ const PanelChat = () => {
       <ChatContent>
         {messages.map((_, i) => (
           <div key={i}>
-            <OddChatMessage username='admin' message='Hello world!' time={Date.now()} small />
+            <ChatMessage username='admin' message='Hello world!' time={Date.now()} small />
           </div>
         ))}
       </ChatContent>
-      <OddTextInput placeholder='Type a message' small />
+      <TextInput placeholder='Type a message' small />
     </StyledContainer>
   )
 }
