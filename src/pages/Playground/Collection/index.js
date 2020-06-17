@@ -1,5 +1,5 @@
 import React from 'react'
-import OddCard from 'components/UI/OddCard'
+import { Card } from 'components/Card'
 import { CollectionWrapper, Header, Content } from './styled'
 
 const PlaygroundCollection = () => {
@@ -16,7 +16,7 @@ const PlaygroundCollection = () => {
       <Content>
         {oddCards.map((card, i) => (
           <div key={i}>
-            <OddCard {...card} size='small' />
+            <Card {...card} size='small' />
           </div>
         ))}
       </Content>

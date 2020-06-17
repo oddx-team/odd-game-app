@@ -4,7 +4,7 @@ import IconLogo from 'assets/logo.png'
 import classNames from 'classnames'
 import './styled.scss'
 
-const OddCard = ({ color, size, text }) => {
+export const Card = ({ color, size, text }) => {
   const cardClasses = classNames('block odd-card', color, size)
 
   return (
@@ -25,10 +25,8 @@ const OddCard = ({ color, size, text }) => {
   )
 }
 
-OddCard.propTypes = {
+Card.propTypes = {
   color: PropTypes.string,
   size: PropTypes.string,
   text: PropTypes.string
 }
-
-export default OddCard

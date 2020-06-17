@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { StyledInput } from './styled'
 
-const OddTextInput = props => {
+export const TextInput = props => {
   const [value, setValue] = useState('')
 
   const handleChange = event => {
@@ -35,11 +35,9 @@ const OddTextInput = props => {
   )
 }
 
-OddTextInput.propTypes = {
+TextInput.propTypes = {
   placeholder: PropTypes.string,
   onSubmit: PropTypes.func,
   disabled: PropTypes.bool,
   small: PropTypes.bool
 }
-
-export default OddTextInput

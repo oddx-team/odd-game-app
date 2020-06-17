@@ -1,7 +1,7 @@
 import React from 'react'
-import OddCard from 'components/UI/OddCard'
 import PlaygroundWidgets from './Widgets'
 import PlaygroundCollection from './Collection'
+import { Card } from 'components/Card'
 import {
   PlaygroundWrapper,
   Header,
@@ -32,7 +32,7 @@ const PagePlayground = () => {
       <Container>
         <BlackCardContainer>
           <LeftTitle>*Black card:</LeftTitle>
-          <OddCard color='black' text='Donald Trump has nominated __ for his VP' />
+          <Card color='black' text='Donald Trump has nominated __ for his VP' />
           <ButtonConfirm className='block dark-blue'>Confirm</ButtonConfirm>
         </BlackCardContainer>
 
@@ -41,7 +41,7 @@ const PagePlayground = () => {
           <CardsList>
             {oddCards.map((card, i) => (
               <div key={i}>
-                <OddCard {...card} size={getCardSize()} />
+                <Card {...card} size={getCardSize()} />
               </div>
             ))}
           </CardsList>

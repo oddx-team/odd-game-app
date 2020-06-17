@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
-import Header from 'components/Header'
-import PageLanding from './components/Page/Landing'
-import PageNotFound from 'components/Page/NotFound'
-import PageRooms from 'components/Page/Rooms'
-import PagePlayground from 'components/Page/Playground'
+import { Header } from 'components/Header'
+import PageLanding from 'pages/Landing'
+import PageNotFound from 'pages/NotFound'
+import PageRooms from 'pages/Rooms'
+import PagePlayground from 'pages/Playground'
 
 import GameContextProvider, { GameContext } from 'contexts/GameContext.js'
 import ModalContextProvider from 'contexts/ModalContext.js'
@@ -30,11 +30,9 @@ const App = () => {
             <div className='main'>
               <Header />
               <Switch>
-                {/* <Redirect from='/' to='/home' /> */}
                 <Route exact path='/' component={PageLanding} />
                 <PrivateRoute exact path='/rooms' component={PageRooms} />
                 <PrivateRoute exact path='/play' component={PagePlayground} />
-
                 <Route component={PageNotFound} />
               </Switch>
             </div>

@@ -5,7 +5,7 @@ import utils from 'utils'
 import { StyledMessage, Avatar, Status, Name, Message, Time } from './styled'
 import { GameContext } from 'contexts/GameContext'
 
-const OddChatMessage = ({ username, message, time, small }) => {
+export const ChatMessage = ({ username, message, time, small }) => {
   const { hours, mins } = utils.parseTime(time)
   const { state } = useContext(GameContext)
   const onlineStatus = classNames({ online: state.online })
@@ -23,12 +23,10 @@ const OddChatMessage = ({ username, message, time, small }) => {
   )
 }
 
-OddChatMessage.propTypes = {
+ChatMessage.propTypes = {
   username: PropTypes.string,
   message: PropTypes.string,
   time: PropTypes.number,
   online: PropTypes.bool,
   small: PropTypes.bool
 }
-
-export default OddChatMessage

@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useContext } from 'react'
-import { GameContext } from 'contexts/GameContext'
-import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from './styled'
 import PropTypes from 'prop-types'
-import OddTextInput from 'components/UI/OddTextInput'
-import OddChatMessage from 'components/UI/OddChatMessage'
+import { GameContext } from 'contexts/GameContext'
+import { TextInput } from 'components/TextInput'
+import { ChatMessage } from 'components/ChatMessage'
+import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from './styled'
 
 import Api from 'services'
 import io from 'socket.io-client'
@@ -67,13 +67,13 @@ const GlobalChat = () => {
         <ChatContent>
           {globalChat.map((message, i) => (
             <div key={i}>
-              <OddChatMessage {...message} />
+              <ChatMessage {...message} />
             </div>
           ))}
           <div ref={lastRef} />
         </ChatContent>
 
-        <OddTextInput placeholder='Type a message' onSubmit={submitMessage} />
+        <TextInput placeholder='Type a message' onSubmit={submitMessage} />
       </StyledContainer>
     </GlobalChatWrapper>
   )
