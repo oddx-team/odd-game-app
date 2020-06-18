@@ -21,6 +21,7 @@ export const useGame = () => {
     login: (username) => dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: true, username }),
     setBanner: (banner) => dispatch({ type: 'SET_FULL_BANNER', fullBanner: banner }),
     updateRooms: (payload) => dispatch({ type: 'UPDATE_ROOM_LIST', payload }),
+    updateGlobalChat: (messages) => dispatch({ type: 'UPDATE_GLOBAL_CHAT', messages }),
     ...state
   })
 }

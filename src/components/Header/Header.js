@@ -1,9 +1,8 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { useHistory } from 'react-router-dom'
 import { useGame } from 'hooks'
-import { GameContext } from 'contexts/GameContext'
 
 import OddLogo from 'assets/logo.png'
 import { HeaderMenu } from '../HeaderMenu'
@@ -48,7 +47,6 @@ export const Header = () => {
   const history = useHistory()
   const HookGame = useGame()
   const { isLoggedIn, fullBanner } = HookGame
-  const { dispatch } = useContext(GameContext)
 
   useEffect(() => {
     Api.getMe().then(data => {
@@ -56,8 +54,7 @@ export const Header = () => {
     }).catch(() => {
       HookGame.logoutGame()
     })
-  }, [dispatch]
-  )
+  }, [])
 
   return (
     <HeaderWrapper>

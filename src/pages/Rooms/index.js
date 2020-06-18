@@ -17,8 +17,7 @@ import {
 const PageRooms = () => {
   const HookGame = useGame()
   const [activeTab, setActiveTab] = useState(0)
-  const { enRooms, vnRooms } = HookGame
-  const rooms = activeTab === 0 ? enRooms : vnRooms
+  const rooms = activeTab === 0 ? HookGame.enRooms : HookGame.vnRooms
 
   useEffect(() => {
     HookGame.setBanner(true)

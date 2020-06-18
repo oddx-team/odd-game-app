@@ -49,12 +49,12 @@ const RoomCard = props => {
 }
 
 RoomCard.propTypes = {
-  _id: PropTypes.string.isRequired,
+  _id: PropTypes.string,
   name: PropTypes.string.isRequired,
   host: PropTypes.string.isRequired,
   current: PropTypes.number.isRequired,
   guest: PropTypes.number.isRequired,
-  status: PropTypes.string.isRequired
+  status: PropTypes.number.isRequired
 }
 
 Text.propTypes = {
