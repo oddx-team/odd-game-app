@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useContext } from 'react'
+import React, { useEffect, useRef } from 'react'
 import PropTypes from 'prop-types'
-import { GameContext } from 'contexts/GameContext'
+import { useGame } from 'hooks'
 import { TextInput } from 'components/TextInput'
 import { ChatMessage } from 'components/ChatMessage'
 import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from './styled'
@@ -9,12 +9,10 @@ import Api from 'services'
 import io from 'socket.io-client'
 
 const GlobalChat = () => {
-  const { state, dispatch } = useContext(GameContext)
-  const { globalChat } = state
-  const lastRef = useRef(null)
+  const HookGame = useGame()
+  const LastRef = useRef(null)
 
-  useEffect(() => scrollToBottom(), [globalChat])
-
+  useEffect(() => scrollToBottom(), [HookGame.globalChat])
   useEffect(() => {
     fetchGlobalChats()
     initSocket()
@@ -26,12 +24,9 @@ const GlobalChat = () => {
   }, [])
 
   const fetchGlobalChats = async () => {
-    if (!globalChat.length) {
+    if (!HookGame.globalChat.length) {
       const messages = await Api.getChats()
-      dispatch({
-        type: 'UPDATE_GLOBAL_CHAT',
-        messages
-      })
+      HookGame.updateGlobalChat(messages)
     }
   }
 
@@ -43,10 +38,7 @@ const GlobalChat = () => {
         message,
         time: new Date().getTime() / 1000
       }
-      dispatch({
-        type: 'UPDATE_GLOBAL_CHAT',
-        messages: [newMessage]
-      })
+      HookGame.updateGlobalChat([newMessage])
     })
 
     window.socket.on('pong', (ms) => {
@@ -55,7 +47,7 @@ const GlobalChat = () => {
   }
 
   const scrollToBottom = () => {
-    lastRef.current.scrollIntoView()
+    LastRef.current.scrollIntoView()
   }
 
   const submitMessage = text => {
@@ -68,12 +60,12 @@ const GlobalChat = () => {
 
       <StyledContainer>
         <ChatContent>
-          {globalChat.map((message, i) => (
+          {HookGame.globalChat.map((message, i) => (
             <div key={i}>
               <ChatMessage {...message} />
             </div>
           ))}
-          <div ref={lastRef} />
+          <div ref={LastRef} />
         </ChatContent>
 
         <TextInput placeholder='Type a message' onSubmit={submitMessage} />

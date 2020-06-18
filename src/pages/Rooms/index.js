@@ -1,5 +1,5 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { GameContext } from 'contexts/GameContext'
+import React, { useState, useEffect } from 'react'
+import { useGame } from 'hooks'
 import RoomTabs from './RoomTabs'
 import RoomCard from './RoomCard'
 import GlobalChat from './GlobalChat'
@@ -15,38 +15,18 @@ import {
 } from './styled'
 
 const PageRooms = () => {
+  const HookGame = useGame()
   const [activeTab, setActiveTab] = useState(0)
-  const [rooms, setRooms] = useState([])
-  const { state, dispatch } = useContext(GameContext)
-  const { enRooms, vnRooms } = state
+  const rooms = activeTab === 0 ? HookGame.enRooms : HookGame.vnRooms
 
-  useEffect(() => setCurrentRooms(), [activeTab])
   useEffect(() => {
-    setFullBanner()
+    HookGame.setBanner(true)
     fetchRoomList()
   }, [])
 
-  const setFullBanner = () => {
-    dispatch({
-      type: 'SET_FULL_BANNER',
-      fullBanner: true
-    })
-  }
-
-  const setCurrentRooms = () => {
-    activeTab === 0 ? setRooms(enRooms) : setRooms(vnRooms)
-  }
-
   const fetchRoomList = async () => {
     const [eRooms, vRooms] = await Promise.all([Api.getEnglishRooms(), Api.getVietnameseRooms()])
-    setRooms(eRooms)
-    dispatch({
-      type: 'UPDATE_ROOM_LIST',
-      payload: {
-        enRooms: eRooms,
-        vnRooms: vRooms
-      }
-    })
+    HookGame.updateRooms({ enRooms: eRooms, vnRooms: vRooms })
   }
 
   return (

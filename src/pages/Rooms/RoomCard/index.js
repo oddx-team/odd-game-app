@@ -19,10 +19,10 @@ const RoomCard = props => {
   const joinRoom = (history, roomId) => {
     history.push(`/rooms/${roomId}`)
   }
-
   const spectateRoom = (history, roomId) => {
     history.push(`/rooms/${roomId}`)
   }
+  const { _id, host, current, guest, status } = props
 
   return (
     <Route
@@ -30,16 +30,16 @@ const RoomCard = props => {
         <StyledCardRoom className='wrapper block'>
           <CardRoomInner>
             <Title>{props.name}</Title>
-            <Text title='Host' value={props.host} />
-            <Text title='Room' value={`${props.current}/${props.size} || 20`} />
-            <Text title='Spectate' value={`${props.guest}`} />
-            <Text title='Status' value={props.status} />
+            <Text title='Host' value={host} />
+            <Text title='Room' value={`${current}/10`} />
+            <Text title='Spectate' value={`${guest}`} />
+            <Text title='Status' value={status} />
           </CardRoomInner>
 
-          <ButtonJoin className='block accent' onClick={() => joinRoom(history, props._id)}>
+          <ButtonJoin className='block accent' onClick={() => joinRoom(history, _id)}>
             Join
           </ButtonJoin>
-          <ButtonSpectate className='block blue' onClick={() => spectateRoom(history, props._id)}>
+          <ButtonSpectate className='block blue' onClick={() => spectateRoom(history, _id)}>
             Spectate
           </ButtonSpectate>
         </StyledCardRoom>
@@ -49,7 +49,7 @@ const RoomCard = props => {
 }
 
 RoomCard.propTypes = {
-  _id: PropTypes.string.isRequired,
+  _id: PropTypes.string,
   name: PropTypes.string.isRequired,
   size: PropTypes.number.isRequired,
   host: PropTypes.string.isRequired,

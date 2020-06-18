@@ -1,44 +1,39 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { GameContext } from 'contexts/GameContext'
-import { ModalContext } from 'contexts/ModalContext'
+import { useModal, useGame } from 'hooks'
 import classNames from 'classnames'
 import styles from './styles.module.scss'
 
 import Api from 'services'
 
 export const HeaderMenu = () => {
-  const history = useHistory()
-  const { dispatch } = useContext(GameContext)
-  const { dispatchModal } = useContext(ModalContext)
-  const [openMenu, setOpenMenu] = useState(false)
-  const menuClass = openMenu
+  const HookModal = useModal()
+  const HookGame = useGame()
+  const History = useHistory()
+
+  const menuClass = HookModal.openMenu
     ? classNames(styles.menu, styles.open)
     : classNames(styles.menu)
 
   const logoutGame = async () => {
     try {
       await Api.logout()
-      dispatch({
-        type: 'UPDATE_LOGIN',
-        isLoggedIn: false,
-        username: null
-      })
-      history.push('/')
+      History.push('/')
+      HookGame.logoutGame()
     } catch (err) {
-      dispatchModal({ type: 'UPDATE_ERROR', error: 'Something went terribly wrong!' })
+      HookModal.setError('Something went terribly wrong!')
     }
   }
 
   const openProfile = () => {
-    setOpenMenu(false)
+    HookModal.setMenu(false)
   }
 
   return (
     <div
       className={menuClass}
-      onMouseEnter={() => setOpenMenu(true)}
-      onMouseLeave={() => setOpenMenu(false)}
+      onMouseEnter={() => HookModal.setMenu(true)}
+      onMouseLeave={() => HookModal.setMenu(false)}
     >
       <button className={styles.menuBtn} />
       <div className={styles.dropdown}>

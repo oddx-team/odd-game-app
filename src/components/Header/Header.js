@@ -1,8 +1,8 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { useHistory } from 'react-router-dom'
-import { GameContext } from 'contexts/GameContext'
+import { useGame } from 'hooks'
 
 import OddLogo from 'assets/logo.png'
 import { HeaderMenu } from '../HeaderMenu'
@@ -45,50 +45,34 @@ HeaderExtra.propTypes = {
 
 export const Header = () => {
   const history = useHistory()
-  const { state, dispatch } = useContext(GameContext)
-  const { fullBanner } = state
+  const HookGame = useGame()
+  const { isLoggedIn, fullBanner } = HookGame
 
-  useEffect(
-    () => {
-      Api.getMe()
-        .then(data => {
-          const { username } = data
-          dispatch({
-            type: 'UPDATE_LOGIN',
-            isLoggedIn: true,
-            username
-          })
-        })
-        .catch(() => {
-          dispatch({
-            type: 'UPDATE_LOGIN',
-            isLoggedIn: false,
-            username: null
-          })
-        })
-    },
-    [dispatch]
-  )
+  useEffect(() => {
+    Api.getMe().then(data => {
+      HookGame.login(data.username)
+    }).catch(() => {
+      HookGame.logoutGame()
+    })
+  }, [])
 
   return (
     <HeaderWrapper>
-      <MainLogo onClick={() => history.push(state.isLoggedIn ? '/rooms' : '/')}>
+      <MainLogo onClick={() => history.push(isLoggedIn ? '/rooms' : '/')}>
         <img alt='logo' src={OddLogo} />
         <span>Oddx</span>
       </MainLogo>
       <HeaderExtra fullBanner={fullBanner} />
 
-      {state.isLoggedIn &&
+      {isLoggedIn &&
         <div>
           <ProfileContainer>
-            <IconBell>
-              <i />
-            </IconBell>
-
+            <IconBell><i /></IconBell>
             <IconUser alt='Avatar' src={`https://www.tinygraphs.com/spaceinvaders/${Date.now()}?size=100`} />
+
             <div className='info'>
-              <div className='name'>{state.username}</div>
-              <div className='points'>Points: {state.points}</div>
+              <div className='name'>{HookGame.username}</div>
+              <div className='points'>Points: {HookGame.points}</div>
             </div>
           </ProfileContainer>
           <HeaderMenu />
