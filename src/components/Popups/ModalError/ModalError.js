@@ -1,13 +1,13 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import { useModal } from 'hooks/useModal'
 import './style.scss'
-import { ModalContext } from 'contexts/ModalContext'
 
 export const ModalError = () => {
-  const { stateModal, dispatchModal } = useContext(ModalContext)
-  const { error, confirmText } = stateModal
+  const HookModal = useModal()
+  const { error, confirmText } = HookModal
 
   const close = () => {
-    dispatchModal({ type: 'UPDATE_ERROR', error: null })
+    HookModal.clearError()
   }
 
   return (

@@ -21,7 +21,7 @@ const ModalContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(modalReducer, initialState, undefined)
 
   return (
-    <ModalContext.Provider value={{ stateModal: state, dispatchModal: dispatch }}>
+    <ModalContext.Provider value={{ state, dispatch }}>
       <div>{children}</div>
     </ModalContext.Provider>
   )

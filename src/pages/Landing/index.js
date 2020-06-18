@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
+import { useModal } from 'hooks/useModal'
 import { GameContext } from 'contexts/GameContext'
-import { ModalContext } from 'contexts/ModalContext'
 
 import {
   LandingWrapper,
@@ -18,13 +18,13 @@ import Api from 'services'
 
 const PageLanding = () => {
   const [username, setUsername] = useState('')
+  const HookModal = useModal()
   const history = useHistory()
   const { state, dispatch } = useContext(GameContext)
-  const { dispatchModal } = useContext(ModalContext)
 
   const startGame = async () => {
     if (!username || username.length < 3) {
-      dispatchModal({ type: 'UPDATE_ERROR', error: 'User name must be from three characters!', confirmText: 'Got it' })
+      HookModal.setError('Username must be from three characters!')
       return
     }
 
@@ -33,7 +33,7 @@ const PageLanding = () => {
       dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: true, username })
       history.push('/rooms')
     } catch (err) {
-      dispatchModal({ type: 'UPDATE_ERROR', error: 'User name is picked already!' })
+      HookModal.setError('username is picked already!')
     }
   }
 
