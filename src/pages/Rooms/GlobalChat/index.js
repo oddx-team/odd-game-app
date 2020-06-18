@@ -40,6 +40,10 @@ const GlobalChat = () => {
       }
       HookGame.updateGlobalChat([newMessage])
     })
+
+    window.socket.on('pong', (ms) => {
+      window.latency = ms
+    })
   }
 
   const scrollToBottom = () => {
