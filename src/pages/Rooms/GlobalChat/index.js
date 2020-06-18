@@ -28,7 +28,6 @@ const GlobalChat = () => {
   const fetchGlobalChats = async () => {
     if (!globalChat.length) {
       const messages = await Api.getChats()
-      console.log(messages)
       dispatch({
         type: 'UPDATE_GLOBAL_CHAT',
         messages

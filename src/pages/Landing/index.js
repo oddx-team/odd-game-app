@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useModal } from 'hooks/useModal'
+import { useModal } from 'hooks'
 import { GameContext } from 'contexts/GameContext'
 
 import {

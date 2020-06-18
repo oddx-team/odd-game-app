@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { GameContext } from 'contexts/GameContext'
+import { useGame } from 'hooks'
 import RoomTabs from './RoomTabs'
 import RoomCard from './RoomCard'
 import GlobalChat from './GlobalChat'
@@ -15,6 +16,7 @@ import {
 } from './styled'
 
 const PageRooms = () => {
+  const HookGame = useGame()
   const [activeTab, setActiveTab] = useState(0)
   const [rooms, setRooms] = useState([])
   const { state, dispatch } = useContext(GameContext)
@@ -22,16 +24,9 @@ const PageRooms = () => {
 
   useEffect(() => setCurrentRooms(), [activeTab])
   useEffect(() => {
-    setFullBanner()
+    HookGame.setBanner(true)
     fetchRoomList()
   }, [])
-
-  const setFullBanner = () => {
-    dispatch({
-      type: 'SET_FULL_BANNER',
-      fullBanner: true
-    })
-  }
 
   const setCurrentRooms = () => {
     activeTab === 0 ? setRooms(enRooms) : setRooms(vnRooms)
