@@ -6,14 +6,15 @@ export const ModalContext = createContext(null, null)
 const modalReducer = (state, action) => {
   switch (action.type) {
     case 'UPDATE_ERROR':
-      return { ...state, error: action.error }
+      return { ...state, error: action.error, confirmText: action.confirmText }
     default:
       return state
   }
 }
 
 const initialState = {
-  error: null
+  error: null,
+  confirmText: null
 }
 
 const ModalContextProvider = ({ children }) => {

@@ -23,7 +23,10 @@ const PageLanding = () => {
   const { dispatchModal } = useContext(ModalContext)
 
   const startGame = async () => {
-    if (!username) return
+    if (!username || username.length < 3) {
+      dispatchModal({ type: 'UPDATE_ERROR', error: 'User name must be from three characters!', confirmText: 'Got it' })
+      return
+    }
 
     try {
       await Api.registerUsername(username)

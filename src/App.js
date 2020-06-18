@@ -38,7 +38,7 @@ const App = () => {
               <Switch>
                 <Route exact path='/' component={PageLanding} />
                 <PrivateRoute exact path='/rooms' component={PageRooms} />
-                <PrivateRoute exact path='/play' component={PagePlayground} />
+                <PrivateRoute exact path='/rooms/:roomId' component={PagePlayground} />
                 <Route component={PageNotFound} />
               </Switch>
             </div>

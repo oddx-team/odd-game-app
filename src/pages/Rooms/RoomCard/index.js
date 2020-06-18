@@ -15,13 +15,13 @@ const Text = ({ title, value }) => {
   )
 }
 
-const CardRoom = props => {
-  const joinRoom = history => {
-    history.push('/play')
+const RoomCard = props => {
+  const joinRoom = (history, roomId) => {
+    history.push(`/rooms/${roomId}`)
   }
 
-  const spectateRoom = history => {
-    history.push('/play')
+  const spectateRoom = (history, roomId) => {
+    history.push(`/rooms/${roomId}`)
   }
 
   return (
@@ -31,15 +31,15 @@ const CardRoom = props => {
           <CardRoomInner>
             <Title>{props.name}</Title>
             <Text title='Host' value={props.host} />
-            <Text title='Room' value={`${props.current}/${props.total}`} />
-            <Text title='Spectators' value={`${props.viewers}`} />
-            <Text title='Status' value='In Progress' />
+            <Text title='Room' value={`${props.current}/10`} />
+            <Text title='Spectate' value={`${props.guest}`} />
+            <Text title='Status' value={props.status} />
           </CardRoomInner>
 
-          <ButtonJoin className='block accent' onClick={() => joinRoom(history)}>
+          <ButtonJoin className='block accent' onClick={() => joinRoom(history, props._id)}>
             Join
           </ButtonJoin>
-          <ButtonSpectate className='block blue' onClick={() => spectateRoom(history)}>
+          <ButtonSpectate className='block blue' onClick={() => spectateRoom(history, props._id)}>
             Spectate
           </ButtonSpectate>
         </StyledCardRoom>
@@ -48,12 +48,13 @@ const CardRoom = props => {
   )
 }
 
-CardRoom.propTypes = {
+RoomCard.propTypes = {
+  _id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   host: PropTypes.string.isRequired,
   current: PropTypes.number.isRequired,
-  total: PropTypes.number.isRequired,
-  viewers: PropTypes.number.isRequired
+  guest: PropTypes.number.isRequired,
+  status: PropTypes.string.isRequired
 }
 
 Text.propTypes = {
@@ -61,4 +62,4 @@ Text.propTypes = {
   value: PropTypes.string.isRequired
 }
 
-export default CardRoom
+export default RoomCard
