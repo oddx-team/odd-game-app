@@ -15,7 +15,7 @@ export const ModalError = () => {
       <div className='dialog'>
         <div className='header'>
           <div>Error!</div>
-          <button class='btn-close' onClick={() => close()} />
+          <button className='btn-close' onClick={() => close()} />
         </div>
         <div className='body'>
           {error}

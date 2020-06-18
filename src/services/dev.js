@@ -3,10 +3,10 @@ import utils from 'utils'
 export default {
   async registerUsername () {
     await utils.delay(100)
-    throw Error('username is picked already')
-    // return utils.camelizeKeys({
-    //   token: 'sampleToken'
-    // })
+    // throw Error('username is picked already')
+    return utils.camelizeKeys({
+      token: 'sampleToken'
+    })
   },
 
   async logout () {
@@ -15,10 +15,10 @@ export default {
 
   async getMe () {
     await utils.delay(100)
-    return null
-    // return utils.camelizeKeys({
-    //   username: 'Test'
-    // })
+    // return null
+    return utils.camelizeKeys({
+      username: 'Test'
+    })
   },
 
   async getChats () {

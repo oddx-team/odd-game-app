@@ -81,11 +81,9 @@ export const Header = () => {
       {state.isLoggedIn &&
         <div>
           <ProfileContainer>
-            <IconBell>
-              <i />
-            </IconBell>
-
+            <IconBell><i /></IconBell>
             <IconUser alt='Avatar' src={`https://www.tinygraphs.com/spaceinvaders/${Date.now()}?size=100`} />
+
             <div className='info'>
               <div className='name'>{state.username}</div>
               <div className='points'>Points: {state.points}</div>
