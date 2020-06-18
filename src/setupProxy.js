@@ -1,6 +1,6 @@
 const { createProxyMiddleware } = require('http-proxy-middleware')
 
-const serverURL = process.env.REACT_APP_NODE_ENV === 'staging' ? 'https://oddgame.io' : 'http://localhost:5000'
+const serverURL = process.env.REACT_APP_NODE_ENV === 'staging' ? 'https://beta.oddgame.io' : 'http://localhost:5000'
 
 module.exports = function (app) {
   app.use(

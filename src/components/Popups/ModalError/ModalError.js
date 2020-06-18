@@ -4,7 +4,7 @@ import { ModalContext } from 'contexts/ModalContext'
 
 export const ModalError = () => {
   const { stateModal, dispatchModal } = useContext(ModalContext)
-  const { error } = stateModal
+  const { error, confirmText } = stateModal
 
   const close = () => {
     dispatchModal({ type: 'UPDATE_ERROR', error: null })
@@ -21,7 +21,7 @@ export const ModalError = () => {
           {error}
         </div>
         <div className='footer'>
-          <button className='btn-confirm' onClick={() => close()}>Confirm</button>
+          <button className='btn-confirm' onClick={() => close()}>{confirmText || 'Confirm'}</button>
         </div>
       </div>
     </div>

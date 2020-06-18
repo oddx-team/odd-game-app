@@ -69,6 +69,7 @@ const PageRooms = () => {
                 <RoomCard {...room} />
               </div>
             ))}
+            {rooms.length === 0 && <h4 style={{ marginTop: '10px' }}>No room available at the moment.</h4>}
           </RoomContainer>
         </Container>
       </OuterWrapper>

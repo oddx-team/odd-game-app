@@ -15,10 +15,10 @@ export default {
 
   async getMe () {
     await utils.delay(100)
-    // return null
-    return utils.camelizeKeys({
-      username: 'Test'
-    })
+    return null
+    // return utils.camelizeKeys({
+    //   username: 'Test'
+    // })
   },
 
   async getChats () {
