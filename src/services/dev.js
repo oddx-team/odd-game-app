@@ -122,7 +122,7 @@ export default {
         total: 10,
         current: Math.floor(Math.random() * 10),
         guest: Math.floor(Math.random() * 15),
-        status: Math.floor(Math.random() * 3)
+        status: i % 2 === 0 ? 'Not started' : 'Playing'
       }))
     )
   },
@@ -136,7 +136,7 @@ export default {
         total: 10,
         current: Math.floor(Math.random() * 10),
         guest: Math.floor(Math.random() * 15),
-        status: Math.floor(Math.random() * 3)
+        status: i % 2 === 0 ? 'Not started' : 'Playing'
       }))
     )
   }
