@@ -31,7 +31,7 @@ const RoomCard = props => {
           <CardRoomInner>
             <Title>{props.name}</Title>
             <Text title='Host' value={props.host} />
-            <Text title='Room' value={`${props.current}/10`} />
+            <Text title='Room' value={`${props.current}/${props.size} || 20`} />
             <Text title='Spectate' value={`${props.guest}`} />
             <Text title='Status' value={props.status} />
           </CardRoomInner>
@@ -51,6 +51,7 @@ const RoomCard = props => {
 RoomCard.propTypes = {
   _id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  size: PropTypes.number.isRequired,
   host: PropTypes.string.isRequired,
   current: PropTypes.number.isRequired,
   guest: PropTypes.number.isRequired,
