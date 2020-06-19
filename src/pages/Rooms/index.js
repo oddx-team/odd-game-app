@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useGame } from 'hooks'
+import { useGame, useModal } from 'hooks'
 import RoomTabs from './RoomTabs'
 import RoomCard from './RoomCard'
 import GlobalChat from './GlobalChat'
@@ -16,10 +16,12 @@ import {
 
 const PageRooms = () => {
   const HookGame = useGame()
+  const HookModal = useModal()
   const [activeTab, setActiveTab] = useState(0)
   const rooms = activeTab === 0 ? HookGame.enRooms : HookGame.vnRooms
 
   useEffect(() => {
+    HookGame.clearRoom()
     HookGame.setBanner(true)
     fetchRoomList()
   }, [])
@@ -38,7 +40,7 @@ const PageRooms = () => {
         <Container>
           <Title>Game rooms</Title>
           <Subtitle>Select any room:</Subtitle>
-          <ButtonCreate className='block accent'>
+          <ButtonCreate className='block accent' onClick={() => HookModal.openModal('create')}>
             <i />
             <span>Create</span>
           </ButtonCreate>

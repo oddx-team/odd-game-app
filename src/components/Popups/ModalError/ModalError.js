@@ -7,11 +7,11 @@ export const ModalError = () => {
   const { error, confirmText } = HookModal
 
   const close = () => {
-    HookModal.clearError()
+    HookModal.closeModals()
   }
 
   return (
-    <div className='modal'>
+    <div className='modal-error'>
       <div className='dialog'>
         <div className='header'>
           <div>Error!</div>
