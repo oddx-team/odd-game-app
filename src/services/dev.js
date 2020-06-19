@@ -139,5 +139,14 @@ export default {
         status: i % 2 === 0 ? 'Not started' : 'Playing'
       }))
     )
+  },
+
+  async createRoom (payload, language) {
+    // payload format
+    // {
+    //   name: 'abc',
+    //   size: 10
+    // }
+    return { _id: 'room_id_123' }
   }
 }

@@ -51,7 +51,6 @@ const RoomCard = props => {
 RoomCard.propTypes = {
   _id: PropTypes.string,
   name: PropTypes.string.isRequired,
-  size: PropTypes.number.isRequired,
   host: PropTypes.string.isRequired,
   current: PropTypes.number.isRequired,
   guest: PropTypes.number.isRequired,

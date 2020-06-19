@@ -1,6 +1,6 @@
 @import 'styles/global.scss';
 
-.modal {
+.modal-error {
   @include position(fixed, 0, 0, 0, 0, $z-index: 2);
   @include flexCenter(row);
   background: rgba(0, 0, 0, 0.65);

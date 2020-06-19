@@ -34,5 +34,8 @@ export default {
   },
   getVietnameseRooms () {
     return api('get', 'rooms/vi')
+  },
+  createRoom (payload, language) {
+    return api('post', `rooms/${language}`, payload)
   }
 }
