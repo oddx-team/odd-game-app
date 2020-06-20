@@ -14,7 +14,7 @@ const Player = ({ name, points, host }) => {
   )
 }
 
-const PanelScoreboard = () => {
+export const PanelScoreboard = () => {
   return (
     <StyledScoreboard>
       <ScoreContainer>
@@ -34,5 +34,3 @@ Player.propTypes = {
   points: PropTypes.string,
   host: PropTypes.bool
 }
-
-export default PanelScoreboard

@@ -68,6 +68,30 @@
   }
 }
 
+.odd-card.blue {
+  background: #0088cc;
+
+  .card-title {
+    @include textMixin(#fff, 0.25rem, $align: left);
+  }
+  span {
+    color: #fff;
+  }
+
+  .card-picker {
+    div:first-child {
+      color: #fff;
+    }
+
+    div:last-child {
+      color: #000;
+      background: #fff;
+    }
+  }
+}
+
+
+// ------CARD-SIZE------
 .odd-card.medium {
   @include sizeWH(2.2rem, 2rem);
   .card-title {
