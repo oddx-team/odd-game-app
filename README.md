@@ -1,68 +1,407 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# API Documents
 
-In the project directory, you can run:
+## API Parameter and response
 
-### `yarn start`
+#### GLOBAL EXCEPTION(occurs for all APIs):
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- status=400, msg="invalid-params"
+- status=400, msg="duplicated-requests"
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### /api/authenticate/me
 
-### `yarn test`
+- description: get user info
+- method: GET
+- response:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+if not joined:
 
-### `yarn build`
+```json
+{
+  "account_id": 123124125,
+  "language": "en",
+  "joined": "false"
+}
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+if already joined:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```json
+{
+  "account_id": 123124125,
+  "language": "en",
+  "joined": "true",
+  "room_id": 123
+}
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### /api/authenticate/logout
 
-### `yarn eject`
+- description: logout game
+- method: POST
+- response:
+```json
+{}
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### /api/authenticate/register
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- description: register new user (no password)
+- method: POST
+- payload:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```json
+{
+  "username": "admin"
+}
+```
+Response:
+```json
+{
+  "token": "123dfsg3423"
+}
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### /api/chats
 
-## Learn More
+- description: get global chat
+- method: GET
+- response:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```json
+[ 
+  {
+    "user": "admin",
+    "message": "New message",
+    "time": 123124,
+    "online": true
+  }
+]
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### /api/cards
 
-### Code Splitting
+- description: get list of all cards
+- method : GET
+- response:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```json
+[
+  {
+    "id": 1,
+    "text": "Abc has ___ XYZ",
+    "color": "black",
+    "gaps": 1
+  },
+  {
+    "id": 2,
+    "text": "____: Hours of fun. Easy to use. Perfect for ____!",
+    "color": "black",
+    "gaps": 2
+  },
+  {
+    "id": 3,
+    "text": "A Japanese toaster you can fuck.",
+    "color": "white"
+  }
+]
+```
 
-### Analyzing the Bundle Size
+- Note: White cards don't have any gaps
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### /api/rooms/<:language>
 
-### Making a Progressive Web App
+- description: Get all rooms
+- method : GET
+- response:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+```json
+[
+  {
+    "id": 1,
+    "name": "Room 1",
+    "host": "player1",
+    "total": 10,
+    "current": 3,
+    "guest": 10,
+    "status": 'Not started',
+  }
+]
+```
 
-### Advanced Configuration
+- Note:
+- status: **Playing/Not started**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### /api/rooms/<:language>
 
-### Deployment
+- description: Create a new room
+- method: POST
+- payload:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```json
+{
+  "name": "Room-1",
+  "size": "5"
+}
+```
+Response
+```json
+{ "_id": "2342fdsw"}
+```
+- Exception:
+- duplicated-room-name
 
-### `yarn build` fails to minify
+### /api/room/join
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- description: Join a room
+- method: POST
+- payload:
+
+```json
+{
+  "operation": "join_room",
+  "room_id": 1,
+}
+```
+
+Response:
+
+```json
+{
+  "joined": true,
+  "room_id": 1,
+  "collection_cards": [1, 2, 3, 4, 5, 6, 7],
+  "display_cards": [
+    {
+      "id": 9,
+      "vote": 0
+    },
+    {
+      "id": 10,
+      "vote": 0
+    }
+  ],
+  "mode": 1
+}
+```
+
+- Exceptions:
+- already-joined
+- wrong-password
+- Note: - Open room has no password -> password is an empty string - mode: 0 -> spectate, 1 -> active player
+
+### /api/room/view
+
+- description: Spectate a room
+- method: POST
+- payload:
+
+```json
+{
+  "operation": "spectate_room",
+  "room_id": 1,
+}
+```
+
+Response:
+
+```json
+{
+  "joined": true,
+  "room_id": 1,
+  "mode": 0
+}
+```
+
+- Exceptions:
+- already-joined
+- wrong-password
+- Note: - Open room has no password -> password is an empty string - mode: 0 -> spectate, 1 -> active player
+
+### /api/room/quit
+
+- description: Quit a room
+- method: POST
+- payload:
+
+```json
+{
+  "operation": "quit_room",
+  "room_id": 1,
+}
+```
+
+Response:
+```json
+{
+  "joined": false
+}
+```
+
+- Exceptions:
+- not-joined
+
+### /api/rooms/:<room_id>/chats
+
+- description: get chat for game room
+- method: GET
+- response:
+
+```json
+[
+  {
+    "user": "admin",
+    "message": "New message",
+    "time": 123124,
+    "online": true
+  }
+]
+```
+
+- Note:
+- exception: not-joined
+
+### /api/rooms/:<room_id>/leaderboard
+
+- description: Get leaderboard
+- method: GET
+- response:
+
+```json
+[
+  {
+    "name": "player1",
+    "score": 1234,
+    "is_host": 0
+  }
+]
+```
+
+- Note:
+- is_host: 0 -> normal players, 1 -> room host
+
+### /api/rooms/:<room_id>/cards
+
+- description: confirm deal cards
+- method : POST
+- payload:
+
+```json
+{
+  "deal_cards": [1, 2],
+}
+```
+
+- response:
+
+```json
+{
+  "collection_cards": [3,4,5,6,7],
+  "display_cards": [
+    {
+      "id": 9,
+      "vote": 0
+    },
+    {
+      "id": 10,
+      "vote": 0
+    },
+    {
+      "id": 1,
+      "vote": 0
+    },
+    {
+      "id": 2,
+      "vote": 0
+    }
+  ],
+},
+```
+
+- Exception:
+- not-joined
+- cards-not-exist
+- already-dealt
+
+### /api/rooms/:<room_id>/vote
+
+- description: vote for a card
+- method: PUT
+- payload:
+
+```json
+{
+  "operation": "vote_card",
+  "card_id": 9,
+}
+```
+
+- response:
+
+```json
+{
+  "display_cards": [
+    {
+      "id": 9,
+      "vote": 1
+    },
+    {
+      "id": 10,
+      "vote": 0
+    }
+  ]
+}
+```
+
+- Exception:
+- not-joined
+- already-voted
+
+### /api/rooms/:<room_id>/next
+
+- description: proceed to the next round
+- method: GET
+- response:
+
+```json
+{
+  "display_cards": [],
+  "collection_cards": [1, 2, 3, 4, 5, 6, 7],
+  "leaderboard": [
+    {
+      "name": "player1",
+      "score": 1234,
+      "is_host": 0
+    }
+  ]
+}
+```
+
+- Exception:
+- not-joined
+- already-voted
+
+### /api/rooms/:<room_id>/result
+
+- description: get result of the current round
+- method: GET
+- response:
+
+```json
+{
+  "winner": {
+    "name": "admin",
+    "score": 10000
+  },
+  "leaderboard": [
+    {
+      "name": "player1",
+      "score": 1234,
+      "is_host": 0
+    }
+  ]
+}
+```
+
+- Exception:
+- not-joined

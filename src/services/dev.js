@@ -3,10 +3,10 @@ import utils from 'utils'
 export default {
   async registerUsername () {
     await utils.delay(100)
-    throw Error('username is picked already')
-    // return utils.camelizeKeys({
-    //   token: 'sampleToken'
-    // })
+    // throw Error('username is picked already')
+    return utils.camelizeKeys({
+      token: 'sampleToken'
+    })
   },
 
   async logout () {
@@ -15,10 +15,10 @@ export default {
 
   async getMe () {
     await utils.delay(100)
-    return null
-    // return utils.camelizeKeys({
-    //   username: 'Test'
-    // })
+    // return null
+    return utils.camelizeKeys({
+      username: 'Test'
+    })
   },
 
   async getChats () {
@@ -121,8 +121,8 @@ export default {
         host: `Player${(i % 3) + 1}`,
         total: 10,
         current: Math.floor(Math.random() * 10),
-        viewers: Math.floor(Math.random() * 15),
-        status: Math.floor(Math.random() * 3)
+        guest: Math.floor(Math.random() * 15),
+        status: i % 2 === 0 ? 'Not started' : 'Playing'
       }))
     )
   },
@@ -135,9 +135,18 @@ export default {
         host: `Player${(i % 3) + 1}`,
         total: 10,
         current: Math.floor(Math.random() * 10),
-        viewers: Math.floor(Math.random() * 15),
-        status: Math.floor(Math.random() * 3)
+        guest: Math.floor(Math.random() * 15),
+        status: i % 2 === 0 ? 'Not started' : 'Playing'
       }))
     )
+  },
+
+  async createRoom (payload, language) {
+    // payload format
+    // {
+    //   name: 'abc',
+    //   size: 10
+    // }
+    return { _id: 'room_id_123' }
   }
 }

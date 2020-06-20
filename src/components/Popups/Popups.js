@@ -1,14 +1,15 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import { useModal } from 'hooks'
 import { ModalError } from './ModalError'
-import { ModalContext } from 'contexts/ModalContext'
+import { ModalCreateRoom } from './ModalCreateRoom'
 
 export const Popups = () => {
-  const { stateModal } = useContext(ModalContext)
-  const { error } = stateModal
+  const { error, openCreateRoom } = useModal()
 
   return (
     <div>
       {error && <ModalError />}
+      {openCreateRoom && <ModalCreateRoom />}
     </div>
   )
 }
