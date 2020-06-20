@@ -15,7 +15,7 @@ const Text = ({ title, value }) => {
   )
 }
 
-const RoomCard = props => {
+export const CardRoom = props => {
   const joinRoom = (history, roomId) => {
     history.push(`/rooms/${roomId}`)
   }
@@ -48,7 +48,7 @@ const RoomCard = props => {
   )
 }
 
-RoomCard.propTypes = {
+CardRoom.propTypes = {
   _id: PropTypes.string,
   name: PropTypes.string.isRequired,
   host: PropTypes.string.isRequired,
@@ -61,5 +61,3 @@ Text.propTypes = {
   title: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired
 }
-
-export default RoomCard
