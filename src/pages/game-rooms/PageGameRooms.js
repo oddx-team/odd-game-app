@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useGame, useModal } from 'hooks'
 import { CardRoom } from 'components/CardRoom'
-import { TabList } from './TabList'
-import { GlobalChat } from './GlobalChat'
+import { TabList } from './tab-list'
+import { GlobalChat } from './global-chat'
 import Api from 'services'
 import {
   PageRoomWrapper,
@@ -14,7 +14,7 @@ import {
   RoomContainer
 } from './styled'
 
-const PageRooms = () => {
+export const PageGameRooms = () => {
   const HookGame = useGame()
   const HookModal = useModal()
   const [activeTab, setActiveTab] = useState(0)
@@ -58,5 +58,3 @@ const PageRooms = () => {
     </PageRoomWrapper>
   )
 }
-
-export default PageRooms

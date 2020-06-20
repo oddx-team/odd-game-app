@@ -4,9 +4,9 @@ import { Header } from 'components/Header'
 import { Loading } from 'components/Loading'
 import { Popups } from 'components/Popups'
 import { PageLanding } from 'pages/landing'
+import { PageGameRooms } from 'pages/game-rooms'
 import { PageNotFound } from 'pages/not-found'
 import { PagePlayground } from 'pages/playground'
-import PageRooms from 'pages/Rooms'
 
 import GameContextProvider, { GameContext } from 'contexts/GameContext.js'
 import ModalContextProvider from 'contexts/ModalContext.js'
@@ -37,7 +37,7 @@ const App = () => {
               <Popups />
               <Switch>
                 <Route exact path='/' component={PageLanding} />
-                <PrivateRoute exact path='/rooms' component={PageRooms} />
+                <PrivateRoute exact path='/rooms' component={PageGameRooms} />
                 <PrivateRoute exact path='/rooms/:roomId' component={PagePlayground} />
                 <Route component={PageNotFound} />
               </Switch>
