@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useGame, useModal } from 'hooks'
-import RoomTabs from './RoomTabs'
-import RoomCard from './RoomCard'
-import GlobalChat from './GlobalChat'
+import { CardRoom } from 'components/CardRoom'
+import { TabList } from './tab-list'
+import { GlobalChat } from './global-chat'
 import Api from 'services'
 import {
   PageRoomWrapper,
@@ -14,7 +14,7 @@ import {
   RoomContainer
 } from './styled'
 
-const PageRooms = () => {
+export const PageGameRooms = () => {
   const HookGame = useGame()
   const HookModal = useModal()
   const [activeTab, setActiveTab] = useState(0)
@@ -36,7 +36,7 @@ const PageRooms = () => {
       <GlobalChat />
 
       <OuterWrapper>
-        <RoomTabs switchTab={idx => setActiveTab(idx)} activeTab={activeTab} />
+        <TabList switchTab={idx => setActiveTab(idx)} activeTab={activeTab} />
         <Container>
           <Title>Game rooms</Title>
           <Subtitle>Select any room:</Subtitle>
@@ -48,7 +48,7 @@ const PageRooms = () => {
           <RoomContainer>
             {rooms.map((room, i) => (
               <div key={i}>
-                <RoomCard {...room} />
+                <CardRoom {...room} />
               </div>
             ))}
             {rooms.length === 0 && <h4 style={{ marginTop: '10px' }}>No room available at the moment.</h4>}
@@ -58,5 +58,3 @@ const PageRooms = () => {
     </PageRoomWrapper>
   )
 }
-
-export default PageRooms

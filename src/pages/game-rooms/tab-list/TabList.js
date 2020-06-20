@@ -12,7 +12,7 @@ const Tab = ({ active, text, onClick, global }) => {
   )
 }
 
-const RoomListTabs = ({ activeTab, switchTab }) => {
+export const TabList = ({ activeTab, switchTab }) => {
   const active = idx => {
     return idx === activeTab ? 'active' : ''
   }
@@ -25,11 +25,6 @@ const RoomListTabs = ({ activeTab, switchTab }) => {
   )
 }
 
-RoomListTabs.propTypes = {
-  activeTab: PropTypes.number.isRequired,
-  switchTab: PropTypes.func.isRequired
-}
-
 Tab.propTypes = {
   active: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
@@ -37,4 +32,7 @@ Tab.propTypes = {
   global: PropTypes.bool
 }
 
-export default RoomListTabs
+TabList.propTypes = {
+  activeTab: PropTypes.number.isRequired,
+  switchTab: PropTypes.func.isRequired
+}

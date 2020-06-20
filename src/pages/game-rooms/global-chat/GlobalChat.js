@@ -8,7 +8,7 @@ import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from './st
 import Api from 'services'
 import io from 'socket.io-client'
 
-const GlobalChat = () => {
+export const GlobalChat = () => {
   const HookGame = useGame()
   const LastRef = useRef(null)
 
@@ -86,5 +86,3 @@ const ChatTab = ({ title }) => {
 ChatTab.propTypes = {
   title: PropTypes.string.isRequired
 }
-
-export default GlobalChat
