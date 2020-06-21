@@ -29,10 +29,10 @@ export default {
   getChats () {
     return api('get', 'chat')
   },
-  getEnglishRooms () {
+  getGlobalRooms () {
     return api('get', 'rooms/en')
   },
-  getVietnameseRooms () {
+  getVnRooms () {
     return api('get', 'rooms/vi')
   },
   createRoom (payload, language) {

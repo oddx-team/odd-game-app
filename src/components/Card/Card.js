@@ -4,11 +4,11 @@ import IconLogo from 'assets/logo.png'
 import classNames from 'classnames'
 import './styled.scss'
 
-export const Card = ({ color, size, text }) => {
+export const Card = ({ color, size, text, onClick }) => {
   const cardClasses = classNames('block odd-card', color, size)
 
   return (
-    <div className={cardClasses}>
+    <div className={cardClasses} onClick={() => onClick()}>
       <div className='card-title'>{text}</div>
       <div className='card-logo'>
         <img alt='IconLogo' src={IconLogo} />

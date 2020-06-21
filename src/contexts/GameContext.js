@@ -11,8 +11,8 @@ const gameReducer = (state, action) => {
       return { ...state, online: !state.online }
     case 'UPDATE_GLOBAL_CHAT':
       return { ...state, globalChat: [...state.globalChat, ...action.messages] }
-    case 'UPDATE_ROOM_LIST':
-      return { ...state, enRooms: action.payload.enRooms, vnRooms: action.payload.vnRooms }
+    case 'UPDATE_ALL_ROOMS':
+      return { ...state, eRooms: action.payload.eRooms, vRooms: action.payload.vRooms }
     case 'SET_FULL_BANNER':
       return { ...state, fullBanner: action.fullBanner }
     case 'CREATE_ROOM':
@@ -29,8 +29,8 @@ const initialState = {
   username: null,
   points: 0,
   globalChat: [],
-  enRooms: [],
-  vnRooms: [],
+  eRooms: [],
+  vRooms: [],
   cards: [],
   online: false,
   fullBanner: true,

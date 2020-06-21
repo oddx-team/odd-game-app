@@ -17,6 +17,7 @@ export const useModal = () => {
 }
 
 export const useGame = () => {
+  const { setError } = useModal()
   const { state, dispatch } = useContext(GameContext)
 
   return ({
@@ -24,12 +25,29 @@ export const useGame = () => {
     login: (username) => dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: true, username }),
     setBanner: (banner) => dispatch({ type: 'SET_FULL_BANNER', fullBanner: banner }),
     clearRoom: () => dispatch({ type: 'QUIT_ROOM' }),
-    createRoom: async (name, size, language) => {
-      const data = await Api.createRoom({ name, size }, language)
-      dispatch({ type: 'CREATE_ROOM', roomId: data._id })
-    },
-    updateRooms: (payload) => dispatch({ type: 'UPDATE_ROOM_LIST', payload }),
     updateGlobalChat: (messages) => dispatch({ type: 'UPDATE_GLOBAL_CHAT', messages }),
+
+    createRoom: async (name, size, language) => {
+      try {
+        const data = await Api.createRoom({ name, size }, language)
+        dispatch({ type: 'CREATE_ROOM', roomId: data._id })
+      } catch (err) {
+        setError('Creating rooms failed!')
+      }
+    },
+
+    fetchAllRooms: async () => {
+      try {
+        const [eRooms, vRooms] = await Promise.all([Api.getGlobalRooms(), Api.getVnRooms()])
+        dispatch({
+          type: 'UPDATE_ALL_ROOMS',
+          payload: { eRooms, vRooms }
+        })
+      } catch (err) {
+        setError('Fetching rooms failed!')
+      }
+    },
+
     ...state
   })
 }

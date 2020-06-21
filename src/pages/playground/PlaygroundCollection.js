@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Card } from 'components/Card'
 import styled from 'styled-components/macro'
 
 export const PlaygroundCollection = () => {
+  const [selectedCard, setSelectedCard] = useState(null)
+  const cardColor = (idx) => {
+    return selectedCard === idx ? 'blue' : 'white'
+  }
+
   const oddCards = Array(15)
     .fill(null)
     .map((_, i) => ({
@@ -16,7 +21,12 @@ export const PlaygroundCollection = () => {
       <Content>
         {oddCards.map((card, i) => (
           <div key={i}>
-            <Card {...card} size='small' />
+            <Card
+              {...card}
+              size='small'
+              color={cardColor(i)}
+              onClick={() => setSelectedCard(i)}
+            />
           </div>
         ))}
       </Content>

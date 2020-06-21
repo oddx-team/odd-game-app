@@ -3,10 +3,10 @@ import utils from 'utils'
 export default {
   async registerUsername () {
     await utils.delay(100)
-    // throw Error('username is picked already')
     return utils.camelizeKeys({
       token: 'sampleToken'
     })
+    // throw Error('username is picked already')
   },
 
   async logout () {
@@ -15,10 +15,10 @@ export default {
 
   async getMe () {
     await utils.delay(100)
-    // return null
     return utils.camelizeKeys({
       username: 'Test'
     })
+    // return null
   },
 
   async getChats () {
@@ -113,7 +113,8 @@ export default {
     ])
   },
 
-  async getEnglishRooms () {
+  async getGlobalRooms () {
+    await utils.delay(100)
     return utils.camelizeKeys(
       new Array(26).fill(null).map((_, i) => ({
         id: i,
@@ -127,7 +128,8 @@ export default {
     )
   },
 
-  async getVietnameseRooms () {
+  async getVnRooms () {
+    await utils.delay(100)
     return utils.camelizeKeys(
       new Array(26).fill(null).map((_, i) => ({
         id: i + 26,
@@ -147,6 +149,33 @@ export default {
     //   name: 'abc',
     //   size: 10
     // }
+    await utils.delay(100)
     return { _id: 'room_id_123' }
+  },
+
+  async joinRoom (payload) {
+    // payload format
+    // {
+    //   operation: 'join_room',
+    //   room_id: 1
+    // }
+    await utils.delay(100)
+    return utils.camelizeKeys({
+      joined: true,
+      room_id: 1,
+      mode: 1,
+      collection_cards: [7, 8, 9, 10, 11],
+      main_card: 1,
+      played_cards: [
+        {
+          id: 12,
+          vote: 0
+        },
+        {
+          id: 13,
+          vote: 0
+        }
+      ]
+    })
   }
 }
