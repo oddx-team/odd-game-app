@@ -15,13 +15,13 @@ export const ModalCreateRoom = () => {
 
   useEffect(() => {
     if (roomId) {
+      HookModal.closeModal('create')
       History.push(`/rooms/${roomId}`)
     }
   }, [roomId])
 
   const confirmRoom = async () => {
     await HookGame.createRoom(roomName, roomSize, lang)
-    HookModal.closeModal('create')
   }
 
   return (

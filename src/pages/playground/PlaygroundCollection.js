@@ -1,30 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useGame, usePlay } from 'hooks'
 import { Card } from 'components/Card'
 import styled from 'styled-components/macro'
 
 export const PlaygroundCollection = () => {
+  const HookPlay = usePlay()
+  const HookGame = useGame()
   const [selectedCard, setSelectedCard] = useState(null)
-  const cardColor = (idx) => {
-    return selectedCard === idx ? 'blue' : 'white'
-  }
+  const [collectionCards, setCollectionCards] = useState([])
 
-  const oddCards = Array(15)
-    .fill(null)
-    .map((_, i) => ({
-      text: 'Donald Trump has nominated __ for his VP',
-      color: 'white'
+  useEffect(() => {
+    const collectionCards = HookPlay.collectionCards.map(id => ({
+      ...HookGame.getCard(id)
     }))
+
+    setCollectionCards(collectionCards)
+  }, [HookPlay.collectionCards])
 
   return (
     <CollectionWrapper>
       <Header>Player Collection</Header>
       <Content>
-        {oddCards.map((card, i) => (
+        {collectionCards.map((card, i) => (
           <div key={i}>
             <Card
               {...card}
               size='small'
-              color={cardColor(i)}
+              color={selectedCard === i ? 'blue' : 'white'}
               onClick={() => setSelectedCard(i)}
             />
           </div>

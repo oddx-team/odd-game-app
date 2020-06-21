@@ -15,7 +15,7 @@
 
   .card-logo {
     @include flexCenter(row);
-    @include position(absolute, $bottom: 0.2rem, $left: 0.2rem);
+    @include position(absolute, $bottom: 0.12rem, $left: 0.2rem);
     img {
       @include sizeWH(0.25rem, 0.25rem);
     }
@@ -29,7 +29,7 @@
 
   .card-picker {
     @include flexCenter(row);
-    @include position(absolute, $bottom: 0.2rem, $left: 1.63rem);
+    @include position(absolute, $bottom: 0.12rem, $left: 1.63rem);
 
     div:first-child {
       @include textMixin(#fff, 0.2rem, bold, uppercase);
@@ -93,7 +93,7 @@
 
 // ------CARD-SIZE------
 .odd-card.medium {
-  @include sizeWH(2.2rem, 2rem);
+  @include sizeWH(2rem, 1.7rem);
   .card-title {
     font-size: 0.2rem;
   }
@@ -142,7 +142,7 @@
     }
   }
   .card-picker {
-    left: 0.8rem;
+    left: 0.5rem;
     div:first-child {
       font-size: 0.13rem;
       margin-right: 0.06rem;

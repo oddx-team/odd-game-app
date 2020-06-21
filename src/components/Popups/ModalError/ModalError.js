@@ -7,7 +7,7 @@ export const ModalError = () => {
   const { error, confirmText } = HookModal
 
   const close = () => {
-    HookModal.closeModals()
+    HookModal.clearError()
   }
 
   return (

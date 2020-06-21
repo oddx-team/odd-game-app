@@ -19,7 +19,7 @@ const playReducer = (state, action) => {
 }
 
 const initialState = {
-  mode: 0,
+  mode: null,
   collectionCards: [],
   playedCards: [],
   blackCard: null
