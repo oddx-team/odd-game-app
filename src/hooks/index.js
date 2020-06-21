@@ -1,7 +1,12 @@
+import Api from 'services'
 import { useContext } from 'react'
 import { ModalContext } from 'contexts/ModalContext'
 import { GameContext } from 'contexts/GameContext'
-import Api from 'services'
+import { PlayContext } from 'contexts/PlayContext'
+// import {
+//   ERROR_CREATE_ROOM,
+//   ERROR_FETCH_ROOMS
+// } from '../constants'
 
 export const useModal = () => {
   const { state, dispatch } = useContext(ModalContext)
@@ -11,6 +16,7 @@ export const useModal = () => {
     setError: (payload) => dispatch({ type: 'SET_ERROR', error: payload }),
     setMenu: (payload) => dispatch({ type: 'SET_MENU_OPEN', openMenu: payload }),
     openModal: (modalName) => dispatch({ type: 'SET_MODAL_OPEN', modalName }),
+    closeModal: (modalName) => dispatch({ type: 'SET_MODAL_CLOSED', modalName }),
     closeModals: () => dispatch({ type: 'CLOSE_ALL_MODALS' }),
     ...state
   })
@@ -32,7 +38,7 @@ export const useGame = () => {
         const data = await Api.createRoom({ name, size }, language)
         dispatch({ type: 'CREATE_ROOM', roomId: data._id })
       } catch (err) {
-        setError('Creating rooms failed!')
+        setError('Create room failed')
       }
     },
 
@@ -44,10 +50,25 @@ export const useGame = () => {
           payload: { eRooms, vRooms }
         })
       } catch (err) {
-        setError('Fetching rooms failed!')
+        setError('asdfsd')
       }
     },
 
+    fetchAllCards: async () => {
+
+    },
+    ...state
+  })
+}
+
+export const usePlay = () => {
+  const { state, dispatch } = useContext(PlayContext)
+
+  return ({
+    setMode: (mode) => dispatch({ type: 'UPDATE_MODE', mode }),
+    setCollectionCards: (collectionCards) => dispatch({ type: 'SET_ERROR', collectionCards }),
+    setPlayedCards: (playedCards) => dispatch({ type: 'SET_MENU_OPEN', playedCards }),
+    setBlackCard: (blackCard) => dispatch({ type: 'SET_MODAL_OPEN', blackCard }),
     ...state
   })
 }

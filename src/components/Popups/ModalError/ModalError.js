@@ -18,10 +18,10 @@ export const ModalError = () => {
           <button className='btn-close' onClick={() => close()} />
         </div>
         <div className='body'>
-          {error}
+          <div className='content'>{error}</div>
         </div>
         <div className='footer'>
-          <button className='btn-confirm' onClick={() => close()}>{confirmText || 'Confirm'}</button>
+          <button className='btn-confirm block dark-blue' onClick={() => close()}>{confirmText || 'Confirm'}</button>
         </div>
       </div>
     </div>

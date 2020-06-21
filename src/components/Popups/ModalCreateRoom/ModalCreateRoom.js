@@ -19,18 +19,9 @@ export const ModalCreateRoom = () => {
     }
   }, [roomId])
 
-  const close = () => {
-    HookModal.closeModals()
-  }
-
   const confirmRoom = async () => {
-    try {
-      await HookGame.createRoom(roomName, roomSize, lang)
-      HookModal.closeModals()
-    } catch (err) {
-      HookModal.closeModals()
-      HookModal.setError('Something went wrong')
-    }
+    await HookGame.createRoom(roomName, roomSize, lang)
+    HookModal.closeModal('create')
   }
 
   return (
@@ -38,7 +29,7 @@ export const ModalCreateRoom = () => {
       <div className='dialog'>
         <div className='header'>
           <div>Create room</div>
-          <button className='btn-close' onClick={() => close()} />
+          <button className='btn-close' onClick={() => HookModal.closeModal('create')} />
         </div>
         <div className='body'>
           <div className='content'>

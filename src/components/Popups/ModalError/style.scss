@@ -6,6 +6,24 @@
   background: rgba(0, 0, 0, 0.65);
   font-size: 0.3rem;
   font-family: 'Shentox', sans-serif;
+
+  .body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    width: 100%;
+    overflow: auto;
+    color: #000;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+    overflow-y: hidden;
+    padding-top: 0.2rem;
+
+    .content {
+      @include alignCenter();
+    }
+  }
 }
 
 .dialog {
@@ -15,7 +33,7 @@
 }
 
 .header {
-  @include sizeWH(100%, 0.57rem);
+  @include sizeWH(100%, 0.52rem);
   @include textMixin(#fff, 0.3rem, normal, uppercase, $align: center);
   padding-top: 0.1rem;
   background: #0477BD;
@@ -30,19 +48,7 @@
   border: none;
 }
 
-.body {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  width: 100%;
-  overflow: auto;
-  color: #000;
-  font-family: 'Oswald', sans-serif;
-  text-align: center;
-  overflow-y: hidden;
-  padding-top: 0.2rem;
-}
+
 
 .footer {
   @include flexCenter(column);

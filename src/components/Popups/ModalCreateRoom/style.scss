@@ -15,7 +15,7 @@
 }
 
 .header {
-  @include sizeWH(100%, 0.57rem);
+  @include sizeWH(100%, 0.52rem);
   @include textMixin(#fff, 0.3rem, normal, uppercase, $align: center);
   padding-top: 0.1rem;
   background: #0477BD;

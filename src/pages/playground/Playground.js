@@ -1,4 +1,5 @@
 import React from 'react'
+// import { usePlay, useGame } from 'hooks'
 import { PlaygroundWidgets } from './widgets'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'components/Card'
@@ -15,6 +16,13 @@ import {
 } from './styled'
 
 export const PagePlayground = () => {
+  // const HookGame = useGame()
+  // const HookPlay = usePlay()
+
+  // const getCard = (idx) => {
+  //   const { }
+  // }
+
   const oddCards = Array(5)
     .fill(null)
     .map((_, i) => ({

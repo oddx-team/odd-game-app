@@ -10,6 +10,7 @@ import { PagePlayground } from 'pages/playground'
 
 import GameContextProvider, { GameContext } from 'contexts/GameContext.js'
 import ModalContextProvider from 'contexts/ModalContext.js'
+import PlayContextProvider from 'contexts/PlayContext.js'
 import 'App.scss'
 
 const PrivateRoute = ({ component: Component, ...options }) => {
@@ -29,21 +30,23 @@ const App = () => {
   return (
     <GameContextProvider>
       <ModalContextProvider>
-        <BrowserRouter>
-          <div id='app'>
-            <div className='header-bg' />
-            <div className='main'>
-              <Header />
-              <Popups />
-              <Switch>
-                <Route exact path='/' component={PageLanding} />
-                <PrivateRoute exact path='/rooms' component={PageGameRooms} />
-                <PrivateRoute exact path='/rooms/:roomId' component={PagePlayground} />
-                <Route component={PageNotFound} />
-              </Switch>
+        <PlayContextProvider>
+          <BrowserRouter>
+            <div id='app'>
+              <div className='header-bg' />
+              <div className='main'>
+                <Header />
+                <Popups />
+                <Switch>
+                  <Route exact path='/' component={PageLanding} />
+                  <PrivateRoute exact path='/rooms' component={PageGameRooms} />
+                  <PrivateRoute exact path='/rooms/:roomId' component={PagePlayground} />
+                  <Route component={PageNotFound} />
+                </Switch>
+              </div>
             </div>
-          </div>
-        </BrowserRouter>
+          </BrowserRouter>
+        </PlayContextProvider>
       </ModalContextProvider>
     </GameContextProvider>
   )

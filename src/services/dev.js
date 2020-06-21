@@ -165,7 +165,7 @@ export default {
       room_id: 1,
       mode: 1,
       collection_cards: [7, 8, 9, 10, 11],
-      main_card: 1,
+      black_card: 1,
       played_cards: [
         {
           id: 12,

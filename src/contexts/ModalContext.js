@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 
 export const ModalContext = createContext(null, null)
 
-const getOpenModal = (modalName) => {
+const setModalState = (modalName, isOpen) => {
   switch (modalName) {
     case 'create':
-      return { openCreateRoom: true }
+      return { openCreateRoom: isOpen }
     default:
       return {}
   }
@@ -19,7 +19,9 @@ const modalReducer = (state, action) => {
     case 'SET_MENU_OPEN':
       return { ...state, openMenu: action.openMenu }
     case 'SET_MODAL_OPEN':
-      return { ...state, ...getOpenModal(action.modalName) }
+      return { ...state, ...setModalState(action.modalName, true) }
+    case 'SET_MODAL_CLOSED':
+      return { ...state, ...setModalState(action.modalName, false) }
     case 'CLOSE_ALL_MODALS':
       return {
         ...state,
