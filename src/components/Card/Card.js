@@ -8,7 +8,7 @@ export const Card = ({ color, size, text, onClick }) => {
   const cardClasses = classNames('block odd-card', color, size)
 
   return (
-    <div className={cardClasses} onClick={() => onClick()}>
+    <div className={cardClasses} onClick={() => onClick && onClick()}>
       <div className='card-title'>{text}</div>
       <div className='card-logo'>
         <img alt='IconLogo' src={IconLogo} />
@@ -28,5 +28,6 @@ export const Card = ({ color, size, text, onClick }) => {
 Card.propTypes = {
   color: PropTypes.string,
   size: PropTypes.string,
-  text: PropTypes.string
+  text: PropTypes.string,
+  onClick: PropTypes.func
 }
