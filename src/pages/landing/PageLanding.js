@@ -28,7 +28,7 @@ export const PageLanding = () => {
     if (isLoggedIn) {
       History.push('/rooms')
     }
-  }, [isLoggedIn])
+  }, [History, isLoggedIn])
 
   const startGame = async () => {
     if (!username || username.length < 3) {

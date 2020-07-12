@@ -1,6 +1,6 @@
 import Api from 'services'
 import utils from 'utils'
-import { useContext } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { ModalContext } from 'contexts/ModalContext'
 import { GameContext } from 'contexts/GameContext'
 import { PlayContext } from 'contexts/PlayContext'
@@ -104,4 +104,24 @@ export const usePlay = () => {
     },
     ...state
   })
+}
+
+export const useFetch = (fetchApi) => {
+  const { setError } = useModal()
+  const [response, setResponse] = useState(null)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetchApi()
+        setResponse(res)
+      } catch (err) {
+        setError(err)
+      }
+    }
+
+    fetchData()
+  }, [])
+
+  return response
 }

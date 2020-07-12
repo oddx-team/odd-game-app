@@ -8,7 +8,7 @@ export const ModalCreateRoom = () => {
   const [roomName, setRoomName] = useState('')
   const [roomSize, setRoomSize] = useState(5)
   const [lang, setLang] = useState('en')
-  const History = useHistory()
+  const history = useHistory()
   const HookModal = useModal()
   const HookGame = useGame()
   const { roomId } = HookGame
@@ -16,9 +16,9 @@ export const ModalCreateRoom = () => {
   useEffect(() => {
     if (roomId) {
       HookModal.closeModal('create')
-      History.push(`/rooms/${roomId}`)
+      history.push(`/rooms/${roomId}`)
     }
-  }, [roomId])
+  }, [history, roomId])
 
   const confirmRoom = async () => {
     await HookGame.createRoom(roomName, roomSize, lang)
