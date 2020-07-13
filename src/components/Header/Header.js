@@ -50,7 +50,6 @@ export const Header = () => {
   const history = useHistory()
 
   useEffect(() => {
-    console.log('refetch')
     Api.getMe().then(data => {
       login(data.username)
     }).catch(() => {

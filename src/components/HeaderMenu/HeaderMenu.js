@@ -1,7 +1,7 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { ModalContext } from 'contexts/ModalContext'
 import { useGameActionsContext } from 'contexts/GameContext'
+import { useModalContext, useModalActionsContext } from 'contexts/ModalContext'
 import classNames from 'classnames'
 import styles from './styles.module.scss'
 import Api from 'services'
@@ -9,8 +9,8 @@ import Api from 'services'
 export const HeaderMenu = () => {
   const history = useHistory()
   const { logoutGame } = useGameActionsContext()
-  const { setError, setMenu, state } = useContext(ModalContext)
-  const { openMenu } = state
+  const { openMenu } = useModalContext()
+  const { setError, setMenu } = useModalActionsContext()
 
   const menuClass = openMenu
     ? classNames(styles.menu, styles.open)

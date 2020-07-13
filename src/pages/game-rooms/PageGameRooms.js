@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useModal } from 'hooks'
+import { useModalActionsContext } from 'contexts/ModalContext'
 import { CardRoom } from 'components/CardRoom'
 import { Loading } from 'components/Loading'
 import { TabList } from './tab-list'
@@ -18,7 +18,7 @@ import Api from 'services'
 import { useGameActionsContext } from 'contexts/GameContext'
 
 export const PageGameRooms = () => {
-  const HookModal = useModal()
+  const { openModal } = useModalActionsContext()
 
   const { setBanner } = useGameActionsContext()
   const [activeTab, setActiveTab] = useState(0)
@@ -55,7 +55,7 @@ export const PageGameRooms = () => {
               <Subtitle>Select any room:</Subtitle>
               <ButtonCreate
                 className='block accent'
-                onClick={() => HookModal.openModal('create')}
+                onClick={() => openModal('create')}
               >
                 <i />
                 <span>Create</span>

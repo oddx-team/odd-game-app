@@ -1,7 +1,7 @@
 import Api from 'services'
 import utils from 'utils'
 import { useContext, useState, useEffect } from 'react'
-import { ModalContext } from 'contexts/ModalContext'
+import { useModalActionsContext } from 'contexts/ModalContext'
 import { GameContext } from 'contexts/GameContext'
 import { PlayContext } from 'contexts/PlayContext'
 import {
@@ -10,22 +10,8 @@ import {
   ERROR_FETCH_CARDS
 } from '../constants'
 
-export const useModal = () => {
-  const { state, dispatch } = useContext(ModalContext)
-
-  return ({
-    clearError: () => dispatch({ type: 'SET_ERROR', error: null }),
-    setError: (payload) => dispatch({ type: 'SET_ERROR', error: payload }),
-    setMenu: (payload) => dispatch({ type: 'SET_MENU_OPEN', openMenu: payload }),
-    openModal: (modalName) => dispatch({ type: 'SET_MODAL_OPEN', modalName }),
-    closeModal: (modalName) => dispatch({ type: 'SET_MODAL_CLOSED', modalName }),
-    closeModals: () => dispatch({ type: 'CLOSE_ALL_MODALS' }),
-    ...state
-  })
-}
-
 export const useGame = () => {
-  const { setError } = useModal()
+  const { setError } = useModalActionsContext()
   const { state, dispatch } = useContext(GameContext)
 
   return ({
@@ -75,7 +61,7 @@ export const useGame = () => {
 }
 
 export const usePlay = () => {
-  const { setError } = useModal()
+  const { setError } = useModalActionsContext()
   const { state, dispatch } = useContext(PlayContext)
 
   return ({
@@ -115,7 +101,7 @@ export const usePlay = () => {
 }
 
 export const useFetch = (fetchApi) => {
-  const { setError } = useModal()
+  const { setError } = useModalActionsContext()
   const [response, setResponse] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
 
@@ -132,7 +118,7 @@ export const useFetch = (fetchApi) => {
     }
 
     fetchData()
-  }, [])
+  }, [setError, fetchApi])
 
   return [response, isLoading]
 }

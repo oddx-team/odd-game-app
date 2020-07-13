@@ -1,13 +1,13 @@
 import React from 'react'
-import { useModal } from 'hooks'
+import { useModalContext, useModalActionsContext } from 'contexts/ModalContext'
 import './style.scss'
 
 export const ModalError = () => {
-  const HookModal = useModal()
-  const { error, confirmText } = HookModal
+  const { error, confirmText } = useModalContext()
+  const { clearError } = useModalActionsContext()
 
   const close = () => {
-    HookModal.clearError()
+    clearError()
   }
 
   return (

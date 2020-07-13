@@ -30,35 +30,38 @@ const gameReducer = (state, action) => {
   }
 }
 
-const initialState = {
-  allCards: [],
-  isLoggedIn: null,
-  username: null,
-  points: 0,
-  globalChat: [],
-  eRooms: [],
-  vRooms: [],
-  online: false,
-  roomId: null,
-  fullBanner: true
-}
-
 const GameContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(gameReducer, initialState, undefined)
+  const [state, dispatch] = useReducer(gameReducer, {
+    allCards: [],
+    isLoggedIn: null,
+    username: null,
+    points: 0,
+    globalChat: [],
+    eRooms: [],
+    vRooms: [],
+    online: false,
+    roomId: null,
+    fullBanner: true
+  }, undefined)
 
-  const login = useCallback((username) => {
-    dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: true, username })
-  }, [])
-  const logoutGame = useCallback(() => {
-    dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: false, username: null })
-  }, [])
-  const setBanner = useCallback((banner) => {
-    dispatch({ type: 'SET_FULL_BANNER', fullBanner: banner })
-  }, [])
+  const actions = {
+    login: useCallback((username) => {
+      dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: true, username })
+    }, []),
+    logoutGame: useCallback(() => {
+      dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: false, username: null })
+    }, []),
+    setBanner: useCallback((banner) => {
+      dispatch({ type: 'SET_FULL_BANNER', fullBanner: banner })
+    }, []),
+    createRoom: useCallback(() => {
+      dispatch({ type: 'CREATE_ROOM', roomId: 1 })
+    }, [])
+  }
 
   return (
     <GameContext.Provider value={{ ...state, dispatch }}>
-      <GameActionsContext.Provider value={{ login, logoutGame, setBanner }}>
+      <GameActionsContext.Provider value={{ ...actions }}>
         <div>{children}</div>
       </GameActionsContext.Provider>
     </GameContext.Provider>

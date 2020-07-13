@@ -15,29 +15,30 @@ export const GlobalChat = () => {
   useEffect(() => setGlobalChat(messages), [messages])
   useEffect(() => scrollToBottom(), [globalChat])
   useEffect(() => {
-    initSocket()
+    // init socket
+    (() => {
+      console.log('asdf')
+
+      window.socket = global.config.socket
+      window.socket.on('global chat', (username, message) => {
+        const newMessage = {
+          username,
+          message,
+          time: new Date().getTime() / 1000
+        }
+        setGlobalChat([...globalChat, newMessage])
+      })
+
+      window.socket.on('pong', (ms) => {
+        window.latency = ms
+      })
+    })()
 
     return () => {
       window.socket.disconnect()
       window.socket.close()
     }
-  }, [])
-
-  const initSocket = () => {
-    window.socket = global.config.socket
-    window.socket.on('global chat', (username, message) => {
-      const newMessage = {
-        username,
-        message,
-        time: new Date().getTime() / 1000
-      }
-      setGlobalChat([...globalChat, newMessage])
-    })
-
-    window.socket.on('pong', (ms) => {
-      window.latency = ms
-    })
-  }
+  }, [globalChat])
 
   const scrollToBottom = () => {
     lastRef.current.scrollIntoView()
