@@ -79,25 +79,33 @@ export const usePlay = () => {
   const { state, dispatch } = useContext(PlayContext)
 
   return ({
-    setMode: (mode) => dispatch({ type: 'UPDATE_MODE', mode }),
-    setCollectionCards: (collectionCards) => dispatch({ type: 'SET_ERROR', collectionCards }),
-    setPlayedCards: (playedCards) => dispatch({ type: 'SET_MENU_OPEN', playedCards }),
-    setBlackCard: (blackCard) => dispatch({ type: 'SET_MODAL_OPEN', blackCard }),
+    setMode: (mode) => {
+      dispatch({ type: 'UPDATE_MODE', mode })
+    },
+    setPlayedCardIds: (playedCardIds) => {
+      dispatch({ type: 'UPDATE_PLAYED_CARDS', playedCardIds })
+    },
+    setBlackCardId: (blackCardId) => {
+      dispatch({ type: 'UPDATE_BLACK_CARD', blackCardId })
+    },
+    setCollectionCardIds: (collectionCardIds) => {
+      dispatch({ type: 'UPDATE_COLLECTION_CARDS', collectionCardIds })
+    },
 
     joinRoom: async (roomId) => {
       try {
         const data = await Api.joinRoom(utils.snakifyKeys({ operation: 'join_room', roomId }))
         const {
           mode,
-          collectionCards,
-          playedCards,
-          blackCard
+          collectionCards: collectionCardIds,
+          playedCards: playedCardIds,
+          blackCard: blackCardId
         } = data
 
         dispatch({ type: 'UPDATE_MODE', mode })
-        dispatch({ type: 'UPDATE_COLLECTION_CARDS', collectionCards })
-        dispatch({ type: 'UPDATE_PLAYED_CARDS', playedCards })
-        dispatch({ type: 'UPDATE_BLACK_CARD', blackCard })
+        dispatch({ type: 'UPDATE_COLLECTION_CARDS', collectionCardIds })
+        dispatch({ type: 'UPDATE_PLAYED_CARDS', playedCardIds })
+        dispatch({ type: 'UPDATE_BLACK_CARD', blackCardId })
       } catch (err) {
         setError(ERROR_FETCH_CARDS)
       }
@@ -109,12 +117,15 @@ export const usePlay = () => {
 export const useFetch = (fetchApi) => {
   const { setError } = useModal()
   const [response, setResponse] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
+      setIsLoading(true)
       try {
         const res = await fetchApi()
         setResponse(res)
+        setIsLoading(false)
       } catch (err) {
         setError(err)
       }
@@ -123,5 +134,5 @@ export const useFetch = (fetchApi) => {
     fetchData()
   }, [])
 
-  return response
+  return [response, isLoading]
 }

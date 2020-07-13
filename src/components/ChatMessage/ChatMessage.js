@@ -1,14 +1,14 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import utils from 'utils'
 import { StyledMessage, Avatar, Status, Name, Message, Time } from './styled'
-import { GameContext } from 'contexts/GameContext'
+import { useGameContext } from 'contexts/GameContext'
 
 export const ChatMessage = ({ username, message, time, small }) => {
   const { hours, mins } = utils.parseTime(time)
-  const { state } = useContext(GameContext)
-  const onlineStatus = classNames({ online: state.online })
+  const { online } = useGameContext()
+  const onlineStatus = classNames({ online })
 
   return (
     <StyledMessage className={classNames({ small })}>

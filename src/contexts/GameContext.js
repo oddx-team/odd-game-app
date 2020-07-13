@@ -1,7 +1,11 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useContext, useReducer, useCallback } from 'react'
 import PropTypes from 'prop-types'
 
 export const GameContext = createContext(null, null)
+export const GameActionsContext = createContext()
+
+export const useGameContext = () => useContext(GameContext)
+export const useGameActionsContext = () => useContext(GameActionsContext)
 
 const gameReducer = (state, action) => {
   switch (action.type) {
@@ -42,9 +46,21 @@ const initialState = {
 const GameContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(gameReducer, initialState, undefined)
 
+  const login = useCallback((username) => {
+    dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: true, username })
+  }, [])
+  const logoutGame = useCallback(() => {
+    dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: false, username: null })
+  }, [])
+  const setBanner = useCallback((banner) => {
+    dispatch({ type: 'SET_FULL_BANNER', fullBanner: banner })
+  }, [])
+
   return (
-    <GameContext.Provider value={{ state, dispatch }}>
-      <div>{children}</div>
+    <GameContext.Provider value={{ ...state, dispatch }}>
+      <GameActionsContext.Provider value={{ login, logoutGame, setBanner }}>
+        <div>{children}</div>
+      </GameActionsContext.Provider>
     </GameContext.Provider>
   )
 }

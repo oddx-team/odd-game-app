@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { usePlay } from 'hooks'
 import { Route } from 'react-router-dom'
 import { Title, StyledCardRoom, CardRoomInner, ButtonJoin, ButtonSpectate } from './styled'
 
@@ -16,13 +17,16 @@ const Text = ({ title, value }) => {
 }
 
 export const CardRoom = props => {
-  const joinRoom = (history, roomId) => {
+  const HookPlay = usePlay()
+
+  const joinRoom = async (history, roomId) => {
+    await HookPlay.joinRoom(roomId)
     history.push(`/rooms/${roomId}`)
   }
   const spectateRoom = (history, roomId) => {
     history.push(`/rooms/${roomId}`)
   }
-  const { _id, host, current, guest, status } = props
+  const { Id, host, current, guest, status } = props
 
   return (
     <Route
@@ -36,10 +40,10 @@ export const CardRoom = props => {
             <Text title='Status' value={status} />
           </CardRoomInner>
 
-          <ButtonJoin className='block accent' onClick={() => joinRoom(history, _id)}>
+          <ButtonJoin className='block accent' onClick={() => joinRoom(history, Id)}>
             Join
           </ButtonJoin>
-          <ButtonSpectate className='block blue' onClick={() => spectateRoom(history, _id)}>
+          <ButtonSpectate className='block blue' onClick={() => spectateRoom(history, Id)}>
             Spectate
           </ButtonSpectate>
         </StyledCardRoom>

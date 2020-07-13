@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { usePlay, useGame } from 'hooks'
+import { usePlay, useFetch } from 'hooks'
 import { PlaygroundWidgets } from './widgets'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'components/Card'
@@ -16,35 +16,30 @@ import {
   CardsList
 } from './styled'
 
+import Api from 'services'
+
 export const PagePlayground = () => {
-  const HookGame = useGame()
-  const HookPlay = usePlay()
-  const [loading, setLoading] = useState(false)
+  const [allCards, loading] = useFetch(Api.getAllCards)
   const [blackCard, setBlackCard] = useState({})
   const [playedCards, setPlayedCards] = useState([])
+  const { blackCardId, playedCardIds } = usePlay()
+
+  const getCardById = (id) => {
+    return allCards.find((card) => card.id === id)
+  }
 
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true)
-      await Promise.all([
-        HookGame.fetchAllCards(),
-        HookPlay.joinRoom()
-      ])
-      setLoading(false)
+    if (allCards !== null && blackCardId != null && playedCardIds != null) {
+      const blackCard = getCardById(blackCardId)
+      const playedCards = playedCardIds.map(card => ({
+        ...card,
+        ...getCardById(card.id)
+      }))
+
+      setBlackCard(blackCard)
+      setPlayedCards(playedCards)
     }
-    fetchData()
-  }, [])
-
-  useEffect(() => {
-    const blackCard = HookGame.getCard(HookPlay.blackCard)
-    const playedCards = HookPlay.playedCards.map(card => ({
-      ...card,
-      ...HookGame.getCard(card.id)
-    }))
-
-    setBlackCard(blackCard)
-    setPlayedCards(playedCards)
-  }, [HookPlay.blackCard, HookPlay.playedCards])
+  }, [allCards, blackCardId, playedCardIds])
 
   return (
     <PlaygroundWrapper>
@@ -76,7 +71,7 @@ export const PagePlayground = () => {
             </Container>
 
             <PlaygroundWidgets />
-            <PlaygroundCollection />
+            <PlaygroundCollection allCards={allCards} />
           </div>
         )}
 

@@ -8,11 +8,11 @@ const playReducer = (state, action) => {
     case 'UPDATE_MODE':
       return { ...state, mode: action.mode }
     case 'UPDATE_COLLECTION_CARDS':
-      return { ...state, collectionCards: action.collectionCards }
+      return { ...state, collectionCardIds: action.collectionCardIds }
     case 'UPDATE_PLAYED_CARDS':
-      return { ...state, playedCards: action.playedCards }
+      return { ...state, playedCardIds: action.playedCardIds }
     case 'UPDATE_BLACK_CARD':
-      return { ...state, blackCard: action.blackCard }
+      return { ...state, blackCardId: action.blackCardId }
     default:
       return state
   }
@@ -20,9 +20,9 @@ const playReducer = (state, action) => {
 
 const initialState = {
   mode: null,
-  collectionCards: [],
-  playedCards: [],
-  blackCard: null
+  collectionCardIds: [],
+  playedCardIds: [],
+  blackCardId: null
 }
 
 const PlayContextProvider = ({ children }) => {

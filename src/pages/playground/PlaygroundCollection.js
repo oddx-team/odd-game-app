@@ -1,21 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import { useGame, usePlay } from 'hooks'
+import { usePlay } from 'hooks'
 import { Card } from 'components/Card'
 import styled from 'styled-components/macro'
 
-export const PlaygroundCollection = () => {
-  const HookPlay = usePlay()
-  const HookGame = useGame()
+export const PlaygroundCollection = (props) => {
+  const { allCards } = props
+  const { collectionCardIds } = usePlay()
   const [selectedCard, setSelectedCard] = useState(null)
   const [collectionCards, setCollectionCards] = useState([])
 
-  useEffect(() => {
-    const collectionCards = HookPlay.collectionCards.map(id => ({
-      ...HookGame.getCard(id)
-    }))
+  const getCardById = (id) => {
+    return allCards.find((card) => card.id === id)
+  }
 
+  useEffect(() => {
+    const collectionCards = collectionCardIds.map(id => getCardById(id))
     setCollectionCards(collectionCards)
-  }, [HookPlay.collectionCards])
+  }, [collectionCardIds])
 
   return (
     <CollectionWrapper>

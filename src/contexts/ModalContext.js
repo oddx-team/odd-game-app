@@ -44,8 +44,11 @@ const initialState = {
 const ModalContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(modalReducer, initialState, undefined)
 
+  const setError = (payload) => dispatch({ type: 'SET_ERROR', error: payload })
+  const setMenu = (payload) => dispatch({ type: 'SET_MENU_OPEN', openMenu: payload })
+
   return (
-    <ModalContext.Provider value={{ state, dispatch }}>
+    <ModalContext.Provider value={{ state, dispatch, setError, setMenu }}>
       <div>{children}</div>
     </ModalContext.Provider>
   )

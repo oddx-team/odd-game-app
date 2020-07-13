@@ -118,7 +118,7 @@ export default {
     await utils.delay(100)
     return utils.camelizeKeys(
       new Array(26).fill(null).map((_, i) => ({
-        id: i,
+        _id: i,
         name: `Room ${utils.convertChar(i)}`,
         host: `Player${(i % 3) + 1}`,
         total: 10,
@@ -133,7 +133,7 @@ export default {
     await utils.delay(100)
     return utils.camelizeKeys(
       new Array(26).fill(null).map((_, i) => ({
-        id: i + 26,
+        _id: i + 26,
         name: `Phòng ${utils.convertChar(i)}`,
         host: `Player${(i % 3) + 1}`,
         total: 10,

@@ -9,7 +9,7 @@ import Api from 'services'
 
 export const GlobalChat = () => {
   const lastRef = useRef(null)
-  const messages = useFetch(Api.getChats)
+  const [messages] = useFetch(Api.getChats)
   const [globalChat, setGlobalChat] = useState([])
 
   useEffect(() => setGlobalChat(messages), [messages])

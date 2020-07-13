@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useModal, useGame } from 'hooks'
+import { useModal } from 'hooks'
 
 import { Loading } from 'components/Loading'
 import {
@@ -15,20 +15,22 @@ import {
   Title
 } from './styled'
 import Api from 'services'
+import { useGameContext, useGameActionsContext } from 'contexts/GameContext'
 
 export const PageLanding = () => {
+  const { isLoggedIn } = useGameContext()
+  const { login, setBanner } = useGameActionsContext()
+
   const [username, setUsername] = useState('')
   const HookModal = useModal()
-  const HookGame = useGame()
-  const History = useHistory()
-  const { isLoggedIn } = HookGame
+  const history = useHistory()
 
   useEffect(() => {
-    HookGame.setBanner(false)
+    setBanner(false)
     if (isLoggedIn) {
-      History.push('/rooms')
+      history.push('/rooms')
     }
-  }, [History, isLoggedIn])
+  }, [history, isLoggedIn])
 
   const startGame = async () => {
     if (!username || username.length < 3) {
@@ -38,8 +40,8 @@ export const PageLanding = () => {
 
     try {
       await Api.registerUsername(username)
-      HookGame.login(username)
-      History.push('/rooms')
+      login(username)
+      history.push('/rooms')
     } catch (err) {
       HookModal.setError('username is picked already!')
     }

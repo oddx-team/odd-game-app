@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useGame, useModal } from 'hooks'
+import { useModal } from 'hooks'
 import { CardRoom } from 'components/CardRoom'
 import { Loading } from 'components/Loading'
 import { TabList } from './tab-list'
@@ -14,24 +14,32 @@ import {
   RoomContainer
 } from './styled'
 
+import Api from 'services'
+import { useGameActionsContext } from 'contexts/GameContext'
+
 export const PageGameRooms = () => {
-  const HookGame = useGame()
   const HookModal = useModal()
+
+  const { setBanner } = useGameActionsContext()
   const [activeTab, setActiveTab] = useState(0)
   const [loading, setLoading] = useState(true)
-  const rooms = activeTab === 0 ? HookGame.eRooms : HookGame.vRooms
+  const [eRooms, setERooms] = useState([])
+  const [vRooms, setVRooms] = useState([])
+  const rooms = activeTab === 0 ? eRooms : vRooms
 
   useEffect(() => {
-    HookGame.clearRoom()
-    HookGame.setBanner(true)
+    setBanner(true)
 
     const fetchData = async () => {
       setLoading(true)
-      await HookGame.fetchAllRooms()
+      const [eRooms, vRooms] = await Promise.all([Api.getGlobalRooms(), Api.getVnRooms()])
+
+      setERooms(eRooms)
+      setVRooms(vRooms)
       setLoading(false)
     }
     fetchData()
-  }, [])
+  }, [setBanner])
 
   return (
     <PageRoomWrapper>
@@ -45,7 +53,10 @@ export const PageGameRooms = () => {
             <Container>
               <Title>Game rooms</Title>
               <Subtitle>Select any room:</Subtitle>
-              <ButtonCreate className='block accent' onClick={() => HookModal.openModal('create')}>
+              <ButtonCreate
+                className='block accent'
+                onClick={() => HookModal.openModal('create')}
+              >
                 <i />
                 <span>Create</span>
               </ButtonCreate>
