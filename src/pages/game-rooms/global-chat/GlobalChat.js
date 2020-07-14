@@ -17,8 +17,6 @@ export const GlobalChat = () => {
   useEffect(() => {
     // init socket
     (() => {
-      console.log('asdf')
-
       window.socket = global.config.socket
       window.socket.on('global chat', (username, message) => {
         const newMessage = {

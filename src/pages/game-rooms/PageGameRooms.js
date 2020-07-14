@@ -18,14 +18,14 @@ import Api from 'services'
 import { useGameActionsContext } from 'contexts/GameContext'
 
 export const PageGameRooms = () => {
-  const { openModal } = useModalActionsContext()
-
-  const { setBanner } = useGameActionsContext()
   const [activeTab, setActiveTab] = useState(0)
   const [loading, setLoading] = useState(true)
   const [eRooms, setERooms] = useState([])
   const [vRooms, setVRooms] = useState([])
   const rooms = activeTab === 0 ? eRooms : vRooms
+
+  const { openModal } = useModalActionsContext()
+  const { setBanner } = useGameActionsContext()
 
   useEffect(() => {
     setBanner(true)

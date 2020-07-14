@@ -6,7 +6,6 @@ import { GameContext } from 'contexts/GameContext'
 import { PlayContext } from 'contexts/PlayContext'
 import {
   ERROR_CREATE_ROOM,
-  ERROR_FETCH_ROOMS,
   ERROR_FETCH_CARDS
 } from '../constants'
 
@@ -29,18 +28,6 @@ export const useGame = () => {
         dispatch({ type: 'CREATE_ROOM', roomId: data._id })
       } catch (err) {
         setError(ERROR_CREATE_ROOM)
-      }
-    },
-
-    fetchAllRooms: async () => {
-      try {
-        const [eRooms, vRooms] = await Promise.all([Api.getGlobalRooms(), Api.getVnRooms()])
-        dispatch({
-          type: 'UPDATE_ALL_ROOMS',
-          payload: { eRooms, vRooms }
-        })
-      } catch (err) {
-        setError(ERROR_FETCH_ROOMS)
       }
     },
 

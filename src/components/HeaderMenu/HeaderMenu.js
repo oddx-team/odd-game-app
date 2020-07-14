@@ -8,8 +8,8 @@ import Api from 'services'
 
 export const HeaderMenu = () => {
   const history = useHistory()
-  const { logoutGame } = useGameActionsContext()
   const { openMenu } = useModalContext()
+  const { logoutGame } = useGameActionsContext()
   const { setError, setMenu } = useModalActionsContext()
 
   const menuClass = openMenu
@@ -22,7 +22,6 @@ export const HeaderMenu = () => {
       history.push('/')
       logoutGame()
     } catch (err) {
-      console.log(err)
       setError('Something went terribly wrong!')
     }
   }
