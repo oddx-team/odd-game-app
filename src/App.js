@@ -7,6 +7,7 @@ import { PageLanding } from 'pages/landing'
 import { PageGameRooms } from 'pages/game-rooms'
 import { PageNotFound } from 'pages/not-found'
 import { PagePlayground } from 'pages/playground'
+import { PageViewCards } from 'pages/view-cards'
 
 import GameContextProvider, { useGameContext } from 'contexts/GameContext.js'
 import ModalContextProvider from 'contexts/ModalContext.js'
@@ -41,6 +42,7 @@ const App = () => {
                   <Route exact path='/' component={PageLanding} />
                   <PrivateRoute exact path='/rooms' component={PageGameRooms} />
                   <PrivateRoute exact path='/rooms/:roomId' component={PagePlayground} />
+                  <PrivateRoute exact path='/view-cards' component={PageViewCards} />
                   <Route component={PageNotFound} />
                 </Switch>
               </div>

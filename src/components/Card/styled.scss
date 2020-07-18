@@ -1,7 +1,7 @@
 @import 'styles/global.scss';
 
 .odd-card {
-  @include sizeWH(2.5rem, 2.1rem);
+  @include sizeWH(2.4rem, 2.1rem);
   background: #212121;
   border-radius: 0.05rem;
   padding: 0.2rem;
@@ -11,6 +11,7 @@
 
   .card-title {
     @include textMixin(#fff, 0.22rem, $align: left);
+    margin-top: 0.05rem;
   }
 
   .card-logo {
@@ -29,7 +30,7 @@
 
   .card-picker {
     @include flexCenter(row);
-    @include position(absolute, $bottom: 0.12rem, $left: 1.63rem);
+    @include position(absolute, $bottom: 0.12rem, $left: 1.53rem);
 
     div:first-child {
       @include textMixin(#fff, 0.2rem, bold, uppercase);

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useModalActionsContext } from 'contexts/ModalContext'
 import { useGameActionsContext, useGameContext } from 'contexts/GameContext'
-
 import './style.scss'
 
 export const ModalCreateRoom = () => {
