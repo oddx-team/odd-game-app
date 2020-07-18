@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useFetch } from 'hooks/fetch'
 import { usePlayActionsContext, usePlayContext } from 'contexts/PlayContext'
 import { useGameActionsContext } from 'contexts/GameContext'
+import { useModalActionsContext } from 'contexts/ModalContext'
 import { PlaygroundWidgets } from './widgets'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'components/Card'
@@ -24,10 +25,15 @@ import utils from 'utils'
 export const PagePlayground = (props) => {
   const [allCards, loading] = useFetch(Api.getAllCards)
 
+  const [dealCard, setDealCard] = useState(null)
   const { roomId } = useParams()
+  const { setError } = useModalActionsContext()
   const { setGlobalLoading } = useGameActionsContext()
   const { blackCardId, playedCardIds } = usePlayContext()
-  const { setAllCards, getCardById, setPlaygroundData } = usePlayActionsContext()
+  const {
+    setAllCards, getCardById,
+    setPlaygroundData, confirmDealCard
+  } = usePlayActionsContext()
 
   // Get necessary data
   const blackCard = getCardById(blackCardId)
@@ -36,8 +42,9 @@ export const PagePlayground = (props) => {
     ...getCardById(card.id)
   }))
 
-  // join the room
+  useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
   useEffect(() => {
+    // join room
     (async () => {
       const data = await Api.joinRoom(utils.snakifyKeys({ operation: 'join_room', roomId }))
       const {
@@ -57,8 +64,13 @@ export const PagePlayground = (props) => {
     }
   }, [allCards, setAllCards])
 
-  // Global loading
-  useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
+  const confirmSelection = () => {
+    if (!dealCard) {
+      setError("You haven't selected any cards!!!")
+    } else {
+      confirmDealCard(dealCard)
+    }
+  }
 
   return (
     <PlaygroundWrapper>
@@ -68,8 +80,14 @@ export const PagePlayground = (props) => {
           {blackCard &&
             <BlackCardContainer>
               <LeftTitle>*Black card:</LeftTitle>
-              <Card color='black' text={blackCard.text} onClick={() => {}} />
-              <ButtonConfirm className='block dark-blue'>Confirm</ButtonConfirm>
+              <Card
+                color='black'
+                size='large'
+                text={blackCard.text} onClick={() => {}}
+              />
+              <ButtonConfirm className='block dark-blue' onClick={() => confirmSelection()}>
+                  Confirm
+              </ButtonConfirm>
             </BlackCardContainer>}
 
           <WhiteCardContainer>
@@ -89,7 +107,10 @@ export const PagePlayground = (props) => {
         </Container>
 
         <PlaygroundWidgets />
-        <PlaygroundCollection allCards={allCards} />
+        <PlaygroundCollection
+          dealCard={dealCard}
+          selectDealCard={cardId => setDealCard(cardId)}
+        />
       </div>
     </PlaygroundWrapper>
   )

@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { usePlayContext, usePlayActionsContext } from 'contexts/PlayContext'
 import { Card } from 'components/Card'
 import styled from 'styled-components/macro'
 
-export const PlaygroundCollection = (props) => {
+export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
   const { collectionCardIds } = usePlayContext()
   const { getCardById } = usePlayActionsContext()
-  const [selectedCard, setSelectedCard] = useState(null)
 
   const collectionCards = collectionCardIds?.map((cardId) => ({
     ...cardId,
@@ -22,8 +21,10 @@ export const PlaygroundCollection = (props) => {
             <Card
               {...card}
               size='small'
-              color={selectedCard === i ? 'blue' : 'white'}
-              onClick={() => setSelectedCard(i)}
+              color={dealCard === card.id ? 'blue' : 'white'}
+              onClick={() => {
+                selectDealCard(card.id)
+              }}
             />
           </div>
         ))}

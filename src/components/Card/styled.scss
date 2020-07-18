@@ -11,7 +11,7 @@
 
   .card-title {
     @include textMixin(#fff, 0.22rem, $align: left);
-    margin-top: 0.05rem;
+    margin-top: 0.03rem;
   }
 
   .card-logo {

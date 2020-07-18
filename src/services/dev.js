@@ -165,7 +165,7 @@ export default {
       joined: true,
       room_id: 1,
       mode: 1,
-      collection_cards: [7, 8, 9, 10, 11],
+      collection_cards: [7, 8, 9, 10, 11, 12, 13, 14],
       black_card: 1,
       played_cards: [
         {

@@ -53,12 +53,12 @@ export const PageGameRooms = () => {
           </ButtonCreate>
 
           <RoomContainer>
-            {currentRoomList && currentRoomList.length > 0
+            {currentRoomList && currentRoomList.length
               ? currentRoomList.map((room, i) => (
                 <div key={i}>
                   <CardRoom {...room} />
                 </div>))
-              : <div style={{ marginTop: '10px' }}>Loading rooms....</div>}
+              : <div>Loading rooms....</div>}
           </RoomContainer>
         </Container>
       </OuterWrapper>
