@@ -47,7 +47,7 @@ export const PagePlayground = (props) => {
       } = data
       setPlaygroundData(mode, collectionCardIds, playedCardIds, blackCardId)
     })()
-  }, [setPlaygroundData])
+  }, [setPlaygroundData, roomId])
 
   // set all cards
   useEffect(() => {
