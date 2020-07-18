@@ -28,5 +28,6 @@ export const Card = ({ color, size, text, onClick }) => {
 Card.propTypes = {
   color: PropTypes.string,
   size: PropTypes.string,
-  text: PropTypes.string
+  text: PropTypes.string,
+  onClick: PropTypes.func
 }
