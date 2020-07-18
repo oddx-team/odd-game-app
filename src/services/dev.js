@@ -116,18 +116,17 @@ export default {
 
   async getGlobalRooms () {
     await utils.delay(100)
-    return []
-    // return utils.camelizeKeys(
-    //   new Array(26).fill(null).map((_, i) => ({
-    //     _id: i,
-    //     name: `Room ${utils.convertChar(i)}`,
-    //     host: `Player${(i % 3) + 1}`,
-    //     total: 10,
-    //     current: Math.floor(Math.random() * 10),
-    //     guest: Math.floor(Math.random() * 15),
-    //     status: i % 2 === 0 ? 'Not started' : 'Playing'
-    //   }))
-    // )
+    return utils.camelizeKeys(
+      new Array(26).fill(null).map((_, i) => ({
+        _id: i,
+        name: `Room ${utils.convertChar(i)}`,
+        host: `Player${(i % 3) + 1}`,
+        total: 10,
+        current: Math.floor(Math.random() * 10),
+        guest: Math.floor(Math.random() * 15),
+        status: i % 2 === 0 ? 'Not started' : 'Playing'
+      }))
+    )
   },
 
   async getVnRooms () {

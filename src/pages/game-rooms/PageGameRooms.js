@@ -3,7 +3,7 @@ import { useModalActionsContext } from 'contexts/ModalContext'
 import { CardRoom } from 'components/CardRoom'
 import { Loading } from 'components/Loading'
 import { TabList } from './tab-list'
-import { GlobalChat } from './global-chat'
+import { GlobalChat } from '../global-chat'
 import {
   PageRoomWrapper,
   OuterWrapper,
