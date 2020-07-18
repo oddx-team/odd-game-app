@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 
 import './styles/global.scss'
+import './config'
 import setupLayout from './layout'
 
 setupLayout()

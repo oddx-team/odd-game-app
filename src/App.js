@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Header } from 'components/Header'
 import { Loading } from 'components/Loading'
@@ -8,15 +8,15 @@ import { PageGameRooms } from 'pages/game-rooms'
 import { PageNotFound } from 'pages/not-found'
 import { PagePlayground } from 'pages/playground'
 
-import GameContextProvider, { GameContext } from 'contexts/GameContext.js'
+import GameContextProvider, { useGameContext } from 'contexts/GameContext.js'
 import ModalContextProvider from 'contexts/ModalContext.js'
 import PlayContextProvider from 'contexts/PlayContext.js'
 import 'App.scss'
 
 const PrivateRoute = ({ component: Component, ...options }) => {
-  const { state } = useContext(GameContext)
+  const { isLoggedIn } = useGameContext()
 
-  switch (state.isLoggedIn) {
+  switch (isLoggedIn) {
     case true:
       return <Component {...options} />
     case false:

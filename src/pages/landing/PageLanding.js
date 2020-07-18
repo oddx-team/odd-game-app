@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useModal, useGame } from 'hooks'
+import { useModalActionsContext } from 'contexts/ModalContext'
 
 import { Loading } from 'components/Loading'
 import {
@@ -15,33 +15,35 @@ import {
   Title
 } from './styled'
 import Api from 'services'
+import { useGameContext, useGameActionsContext } from 'contexts/GameContext'
 
 export const PageLanding = () => {
+  const history = useHistory()
   const [username, setUsername] = useState('')
-  const HookModal = useModal()
-  const HookGame = useGame()
-  const History = useHistory()
-  const { isLoggedIn } = HookGame
+
+  const { isLoggedIn } = useGameContext()
+  const { login, setBanner } = useGameActionsContext()
+  const { setError } = useModalActionsContext()
 
   useEffect(() => {
-    HookGame.setBanner(false)
+    setBanner(false)
     if (isLoggedIn) {
-      History.push('/rooms')
+      history.push('/rooms')
     }
-  }, [isLoggedIn])
+  }, [history, isLoggedIn, setBanner])
 
   const startGame = async () => {
     if (!username || username.length < 3) {
-      HookModal.setError('Username must be from three characters!')
+      setError('Username must be from three characters!')
       return
     }
 
     try {
       await Api.registerUsername(username)
-      HookGame.login(username)
-      History.push('/rooms')
+      login(username)
+      history.push('/rooms')
     } catch (err) {
-      HookModal.setError('username is picked already!')
+      setError('username is picked already!')
     }
   }
 

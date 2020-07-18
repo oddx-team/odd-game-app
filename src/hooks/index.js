@@ -1,31 +1,14 @@
 import Api from 'services'
-import utils from 'utils'
-import { useContext } from 'react'
-import { ModalContext } from 'contexts/ModalContext'
+import { useContext, useState, useEffect } from 'react'
+import { useModalActionsContext } from 'contexts/ModalContext'
 import { GameContext } from 'contexts/GameContext'
-import { PlayContext } from 'contexts/PlayContext'
 import {
   ERROR_CREATE_ROOM,
-  ERROR_FETCH_ROOMS,
   ERROR_FETCH_CARDS
 } from '../constants'
 
-export const useModal = () => {
-  const { state, dispatch } = useContext(ModalContext)
-
-  return ({
-    clearError: () => dispatch({ type: 'SET_ERROR', error: null }),
-    setError: (payload) => dispatch({ type: 'SET_ERROR', error: payload }),
-    setMenu: (payload) => dispatch({ type: 'SET_MENU_OPEN', openMenu: payload }),
-    openModal: (modalName) => dispatch({ type: 'SET_MODAL_OPEN', modalName }),
-    closeModal: (modalName) => dispatch({ type: 'SET_MODAL_CLOSED', modalName }),
-    closeModals: () => dispatch({ type: 'CLOSE_ALL_MODALS' }),
-    ...state
-  })
-}
-
 export const useGame = () => {
-  const { setError } = useModal()
+  const { setError } = useModalActionsContext()
   const { state, dispatch } = useContext(GameContext)
 
   return ({
@@ -46,18 +29,6 @@ export const useGame = () => {
       }
     },
 
-    fetchAllRooms: async () => {
-      try {
-        const [eRooms, vRooms] = await Promise.all([Api.getGlobalRooms(), Api.getVnRooms()])
-        dispatch({
-          type: 'UPDATE_ALL_ROOMS',
-          payload: { eRooms, vRooms }
-        })
-      } catch (err) {
-        setError(ERROR_FETCH_ROOMS)
-      }
-    },
-
     fetchAllCards: async () => {
       try {
         const allCards = await Api.getAllCards()
@@ -74,34 +45,25 @@ export const useGame = () => {
   })
 }
 
-export const usePlay = () => {
-  const { setError } = useModal()
-  const { state, dispatch } = useContext(PlayContext)
+export const useFetch = (fetchApi) => {
+  const { setError } = useModalActionsContext()
+  const [response, setResponse] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
-  return ({
-    setMode: (mode) => dispatch({ type: 'UPDATE_MODE', mode }),
-    setCollectionCards: (collectionCards) => dispatch({ type: 'SET_ERROR', collectionCards }),
-    setPlayedCards: (playedCards) => dispatch({ type: 'SET_MENU_OPEN', playedCards }),
-    setBlackCard: (blackCard) => dispatch({ type: 'SET_MODAL_OPEN', blackCard }),
-
-    joinRoom: async (roomId) => {
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true)
       try {
-        const data = await Api.joinRoom(utils.snakifyKeys({ operation: 'join_room', roomId }))
-        const {
-          mode,
-          collectionCards,
-          playedCards,
-          blackCard
-        } = data
-
-        dispatch({ type: 'UPDATE_MODE', mode })
-        dispatch({ type: 'UPDATE_COLLECTION_CARDS', collectionCards })
-        dispatch({ type: 'UPDATE_PLAYED_CARDS', playedCards })
-        dispatch({ type: 'UPDATE_BLACK_CARD', blackCard })
+        const res = await fetchApi()
+        setResponse(res)
+        setIsLoading(false)
       } catch (err) {
-        setError(ERROR_FETCH_CARDS)
+        setError(err)
       }
-    },
-    ...state
-  })
+    }
+
+    fetchData()
+  }, [setError, fetchApi])
+
+  return [response, isLoading]
 }

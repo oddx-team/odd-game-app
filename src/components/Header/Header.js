@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { useHistory } from 'react-router-dom'
-import { useGame } from 'hooks'
 
 import OddLogo from 'assets/logo.png'
 import { HeaderMenu } from '../HeaderMenu'
@@ -18,7 +17,9 @@ import {
   StyledCircleLogo,
   Wrapper
 } from './styled'
+
 import Api from 'services'
+import { useGameContext, useGameActionsContext } from 'contexts/GameContext'
 
 const HeaderExtra = ({ fullBanner }) => {
   return (
@@ -44,17 +45,17 @@ HeaderExtra.propTypes = {
 }
 
 export const Header = () => {
+  const { isLoggedIn, fullBanner, username, points } = useGameContext()
+  const { login, logoutGame } = useGameActionsContext()
   const history = useHistory()
-  const HookGame = useGame()
-  const { isLoggedIn, fullBanner } = HookGame
 
   useEffect(() => {
     Api.getMe().then(data => {
-      HookGame.login(data.username)
+      login(data.username)
     }).catch(() => {
-      HookGame.logoutGame()
+      logoutGame()
     })
-  }, [])
+  }, [login, logoutGame])
 
   return (
     <HeaderWrapper>
@@ -71,8 +72,8 @@ export const Header = () => {
             <IconUser alt='Avatar' src={`https://www.tinygraphs.com/spaceinvaders/${Date.now()}?size=100`} />
 
             <div className='info'>
-              <div className='name'>{HookGame.username}</div>
-              <div className='points'>Points: {HookGame.points}</div>
+              <div className='name'>{username}</div>
+              <div className='points'>Points: {points}</div>
             </div>
           </ProfileContainer>
           <HeaderMenu />

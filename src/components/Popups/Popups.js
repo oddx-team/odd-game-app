@@ -1,10 +1,10 @@
 import React from 'react'
-import { useModal } from 'hooks'
+import { useModalContext } from 'contexts/ModalContext'
 import { ModalError } from './ModalError'
 import { ModalCreateRoom } from './ModalCreateRoom'
 
 export const Popups = () => {
-  const { error, openCreateRoom } = useModal()
+  const { error, openCreateRoom } = useModalContext()
 
   return (
     <div>

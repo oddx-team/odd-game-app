@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useModal, useGame } from 'hooks'
+import { useModalActionsContext } from 'contexts/ModalContext'
+import { useGameActionsContext, useGameContext } from 'contexts/GameContext'
 
 import './style.scss'
 
@@ -8,20 +9,22 @@ export const ModalCreateRoom = () => {
   const [roomName, setRoomName] = useState('')
   const [roomSize, setRoomSize] = useState(5)
   const [lang, setLang] = useState('en')
-  const History = useHistory()
-  const HookModal = useModal()
-  const HookGame = useGame()
-  const { roomId } = HookGame
+  const history = useHistory()
+
+  const { roomId } = useGameContext()
+  const { closeModal } = useModalActionsContext()
+  const { createRoom } = useGameActionsContext()
 
   useEffect(() => {
     if (roomId) {
-      HookModal.closeModal('create')
-      History.push(`/rooms/${roomId}`)
+      closeModal('create')
+      history.push(`/rooms/${roomId}`)
     }
-  }, [roomId])
+  }, [history, roomId, closeModal])
 
   const confirmRoom = async () => {
-    await HookGame.createRoom(roomName, roomSize, lang)
+    // createRoom(roomName, roomSize, lang)
+    createRoom()
   }
 
   return (
@@ -29,7 +32,7 @@ export const ModalCreateRoom = () => {
       <div className='dialog'>
         <div className='header'>
           <div>Create room</div>
-          <button className='btn-close' onClick={() => HookModal.closeModal('create')} />
+          <button className='btn-close' onClick={() => closeModal('create')} />
         </div>
         <div className='body'>
           <div className='content'>

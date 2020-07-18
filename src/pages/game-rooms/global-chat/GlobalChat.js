@@ -1,53 +1,45 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
-import { useGame } from 'hooks'
+import { useFetch } from 'hooks'
 import { TextInput } from 'components/TextInput'
 import { ChatMessage } from 'components/ChatMessage'
 import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from './styled'
 
 import Api from 'services'
-import io from 'socket.io-client'
 
 export const GlobalChat = () => {
-  const HookGame = useGame()
-  const LastRef = useRef(null)
+  const lastRef = useRef(null)
+  const [messages] = useFetch(Api.getChats)
+  const [globalChat, setGlobalChat] = useState([])
 
-  useEffect(() => scrollToBottom(), [HookGame.globalChat])
+  useEffect(() => setGlobalChat(messages), [messages])
+  useEffect(() => scrollToBottom(), [globalChat])
   useEffect(() => {
-    fetchGlobalChats()
-    initSocket()
+    // init socket
+    (() => {
+      window.socket = global.config.socket
+      window.socket.on('global chat', (username, message) => {
+        const newMessage = {
+          username,
+          message,
+          time: new Date().getTime() / 1000
+        }
+        setGlobalChat([...globalChat, newMessage])
+      })
+
+      window.socket.on('pong', (ms) => {
+        window.latency = ms
+      })
+    })()
 
     return () => {
       window.socket.disconnect()
       window.socket.close()
     }
-  }, [])
-
-  const fetchGlobalChats = async () => {
-    if (!HookGame.globalChat.length) {
-      const messages = await Api.getChats()
-      HookGame.updateGlobalChat(messages)
-    }
-  }
-
-  const initSocket = () => {
-    window.socket = io()
-    window.socket.on('global chat', (username, message) => {
-      const newMessage = {
-        username,
-        message,
-        time: new Date().getTime() / 1000
-      }
-      HookGame.updateGlobalChat([newMessage])
-    })
-
-    window.socket.on('pong', (ms) => {
-      window.latency = ms
-    })
-  }
+  }, [globalChat])
 
   const scrollToBottom = () => {
-    LastRef.current.scrollIntoView()
+    lastRef.current.scrollIntoView()
   }
 
   const submitMessage = text => {
@@ -60,12 +52,12 @@ export const GlobalChat = () => {
 
       <StyledContainer>
         <ChatContent>
-          {HookGame.globalChat.map((message, i) => (
+          {globalChat && globalChat.map((message, i) => (
             <div key={i}>
               <ChatMessage {...message} />
             </div>
           ))}
-          <div ref={LastRef} />
+          <div ref={lastRef} />
         </ChatContent>
 
         <TextInput placeholder='Type a message' onSubmit={submitMessage} />

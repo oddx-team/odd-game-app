@@ -1,7 +1,11 @@
-import React, { createContext, useReducer } from 'react'
+import React, { createContext, useContext, useReducer, useCallback } from 'react'
 import PropTypes from 'prop-types'
 
 export const GameContext = createContext(null, null)
+export const GameActionsContext = createContext()
+
+export const useGameContext = () => useContext(GameContext)
+export const useGameActionsContext = () => useContext(GameActionsContext)
 
 const gameReducer = (state, action) => {
   switch (action.type) {
@@ -26,25 +30,40 @@ const gameReducer = (state, action) => {
   }
 }
 
-const initialState = {
-  allCards: [],
-  isLoggedIn: null,
-  username: null,
-  points: 0,
-  globalChat: [],
-  eRooms: [],
-  vRooms: [],
-  online: false,
-  roomId: null,
-  fullBanner: true
-}
-
 const GameContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(gameReducer, initialState, undefined)
+  const [state, dispatch] = useReducer(gameReducer, {
+    allCards: [],
+    isLoggedIn: null,
+    username: null,
+    points: 0,
+    globalChat: [],
+    eRooms: [],
+    vRooms: [],
+    online: false,
+    roomId: null,
+    fullBanner: true
+  }, undefined)
+
+  const actions = {
+    login: useCallback((username) => {
+      dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: true, username })
+    }, []),
+    logoutGame: useCallback(() => {
+      dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: false, username: null })
+    }, []),
+    setBanner: useCallback((banner) => {
+      dispatch({ type: 'SET_FULL_BANNER', fullBanner: banner })
+    }, []),
+    createRoom: useCallback(() => {
+      dispatch({ type: 'CREATE_ROOM', roomId: 1 })
+    }, [])
+  }
 
   return (
-    <GameContext.Provider value={{ state, dispatch }}>
-      <div>{children}</div>
+    <GameContext.Provider value={{ ...state }}>
+      <GameActionsContext.Provider value={{ ...actions }}>
+        <div>{children}</div>
+      </GameActionsContext.Provider>
     </GameContext.Provider>
   )
 }
