@@ -33,7 +33,7 @@ export default {
   },
 
   async getAllCards () {
-    await utils.delay(100)
+    await utils.delay(500)
     return utils.camelizeKeys([
       {
         id: 1,

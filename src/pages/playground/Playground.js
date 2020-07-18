@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useFetch } from 'hooks/fetch'
 import { usePlayActionsContext, usePlayContext } from 'contexts/PlayContext'
+import { useGameActionsContext } from 'contexts/GameContext'
 import { PlaygroundWidgets } from './widgets'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'components/Card'
-import { Loading } from 'components/Loading'
 import {
   PlaygroundWrapper,
   Header,
@@ -25,6 +25,7 @@ export const PagePlayground = (props) => {
   const [allCards, loading] = useFetch(Api.getAllCards)
 
   const { roomId } = useParams()
+  const { setGlobalLoading } = useGameActionsContext()
   const { blackCardId, playedCardIds } = usePlayContext()
   const { setAllCards, getCardById, setPlaygroundData } = usePlayActionsContext()
 
@@ -56,41 +57,40 @@ export const PagePlayground = (props) => {
     }
   }, [allCards, setAllCards])
 
+  // Global loading
+  useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
+
   return (
     <PlaygroundWrapper>
-      {loading
-        ? (<Loading />)
-        : (
-          <div>
-            <Header>Select a card to play!</Header>
-            <Container>
-              {blackCard &&
-                <BlackCardContainer>
-                  <LeftTitle>*Black card:</LeftTitle>
-                  <Card color='black' text={blackCard.text} />
-                  <ButtonConfirm className='block dark-blue'>Confirm</ButtonConfirm>
-                </BlackCardContainer>}
+      <div>
+        <Header>Select a card to play!</Header>
+        <Container>
+          {blackCard &&
+            <BlackCardContainer>
+              <LeftTitle>*Black card:</LeftTitle>
+              <Card color='black' text={blackCard.text} onClick={() => {}} />
+              <ButtonConfirm className='block dark-blue'>Confirm</ButtonConfirm>
+            </BlackCardContainer>}
 
-              <WhiteCardContainer>
-                <RightTitle>The white cards played this round:</RightTitle>
-                <CardsList>
-                  {playedCards && playedCards.map((card, i) => (
-                    <div key={i}>
-                      <Card
-                        {...card}
-                        size={playedCards.length <= 4 ? 'medium' : 'small'}
-                      />
-                    </div>
-                  ))}
-                </CardsList>
-              </WhiteCardContainer>
-            </Container>
+          <WhiteCardContainer>
+            <RightTitle>The white cards played this round:</RightTitle>
+            <CardsList>
+              {playedCards && playedCards.map((card, i) => (
+                <div key={i}>
+                  <Card
+                    {...card}
+                    onClick={() => {}}
+                    size={playedCards.length <= 4 ? 'medium' : 'small'}
+                  />
+                </div>
+              ))}
+            </CardsList>
+          </WhiteCardContainer>
+        </Container>
 
-            <PlaygroundWidgets />
-            <PlaygroundCollection allCards={allCards} />
-          </div>
-        )}
-
+        <PlaygroundWidgets />
+        <PlaygroundCollection allCards={allCards} />
+      </div>
     </PlaygroundWrapper>
   )
 }

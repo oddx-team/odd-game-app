@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useModalActionsContext } from 'contexts/ModalContext'
-
 import { Loading } from 'components/Loading'
 import {
   LandingWrapper,
@@ -21,9 +20,9 @@ export const PageLanding = () => {
   const history = useHistory()
   const [username, setUsername] = useState('')
 
-  const { isLoggedIn } = useGameContext()
-  const { login, setBanner } = useGameActionsContext()
   const { setError } = useModalActionsContext()
+  const { login, setBanner } = useGameActionsContext()
+  const { isLoggedIn } = useGameContext()
 
   useEffect(() => {
     setBanner(false)

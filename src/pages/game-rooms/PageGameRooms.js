@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useModalActionsContext } from 'contexts/ModalContext'
 import { CardRoom } from 'components/CardRoom'
-import { Loading } from 'components/Loading'
 import { TabList } from './tab-list'
 import { GlobalChat } from '../global-chat'
 import {
@@ -19,10 +18,9 @@ import { useGameActionsContext } from 'contexts/GameContext'
 
 export const PageGameRooms = () => {
   const { openModal } = useModalActionsContext()
-  const { setBanner } = useGameActionsContext()
+  const { setBanner, setGlobalLoading } = useGameActionsContext()
 
   const [activeTab, setActiveTab] = useState(0)
-  const [loading, setLoading] = useState(true)
   const [allRooms, setAllRooms] = useState({ eRooms: [], vRooms: [] })
 
   const currentRoomList = activeTab === 0
@@ -33,41 +31,37 @@ export const PageGameRooms = () => {
   useEffect(() => {
     (async () => {
       setBanner(true)
-      setLoading(true)
+      setGlobalLoading(true)
       const [eRooms, vRooms] = await Promise.all([Api.getGlobalRooms(), Api.getVnRooms()])
       setAllRooms({ eRooms, vRooms })
-      setLoading(false)
+      setGlobalLoading(false)
     })()
-  }, [setBanner])
+  }, [setBanner, setGlobalLoading])
 
   return (
     <PageRoomWrapper>
       <GlobalChat />
 
-      {loading
-        ? (<Loading />)
-        : (
-          <OuterWrapper>
-            <TabList switchTab={idx => setActiveTab(idx)} activeTab={activeTab} />
-            <Container>
-              <Title>Game rooms</Title>
-              <Subtitle>Select any room:</Subtitle>
-              <ButtonCreate className='block accent' onClick={() => openModal('create')}>
-                <i />
-                <span>Create</span>
-              </ButtonCreate>
+      <OuterWrapper>
+        <TabList switchTab={idx => setActiveTab(idx)} activeTab={activeTab} />
+        <Container>
+          <Title>Game rooms</Title>
+          <Subtitle>Select any room:</Subtitle>
+          <ButtonCreate className='block accent' onClick={() => openModal('create')}>
+            <i />
+            <span>Create</span>
+          </ButtonCreate>
 
-              <RoomContainer>
-                {currentRoomList && currentRoomList.length > 0
-                  ? currentRoomList.map((room, i) => (
-                    <div key={i}>
-                      <CardRoom {...room} />
-                    </div>))
-                  : <div style={{ marginTop: '10px' }}>No rooms available at the moment.</div>}
-              </RoomContainer>
-            </Container>
-          </OuterWrapper>
-        )}
+          <RoomContainer>
+            {currentRoomList && currentRoomList.length > 0
+              ? currentRoomList.map((room, i) => (
+                <div key={i}>
+                  <CardRoom {...room} />
+                </div>))
+              : <div style={{ marginTop: '10px' }}>Loading rooms....</div>}
+          </RoomContainer>
+        </Container>
+      </OuterWrapper>
     </PageRoomWrapper>
   )
 }

@@ -37,6 +37,7 @@ const App = () => {
               <div className='header-bg' />
               <div className='main'>
                 <Header />
+                <Loading />
                 <Popups />
                 <Switch>
                   <Route exact path='/' component={PageLanding} />

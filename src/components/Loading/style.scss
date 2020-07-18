@@ -10,7 +10,7 @@
   }
 }
 
-.loading {
+.loading-overlay {
   position: fixed;
   top: 0;
   right: 0;
@@ -21,12 +21,12 @@
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.5);
-}
 
-.loading::before {
-  @include imageCDN('loading.png', 0.5rem, 0.5rem);
-  content: '';
-  width: 0.44rem;
-  height: 0.44rem;
-  animation: rotate 1s linear infinite;
+  &::before {
+    @include imageCDN('loading.png', 0.5rem, 0.5rem);
+    content: '';
+    width: 0.44rem;
+    height: 0.44rem;
+    animation: rotate 1s linear infinite;
+  }
 }
