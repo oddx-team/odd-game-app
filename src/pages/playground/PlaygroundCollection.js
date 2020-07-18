@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { usePlayContext, usePlayActionsContext } from 'contexts/PlayContext'
 import { Card } from 'components/Card'
 import styled from 'styled-components/macro'
@@ -7,20 +7,17 @@ export const PlaygroundCollection = (props) => {
   const { collectionCardIds } = usePlayContext()
   const { getCardById } = usePlayActionsContext()
   const [selectedCard, setSelectedCard] = useState(null)
-  const [collectionCards, setCollectionCards] = useState([])
 
-  useEffect(() => {
-    if (collectionCardIds !== null) {
-      const collectionCards = collectionCardIds.map(id => getCardById(id))
-      setCollectionCards(collectionCards)
-    }
-  }, [collectionCardIds, getCardById])
+  const collectionCards = collectionCardIds?.map((cardId) => ({
+    ...cardId,
+    ...getCardById(cardId)
+  }))
 
   return (
     <CollectionWrapper>
       <Header>Player Collection</Header>
       <Content>
-        {collectionCards.map((card, i) => (
+        {collectionCards && collectionCards.map((card, i) => (
           <div key={i}>
             <Card
               {...card}
