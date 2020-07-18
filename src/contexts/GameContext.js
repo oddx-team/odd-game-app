@@ -17,8 +17,6 @@ const gameReducer = (state, action) => {
       return { ...state, globalChat: [...state.globalChat, ...action.messages] }
     case 'UPDATE_ALL_ROOMS':
       return { ...state, eRooms: action.payload.eRooms, vRooms: action.payload.vRooms }
-    case 'UPDATE_ALL_CARDS':
-      return { ...state, allCards: action.allCards }
     case 'SET_FULL_BANNER':
       return { ...state, fullBanner: action.fullBanner }
     case 'CREATE_ROOM':
@@ -32,7 +30,6 @@ const gameReducer = (state, action) => {
 
 const GameContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(gameReducer, {
-    allCards: [],
     isLoggedIn: null,
     username: null,
     points: 0,

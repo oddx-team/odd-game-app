@@ -28,17 +28,16 @@ export const PageGameRooms = () => {
   const { setBanner } = useGameActionsContext()
 
   useEffect(() => {
-    setBanner(true)
-
-    const fetchData = async () => {
+    // fetch data
+    (async () => {
+      setBanner(true)
       setLoading(true)
       const [eRooms, vRooms] = await Promise.all([Api.getGlobalRooms(), Api.getVnRooms()])
 
       setERooms(eRooms)
       setVRooms(vRooms)
       setLoading(false)
-    }
-    fetchData()
+    })()
   }, [setBanner])
 
   return (
@@ -53,10 +52,7 @@ export const PageGameRooms = () => {
             <Container>
               <Title>Game rooms</Title>
               <Subtitle>Select any room:</Subtitle>
-              <ButtonCreate
-                className='block accent'
-                onClick={() => openModal('create')}
-              >
+              <ButtonCreate className='block accent' onClick={() => openModal('create')}>
                 <i />
                 <span>Create</span>
               </ButtonCreate>

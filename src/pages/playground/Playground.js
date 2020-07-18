@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { useFetch } from 'hooks'
+import { useFetch } from 'hooks/fetch'
 import { usePlayActionsContext, usePlayContext } from 'contexts/PlayContext'
 import { PlaygroundWidgets } from './widgets'
 import { PlaygroundCollection } from './PlaygroundCollection'
