@@ -60,7 +60,7 @@ const GameContextProvider = ({ children }) => {
   }
 
   return (
-    <GameContext.Provider value={{ ...state, dispatch }}>
+    <GameContext.Provider value={{ ...state }}>
       <GameActionsContext.Provider value={{ ...actions }}>
         <div>{children}</div>
       </GameActionsContext.Provider>

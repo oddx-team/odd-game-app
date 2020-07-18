@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import { usePlay, useFetch } from 'hooks'
+import React, { useEffect } from 'react'
+import { useFetch } from 'hooks'
+import { usePlayActionsContext, usePlayContext } from 'contexts/PlayContext'
 import { PlaygroundWidgets } from './widgets'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'components/Card'
@@ -20,26 +21,20 @@ import Api from 'services'
 
 export const PagePlayground = () => {
   const [allCards, loading] = useFetch(Api.getAllCards)
-  const [blackCard, setBlackCard] = useState({})
-  const [playedCards, setPlayedCards] = useState([])
-  const { blackCardId, playedCardIds } = usePlay()
+  const { blackCardId, playedCardIds } = usePlayContext()
+  const { setAllCards, getCardById } = usePlayActionsContext()
 
-  const getCardById = (id) => {
-    return allCards.find((card) => card.id === id)
-  }
+  const blackCard = getCardById(blackCardId)
+  const playedCards = playedCardIds?.map(card => ({
+    ...card,
+    ...getCardById(card.id)
+  }))
 
   useEffect(() => {
-    if (allCards !== null && blackCardId != null && playedCardIds != null) {
-      const blackCard = getCardById(blackCardId)
-      const playedCards = playedCardIds.map(card => ({
-        ...card,
-        ...getCardById(card.id)
-      }))
-
-      setBlackCard(blackCard)
-      setPlayedCards(playedCards)
+    if (allCards !== null) {
+      setAllCards(allCards)
     }
-  }, [allCards, blackCardId, playedCardIds])
+  }, [allCards, setAllCards])
 
   return (
     <PlaygroundWrapper>
@@ -49,16 +44,17 @@ export const PagePlayground = () => {
           <div>
             <Header>Select a card to play!</Header>
             <Container>
-              <BlackCardContainer>
-                <LeftTitle>*Black card:</LeftTitle>
-                <Card color='black' text={blackCard.text} />
-                <ButtonConfirm className='block dark-blue'>Confirm</ButtonConfirm>
-              </BlackCardContainer>
+              {blackCard &&
+                <BlackCardContainer>
+                  <LeftTitle>*Black card:</LeftTitle>
+                  <Card color='black' text={blackCard.text} />
+                  <ButtonConfirm className='block dark-blue'>Confirm</ButtonConfirm>
+                </BlackCardContainer>}
 
               <WhiteCardContainer>
                 <RightTitle>The white cards played this round:</RightTitle>
                 <CardsList>
-                  {playedCards.map((card, i) => (
+                  {playedCards && playedCards.map((card, i) => (
                     <div key={i}>
                       <Card
                         {...card}
