@@ -50,7 +50,7 @@ const PlayContextProvider = ({ children }) => {
       dispatch({ type: 'UPDATE_COLLECTION_CARDS', collectionCardIds })
     }, []),
 
-    joinRoom: useCallback((mode, collectionCardIds, playedCardIds, blackCardId) => {
+    setPlaygroundData: useCallback((mode, collectionCardIds, playedCardIds, blackCardId) => {
       dispatch({ type: 'UPDATE_MODE', mode })
       dispatch({ type: 'UPDATE_COLLECTION_CARDS', collectionCardIds })
       dispatch({ type: 'UPDATE_PLAYED_CARDS', playedCardIds })

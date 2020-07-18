@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { useFetch } from 'hooks'
 import { usePlayActionsContext, usePlayContext } from 'contexts/PlayContext'
 import { PlaygroundWidgets } from './widgets'
@@ -18,18 +19,37 @@ import {
 } from './styled'
 
 import Api from 'services'
+import utils from 'utils'
 
-export const PagePlayground = () => {
+export const PagePlayground = (props) => {
   const [allCards, loading] = useFetch(Api.getAllCards)
-  const { blackCardId, playedCardIds } = usePlayContext()
-  const { setAllCards, getCardById } = usePlayActionsContext()
 
+  const { roomId } = useParams()
+  const { blackCardId, playedCardIds } = usePlayContext()
+  const { setAllCards, getCardById, setPlaygroundData } = usePlayActionsContext()
+
+  // Get necessary data
   const blackCard = getCardById(blackCardId)
   const playedCards = playedCardIds?.map(card => ({
     ...card,
     ...getCardById(card.id)
   }))
 
+  // join the room
+  useEffect(() => {
+    (async () => {
+      const data = await Api.joinRoom(utils.snakifyKeys({ operation: 'join_room', roomId }))
+      const {
+        mode,
+        collectionCards: collectionCardIds,
+        playedCards: playedCardIds,
+        blackCard: blackCardId
+      } = data
+      setPlaygroundData(mode, collectionCardIds, playedCardIds, blackCardId)
+    })()
+  }, [setPlaygroundData])
+
+  // set all cards
   useEffect(() => {
     if (allCards !== null) {
       setAllCards(allCards)

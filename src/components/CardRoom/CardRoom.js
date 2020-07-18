@@ -1,11 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { usePlayActionsContext } from 'contexts/PlayContext'
 import { Route } from 'react-router-dom'
 import { Title, StyledCardRoom, CardRoomInner, ButtonJoin, ButtonSpectate } from './styled'
-
-import Api from 'services'
-import utils from 'utils'
 
 const Text = ({ title, value }) => {
   const textStyle = {
@@ -21,21 +17,11 @@ const Text = ({ title, value }) => {
 
 export const CardRoom = props => {
   const { Id, host, current, guest, status } = props
-  const { joinRoom } = usePlayActionsContext()
 
   const trySpectating = (history, roomId) => {
-    tryJoining(history, roomId)
+    history.push(`/rooms/${roomId}`)
   }
-
   const tryJoining = async (history, roomId) => {
-    const data = await Api.joinRoom(utils.snakifyKeys({ operation: 'join_room', roomId }))
-    const {
-      mode,
-      collectionCards: collectionCardIds,
-      playedCards: playedCardIds,
-      blackCard: blackCardId
-    } = data
-    joinRoom(mode, collectionCardIds, playedCardIds, blackCardId)
     history.push(`/rooms/${roomId}`)
   }
 
