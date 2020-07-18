@@ -69,6 +69,7 @@ export const PagePlayground = (props) => {
       setError("You haven't selected any cards!!!")
     } else {
       confirmDealCard(dealCard)
+      setDealCard(null)
     }
   }
 
