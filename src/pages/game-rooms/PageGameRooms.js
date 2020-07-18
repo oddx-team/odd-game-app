@@ -18,24 +18,24 @@ import Api from 'services'
 import { useGameActionsContext } from 'contexts/GameContext'
 
 export const PageGameRooms = () => {
-  const [activeTab, setActiveTab] = useState(0)
-  const [loading, setLoading] = useState(true)
-  const [eRooms, setERooms] = useState([])
-  const [vRooms, setVRooms] = useState([])
-  const rooms = activeTab === 0 ? eRooms : vRooms
-
   const { openModal } = useModalActionsContext()
   const { setBanner } = useGameActionsContext()
 
+  const [activeTab, setActiveTab] = useState(0)
+  const [loading, setLoading] = useState(true)
+  const [allRooms, setAllRooms] = useState({ eRooms: [], vRooms: [] })
+
+  const currentRoomList = activeTab === 0
+    ? allRooms.eRooms
+    : allRooms.vRooms
+
+  // fetch data
   useEffect(() => {
-    // fetch data
     (async () => {
       setBanner(true)
       setLoading(true)
       const [eRooms, vRooms] = await Promise.all([Api.getGlobalRooms(), Api.getVnRooms()])
-
-      setERooms(eRooms)
-      setVRooms(vRooms)
+      setAllRooms({ eRooms, vRooms })
       setLoading(false)
     })()
   }, [setBanner])
@@ -58,12 +58,12 @@ export const PageGameRooms = () => {
               </ButtonCreate>
 
               <RoomContainer>
-                {rooms.map((room, i) => (
-                  <div key={i}>
-                    <CardRoom {...room} />
-                  </div>
-                ))}
-                {rooms.length === 0 && <h4 style={{ marginTop: '10px' }}>No room available at the moment.</h4>}
+                {currentRoomList && currentRoomList.length > 0
+                  ? currentRoomList.map((room, i) => (
+                    <div key={i}>
+                      <CardRoom {...room} />
+                    </div>))
+                  : <div style={{ marginTop: '10px' }}>No rooms available at the moment.</div>}
               </RoomContainer>
             </Container>
           </OuterWrapper>
