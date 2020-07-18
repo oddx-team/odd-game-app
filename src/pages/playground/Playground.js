@@ -43,6 +43,7 @@ export const PagePlayground = (props) => {
   }))
 
   useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
+  useEffect(() => { if (allCards) setAllCards(allCards) }, [allCards, setAllCards])
   useEffect(() => {
     // join room
     (async () => {
@@ -56,13 +57,6 @@ export const PagePlayground = (props) => {
       setPlaygroundData(mode, collectionCardIds, playedCardIds, blackCardId)
     })()
   }, [setPlaygroundData, roomId])
-
-  // set all cards
-  useEffect(() => {
-    if (allCards !== null) {
-      setAllCards(allCards)
-    }
-  }, [allCards, setAllCards])
 
   const confirmSelection = () => {
     if (!dealCard) {
