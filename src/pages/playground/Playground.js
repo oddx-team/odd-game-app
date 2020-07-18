@@ -1,11 +1,12 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useFetch } from 'hooks'
+import { useFetch } from 'hooks/fetch'
 import { usePlayActionsContext, usePlayContext } from 'contexts/PlayContext'
+import { useGameActionsContext } from 'contexts/GameContext'
+import { useModalActionsContext } from 'contexts/ModalContext'
 import { PlaygroundWidgets } from './widgets'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'components/Card'
-import { Loading } from 'components/Loading'
 import {
   PlaygroundWrapper,
   Header,
@@ -24,9 +25,15 @@ import utils from 'utils'
 export const PagePlayground = (props) => {
   const [allCards, loading] = useFetch(Api.getAllCards)
 
+  const [dealCard, setDealCard] = useState(null)
   const { roomId } = useParams()
+  const { setError } = useModalActionsContext()
+  const { setGlobalLoading } = useGameActionsContext()
   const { blackCardId, playedCardIds } = usePlayContext()
-  const { setAllCards, getCardById, setPlaygroundData } = usePlayActionsContext()
+  const {
+    setAllCards, getCardById,
+    setPlaygroundData, confirmDealCard
+  } = usePlayActionsContext()
 
   // Get necessary data
   const blackCard = getCardById(blackCardId)
@@ -35,8 +42,9 @@ export const PagePlayground = (props) => {
     ...getCardById(card.id)
   }))
 
-  // join the room
+  useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
   useEffect(() => {
+    // join room
     (async () => {
       const data = await Api.joinRoom(utils.snakifyKeys({ operation: 'join_room', roomId }))
       const {
@@ -56,41 +64,55 @@ export const PagePlayground = (props) => {
     }
   }, [allCards, setAllCards])
 
+  const confirmSelection = () => {
+    if (!dealCard) {
+      setError("You haven't selected any cards!!!")
+    } else {
+      confirmDealCard(dealCard)
+      setDealCard(null)
+    }
+  }
+
   return (
     <PlaygroundWrapper>
-      {loading
-        ? (<Loading />)
-        : (
-          <div>
-            <Header>Select a card to play!</Header>
-            <Container>
-              {blackCard &&
-                <BlackCardContainer>
-                  <LeftTitle>*Black card:</LeftTitle>
-                  <Card color='black' text={blackCard.text} />
-                  <ButtonConfirm className='block dark-blue'>Confirm</ButtonConfirm>
-                </BlackCardContainer>}
+      <div>
+        <Header>Select a card to play!</Header>
+        <Container>
+          {blackCard &&
+            <BlackCardContainer>
+              <LeftTitle>*Black card:</LeftTitle>
+              <Card
+                color='black'
+                size='large'
+                text={blackCard.text} onClick={() => {}}
+              />
+              <ButtonConfirm className='block dark-blue' onClick={() => confirmSelection()}>
+                  Confirm
+              </ButtonConfirm>
+            </BlackCardContainer>}
 
-              <WhiteCardContainer>
-                <RightTitle>The white cards played this round:</RightTitle>
-                <CardsList>
-                  {playedCards && playedCards.map((card, i) => (
-                    <div key={i}>
-                      <Card
-                        {...card}
-                        size={playedCards.length <= 4 ? 'medium' : 'small'}
-                      />
-                    </div>
-                  ))}
-                </CardsList>
-              </WhiteCardContainer>
-            </Container>
+          <WhiteCardContainer>
+            <RightTitle>The white cards played this round:</RightTitle>
+            <CardsList>
+              {playedCards && playedCards.map((card, i) => (
+                <div key={i}>
+                  <Card
+                    {...card}
+                    onClick={() => {}}
+                    size={playedCards.length <= 4 ? 'medium' : 'small'}
+                  />
+                </div>
+              ))}
+            </CardsList>
+          </WhiteCardContainer>
+        </Container>
 
-            <PlaygroundWidgets />
-            <PlaygroundCollection allCards={allCards} />
-          </div>
-        )}
-
+        <PlaygroundWidgets />
+        <PlaygroundCollection
+          dealCard={dealCard}
+          selectDealCard={cardId => setDealCard(cardId)}
+        />
+      </div>
     </PlaygroundWrapper>
   )
 }

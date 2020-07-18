@@ -60,7 +60,18 @@ const PlayContextProvider = ({ children }) => {
       return state.allCards
         ? state.allCards.find((card) => card.id === id)
         : null
-    }, [state.allCards])
+    }, [state.allCards]),
+
+    confirmDealCard: useCallback((cardId) => {
+      dispatch({
+        type: 'UPDATE_COLLECTION_CARDS',
+        collectionCardIds: state.collectionCardIds.filter(id => id !== cardId)
+      })
+      dispatch({
+        type: 'UPDATE_PLAYED_CARDS',
+        playedCardIds: [...state.playedCardIds, { id: cardId, vote: 0 }]
+      })
+    }, [state.collectionCardIds, state.playedCardIds])
   }
 
   return (

@@ -15,7 +15,7 @@ export const Card = ({ color, size, text, onClick }) => {
         <span>Oddx</span>
       </div>
 
-      {color === 'black' && (
+      {color === 'black' && size === 'large' && (
         <div className='card-picker'>
           <div>Pick</div>
           <div>2</div>

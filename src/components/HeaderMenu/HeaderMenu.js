@@ -16,6 +16,18 @@ export const HeaderMenu = () => {
     ? classNames(styles.menu, styles.open)
     : classNames(styles.menu)
 
+  const openProfile = () => {
+    setMenu(false)
+  }
+
+  const viewCards = () => {
+    history.push('/view-cards')
+  }
+
+  const viewRooms = () => {
+    history.push('/rooms')
+  }
+
   const logout = async () => {
     try {
       await Api.logout()
@@ -26,10 +38,6 @@ export const HeaderMenu = () => {
     }
   }
 
-  const openProfile = () => {
-    setMenu(false)
-  }
-
   return (
     <div
       className={menuClass}
@@ -38,7 +46,9 @@ export const HeaderMenu = () => {
     >
       <button className={styles.menuBtn} />
       <div className={styles.dropdown}>
-        <div className={styles.profile} onClick={() => openProfile()}>My Profile</div>
+        <div className={styles.profile} onClick={() => openProfile()}>Profile</div>
+        <div className={styles.profile} onClick={() => viewCards()}>View all cards</div>
+        <div className={styles.profile} onClick={() => viewRooms()}>View rooms</div>
         <div className={styles.logout} onClick={() => logout()}>Logout</div>
       </div>
     </div>

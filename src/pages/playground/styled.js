@@ -42,7 +42,7 @@ export const RightTitle = styled(LeftTitle)`
 `
 
 export const ButtonConfirm = styled.button`
-  width: 2.52rem;
+  width: 2.42rem;
   color: #fff;
   font-size: 0.21rem;
   font-weight: bold;
