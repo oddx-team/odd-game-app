@@ -1,9 +1,7 @@
 import Api from 'services'
-import utils from 'utils'
 import { useContext, useState, useEffect } from 'react'
 import { useModalActionsContext } from 'contexts/ModalContext'
 import { GameContext } from 'contexts/GameContext'
-import { PlayContext } from 'contexts/PlayContext'
 import {
   ERROR_CREATE_ROOM,
   ERROR_FETCH_CARDS
@@ -44,46 +42,6 @@ export const useGame = () => {
       const { allCards } = state
       return allCards.find((card) => card.id === idx)
     }
-  })
-}
-
-export const usePlay = () => {
-  const { setError } = useModalActionsContext()
-  const { state, dispatch } = useContext(PlayContext)
-
-  return ({
-    setMode: (mode) => {
-      dispatch({ type: 'UPDATE_MODE', mode })
-    },
-    setPlayedCardIds: (playedCardIds) => {
-      dispatch({ type: 'UPDATE_PLAYED_CARDS', playedCardIds })
-    },
-    setBlackCardId: (blackCardId) => {
-      dispatch({ type: 'UPDATE_BLACK_CARD', blackCardId })
-    },
-    setCollectionCardIds: (collectionCardIds) => {
-      dispatch({ type: 'UPDATE_COLLECTION_CARDS', collectionCardIds })
-    },
-
-    joinRoom: async (roomId) => {
-      try {
-        const data = await Api.joinRoom(utils.snakifyKeys({ operation: 'join_room', roomId }))
-        const {
-          mode,
-          collectionCards: collectionCardIds,
-          playedCards: playedCardIds,
-          blackCard: blackCardId
-        } = data
-
-        dispatch({ type: 'UPDATE_MODE', mode })
-        dispatch({ type: 'UPDATE_COLLECTION_CARDS', collectionCardIds })
-        dispatch({ type: 'UPDATE_PLAYED_CARDS', playedCardIds })
-        dispatch({ type: 'UPDATE_BLACK_CARD', blackCardId })
-      } catch (err) {
-        setError(ERROR_FETCH_CARDS)
-      }
-    },
-    ...state
   })
 }
 
