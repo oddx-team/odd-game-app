@@ -56,6 +56,7 @@ const PlayContextProvider = ({ children }) => {
       dispatch({ type: 'UPDATE_PLAYED_CARDS', playedCardIds })
       dispatch({ type: 'UPDATE_BLACK_CARD', blackCardId })
     }, []),
+
     getCardById: useCallback((id) => {
       return state.allCards
         ? state.allCards.find((card) => card.id === id)
