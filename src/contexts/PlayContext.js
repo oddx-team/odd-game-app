@@ -57,9 +57,9 @@ const PlayContextProvider = ({ children }) => {
       dispatch({ type: 'UPDATE_BLACK_CARD', blackCardId })
     }, []),
 
-    getCardById: useCallback((id) => {
+    getCardById: useCallback((Id) => {
       return state.allCards
-        ? state.allCards.find((card) => card.id === id)
+        ? state.allCards.find((card) => card.Id === Id)
         : null
     }, [state.allCards]),
 
@@ -70,7 +70,7 @@ const PlayContextProvider = ({ children }) => {
       })
       dispatch({
         type: 'UPDATE_PLAYED_CARDS',
-        playedCardIds: [...state.playedCardIds, { id: cardId, vote: 0 }]
+        playedCardIds: [...state.playedCardIds, { Id: cardId, vote: 0 }]
       })
     }, [state.collectionCardIds, state.playedCardIds])
   }

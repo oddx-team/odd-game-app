@@ -17,7 +17,7 @@ export const GlobalChat = () => {
   useEffect(() => {
     (() => {
       window.socket = io()
-      window.socket.on('global chat', (username, message) => {
+      window.socket.on('chat-global', (username, message) => {
         const newMessage = {
           username,
           message,
@@ -41,7 +41,7 @@ export const GlobalChat = () => {
   }
 
   const submitMessage = text => {
-    window.socket.emit('global chat', text)
+    window.socket.emit('chat-global', text)
   }
 
   return (

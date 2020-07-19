@@ -31,85 +31,7 @@ export default {
     return api('get', 'chat')
   },
   async getAllCards () {
-    await utils.delay(100)
-    return utils.camelizeKeys([
-      {
-        id: 1,
-        text: 'Donald Trump has nominated __ for his VP',
-        color: 'black',
-        gaps: 1
-      },
-      {
-        id: 2,
-        text: '(Heavy breathing) Luke, I am ____.',
-        color: 'black',
-        gaps: 1
-      },
-      {
-        id: 3,
-        text: '50% of all marriages end in ____.',
-        color: 'black',
-        gaps: 1
-      },
-      {
-        id: 4,
-        text: '____ is way better in ____ mode.',
-        color: 'black',
-        gaps: 2
-      },
-      {
-        id: 5,
-        text: '____ will never be the same after ____.',
-        color: 'black',
-        gaps: 2
-      },
-      {
-        id: 6,
-        text: '____: Hours of fun. Easy to use. Perfect for ____!',
-        color: 'black',
-        gaps: 2
-      },
-      {
-        id: 7,
-        text: 'A Japanese toaster you can fuck.',
-        color: 'white'
-      },
-      {
-        id: 8,
-        text: 'A kiss on the lips.',
-        color: 'white'
-      },
-      {
-        id: 9,
-        text: 'A lifetime of sadness.',
-        color: 'white'
-      },
-      {
-        id: 10,
-        text: 'A kiss on the lips.',
-        color: 'white'
-      },
-      {
-        id: 11,
-        text: 'A Japanese tourist who wants something very badly but cannot communicate it.',
-        color: 'white'
-      },
-      {
-        id: 12,
-        text: 'A man on the brink of orgasm.',
-        color: 'white'
-      },
-      {
-        id: 13,
-        text: 'A monkey smoking a cigar.',
-        color: 'white'
-      },
-      {
-        id: 14,
-        text: 'A pizza guy who fucked up.',
-        color: 'white'
-      }
-    ])
+    return api('get', 'cards/en')
   },
   getGlobalRooms () {
     return api('get', 'rooms/en')
@@ -131,15 +53,23 @@ export default {
       joined: true,
       room_id: 1,
       mode: 1,
-      collection_cards: [7, 8, 9, 10, 11],
+      collection_cards: [
+        '5f146b9f73aa53974b1dafc7',
+        '5f146b9f73aa53974b1dafc8',
+        '5f146b9f73aa53974b1dafc2',
+        '5f146b9f73aa53974b1dafca',
+        '5f146b9f73aa53974b1dafc1',
+        '5f146b9f73aa53974b1dafcb',
+        '5f146b9f73aa53974b1dafce',
+        '5f146b9f73aa53974b1dafd1'],
       black_card: 1,
       played_cards: [
         {
-          id: 12,
+          _id: '5f146b9f73aa53974b1dafc4', // BATMAN
           vote: 0
         },
         {
-          id: 13,
+          _id: '5f146b9f73aa53974b1dafc6', // Punching congressman
           vote: 0
         }
       ]

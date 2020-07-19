@@ -39,7 +39,7 @@ export const PagePlayground = (props) => {
   const blackCard = getCardById(blackCardId)
   const playedCards = playedCardIds?.map(card => ({
     ...card,
-    ...getCardById(card.id)
+    ...getCardById(card.Id)
   }))
 
   useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])

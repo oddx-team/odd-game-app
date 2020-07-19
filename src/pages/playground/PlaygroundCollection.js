@@ -21,9 +21,9 @@ export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
             <Card
               {...card}
               size='small'
-              color={dealCard === card.id ? 'blue' : 'white'}
+              color={dealCard === card.Id ? 'blue' : 'white'}
               onClick={() => {
-                selectDealCard(card.id)
+                selectDealCard(card.Id)
               }}
             />
           </div>
