@@ -27,6 +27,14 @@ export const GlobalChat = () => {
     })
   }, [globalChat])
 
+  const scrollToBottom = () => {
+    lastRef.current.scrollIntoView()
+  }
+
+  const submitMessage = text => {
+    window.socket.emit('global chat', text)
+  }
+
   useEffect(() => setGlobalChat(messages), [messages])
   useEffect(() => scrollToBottom(), [globalChat])
   useEffect(() => {
@@ -36,14 +44,6 @@ export const GlobalChat = () => {
       window.socket.close()
     }
   }, [globalChat, initSocket])
-
-  const scrollToBottom = () => {
-    lastRef.current.scrollIntoView()
-  }
-
-  const submitMessage = text => {
-    window.socket.emit('global chat', text)
-  }
 
   return (
     <GlobalChatWrapper>
