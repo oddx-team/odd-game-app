@@ -62,7 +62,7 @@ export default {
         '5f146b9f73aa53974b1dafcb',
         '5f146b9f73aa53974b1dafce',
         '5f146b9f73aa53974b1dafd1'],
-      black_card: 1,
+      black_card: '5f146b9f73aa53974b1dafc9',
       played_cards: [
         {
           _id: '5f146b9f73aa53974b1dafc4', // BATMAN
