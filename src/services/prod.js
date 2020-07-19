@@ -14,7 +14,7 @@ function api (method, svc, data = {}) {
       'Content-Type': 'application/json'
     }
   }
-  return axios(params).then(resp => resp.data)
+  return axios(params).then(resp => utils.camelizeKeys(resp.data))
 }
 
 export default {

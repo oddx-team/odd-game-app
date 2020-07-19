@@ -50,7 +50,7 @@ export const CardRoom = props => {
 }
 
 CardRoom.propTypes = {
-  _id: PropTypes.string,
+  Id: PropTypes.string,
   name: PropTypes.string.isRequired,
   host: PropTypes.string.isRequired,
   current: PropTypes.number.isRequired,

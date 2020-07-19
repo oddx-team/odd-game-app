@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useModalActionsContext } from 'contexts/ModalContext'
 import { useGameActionsContext, useGameContext } from 'contexts/GameContext'
+import Api from 'services'
 import './style.scss'
 
 export const ModalCreateRoom = () => {
@@ -10,20 +11,24 @@ export const ModalCreateRoom = () => {
   const [lang, setLang] = useState('en')
   const history = useHistory()
 
-  const { roomId } = useGameContext()
-  const { closeModal } = useModalActionsContext()
+  const { activeRoom } = useGameContext()
+  const { closeModal, setError } = useModalActionsContext()
   const { createRoom } = useGameActionsContext()
 
   useEffect(() => {
-    if (roomId) {
+    if (activeRoom) {
       closeModal('create')
-      history.push(`/rooms/${roomId}`)
+      history.push(`/rooms/${activeRoom.Id}`)
     }
-  }, [history, roomId, closeModal])
+  }, [history, activeRoom, closeModal])
 
   const confirmRoom = async () => {
-    // createRoom(roomName, roomSize, lang)
-    createRoom()
+    try {
+      const newRoom = await Api.createRoom({ name: roomName, size: roomSize }, lang)
+      createRoom(newRoom.Id, roomName, roomSize, lang)
+    } catch (err) {
+      setError('Cannot create room!!')
+    }
   }
 
   return (

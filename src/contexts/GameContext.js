@@ -22,9 +22,9 @@ const gameReducer = (state, action) => {
     case 'SET_LOADING_STATUS':
       return { ...state, isLoading: action.isLoading }
     case 'CREATE_ROOM':
-      return { ...state, roomId: action.roomId }
+      return { ...state, activeRoom: action.room }
     case 'QUIT_ROOM':
-      return { ...state, roomId: null }
+      return { ...state, activeRoom: null }
     default:
       return state
   }
@@ -34,13 +34,13 @@ const GameContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(gameReducer, {
     isLoggedIn: null,
     isLoading: false,
+    activeRoom: null,
     username: null,
     points: 0,
     globalChat: [],
     eRooms: [],
     vRooms: [],
     online: false,
-    roomId: null,
     fullBanner: true
   }, undefined)
 
@@ -54,8 +54,14 @@ const GameContextProvider = ({ children }) => {
     setBanner: useCallback((banner) => {
       dispatch({ type: 'SET_FULL_BANNER', fullBanner: banner })
     }, []),
-    createRoom: useCallback(() => {
-      dispatch({ type: 'CREATE_ROOM', roomId: 1 })
+    createRoom: useCallback((Id, name, size, lang) => {
+      dispatch({
+        type: 'CREATE_ROOM',
+        room: { Id, name, size, lang }
+      })
+    }, []),
+    quitRoom: useCallback(() => {
+      dispatch({ type: 'QUIT_ROOM' })
     }, []),
     setGlobalLoading: useCallback((isLoading) => {
       dispatch({ type: 'SET_LOADING_STATUS', isLoading })
