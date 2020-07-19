@@ -1,8 +1,10 @@
 import React from 'react'
+import { useGameContext } from 'contexts/GameContext'
 import './style.scss'
 
 export const Loading = () => {
-  return (
-    <div className='loading' />
-  )
+  const { isLoading } = useGameContext()
+  return isLoading ? (
+    <div className='loading-overlay' />
+  ) : null
 }

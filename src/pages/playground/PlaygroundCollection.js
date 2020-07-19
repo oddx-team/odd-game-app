@@ -1,34 +1,30 @@
-import React, { useState, useEffect } from 'react'
-import { usePlay } from 'hooks'
+import React from 'react'
+import { usePlayContext, usePlayActionsContext } from 'contexts/PlayContext'
 import { Card } from 'components/Card'
 import styled from 'styled-components/macro'
 
-export const PlaygroundCollection = (props) => {
-  const { allCards } = props
-  const { collectionCardIds } = usePlay()
-  const [selectedCard, setSelectedCard] = useState(null)
-  const [collectionCards, setCollectionCards] = useState([])
+export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
+  const { collectionCardIds } = usePlayContext()
+  const { getCardById } = usePlayActionsContext()
 
-  const getCardById = (id) => {
-    return allCards.find((card) => card.id === id)
-  }
-
-  useEffect(() => {
-    const collectionCards = collectionCardIds.map(id => getCardById(id))
-    setCollectionCards(collectionCards)
-  }, [collectionCardIds])
+  const collectionCards = collectionCardIds?.map((cardId) => ({
+    ...cardId,
+    ...getCardById(cardId)
+  }))
 
   return (
     <CollectionWrapper>
       <Header>Player Collection</Header>
       <Content>
-        {collectionCards.map((card, i) => (
+        {collectionCards && collectionCards.map((card, i) => (
           <div key={i}>
             <Card
               {...card}
               size='small'
-              color={selectedCard === i ? 'blue' : 'white'}
-              onClick={() => setSelectedCard(i)}
+              color={dealCard === card.id ? 'blue' : 'white'}
+              onClick={() => {
+                selectDealCard(card.id)
+              }}
             />
           </div>
         ))}

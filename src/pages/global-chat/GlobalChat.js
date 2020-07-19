@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
-import { useFetch } from 'hooks'
+import Api from 'services'
+import { useFetch } from 'hooks/fetch'
 import { TextInput } from 'components/TextInput'
 import { ChatMessage } from 'components/ChatMessage'
 import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from './styled'
-
-import Api from 'services'
 
 export const GlobalChat = () => {
   const lastRef = useRef(null)
