@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react'
-import PropTypes from 'prop-types'
-import Api from 'services'
 import { useFetch } from 'hooks/fetch'
 import { TextInput } from 'components/TextInput'
 import { ChatMessage } from 'components/ChatMessage'
 import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from './styled'
+import PropTypes from 'prop-types'
+import Api from 'services'
+import io from 'socket.io-client'
 
 export const GlobalChat = () => {
   const lastRef = useRef(null)
@@ -12,7 +13,7 @@ export const GlobalChat = () => {
   const [globalChat, setGlobalChat] = useState([])
 
   const initSocket = useCallback(() => {
-    window.socket = global.config.socket
+    window.socket = io()
     window.socket.on('global chat', (username, message) => {
       const newMessage = {
         username,
