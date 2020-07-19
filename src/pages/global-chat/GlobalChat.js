@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import Api from 'services'
 import { useFetch } from 'hooks/fetch'
@@ -11,31 +11,31 @@ export const GlobalChat = () => {
   const [messages] = useFetch(Api.getChats)
   const [globalChat, setGlobalChat] = useState([])
 
+  const initSocket = useCallback(() => {
+    window.socket = global.config.socket
+    window.socket.on('global chat', (username, message) => {
+      const newMessage = {
+        username,
+        message,
+        time: new Date().getTime() / 1000
+      }
+      setGlobalChat([...globalChat, newMessage])
+    })
+
+    window.socket.on('pong', (ms) => {
+      window.latency = ms
+    })
+  }, [globalChat])
+
   useEffect(() => setGlobalChat(messages), [messages])
   useEffect(() => scrollToBottom(), [globalChat])
   useEffect(() => {
-    // init socket
-    (() => {
-      window.socket = global.config.socket
-      window.socket.on('global chat', (username, message) => {
-        const newMessage = {
-          username,
-          message,
-          time: new Date().getTime() / 1000
-        }
-        setGlobalChat([...globalChat, newMessage])
-      })
-
-      window.socket.on('pong', (ms) => {
-        window.latency = ms
-      })
-    })()
-
+    initSocket()
     return () => {
       window.socket.disconnect()
       window.socket.close()
     }
-  }, [globalChat])
+  }, [globalChat, initSocket])
 
   const scrollToBottom = () => {
     lastRef.current.scrollIntoView()
