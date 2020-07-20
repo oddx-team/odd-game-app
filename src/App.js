@@ -19,7 +19,7 @@ const PrivateRoute = ({ component: Component, ...options }) => {
 
   switch (isLoggedIn) {
     case true:
-      return <Component {...options} />
+      return <Route {...options} component={Component} />
     case false:
       return <Redirect to='/' />
     default:

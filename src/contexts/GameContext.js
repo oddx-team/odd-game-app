@@ -22,6 +22,7 @@ const gameReducer = (state, action) => {
       return { ...state, fullBanner: action.fullBanner }
     case 'SET_LOADING_STATUS':
       return { ...state, isLoading: action.isLoading }
+    case 'SET_ACTIVE_ROOM':
     case 'CREATE_ROOM':
       return { ...state, activeRoom: action.room }
     case 'QUIT_ROOM':
@@ -54,6 +55,9 @@ const GameContextProvider = ({ children }) => {
     }, []),
     setBanner: useCallback((banner) => {
       dispatch({ type: 'SET_FULL_BANNER', fullBanner: banner })
+    }, []),
+    setActiveRoom: useCallback((room) => {
+      dispatch({ type: 'SET_ACTIVE_ROOM', room })
     }, []),
     createRoom: useCallback((Id, name, size, lang) => {
       dispatch({

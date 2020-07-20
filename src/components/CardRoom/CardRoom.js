@@ -16,7 +16,13 @@ const Text = ({ title, value }) => {
 }
 
 export const CardRoom = props => {
-  const { host, current, guest, status, slug } = props
+  const {
+    host,
+    current,
+    guest,
+    status,
+    slug
+  } = props
 
   const trySpectating = (history, slug) => {
     history.push(`/rooms/${slug}`)
