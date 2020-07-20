@@ -26,7 +26,7 @@ export const PagePlayground = (props) => {
   const [allCards, loading] = useFetch(Api.getAllCards)
 
   const [dealCard, setDealCard] = useState(null)
-  const { roomId } = useParams()
+  const { slug } = useParams()
   const { setError } = useModalActionsContext()
   const { setGlobalLoading } = useGameActionsContext()
   const { blackCardId, playedCardIds } = usePlayContext()
@@ -47,7 +47,7 @@ export const PagePlayground = (props) => {
   useEffect(() => {
     // join room
     (async () => {
-      const data = await Api.joinRoom(utils.snakifyKeys({ operation: 'join_room', roomId }))
+      const data = await Api.joinRoom(utils.snakifyKeys({ operation: 'join_room', slug }))
       const {
         mode,
         collectionCards: collectionCardIds,
@@ -56,7 +56,7 @@ export const PagePlayground = (props) => {
       } = data
       setPlaygroundData(mode, collectionCardIds, playedCardIds, blackCardId)
     })()
-  }, [setPlaygroundData, roomId])
+  }, [setPlaygroundData, slug])
 
   const confirmSelection = () => {
     if (!dealCard) {

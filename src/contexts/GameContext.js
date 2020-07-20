@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer, useCallback } from 'react'
 import PropTypes from 'prop-types'
+import utils from 'utils'
 
 export const GameContext = createContext(null, null)
 export const GameActionsContext = createContext()
@@ -57,10 +58,16 @@ const GameContextProvider = ({ children }) => {
     createRoom: useCallback((Id, name, size, lang) => {
       dispatch({
         type: 'CREATE_ROOM',
-        room: { Id, name, size, lang }
+        room: {
+          Id,
+          name,
+          size,
+          lang,
+          slug: utils.slugifyStr(name)
+        }
       })
     }, []),
-    quitRoom: useCallback(() => {
+    quitCurrentRoom: useCallback(() => {
       dispatch({ type: 'QUIT_ROOM' })
     }, []),
     setGlobalLoading: useCallback((isLoading) => {

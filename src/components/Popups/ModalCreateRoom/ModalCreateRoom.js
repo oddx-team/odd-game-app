@@ -17,15 +17,15 @@ export const ModalCreateRoom = () => {
 
   useEffect(() => {
     if (activeRoom) {
-      closeModal('create')
-      history.push(`/rooms/${activeRoom.Id}`)
+      history.push(`/rooms/${activeRoom.slug}`)
     }
-  }, [history, activeRoom, closeModal])
+  }, [history, activeRoom])
 
   const confirmRoom = async () => {
     try {
       const newRoom = await Api.createRoom({ name: roomName, size: roomSize }, lang)
       createRoom(newRoom.Id, roomName, roomSize, lang)
+      closeModal('create')
     } catch (err) {
       setError('Cannot create room!!')
     }

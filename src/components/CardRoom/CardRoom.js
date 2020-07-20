@@ -16,13 +16,13 @@ const Text = ({ title, value }) => {
 }
 
 export const CardRoom = props => {
-  const { Id, host, current, guest, status } = props
+  const { host, current, guest, status, slug } = props
 
-  const trySpectating = (history, roomId) => {
-    history.push(`/rooms/${roomId}`)
+  const trySpectating = (history, slug) => {
+    history.push(`/rooms/${slug}`)
   }
-  const tryJoining = async (history, roomId) => {
-    history.push(`/rooms/${roomId}`)
+  const tryJoining = async (history, slug) => {
+    history.push(`/rooms/${slug}`)
   }
 
   return (
@@ -37,10 +37,10 @@ export const CardRoom = props => {
             <Text title='Status' value={status} />
           </CardRoomInner>
 
-          <ButtonJoin className='block accent' onClick={() => tryJoining(history, Id)}>
+          <ButtonJoin className='block accent' onClick={() => tryJoining(history, slug)}>
             Join
           </ButtonJoin>
-          <ButtonSpectate className='block blue' onClick={() => trySpectating(history, Id)}>
+          <ButtonSpectate className='block blue' onClick={() => trySpectating(history, slug)}>
             Spectate
           </ButtonSpectate>
         </StyledCardRoom>
@@ -52,6 +52,7 @@ export const CardRoom = props => {
 CardRoom.propTypes = {
   Id: PropTypes.string,
   name: PropTypes.string.isRequired,
+  slug: PropTypes.string,
   host: PropTypes.string.isRequired,
   current: PropTypes.number.isRequired,
   guest: PropTypes.number.isRequired,

@@ -137,6 +137,7 @@ export default {
       new Array(26).fill(null).map((_, i) => ({
         _id: `room-${i + 26}`,
         name: `Room ${utils.convertChar(i)}`,
+        slug: utils.slugifyStr(`room-${utils.convertChar(i)}`),
         host: `Player${(i % 3) + 1}`,
         total: 10,
         current: Math.floor(Math.random() * 10),
@@ -152,6 +153,7 @@ export default {
       new Array(26).fill(null).map((_, i) => ({
         _id: `phong-${i + 26}`,
         name: `Phòng ${utils.convertChar(i)}`,
+        slug: utils.slugifyStr(`phong-${utils.convertChar(i)}`),
         host: `Player${(i % 3) + 1}`,
         total: 10,
         current: Math.floor(Math.random() * 10),
@@ -168,19 +170,22 @@ export default {
     //   size: 10
     // }
     await utils.delay(100)
-    return { _id: 'room_id_123' }
+    return { _id: 'room_id_123', name: utils.slugifyStr(payload.name) }
   },
 
   async joinRoom (payload) {
     // payload format
     // {
     //   operation: 'join_room',
-    //   room_id: 1
+    //   slug: room-abc
     // }
     await utils.delay(100)
     return utils.camelizeKeys({
       joined: true,
-      room_id: 1,
+      room_info: {
+        _id: 1,
+        slug: 'room-a'
+      },
       mode: 1,
       collection_cards: [
         '5f146b9f73aa53974b1dafc7',
