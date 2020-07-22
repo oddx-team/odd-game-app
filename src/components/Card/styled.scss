@@ -109,12 +109,39 @@
   }
 }
 
-
 // Revealing effects
 .card-inner {
   @include sizeWH(100%, 100%);
   @include position(absolute, 0, 0, 0, 0);
   transition: transform 0.5s;
   transform-style: preserve-3d;
+
+  .face {
+    backface-visibility: hidden;
+
+    &.front {
+      @include sizeWH(100%, 100%);
+      @include position(absolute, 0);
+      transform: rotateY(180deg);
+    }
+    &.back {
+      @include sizeWH(100%, 100%);
+      .card-picker,
+      .card-logo {
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.odd-card.closed {
+  .card-inner {
+    transform: translateZ(0rem) rotateY(180deg);
+
+    .card-picker,
+    .card-logo {
+      visibility: hidden;
+    }
+  }
 }
 
