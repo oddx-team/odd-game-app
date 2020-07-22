@@ -35,6 +35,5 @@ Card.propTypes = {
   gaps: PropTypes.number,
   language: PropTypes.string,
   closed: PropTypes.bool,
-  played: PropTypes.bool,
   onClick: PropTypes.func
 }
