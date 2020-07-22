@@ -18,7 +18,7 @@ import { useGameActionsContext } from 'contexts/GameContext'
 
 export const PageGameRooms = () => {
   const { openModal } = useModalActionsContext()
-  const { setBanner, setGlobalLoading } = useGameActionsContext()
+  const { setBanner, setGlobalLoading, quitCurrentRoom } = useGameActionsContext()
 
   const [activeTab, setActiveTab] = useState(0)
   const [allRooms, setAllRooms] = useState({ eRooms: [], vRooms: [] })
@@ -30,13 +30,14 @@ export const PageGameRooms = () => {
   // fetch data
   useEffect(() => {
     (async () => {
+      quitCurrentRoom()
       setBanner(true)
       setGlobalLoading(true)
       const [eRooms, vRooms] = await Promise.all([Api.getGlobalRooms(), Api.getVnRooms()])
       setAllRooms({ eRooms, vRooms })
       setGlobalLoading(false)
     })()
-  }, [setBanner, setGlobalLoading])
+  }, [setBanner, setGlobalLoading, quitCurrentRoom])
 
   return (
     <PageRoomWrapper>

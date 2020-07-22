@@ -1,3 +1,5 @@
+import slugify from 'slugify'
+
 function getParam (paramName, url) {
   const href = url || window.location.href
   const name = paramName.replace(/[[]]/g, '\\$&')
@@ -14,6 +16,10 @@ function camelizeStr (str) {
 
 function snakifyStr (str) {
   return str.replace(/(?:^|\.?)([A-Z])/g, (_, x) => `_${x.toLowerCase()}`)
+}
+
+function slugifyStr (str) {
+  return slugify(str.toLowerCase())
 }
 
 function parseTime (timer) {
@@ -60,6 +66,7 @@ export default {
   getParam,
   camelizeStr,
   snakifyStr,
+  slugifyStr,
   delay,
   camelizeKeys: convertCase(camelizeStr),
   snakifyKeys: convertCase(snakifyStr),

@@ -7,6 +7,8 @@ import { useModalActionsContext } from 'contexts/ModalContext'
 import { PlaygroundWidgets } from './widgets'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'components/Card'
+import io from 'socket.io-client'
+
 import {
   PlaygroundWrapper,
   Header,
@@ -20,22 +22,21 @@ import {
 } from './styled'
 
 import Api from 'services'
-import utils from 'utils'
 
 export const PagePlayground = (props) => {
+  const { slug } = useParams()
   const [allCards, loading] = useFetch(Api.getAllCards)
-
   const [dealCard, setDealCard] = useState(null)
-  const { roomId } = useParams()
+
+  const { blackCardId, playedCardIds } = usePlayContext()
   const { setError } = useModalActionsContext()
   const { setGlobalLoading } = useGameActionsContext()
-  const { blackCardId, playedCardIds } = usePlayContext()
   const {
     setAllCards, getCardById,
     setPlaygroundData, confirmDealCard
   } = usePlayActionsContext()
 
-  // Get necessary data
+  // Card data to display
   const blackCard = getCardById(blackCardId)
   const playedCards = playedCardIds?.map(card => ({
     ...card,
@@ -46,17 +47,30 @@ export const PagePlayground = (props) => {
   useEffect(() => { if (allCards) setAllCards(allCards) }, [allCards, setAllCards])
   useEffect(() => {
     // join room
-    (async () => {
-      const data = await Api.joinRoom(utils.snakifyKeys({ operation: 'join_room', roomId }))
-      const {
-        mode,
-        collectionCards: collectionCardIds,
-        playedCards: playedCardIds,
-        blackCard: blackCardId
-      } = data
-      setPlaygroundData(mode, collectionCardIds, playedCardIds, blackCardId)
+    (() => {
+      window.socket = io()
+      window.socket.emit('join-room', { operation: 'join', slug })
+      window.socket.on('game-session', (data) => {
+        const {
+          mode,
+          roomInfo,
+          collectionCards: collectionCardIds,
+          playedCards: playedCardIds,
+          blackCard: blackCardId
+        } = data
+        console.log(roomInfo)
+
+        if (roomInfo.slug === slug) {
+          setPlaygroundData(mode, collectionCardIds, playedCardIds, blackCardId)
+        }
+      })
     })()
-  }, [setPlaygroundData, roomId])
+
+    return () => {
+      window.socket.disconnect()
+      window.socket.close()
+    }
+  }, [setPlaygroundData, slug])
 
   const confirmSelection = () => {
     if (!dealCard) {

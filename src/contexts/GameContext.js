@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useReducer, useCallback } from 'react'
 import PropTypes from 'prop-types'
+import utils from 'utils'
 
 export const GameContext = createContext(null, null)
 export const GameActionsContext = createContext()
@@ -21,6 +22,7 @@ const gameReducer = (state, action) => {
       return { ...state, fullBanner: action.fullBanner }
     case 'SET_LOADING_STATUS':
       return { ...state, isLoading: action.isLoading }
+    case 'SET_ACTIVE_ROOM':
     case 'CREATE_ROOM':
       return { ...state, activeRoom: action.room }
     case 'QUIT_ROOM':
@@ -54,13 +56,22 @@ const GameContextProvider = ({ children }) => {
     setBanner: useCallback((banner) => {
       dispatch({ type: 'SET_FULL_BANNER', fullBanner: banner })
     }, []),
+    setActiveRoom: useCallback((room) => {
+      dispatch({ type: 'SET_ACTIVE_ROOM', room })
+    }, []),
     createRoom: useCallback((Id, name, size, lang) => {
       dispatch({
         type: 'CREATE_ROOM',
-        room: { Id, name, size, lang }
+        room: {
+          Id,
+          name,
+          size,
+          lang,
+          slug: utils.slugifyStr(name)
+        }
       })
     }, []),
-    quitRoom: useCallback(() => {
+    quitCurrentRoom: useCallback(() => {
       dispatch({ type: 'QUIT_ROOM' })
     }, []),
     setGlobalLoading: useCallback((isLoading) => {

@@ -51,7 +51,10 @@ export default {
     await utils.delay(100)
     return utils.camelizeKeys({
       joined: true,
-      room_id: 1,
+      room_info: {
+        _id: 1,
+        slug: 'room-a'
+      },
       mode: 1,
       collection_cards: [
         '5f146b9f73aa53974b1dafc7',
