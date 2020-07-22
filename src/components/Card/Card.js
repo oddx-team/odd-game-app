@@ -4,27 +4,25 @@ import IconLogo from 'assets/logo.png'
 import classNames from 'classnames'
 import './styled.scss'
 
-export const Card = ({ color, size, text, closed, onClick }) => {
-  const cardClasses = classNames('block odd-card', color, size, closed)
+export const Card = ({ color, size, text, closed, played, onClick }) => {
+  const cardClasses = classNames('block odd-card', color, size, closed, played ? 'played' : '')
 
   return (
     <div className={cardClasses} onClick={() => onClick && onClick()}>
       <div className='card-inner'>
-        <div className='face front' />
-        <div className='face back'>
-          <div className='card-title'>{text}</div>
-          <div className='card-logo'>
-            <img alt='IconLogo' src={IconLogo} />
-            <span>Oddx</span>
-          </div>
-
-          {color === 'black' && size === 'large' && (
-            <div className='card-picker'>
-              <div>Pick</div>
-              <div>2</div>
-            </div>
-          )}
+        <div className='card-title'>{text}</div>
+        <div className='card-question' />
+        <div className='card-logo'>
+          <img alt='IconLogo' src={IconLogo} />
+          <span>Oddx</span>
         </div>
+
+        {color === 'black' && size === 'large' && (
+          <div className='card-picker'>
+            <div>Pick</div>
+            <div>2</div>
+          </div>
+        )}
       </div>
     </div>
   )
@@ -37,5 +35,6 @@ Card.propTypes = {
   gaps: PropTypes.number,
   language: PropTypes.string,
   closed: PropTypes.bool,
+  played: PropTypes.bool,
   onClick: PropTypes.func
 }

@@ -121,6 +121,7 @@ export const PagePlayground = (props) => {
                     onClick={() => {}}
                     size={playedCards.length <= 4 ? 'medium' : 'small'}
                     closed={cardState}
+                    played
                   />
                 </div>
               ))}
