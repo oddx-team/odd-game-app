@@ -4,23 +4,26 @@ import IconLogo from 'assets/logo.png'
 import classNames from 'classnames'
 import './styled.scss'
 
-export const Card = ({ color, size, text, onClick }) => {
-  const cardClasses = classNames('block odd-card', color, size)
+export const Card = ({ color, size, text, closed, onClick }) => {
+  const cardClasses = classNames('block odd-card', color, size, closed)
 
   return (
     <div className={cardClasses} onClick={() => onClick && onClick()}>
-      <div className='card-title'>{text}</div>
-      <div className='card-logo'>
-        <img alt='IconLogo' src={IconLogo} />
-        <span>Oddx</span>
-      </div>
-
-      {color === 'black' && size === 'large' && (
-        <div className='card-picker'>
-          <div>Pick</div>
-          <div>2</div>
+      <div className='card-inner'>
+        <div className='card-title'>{text}</div>
+        <div className='card-question' />
+        <div className='card-logo'>
+          <img alt='IconLogo' src={IconLogo} />
+          <span>Oddx</span>
         </div>
-      )}
+
+        {color === 'black' && size === 'large' && (
+          <div className='card-picker'>
+            <div>Pick</div>
+            <div>2</div>
+          </div>
+        )}
+      </div>
     </div>
   )
 }
@@ -31,5 +34,6 @@ Card.propTypes = {
   text: PropTypes.string.isRequired,
   gaps: PropTypes.number,
   language: PropTypes.string,
+  closed: PropTypes.bool,
   onClick: PropTypes.func
 }
