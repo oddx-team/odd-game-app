@@ -9,18 +9,24 @@ export const Card = ({ color, size, text, onClick }) => {
 
   return (
     <div className={cardClasses} onClick={() => onClick && onClick()}>
-      <div className='card-title'>{text}</div>
-      <div className='card-logo'>
-        <img alt='IconLogo' src={IconLogo} />
-        <span>Oddx</span>
+      <div className='card-inner'>
+        <div className='face front' />
+        <div className='face back'>
+          <div className='card-title'>{text}</div>
+          <div className='card-logo'>
+            <img alt='IconLogo' src={IconLogo} />
+            <span>Oddx</span>
+          </div>
+
+          {color === 'black' && size === 'large' && (
+            <div className='card-picker'>
+              <div>Pick</div>
+              <div>2</div>
+            </div>
+          )}
+        </div>
       </div>
 
-      {color === 'black' && size === 'large' && (
-        <div className='card-picker'>
-          <div>Pick</div>
-          <div>2</div>
-        </div>
-      )}
     </div>
   )
 }

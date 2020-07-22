@@ -52,7 +52,7 @@ export const ButtonConfirm = styled.button`
 export const CardsList = styled.div`
   position: absolute;
   top: 0.5rem;
-  left: 3.07rem;
+  left: 2.96rem;
   display: flex;
   padding-left: 0.1rem;
   padding-top: 0.05rem;
