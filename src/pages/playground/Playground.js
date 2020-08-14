@@ -27,6 +27,7 @@ export const PagePlayground = (props) => {
   const { slug } = useParams()
   const [allCards, loading] = useFetch(Api.getAllCards)
   const [dealCard, setDealCard] = useState(null)
+  const [cardState, setCardState] = useState('closed')
 
   const { blackCardId, playedCardIds } = usePlayContext()
   const { setError } = useModalActionsContext()
@@ -81,6 +82,14 @@ export const PagePlayground = (props) => {
     }
   }
 
+  const revealCards = () => {
+    if (cardState === 'closed') {
+      setCardState('reveal')
+    } else {
+      setCardState('closed')
+    }
+  }
+
   return (
     <PlaygroundWrapper>
       <div>
@@ -97,6 +106,9 @@ export const PagePlayground = (props) => {
               <ButtonConfirm className='block dark-blue' onClick={() => confirmSelection()}>
                   Confirm
               </ButtonConfirm>
+              <ButtonConfirm className='block dark-green' onClick={() => revealCards()}>
+                  Toggle
+              </ButtonConfirm>
             </BlackCardContainer>}
 
           <WhiteCardContainer>
@@ -108,6 +120,7 @@ export const PagePlayground = (props) => {
                     {...card}
                     onClick={() => {}}
                     size={playedCards.length <= 4 ? 'medium' : 'small'}
+                    closed={cardState}
                   />
                 </div>
               ))}
