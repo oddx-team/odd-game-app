@@ -23,7 +23,7 @@ import {
 
 import Api from 'services'
 
-export const PagePlayground = (props) => {
+export const PagePlayground = () => {
   const { slug } = useParams()
   const [allCards, loading] = useFetch(Api.getAllCards)
   const [dealCard, setDealCard] = useState(null)
@@ -51,7 +51,7 @@ export const PagePlayground = (props) => {
     (() => {
       window.socket = io()
       window.socket.emit('join-room', { operation: 'join', slug })
-      window.socket.on('game-session', (data) => {
+      window.socket.on(slug, (data) => {
         const {
           mode,
           roomInfo,
@@ -59,7 +59,6 @@ export const PagePlayground = (props) => {
           playedCards: playedCardIds,
           blackCard: blackCardId
         } = data
-        console.log(roomInfo)
 
         if (roomInfo.slug === slug) {
           setPlaygroundData(mode, collectionCardIds, playedCardIds, blackCardId)
