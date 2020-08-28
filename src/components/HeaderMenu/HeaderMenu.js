@@ -1,31 +1,17 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { useGameActionsContext } from 'contexts/GameContext'
-import { useModalContext, useModalActionsContext } from 'contexts/ModalContext'
-import classNames from 'classnames'
+import { useModalActionsContext } from 'contexts/ModalContext'
 import styles from './styles.module.scss'
 import Api from 'services'
 
 export const HeaderMenu = () => {
   const history = useHistory()
-  const { openMenu } = useModalContext()
   const { logoutGame } = useGameActionsContext()
-  const { setError, setMenu } = useModalActionsContext()
+  const { setError } = useModalActionsContext()
 
-  const menuClass = openMenu
-    ? classNames(styles.menu, styles.open)
-    : classNames(styles.menu)
-
-  const openProfile = () => {
-    setMenu(false)
-  }
-
-  const viewCards = () => {
-    history.push('/view-cards')
-  }
-
-  const viewRooms = () => {
-    history.push('/rooms')
+  const redirectTo = (route) => {
+    history.push(route)
   }
 
   const logout = async () => {
@@ -39,16 +25,16 @@ export const HeaderMenu = () => {
   }
 
   return (
-    <div
-      className={menuClass}
-      onMouseEnter={() => setMenu(true)}
-      onMouseLeave={() => setMenu(false)}
-    >
+    <div className={styles.menu}>
       <button className={styles.menuBtn} />
-      <div className={styles.dropdown}>
-        <div className={styles.profile} onClick={() => openProfile()}>Profile</div>
-        <div className={styles.profile} onClick={() => viewCards()}>View all cards</div>
-        <div className={styles.profile} onClick={() => viewRooms()}>View rooms</div>
+      <div className={styles.dropdownContent}>
+        <div className={styles.profile}>Profile</div>
+        <div className={styles.profile} onClick={() => redirectTo('/view-cards')}>
+          <span>View all cards</span>
+        </div>
+        <div className={styles.profile} onClick={() => redirectTo('/rooms')}>
+          <span>View rooms</span>
+        </div>
         <div className={styles.logout} onClick={() => logout()}>Logout</div>
       </div>
     </div>
