@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { useFetch } from 'hooks/fetch'
 import { usePlayActionsContext, usePlayContext } from 'contexts/PlayContext'
@@ -7,7 +7,7 @@ import { useModalActionsContext } from 'contexts/ModalContext'
 import { PlaygroundWidgets } from './widgets'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'components/Card'
-import io from 'socket.io-client'
+import { SocketContext } from 'contexts/SocketContext'
 
 import {
   PlaygroundWrapper,
@@ -25,6 +25,7 @@ import Api from 'services'
 
 export const PagePlayground = () => {
   const { slug } = useParams()
+  const { socket } = useContext(SocketContext)
   const [allCards, loading] = useFetch(Api.getAllCards)
   const [dealCard, setDealCard] = useState(null)
   const [cardState, setCardState] = useState('closed')
@@ -49,7 +50,7 @@ export const PagePlayground = () => {
   useEffect(() => {
     // join room
     (() => {
-      window.socket = io()
+      window.socket = socket
       window.socket.emit('join-room', { operation: 'join', slug })
       window.socket.on(`session-${slug}`, (data) => {
         const {

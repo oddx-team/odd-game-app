@@ -30,6 +30,9 @@ export default {
   getChats () {
     return api('get', 'chat')
   },
+  getRoomChat (slug) {
+    return api('get', `rooms/${slug}/chat`)
+  },
   async getAllCards () {
     return api('get', 'cards/en')
   },
