@@ -51,7 +51,7 @@ export const PagePlayground = () => {
     (() => {
       window.socket = io()
       window.socket.emit('join-room', { operation: 'join', slug })
-      window.socket.on(slug, (data) => {
+      window.socket.on(`session-${slug}`, (data) => {
         const {
           mode,
           roomInfo,
