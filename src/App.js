@@ -12,6 +12,7 @@ import { PageViewCards } from 'pages/view-cards'
 import GameContextProvider, { useGameContext } from 'contexts/GameContext.js'
 import ModalContextProvider from 'contexts/ModalContext.js'
 import PlayContextProvider from 'contexts/PlayContext.js'
+import SocketContextProvider from 'contexts/SocketContext.js'
 import 'App.scss'
 
 const PrivateRoute = ({ component: Component, ...options }) => {
@@ -29,29 +30,31 @@ const PrivateRoute = ({ component: Component, ...options }) => {
 
 const App = () => {
   return (
-    <GameContextProvider>
-      <ModalContextProvider>
-        <PlayContextProvider>
-          <BrowserRouter>
-            <div id='app'>
-              <div className='header-bg' />
-              <div className='main'>
-                <Header />
-                <Loading />
-                <Popups />
-                <Switch>
-                  <Route exact path='/' component={PageLanding} />
-                  <PrivateRoute exact path='/rooms' component={PageGameRooms} />
-                  <PrivateRoute exact path='/rooms/:slug' component={PagePlayground} />
-                  <PrivateRoute exact path='/view-cards' component={PageViewCards} />
-                  <Route component={PageNotFound} />
-                </Switch>
+    <SocketContextProvider>
+      <GameContextProvider>
+        <ModalContextProvider>
+          <PlayContextProvider>
+            <BrowserRouter>
+              <div id='app'>
+                <div className='header-bg' />
+                <div className='main'>
+                  <Header />
+                  <Loading />
+                  <Popups />
+                  <Switch>
+                    <Route exact path='/' component={PageLanding} />
+                    <PrivateRoute exact path='/rooms' component={PageGameRooms} />
+                    <PrivateRoute exact path='/rooms/:slug' component={PagePlayground} />
+                    <PrivateRoute exact path='/view-cards' component={PageViewCards} />
+                    <Route component={PageNotFound} />
+                  </Switch>
+                </div>
               </div>
-            </div>
-          </BrowserRouter>
-        </PlayContextProvider>
-      </ModalContextProvider>
-    </GameContextProvider>
+            </BrowserRouter>
+          </PlayContextProvider>
+        </ModalContextProvider>
+      </GameContextProvider>
+    </SocketContextProvider>
   )
 }
 

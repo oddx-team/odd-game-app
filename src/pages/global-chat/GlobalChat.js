@@ -1,14 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, useContext } from 'react'
+import { SocketContext } from 'contexts/SocketContext'
 import { useFetch } from 'hooks/fetch'
 import { TextInput } from 'components/TextInput'
 import { ChatMessage } from 'components/ChatMessage'
 import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from './styled'
 import PropTypes from 'prop-types'
 import Api from 'services'
-import io from 'socket.io-client'
 
 export const GlobalChat = () => {
   const lastRef = useRef(null)
+  const { socket } = useContext(SocketContext)
   const [messages] = useFetch(Api.getChats)
   const [globalChat, setGlobalChat] = useState([])
 
@@ -16,24 +17,27 @@ export const GlobalChat = () => {
   useEffect(() => scrollToBottom(), [globalChat])
   useEffect(() => {
     (() => {
-      window.socket = io()
+      window.socket = socket
       window.socket.on('chat-global', (username, message) => {
         const newMessage = {
           username,
           message,
           time: new Date().getTime() / 1000
         }
-        setGlobalChat([...globalChat, newMessage])
+
+        if (globalChat !== null) {
+          setGlobalChat([...globalChat, newMessage])
+        }
       })
 
       window.socket.on('pong', (ms) => {
         window.latency = ms
       })
     })()
-    return () => {
-      window.socket.disconnect()
-      window.socket.close()
-    }
+    // return () => {
+    //   window.socket.disconnect()
+    //   window.socket.close()
+    // }
   }, [globalChat])
 
   const scrollToBottom = () => {
