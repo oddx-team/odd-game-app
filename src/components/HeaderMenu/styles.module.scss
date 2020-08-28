@@ -12,15 +12,25 @@
     cursor: pointer;
     transition: background-image 0.25s ease-out;
   }
+
+  &:hover {
+    .menuBtn {
+      @include imageCDN('icon-close.png', 0.27rem, 0.27rem); 
+    }
+    .dropdownContent {
+      display: block;
+    }
+  }
 }
 
-.dropdown {
+.dropdownContent {
   @include position(relative, 0.6rem);
   @include sizeWH(2.2rem, auto);
+  display: none;
   z-index: 2;
-  box-shadow: 0 0.02rem 0.02rem 0 rgba(160, 159, 159, 0.2), 0 0.03rem 0.08rem 0 rgba(174, 172, 172, 0.19);
+  box-shadow: 0 0.02rem 0.02rem 0 rgba(160, 159, 159, 0.2), 
+              0 0.03rem 0.08rem 0 rgba(174, 172, 172, 0.19);
   background: #fff;
-  visibility: hidden;
 
   div {
     @include textMixin(#656565, 0.18rem);
@@ -43,14 +53,4 @@
   content: '';
   @include imageCDN('icon-logout.png', 0.26rem, 0.26rem);
   @include position(absolute, 0.08rem, $right: 0.1rem);
-}
-
-.menu.open {
-  .menuBtn {
-    @include imageCDN('icon-close.png', 0.27rem, 0.27rem);
-  }
-
-  .dropdown {
-    visibility: visible;
-  }
 }
