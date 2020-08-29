@@ -66,11 +66,6 @@ export const PagePlayground = () => {
         }
       })
     })()
-
-    // return () => {
-    //   window.socket.disconnect()
-    //   window.socket.close()
-    // }
   }, [setPlaygroundData, slug, socket])
 
   const confirmSelection = () => {
