@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import { useHistory } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
+import { SocketContext } from 'contexts/SocketContext'
 
 import OddLogo from 'assets/logo.png'
 import { HeaderMenu } from '../HeaderMenu'
@@ -45,6 +46,8 @@ HeaderExtra.propTypes = {
 }
 
 export const Header = () => {
+  const { slug } = useParams()
+  const { socket } = useContext(SocketContext)
   const { isLoggedIn, fullBanner, username, points } = useGameContext()
   const { login, logoutGame } = useGameActionsContext()
   const history = useHistory()
@@ -57,9 +60,24 @@ export const Header = () => {
     })
   }, [login, logoutGame])
 
+  useEffect(() => {
+    window.socket = socket
+    // return () => {
+    //   window.socket.disconnect()
+    //   window.socket.close()
+    // }
+  }, [socket])
+
+  const quitRoom = () => {
+    (() => {
+      window.socket.emit('leave-room', slug)
+      history.push(isLoggedIn ? '/rooms' : '/')
+    })()
+  }
+
   return (
     <HeaderWrapper>
-      <MainLogo onClick={() => history.push(isLoggedIn ? '/rooms' : '/')}>
+      <MainLogo onClick={quitRoom}>
         <img alt='logo' src={OddLogo} />
         <span>Oddx</span>
       </MainLogo>

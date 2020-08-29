@@ -32,7 +32,7 @@ export const Card = ({ color, size, text, closed, onClick }) => {
 Card.propTypes = {
   color: PropTypes.string.isRequired,
   size: PropTypes.string,
-  text: PropTypes.string.isRequired,
+  text: PropTypes.string,
   gaps: PropTypes.number,
   language: PropTypes.string,
   closed: PropTypes.bool,
