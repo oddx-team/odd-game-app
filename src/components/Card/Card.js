@@ -35,6 +35,6 @@ Card.propTypes = {
   text: PropTypes.string,
   gaps: PropTypes.number,
   language: PropTypes.string,
-  closed: PropTypes.bool,
+  closed: PropTypes.string,
   onClick: PropTypes.func
 }
