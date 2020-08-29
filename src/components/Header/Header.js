@@ -62,10 +62,6 @@ export const Header = () => {
 
   useEffect(() => {
     window.socket = socket
-    // return () => {
-    //   window.socket.disconnect()
-    //   window.socket.close()
-    // }
   }, [socket])
 
   const quitRoom = () => {

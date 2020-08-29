@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useModalActionsContext } from 'contexts/ModalContext'
+import { SocketContext } from 'contexts/SocketContext'
 import { Loading } from 'components/Loading'
 import {
   LandingWrapper,
@@ -17,6 +18,7 @@ import Api from 'services'
 import { useGameContext, useGameActionsContext } from 'contexts/GameContext'
 
 export const PageLanding = () => {
+  const { spawnNewSocket } = useContext(SocketContext)
   const history = useHistory()
   const [username, setUsername] = useState('')
 
@@ -40,6 +42,7 @@ export const PageLanding = () => {
     try {
       await Api.registerUsername(username)
       login(username)
+      spawnNewSocket()
       history.push('/rooms')
     } catch (err) {
       setError('username is picked already!')
