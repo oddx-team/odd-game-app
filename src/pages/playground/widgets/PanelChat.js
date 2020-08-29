@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState, useContext, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { ChatMessage } from 'components/ChatMessage'
 import { TextInput } from 'components/TextInput'
@@ -7,10 +7,12 @@ import styled from 'styled-components/macro'
 import Api from 'services'
 
 export const PanelChat = () => {
+  const lastRef = useRef(null)
   const { slug } = useParams()
   const { socket } = useContext(SocketContext)
   const [roomChat, setRoomChat] = useState([])
 
+  useEffect(() => scrollToBottom(), [roomChat])
   useEffect(() => {
     (async () => {
       const messages = await Api.getRoomChat(slug)
@@ -32,7 +34,11 @@ export const PanelChat = () => {
         }
       })
     })()
-  }, [roomChat, slug])
+  }, [roomChat, slug, socket])
+
+  const scrollToBottom = () => {
+    lastRef.current.scrollIntoView()
+  }
 
   const submitMessage = text => {
     window.socket.emit('chat-private', text)
@@ -46,6 +52,7 @@ export const PanelChat = () => {
             <ChatMessage small {...message} />
           </div>
         ))}
+        <div ref={lastRef} />
       </ChatContent>
       <TextInput placeholder='Type a message' small onSubmit={submitMessage} />
     </StyledContainer>

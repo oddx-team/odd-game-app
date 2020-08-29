@@ -34,11 +34,7 @@ export const GlobalChat = () => {
         window.latency = ms
       })
     })()
-    // return () => {
-    //   window.socket.disconnect()
-    //   window.socket.close()
-    // }
-  }, [globalChat])
+  }, [globalChat, socket])
 
   const scrollToBottom = () => {
     lastRef.current.scrollIntoView()
