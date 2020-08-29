@@ -18,13 +18,13 @@ import Api from 'services'
 import { useGameContext, useGameActionsContext } from 'contexts/GameContext'
 
 export const PageLanding = () => {
-  const { spawnNewSocket } = useContext(SocketContext)
   const history = useHistory()
   const [username, setUsername] = useState('')
 
   const { setError } = useModalActionsContext()
   const { login, setBanner } = useGameActionsContext()
   const { isLoggedIn } = useGameContext()
+  const { spawnNewSocket } = useContext(SocketContext)
 
   useEffect(() => {
     setBanner(false)
