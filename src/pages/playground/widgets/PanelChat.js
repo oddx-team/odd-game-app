@@ -53,7 +53,9 @@ export const PanelChat = () => {
           </div>
         ))}
         <div ref={lastRef} />
+
       </ChatContent>
+
       <TextInput placeholder='Type a message' small onSubmit={submitMessage} />
     </StyledContainer>
   )

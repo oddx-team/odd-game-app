@@ -35,5 +35,5 @@ export const Tab = styled.div`
 
 export const Container = styled.div`
   width: 100%;
-  height: 2.2rem;
+  height: 1rem;
 `
