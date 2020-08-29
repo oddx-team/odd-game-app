@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useGameActionsContext } from 'contexts/GameContext'
 import { useModalActionsContext } from 'contexts/ModalContext'
+import { SocketContext } from 'contexts/SocketContext'
 import styles from './styles.module.scss'
 import Api from 'services'
 
 export const HeaderMenu = () => {
   const history = useHistory()
+  const { closeSocket } = useContext(SocketContext)
   const { logoutGame } = useGameActionsContext()
   const { setError } = useModalActionsContext()
 
@@ -19,6 +21,7 @@ export const HeaderMenu = () => {
       await Api.logout()
       history.push('/')
       logoutGame()
+      closeSocket()
     } catch (err) {
       setError('Something went terribly wrong!')
     }
