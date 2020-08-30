@@ -44,7 +44,7 @@ export const CardRoom = props => {
             <Text title='Status' value={status} />
           </CardRoomInner>
 
-          <Button variant='success' onClick={() => tryJoining(history, slug)}>
+          <Button icon='attach' variant='success' onClick={() => tryJoining(history, slug)}>
             Join
           </Button>
           <Button variant='primary' onClick={() => trySpectating(history, slug)}>

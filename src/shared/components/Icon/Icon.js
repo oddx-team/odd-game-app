@@ -48,9 +48,9 @@ const propTypes = {
 
 const defaultProps = {
   className: undefined,
-  size: 0.3,
+  size: 0.2,
   left: 0,
-  top: 0
+  top: 0.01
 }
 
 const Icon = ({ type, ...iconProps }) => (
