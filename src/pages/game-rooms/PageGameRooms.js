@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useModalActionsContext } from 'contexts/ModalContext'
-import { CardRoom } from 'components/CardRoom'
+import { CardRoom } from 'shared/components/CardRoom'
 import { TabList } from './tab-list'
 import { GlobalChat } from '../global-chat'
 import {

@@ -6,7 +6,7 @@ import { useGameActionsContext } from 'contexts/GameContext'
 import { useModalActionsContext } from 'contexts/ModalContext'
 import { PlaygroundWidgets } from './widgets'
 import { PlaygroundCollection } from './PlaygroundCollection'
-import { Card } from 'components/Card'
+import { Card } from 'shared/components/Card'
 import { SocketContext } from 'contexts/SocketContext'
 
 import {

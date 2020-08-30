@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useModalActionsContext } from 'contexts/ModalContext'
 import { SocketContext } from 'contexts/SocketContext'
-import { Loading } from 'components/Loading'
+import { Loading } from 'shared/components/Loading'
 import {
   LandingWrapper,
   Logo,
