@@ -13,8 +13,12 @@ export const StyledButton = styled.button`
 >>>>>>> UPD: Add button & icon to library
 =======
   line-height: 1.6;
+<<<<<<< HEAD
   padding: 0 ${props => (props.iconOnly ? 0.1 : 0.2)}rem;
 >>>>>>> UPD: Test button
+=======
+  padding: 0 ${props => (props.iconOnly ? 0.1 : 0.05)}rem;
+>>>>>>> UPD: Test with icon
   white-space: nowrap;
   border-radius: 0.03rem;
   transition: all 0.1s;
@@ -80,8 +84,12 @@ const buttonVariants = {
 
 export const Text = styled.div`
 <<<<<<< HEAD
+<<<<<<< HEAD
   padding-left: ${props => (props.withPadding ? 0.02 : 0)}rem;
 =======
   padding-left: ${props => (props.withPadding ? 7 : 0)}px;
 >>>>>>> UPD: Add button & icon to library
+=======
+  padding-left: ${props => (props.withPadding ? 0.02 : 0)}rem;
+>>>>>>> UPD: Test with icon
 `
