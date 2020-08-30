@@ -26,6 +26,14 @@ export const color = {
   borderInputFocus: '#4c9aff'
 }
 
+export const font = {
+  regular: 'font-weight: normal;',
+  medium: 'font-weight: normal;',
+  bold: 'font-weight: normal;',
+  black: 'font-weight: normal;',
+  size: size => `font-size: ${size}rem;`
+}
+
 export const mixin = {
   darken: (colorValue, amount) =>
     Color(colorValue)
@@ -39,6 +47,12 @@ export const mixin = {
     Color(colorValue)
       .alpha(opacity)
       .string(),
+  flexCenter: css`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+  `,
   clickable: css`
       cursor: pointer;
       user-select: none;
