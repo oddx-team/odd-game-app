@@ -28,7 +28,7 @@ export const HeaderMenu = () => {
       logoutGame()
       closeSocket()
     } catch (err) {
-      setError('Something went terribly wrong!')
+      setError('Something went wrong!')
     }
   }
 
