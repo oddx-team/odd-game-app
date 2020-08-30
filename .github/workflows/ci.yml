@@ -30,3 +30,21 @@ jobs:
           CI=true yarn test:coverage
         env:
           CI: true
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: executing remote ssh commands using ssh key
+      uses: ./
+      with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        port: ${{ secrets.PORT }}
+        script: |
+          cd /home/oddx/odd-game-app
+          git checkout .
+          git pull origin master
+          yarn
+          yarn build
