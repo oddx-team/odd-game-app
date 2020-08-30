@@ -7,14 +7,7 @@ export const StyledIcon = styled.i`
     props.left || props.top ? `transform: translate(${props.left}rem, ${props.top}rem);` : ''}
   &:before {
     content: "${props => props.code}";
-<<<<<<< HEAD
-<<<<<<< HEAD
     font-family: "odd-font" !important;
-=======
->>>>>>> UPD: Add button & icon to library
-=======
-    font-family: "jira" !important;
->>>>>>> UPD: Test with icon
     speak: none;
     font-style: normal;
     font-weight: normal;
