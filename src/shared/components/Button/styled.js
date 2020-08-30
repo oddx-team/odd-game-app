@@ -4,22 +4,31 @@ import { color, font, mixin } from 'shared/utils/styles'
 export const StyledButton = styled.button`
   ${mixin.flexCenter}
 <<<<<<< HEAD
+<<<<<<< HEAD
   line-height: 1.6;
   padding: 0 ${props => (props.iconOnly ? 0.1 : 0.05)}rem;
 =======
   line-height: 1;
   padding: 0 ${props => (props.iconOnly ? 0.02 : 0.04)}rem;
 >>>>>>> UPD: Add button & icon to library
+=======
+  line-height: 1.6;
+  padding: 0 ${props => (props.iconOnly ? 0.1 : 0.2)}rem;
+>>>>>>> UPD: Test button
   white-space: nowrap;
   border-radius: 0.03rem;
   transition: all 0.1s;
   appearance: none; 
   ${mixin.clickable}
 <<<<<<< HEAD
+<<<<<<< HEAD
   ${font.size(0.23)}
 =======
   ${font.size(0.2)}
 >>>>>>> UPD: Add button & icon to library
+=======
+  ${font.size(0.23)}
+>>>>>>> UPD: Test button
   ${props => buttonVariants[props.variant]}
   &:disabled {
     opacity: 0.6;
