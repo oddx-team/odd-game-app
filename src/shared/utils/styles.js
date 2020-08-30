@@ -28,9 +28,9 @@ export const color = {
 
 export const font = {
   regular: 'font-weight: normal;',
-  medium: 'font-weight: normal;',
-  bold: 'font-weight: normal;',
-  black: 'font-weight: normal;',
+  medium: 'font-weight: 300;',
+  bold: 'font-weight: 600;',
+  black: 'font-weight: 900;',
   size: size => `font-size: ${size}rem;`
 }
 
