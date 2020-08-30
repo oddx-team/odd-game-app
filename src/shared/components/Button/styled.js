@@ -3,36 +3,16 @@ import { color, font, mixin } from 'shared/utils/styles'
 
 export const StyledButton = styled.button`
   ${mixin.flexCenter}
-<<<<<<< HEAD
-<<<<<<< HEAD
   line-height: 1.6;
-  padding: 0 ${props => (props.iconOnly ? 0.1 : 0.05)}rem;
-=======
-  line-height: 1;
-  padding: 0 ${props => (props.iconOnly ? 0.02 : 0.04)}rem;
->>>>>>> UPD: Add button & icon to library
-=======
-  line-height: 1.6;
-<<<<<<< HEAD
-  padding: 0 ${props => (props.iconOnly ? 0.1 : 0.2)}rem;
->>>>>>> UPD: Test button
-=======
-  padding: 0 ${props => (props.iconOnly ? 0.1 : 0.05)}rem;
->>>>>>> UPD: Test with icon
+  padding: 
+  ${props => (props.iconOnly ? 0.03 : 0)}rem 
+  ${props => (props.iconOnly ? 0.12 : 0.07)}rem;
   white-space: nowrap;
   border-radius: 0.03rem;
   transition: all 0.1s;
   appearance: none; 
   ${mixin.clickable}
-<<<<<<< HEAD
-<<<<<<< HEAD
   ${font.size(0.23)}
-=======
-  ${font.size(0.2)}
->>>>>>> UPD: Add button & icon to library
-=======
-  ${font.size(0.23)}
->>>>>>> UPD: Test button
   ${props => buttonVariants[props.variant]}
   &:disabled {
     opacity: 0.6;
@@ -77,19 +57,11 @@ const buttonVariants = {
     ${secondaryAndEmptyShared};
   `,
   empty: css`
-    background: #fff;
+    background: transparent;
     ${secondaryAndEmptyShared};
   `
 }
 
 export const Text = styled.div`
-<<<<<<< HEAD
-<<<<<<< HEAD
   padding-left: ${props => (props.withPadding ? 0.02 : 0)}rem;
-=======
-  padding-left: ${props => (props.withPadding ? 7 : 0)}px;
->>>>>>> UPD: Add button & icon to library
-=======
-  padding-left: ${props => (props.withPadding ? 0.02 : 0)}rem;
->>>>>>> UPD: Test with icon
 `
