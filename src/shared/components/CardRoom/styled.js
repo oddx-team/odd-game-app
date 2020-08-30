@@ -32,13 +32,3 @@ export const StyledButton = styled.button`
   top: 1.94rem;
   height: 0.4rem;
 `
-
-export const ButtonJoin = styled(StyledButton)`
-  width: 1rem;
-  left: 0.12rem;
-`
-
-export const ButtonSpectate = styled(StyledButton)`
-  width: 1.3rem;
-  left: 1.3rem;
-`

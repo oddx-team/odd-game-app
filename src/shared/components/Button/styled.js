@@ -3,14 +3,14 @@ import { color, font, mixin } from 'shared/utils/styles'
 
 export const StyledButton = styled.button`
   ${mixin.flexCenter}
-  line-height: 1;
-  padding: 0 ${props => (props.iconOnly ? 0.02 : 0.04)}rem;
+  line-height: 1.6;
+  padding: 0 ${props => (props.iconOnly ? 0.1 : 0.2)}rem;
   white-space: nowrap;
   border-radius: 0.03rem;
   transition: all 0.1s;
   appearance: none; 
   ${mixin.clickable}
-  ${font.size(0.2)}
+  ${font.size(0.23)}
   ${props => buttonVariants[props.variant]}
   &:disabled {
     opacity: 0.6;

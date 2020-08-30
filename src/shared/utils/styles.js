@@ -2,7 +2,8 @@ import { css } from 'styled-components'
 import Color from 'color'
 
 export const color = {
-  primary: '#0052cc', // Blue
+  // primary: '#0052cc', // Blue
+  primary: '#0088CC', // Blue
   success: '#0B875B', // green
   danger: '#E13C3C', // red
   warning: '#F89C1C', // orange
