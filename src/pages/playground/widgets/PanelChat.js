@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { ChatMessage } from 'shared/components/ChatMessage'
 import { TextInput } from 'shared/components/TextInput'
-import { SocketContext } from 'contexts/SocketContext'
+import { SocketContext } from 'shared/contexts/SocketContext'
 import styled from 'styled-components/macro'
 import Api from 'services'
 

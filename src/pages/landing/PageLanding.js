@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useModalActionsContext } from 'contexts/ModalContext'
-import { SocketContext } from 'contexts/SocketContext'
+import { useModalActionsContext } from 'shared/contexts/ModalContext'
+import { SocketContext } from 'shared/contexts/SocketContext'
 import { Loading } from 'shared/components/Loading'
 import {
   LandingWrapper,
@@ -15,7 +15,7 @@ import {
   Title
 } from './styled'
 import Api from 'services'
-import { useGameContext, useGameActionsContext } from 'contexts/GameContext'
+import { useGameContext, useGameActionsContext } from 'shared/contexts/GameContext'
 
 export const PageLanding = () => {
   const history = useHistory()

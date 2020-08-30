@@ -9,10 +9,10 @@ import { PageNotFound } from 'pages/not-found'
 import { PagePlayground } from 'pages/playground'
 import { PageViewCards } from 'pages/view-cards'
 
-import GameContextProvider, { useGameContext } from 'contexts/GameContext.js'
-import ModalContextProvider from 'contexts/ModalContext.js'
-import PlayContextProvider from 'contexts/PlayContext.js'
-import SocketContextProvider from 'contexts/SocketContext.js'
+import GameContextProvider, { useGameContext } from 'shared/contexts/GameContext.js'
+import ModalContextProvider from 'shared/contexts/ModalContext.js'
+import PlayContextProvider from 'shared/contexts/PlayContext.js'
+import SocketContextProvider from 'shared/contexts/SocketContext.js'
 import 'App.scss'
 
 const PrivateRoute = ({ component: Component, ...options }) => {

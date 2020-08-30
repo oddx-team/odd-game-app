@@ -1,5 +1,5 @@
 import React from 'react'
-import { useGameContext } from 'contexts/GameContext'
+import { useGameContext } from 'shared/contexts/GameContext'
 import './style.scss'
 
 export const Loading = () => {

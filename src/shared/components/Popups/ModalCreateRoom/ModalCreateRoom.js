@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useModalActionsContext } from 'contexts/ModalContext'
-import { useGameActionsContext, useGameContext } from 'contexts/GameContext'
+import { useModalActionsContext } from 'shared/contexts/ModalContext'
+import { useGameActionsContext, useGameContext } from 'shared/contexts/GameContext'
 import Api from 'services'
 import './style.scss'
 
