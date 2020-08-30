@@ -4,7 +4,9 @@ import { color, font, mixin } from 'shared/utils/styles'
 export const StyledButton = styled.button`
   ${mixin.flexCenter}
   line-height: 1.6;
-  padding: 0 ${props => (props.iconOnly ? 0.1 : 0.05)}rem;
+  padding: 
+  ${props => (props.iconOnly ? 0.03 : 0)}rem 
+  ${props => (props.iconOnly ? 0.12 : 0.07)}rem;
   white-space: nowrap;
   border-radius: 0.03rem;
   transition: all 0.1s;
