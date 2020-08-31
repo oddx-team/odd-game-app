@@ -49,14 +49,6 @@ export const mixin = {
     Color(colorValue)
       .alpha(opacity)
       .string(),
-  getImage: (path, width, height) => {
-    const cdn = '../../assets'
-    return `
-      width: ${width}rem;
-      height: ${height}rem;
-      background: url(${require(`${cdn}/${path}`)}) center / contain no-repeat;
-    `
-  },
   flexCenter: css`
     display: inline-flex;
     align-items: center;
