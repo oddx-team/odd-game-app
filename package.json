@@ -9,6 +9,7 @@
     "acorn": "^7.1.1",
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
+    "color": "^3.1.2",
     "minimist": "^1.2.5",
     "node-sass": "^4.13.1",
     "prop-types": "^15.7.2",

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { useFetch } from 'hooks/fetch'
-import { useGameActionsContext } from 'contexts/GameContext'
-import { Card } from 'components/Card'
+import { useFetch } from 'shared/hooks/fetch'
+import { useGameActionsContext } from 'shared/contexts/GameContext'
+import { Card } from 'shared/components/Card'
 import { TabList } from './tab-list'
 import { GlobalChat } from '../global-chat'
 import {

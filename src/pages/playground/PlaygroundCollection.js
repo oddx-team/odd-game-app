@@ -1,6 +1,6 @@
 import React from 'react'
-import { Card } from 'components/Card'
-import { usePlayContext, usePlayActionsContext } from 'contexts/PlayContext'
+import { Card } from 'shared/components/Card'
+import { usePlayContext, usePlayActionsContext } from 'shared/contexts/PlayContext'
 import { CollectionWrapper, CollectionHeader, CollectionContent } from './styled'
 
 export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {

@@ -2,7 +2,7 @@ import React, { useEffect, useContext } from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import { useParams, useHistory } from 'react-router-dom'
-import { SocketContext } from 'contexts/SocketContext'
+import { SocketContext } from 'shared/contexts/SocketContext'
 
 import OddLogo from 'assets/logo.png'
 import { HeaderMenu } from '../HeaderMenu'
@@ -20,7 +20,7 @@ import {
 } from './styled'
 
 import Api from 'services'
-import { useGameContext, useGameActionsContext } from 'contexts/GameContext'
+import { useGameContext, useGameActionsContext } from 'shared/contexts/GameContext'
 
 const HeaderExtra = ({ fullBanner }) => {
   return (

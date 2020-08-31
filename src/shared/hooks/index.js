@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useModalActionsContext } from 'contexts/ModalContext'
+import { useModalActionsContext } from 'shared/contexts/ModalContext'
 
 export const useFetch = (fetchApi) => {
   const { setError } = useModalActionsContext()

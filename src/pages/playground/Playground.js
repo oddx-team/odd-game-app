@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import { useFetch } from 'hooks/fetch'
-import { usePlayActionsContext, usePlayContext } from 'contexts/PlayContext'
-import { useGameActionsContext } from 'contexts/GameContext'
-import { useModalActionsContext } from 'contexts/ModalContext'
+import { useFetch } from 'shared/hooks/fetch'
+import { usePlayActionsContext, usePlayContext } from 'shared/contexts/PlayContext'
+import { useGameActionsContext } from 'shared/contexts/GameContext'
+import { useModalActionsContext } from 'shared/contexts/ModalContext'
 import { PlaygroundWidgets } from './widgets'
 import { PlaygroundCollection } from './PlaygroundCollection'
-import { Card } from 'components/Card'
-import { SocketContext } from 'contexts/SocketContext'
+import { Card } from 'shared/components/Card'
+import { SocketContext } from 'shared/contexts/SocketContext'
 
 import {
   PlaygroundWrapper,

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useGameActionsContext } from 'contexts/GameContext'
-import { useModalActionsContext } from 'contexts/ModalContext'
-import { SocketContext } from 'contexts/SocketContext'
+import { useGameActionsContext } from 'shared/contexts/GameContext'
+import { useModalActionsContext } from 'shared/contexts/ModalContext'
+import { SocketContext } from 'shared/contexts/SocketContext'
 import styles from './styles.module.scss'
 import Api from 'services'
 

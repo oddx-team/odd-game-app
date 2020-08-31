@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { useModalActionsContext } from 'contexts/ModalContext'
-import { CardRoom } from 'components/CardRoom'
+import { useModalActionsContext } from 'shared/contexts/ModalContext'
+import { CardRoom } from 'shared/components/CardRoom'
 import { TabList } from './tab-list'
 import { GlobalChat } from '../global-chat'
 import {
@@ -14,7 +14,7 @@ import {
 } from './styled'
 
 import Api from 'services'
-import { useGameActionsContext } from 'contexts/GameContext'
+import { useGameActionsContext } from 'shared/contexts/GameContext'
 
 export const PageGameRooms = () => {
   const { openModal } = useModalActionsContext()

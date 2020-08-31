@@ -163,6 +163,17 @@ export default {
     )
   },
 
+  async getRoomChat (slug) {
+    return utils.camelizeKeys(
+      new Array(10).fill(null).map((_, i) => ({
+        username: `Guest${i + 1}`,
+        message: 'Hello World!',
+        time: Date.now(),
+        online: true
+      }))
+    )
+  },
+
   async createRoom (payload, language) {
     // payload format
     // {

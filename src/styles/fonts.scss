@@ -57,3 +57,11 @@
   font-weight: 300;
   src: url(../assets/fonts/Oswald-Bold.ttf) format('truetype');
 }
+
+@font-face {
+  font-family: 'odd-font';
+  src: url('../assets/fonts/odd.woff') format('truetype'),
+    url('../assets/fonts/odd.ttf') format('woff'), url('../assets/fonts/odd.svg#odd') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

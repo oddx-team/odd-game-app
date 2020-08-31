@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Route } from 'react-router-dom'
-import { Title, StyledCardRoom, CardRoomInner, ButtonJoin, ButtonSpectate } from './styled'
+import { Button } from '../Button'
+import { Title, StyledCardRoom, CardRoomInner } from './styled'
 
 const Text = ({ title, value }) => {
   const textStyle = {
@@ -43,12 +44,12 @@ export const CardRoom = props => {
             <Text title='Status' value={status} />
           </CardRoomInner>
 
-          <ButtonJoin className='block accent' onClick={() => tryJoining(history, slug)}>
+          <Button icon='attach' variant='success' onClick={() => tryJoining(history, slug)}>
             Join
-          </ButtonJoin>
-          <ButtonSpectate className='block blue' onClick={() => trySpectating(history, slug)}>
-            Spectate
-          </ButtonSpectate>
+          </Button>
+          <Button variant='primary' onClick={() => trySpectating(history, slug)}>
+            View
+          </Button>
         </StyledCardRoom>
       )}
     />
