@@ -39,7 +39,7 @@ export const LinkItem = styled.div`
   }
 
   &:hover {
-    background: ${color.backgroundLight};
+    background: ${color.backgroundLighter};
     cursor: pointer;
   }
 `

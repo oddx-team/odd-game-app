@@ -18,6 +18,7 @@ export const color = {
   backgroundDarkPrimary: '#0747A6',
   backgroundMedium: '#dfe1e6',
   backgroundLight: '#ebecf0',
+  backgroundLighter: '#BDBDBD',
   backgroundLightest: '#F4F5F7',
   backgroundLightPrimary: '#D2E5FE',
   backgroundLightSuccess: '#E4FCEF',
