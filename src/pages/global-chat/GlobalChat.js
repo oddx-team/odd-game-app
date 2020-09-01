@@ -46,7 +46,7 @@ export const GlobalChat = () => {
 
   return (
     <GlobalChatWrapper>
-      <ChatTab title='Chat Box' />
+      <ChatTab title='ChatBox' />
 
       <StyledContainer>
         <ChatContent>
