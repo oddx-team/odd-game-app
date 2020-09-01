@@ -4,7 +4,7 @@ import { imageCDN } from 'mixins'
 export const HeaderWrapper = styled.div`
   width: 100%;
   height: 0.6rem;
-  background: #2d2d2d;
+  background: #2D2D2D;
 `
 
 export const MainLogo = styled.div`
@@ -75,13 +75,13 @@ export const IconBell = styled.div`
   padding: 0.05rem;
 
   i {
-    ${imageCDN('icon-bell.png', '0.3rem', '0.3rem')};
+    ${imageCDN('icon-bell.png', 0.3, 0.3)};
     display: inline-block;
   }
 `
 
 export const IconSearch = styled.div`
-  ${imageCDN('icon-search.png', '0.27rem', '0.27rem')};
+  ${imageCDN('icon-search.png', 0.27, 0.27)};
   position: absolute;
   top: 0.05rem;
   left: 0.05rem;

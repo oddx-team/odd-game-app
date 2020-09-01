@@ -31,7 +31,7 @@ export const StyledTab = styled.div`
   z-index: 1;
 
   i {
-    ${imageCDN('icon-chat.png', '0.3rem', '0.3rem')};
+    ${imageCDN('icon-chat.png', 0.3, 0.3)};
     display: inline-block;
     margin-right: 0.05rem;
   }

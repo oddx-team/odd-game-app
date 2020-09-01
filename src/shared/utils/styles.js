@@ -13,10 +13,12 @@ export const color = {
   textMedium: '#5E6C84',
   textLight: '#8993a4',
   textLink: '#0052cc',
+  textMenu: '#656565',
 
   backgroundDarkPrimary: '#0747A6',
   backgroundMedium: '#dfe1e6',
   backgroundLight: '#ebecf0',
+  backgroundLighter: '#BDBDBD',
   backgroundLightest: '#F4F5F7',
   backgroundLightPrimary: '#D2E5FE',
   backgroundLightSuccess: '#E4FCEF',
@@ -47,6 +49,14 @@ export const mixin = {
     Color(colorValue)
       .alpha(opacity)
       .string(),
+  getImage: (path, width, height) => {
+    const cdn = '../../assets'
+    return `
+      width: ${width}rem;
+      height: ${height}rem;
+      background: url(${require(`${cdn}/${path}`)}) center / contain no-repeat;
+    `
+  },
   flexCenter: css`
     display: inline-flex;
     align-items: center;
