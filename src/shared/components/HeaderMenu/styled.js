@@ -51,10 +51,6 @@ export const StyledMenu = styled.div`
   top: 0;
   right: 0.07rem;
   text-align: left;
-<<<<<<< HEAD
-
-=======
->>>>>>> UPD: Readd files
   &:hover {
     ${ButtonHamburger} {
       ${imageCDN('icon-close.png', 0.27, 0.27)};
