@@ -48,7 +48,7 @@ export const PageGameRooms = () => {
               <div key={i}>
                 <CardRoom {...room} />
               </div>))
-            : <div>Loading rooms....</div>}
+            : <div>Loading rooms...</div>}
         </RoomContainer>
       </Container>
     </StyledGameRooms>
