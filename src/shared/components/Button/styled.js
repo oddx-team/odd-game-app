@@ -57,8 +57,8 @@ const buttonVariants = {
     ${secondaryAndEmptyShared};
   `,
   empty: css`
-    background: #fff;
-    ${secondaryAndEmptyShared};
+    background: transparent;
+    /* ${secondaryAndEmptyShared}; */
   `
 }
 

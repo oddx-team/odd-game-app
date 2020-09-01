@@ -4,7 +4,7 @@ import { imageCDN } from 'mixins'
 export const HeaderWrapper = styled.div`
   width: 100%;
   height: 0.6rem;
-  background: #2d2d2d;
+  background: #2D2D2D;
 `
 
 export const MainLogo = styled.div`
