@@ -18,21 +18,21 @@ export const LandingWrapper = styled.div`
 `
 
 export const Logo = styled.div`
-  ${imageCDN('world.svg', '4rem', '4rem')};
+  ${imageCDN('world.svg', 4, 4)};
   position: absolute;
   top: 1rem;
   left: 2rem;
 `
 
 export const LeftOverlay = styled.div`
-  ${imageCDN('bg-extra-left.svg', '2.6rem', '4rem')};
+  ${imageCDN('bg-extra-left.svg', 2.6, 4)};
   position: absolute;
   left: 0;
   z-index: 1;
 `
 
 export const RightOverlay = styled.div`
-  ${imageCDN('bg-extra-right.svg', '3rem', '4rem')};
+  ${imageCDN('bg-extra-right.svg', 3, 4)};
   position: absolute;
   bottom: 0;
   right: 0;

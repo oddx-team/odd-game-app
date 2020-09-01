@@ -28,7 +28,8 @@ export const textMixin = ({
 export const imageCDN = (path, width, height, mode = 'contain', pos = 'center') => {
   const cdn = './assets'
   return `
-    ${sizeWH(width, height)}
+    width: ${width}rem;
+    height: ${height}rem;
     background: url(${require(`${cdn}/${path}`)}) ${pos} / ${mode} no-repeat;
   `
 }

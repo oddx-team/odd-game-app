@@ -1,25 +1,25 @@
 import React, { useContext } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, NavLink, useRouteMatch } from 'react-router-dom'
+
+import { Icon } from 'shared/components/Icon'
 import { useGameActionsContext } from 'shared/contexts/GameContext'
 import { useModalActionsContext } from 'shared/contexts/ModalContext'
 import { SocketContext } from 'shared/contexts/SocketContext'
-import styles from './styles.module.scss'
-
 import {
   StyledMenu,
-  HamburgerButton
+  ButtonHamburger,
+  MenuContent,
+  LinkItem,
+  LinkText
 } from './styled'
 import Api from 'services'
 
 export const HeaderMenu = () => {
+  const match = useRouteMatch()
   const history = useHistory()
   const { closeSocket } = useContext(SocketContext)
   const { logoutGame } = useGameActionsContext()
   const { setError } = useModalActionsContext()
-
-  const redirectTo = (route) => {
-    history.push(route)
-  }
 
   const logout = async () => {
     try {
@@ -34,19 +34,34 @@ export const HeaderMenu = () => {
 
   return (
     <StyledMenu>
-      <HamburgerButton />
+      <ButtonHamburger />
 
-      <div className={styles.dropdownContent}>
-        <div className={styles.profile}>Profile</div>
-        <div className={styles.profile} onClick={() => redirectTo('/view-cards')}>
-          <span>View all cards</span>
-        </div>
-        <div className={styles.profile} onClick={() => redirectTo('/rooms')}>
-          <span>View rooms</span>
-        </div>
-        <div className={styles.logout} onClick={() => logout()}>Logout</div>
-      </div>
+      <MenuContent>
+        {renderLinkItem(match, 'Profile', 'task')}
+        {renderLinkItem(match, 'View all cards', 'link', '/view-cards')}
+        {renderLinkItem(match, 'View rooms', 'attach', '/rooms')}
+        <LinkItem onClick={() => logout()}>
+          <Icon type='close' />
+          <LinkText>Logout</LinkText>
+        </LinkItem>
+      </MenuContent>
     </StyledMenu>
+  )
+}
+
+const renderLinkItem = (match, text, iconType, path) => {
+  const isImplemented = !!path
+  const matchPath = match.path !== '/' ? match.path : ''
+
+  const linkItemProps = isImplemented
+    ? { as: NavLink, exact: true, to: `${matchPath}${path}`, className: 'tag' }
+    : { as: 'div' }
+
+  return (
+    <LinkItem {...linkItemProps}>
+      <Icon type={iconType} />
+      <LinkText>{text}</LinkText>
+    </LinkItem>
   )
 }
 

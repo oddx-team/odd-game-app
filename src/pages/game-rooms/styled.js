@@ -43,7 +43,7 @@ export const Title = styled.div`
     left: 1.6rem;
     top: 0rem;
     cursor: pointer;
-    ${imageCDN('icon-play.png', '0.38rem', '0.38rem')};
+    ${imageCDN('icon-play.png', 0.38, 0.38)};
   }
 `
 
@@ -65,7 +65,7 @@ export const ButtonCreate = styled.button`
   display: flex;
 
   i {
-    ${imageCDN('icon-plus.png', '0.23rem', '0.23rem')};
+    ${imageCDN('icon-plus.png', 0.23, 0.23)};
     margin-left: -0.1rem;
     margin-right: 0.02rem;
     display: inline-block;
