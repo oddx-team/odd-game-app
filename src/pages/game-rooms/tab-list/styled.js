@@ -24,7 +24,7 @@ export const StyledTab = styled.div`
   flex-direction: row;
 
   i {
-    ${imageCDN('icon-vn.png', '0.3rem', '0.3rem')};
+    ${imageCDN('icon-vn.png', 0.3, 0.3)};
     margin-right: 0.05rem;
     display: inline-block;
   }
@@ -40,7 +40,7 @@ export const StyledTab = styled.div`
 
   &.global {
     i {
-      ${imageCDN('icon-global.png', '0.3rem', '0.3rem')};
+      ${imageCDN('icon-global.png', 0.3, 0.3)};
     }
   }
 `
