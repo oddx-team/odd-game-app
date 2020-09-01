@@ -31,13 +31,11 @@ export const LinkItem = styled.div`
   display: flex;
   padding: 0.12rem 0 0.12rem 0.15rem;
   text-decoration: none;
-
   ${mixin.clickable}
   i {
     position: absolute;
     right: 0.1rem;
   }
-
   &:hover {
     background: ${color.backgroundLighter};
     cursor: pointer;
@@ -53,7 +51,10 @@ export const StyledMenu = styled.div`
   top: 0;
   right: 0.07rem;
   text-align: left;
+<<<<<<< HEAD
 
+=======
+>>>>>>> UPD: Readd files
   &:hover {
     ${ButtonHamburger} {
       ${imageCDN('icon-close.png', 0.27, 0.27)};
