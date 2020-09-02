@@ -2,8 +2,8 @@ import React, { useContext } from 'react'
 import { useHistory, NavLink, useRouteMatch } from 'react-router-dom'
 
 import { Icon } from 'shared/components/Icon'
-import { useGameActionsContext } from 'shared/contexts/GameContext'
-import { useModalActionsContext } from 'shared/contexts/ModalContext'
+import { useGameActions } from 'shared/contexts/GameContext'
+import { useModalActions } from 'shared/contexts/ModalContext'
 import { SocketContext } from 'shared/contexts/SocketContext'
 import {
   StyledMenu,
@@ -18,8 +18,8 @@ export const HeaderMenu = () => {
   const match = useRouteMatch()
   const history = useHistory()
   const { closeSocket } = useContext(SocketContext)
-  const { logoutGame } = useGameActionsContext()
-  const { setError } = useModalActionsContext()
+  const { logoutGame } = useGameActions()
+  const { setError } = useModalActions()
 
   const logout = async () => {
     try {

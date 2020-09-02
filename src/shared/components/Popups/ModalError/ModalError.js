@@ -1,10 +1,10 @@
 import React from 'react'
-import { useModalContext, useModalActionsContext } from 'shared/contexts/ModalContext'
+import { useModalState, useModalActions } from 'shared/contexts/ModalContext'
 import './style.scss'
 
 export const ModalError = () => {
-  const { error, confirmText } = useModalContext()
-  const { clearError } = useModalActionsContext()
+  const { error, confirmText } = useModalState()
+  const { clearError } = useModalActions()
 
   const close = () => {
     clearError()

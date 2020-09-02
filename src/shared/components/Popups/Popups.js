@@ -1,10 +1,10 @@
 import React from 'react'
-import { useModalContext } from 'shared/contexts/ModalContext'
+import { useModalState } from 'shared/contexts/ModalContext'
 import { ModalError } from './ModalError'
 import { ModalCreateRoom } from './ModalCreateRoom'
 
 export const Popups = () => {
-  const { error, openCreateRoom } = useModalContext()
+  const { error, openCreateRoom } = useModalState()
 
   return (
     <div>

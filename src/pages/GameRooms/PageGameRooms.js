@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useModalActionsContext } from 'shared/contexts/ModalContext'
+import { useModalActions } from 'shared/contexts/ModalContext'
 import { CardRoom } from 'shared/components/CardRoom'
 import {
   StyledGameRooms,
@@ -11,11 +11,11 @@ import {
 } from './styled'
 
 import Api from 'shared/services'
-import { useGameActionsContext } from 'shared/contexts/GameContext'
+import { useGameActions } from 'shared/contexts/GameContext'
 
 export const PageGameRooms = () => {
-  const { openModal } = useModalActionsContext()
-  const { setBanner, setGlobalLoading, quitCurrentRoom } = useGameActionsContext()
+  const { openModal } = useModalActions()
+  const { setBanner, setGlobalLoading, quitCurrentRoom } = useGameActions()
   const [allRooms, setAllRooms] = useState({ eRooms: [], vRooms: [] })
 
   const currentRoomList = allRooms.eRooms

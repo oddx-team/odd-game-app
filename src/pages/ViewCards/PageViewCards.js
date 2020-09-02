@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useFetch } from 'shared/hooks/fetch'
-import { useGameActionsContext } from 'shared/contexts/GameContext'
+import { useGameActions } from 'shared/contexts/GameContext'
 import { Card } from 'shared/components/Card'
 import {
   PageRoomWrapper,
@@ -12,7 +12,7 @@ import Api from 'shared/services'
 
 export const PageViewCards = () => {
   const [allCards, loading] = useFetch(Api.getAllCards)
-  const { setBanner, setGlobalLoading } = useGameActionsContext()
+  const { setBanner, setGlobalLoading } = useGameActions()
 
   useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
   useEffect(() => setBanner(true), [setBanner])
