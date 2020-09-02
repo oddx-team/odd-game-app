@@ -12,9 +12,9 @@ import {
   ProfileContainer,
   IconBell,
   IconUser,
-  IconSearch,
-  StyledInput,
-  StyledSearchBar,
+  // IconSearch,
+  // StyledInput,
+  // StyledSearchBar,
   StyledCircleLogo,
   Wrapper
 } from './styled'
@@ -25,12 +25,12 @@ import { useGameState, useGameActions } from 'shared/contexts/GameContext'
 const HeaderExtra = ({ fullBanner }) => {
   return (
     <div>
-      <Wrapper className={classNames({ hidden: !fullBanner })}>
+      {/* <Wrapper className={classNames({ hidden: !fullBanner })}>
         <StyledSearchBar>
           <IconSearch />
           <StyledInput type='text' placeholder='Search' />
         </StyledSearchBar>
-      </Wrapper>
+      </Wrapper> */}
 
       <Wrapper className={classNames({ hidden: fullBanner })}>
         <StyledCircleLogo>
