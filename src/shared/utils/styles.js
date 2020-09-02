@@ -22,6 +22,7 @@ export const color = {
   backgroundLightest: '#F4F5F7',
   backgroundLightPrimary: '#D2E5FE',
   backgroundLightSuccess: '#E4FCEF',
+  backgroundWhite: '#FFFFFF',
 
   borderLightest: '#dfe1e6',
   borderLight: '#C1C7D0',
@@ -34,6 +35,11 @@ export const font = {
   bold: 'font-weight: 600;',
   black: 'font-weight: 900;',
   size: size => `font-size: ${size}rem;`
+}
+
+export const sizes = {
+  sizeBarWidth: 2.4,
+  bannerHeight: 0.6
 }
 
 export const mixin = {
@@ -79,5 +85,25 @@ export const mixin = {
     right: 0;
     bottom: 0;
     left: 0;
+  `,
+  scrollableY: css`
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  `,
+  boxShadowMedium: css`
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.08);
+  `,
+  customScrollbar: ({ width = 8, background = color.backgroundMedium } = {}) => css`
+    &::-webkit-scrollbar {
+      width: ${width}px;
+    }
+    &::-webkit-scrollbar-track {
+      background: none;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 99px;
+      background: ${background};
+    }
   `
 }

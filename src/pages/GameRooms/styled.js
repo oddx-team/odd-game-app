@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 import { imageCDN } from 'mixins'
-import { mixin } from 'shared/utils/styles'
+import { mixin, sizes } from 'shared/utils/styles'
 
 export const StyledGameRooms = styled.div`
   ${mixin.flexCenter}
@@ -12,11 +12,12 @@ export const StyledGameRooms = styled.div`
 export const Container = styled.div`
   width: 100%;
   height: 100%;
+  margin-left: ${sizes.sizeBarWidth - 0.05}rem;
   overflow-y: scroll;
   top: 0;
   border: 0.013rem solid #ddd;
-  background: #fff;
-  padding-left: 0.5rem;
+  background: #F1F2F5;
+  padding-left: 0.8rem;
   padding-bottom: 0.5rem;
   position: relative;
 `
@@ -49,7 +50,7 @@ export const Subtitle = styled.div`
 export const ButtonCreate = styled.button`
   position: absolute;
   top: 0.1rem;
-  left: 8.46rem;
+  left: 8.8rem;
   color: #fff;
   font-size: 0.22rem;
   font-weight: bold;

@@ -33,11 +33,9 @@ export default () => {
 
   // set size for root element
   function resetRoot () {
-    setTimeout(() => {
-      const imax = window.innerWidth
-      docEl.style.fontSize = `${(imax / baseWidth) * 100}px`
-      docEl.style.width = `${imax}px`
-    }, 200)
+    const imax = window.innerWidth
+    docEl.style.fontSize = `${(imax / baseWidth) * 100}px`
+    docEl.style.width = `${imax}px`
   }
   resetRoot()
   window.addEventListener('orientationchange', resetRoot)

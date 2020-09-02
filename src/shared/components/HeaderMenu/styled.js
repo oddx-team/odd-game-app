@@ -14,14 +14,13 @@ export const ButtonHamburger = styled(Button)`
 `
 
 export const MenuContent = styled.div`
+  ${mixin.boxShadowMedium}
   position: relative;
   top: 0.6rem;
   width: 2.2rem;
   height: auto;
   display: none;
   z-index: 2;
-  box-shadow: 0 0.02rem 0.02rem 0 rgba(160, 159, 159, 0.2), 
-              0 0.03rem 0.08rem 0 rgba(174, 172, 172, 0.19);
   background: #fff;
 `
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useModalActions } from 'shared/contexts/ModalContext'
 import { CardRoom } from 'shared/components/CardRoom'
+import { Sidebar } from '../Sidebar'
 import {
   StyledGameRooms,
   Container,
@@ -34,6 +35,8 @@ export const PageGameRooms = () => {
 
   return (
     <StyledGameRooms>
+      <Sidebar />
+
       <Container>
         <Title>Game rooms</Title>
         <Subtitle>Select any room:</Subtitle>
