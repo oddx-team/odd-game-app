@@ -7,7 +7,7 @@ const Sidebar = () => {
   return (
     <GameSidebar>
       <LinkItem>
-        <Icon type='component' />
+        <Icon type='calendar' />
         <LinkText>Regions</LinkText>
       </LinkItem>
       <LinkItem>

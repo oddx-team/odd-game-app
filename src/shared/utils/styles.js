@@ -23,6 +23,7 @@ export const color = {
   backgroundLightPrimary: '#D2E5FE',
   backgroundLightSuccess: '#E4FCEF',
   backgroundWhite: '#FFFFFF',
+  backgroundSidebarMenu: '#E6F7FF',
 
   borderLightest: '#dfe1e6',
   borderLight: '#C1C7D0',

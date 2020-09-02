@@ -4,12 +4,11 @@ import { color, sizes, mixin, font } from 'shared/utils/styles'
 
 export const GameSidebar = styled.div`
   position: fixed;
-  z-index: 2;
+  z-index: 1;
   top: ${sizes.bannerHeight}rem;
   left: 0;
   height: 100vh;
   width: ${sizes.sizeBarWidth}rem;
-  padding: 0 16px 24px;
   background: ${color.backgroundWhite};
   border-right: 1px solid ${color.borderLightest};
   ${mixin.scrollableY}
@@ -26,7 +25,7 @@ export const Divider = styled.div`
 export const LinkItem = styled.div`
   position: relative;
   display: flex;
-  padding: 0.12rem 0 0.12rem 0.15rem;
+  padding: 0.12rem 0rem 0.12rem 0.2rem;
   text-decoration: none;
   ${mixin.clickable}
   i {
@@ -36,8 +35,19 @@ export const LinkItem = styled.div`
     font-size: 0.23rem;
   }
   &:hover {
-    background: ${color.backgroundLighter};
+    background: ${color.backgroundSidebarMenu};
     cursor: pointer;
+    color: #1A8FFF;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0.04rem;
+      height: 100%;
+      background: #1A8FFF;
+    }
   }
 
   &.active {
@@ -50,5 +60,5 @@ export const LinkItem = styled.div`
 `
 
 export const LinkText = styled.div`
-  ${font.size(0.18)}
+  ${font.size(0.17)}
 `
