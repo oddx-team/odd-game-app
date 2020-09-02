@@ -10,7 +10,7 @@ import {
   RoomContainer
 } from './styled'
 
-import Api from 'services'
+import Api from 'shared/services'
 import { useGameActionsContext } from 'shared/contexts/GameContext'
 
 export const PageGameRooms = () => {

@@ -12,7 +12,7 @@ import {
   LinkItem,
   LinkText
 } from './styled'
-import Api from 'services'
+import Api from 'shared/services'
 
 export const HeaderMenu = () => {
   const match = useRouteMatch()

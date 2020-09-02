@@ -1,16 +1,12 @@
 import styled from 'styled-components/macro'
 import { imageCDN } from 'mixins'
+import { mixin } from 'shared/utils/styles'
 
 export const StyledGameRooms = styled.div`
+  ${mixin.flexCenter}
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  justify-content: flex-start;
   margin: 0 auto;
-  align-items: stretch;
 `
 
 export const Container = styled.div`
@@ -73,10 +69,7 @@ export const ButtonCreate = styled.button`
 `
 
 export const RoomContainer = styled.div`
-  justify-content: flex-start;
+  ${mixin.flexCenter}
   flex-wrap: wrap;
-  display: flex;
   justify-content: left;
-  align-items: center;
-  flex-direction: row;
 `

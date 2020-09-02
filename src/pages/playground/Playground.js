@@ -21,7 +21,7 @@ import {
   CardsList
 } from './styled'
 
-import Api from 'services'
+import Api from 'shared/services'
 
 export const PagePlayground = () => {
   const { slug } = useParams()
