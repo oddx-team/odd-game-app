@@ -13,10 +13,6 @@ export const PageRoomWrapper = styled.div`
   align-items: stretch;
 `
 
-export const OuterWrapper = styled.div`
-  width: 75.5%;
-`
-
 export const Container = styled.div`
   width: 100%;
   height: 92%;
