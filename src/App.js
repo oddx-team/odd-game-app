@@ -3,20 +3,20 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Header } from 'shared/components/Header'
 import { Loading } from 'shared/components/Loading'
 import { Popups } from 'shared/components/Popups'
-import { PageLanding } from 'pages/landing'
-import { PageGameRooms } from 'pages/game-rooms'
-import { PageNotFound } from 'pages/not-found'
-import { PagePlayground } from 'pages/playground'
-import { PageViewCards } from 'pages/view-cards'
+import { PageLanding } from 'pages/Landing'
+import { PageGameRooms } from 'pages/GameRooms'
+import { PageNotFound } from 'pages/NotFound'
+import { PagePlayground } from 'pages/Playground'
+import { PageViewCards } from 'pages/ViewCards'
 
-import GameContextProvider, { useGameContext } from 'shared/contexts/GameContext.js'
+import GameContextProvider, { useGameState } from 'shared/contexts/GameContext.js'
 import ModalContextProvider from 'shared/contexts/ModalContext.js'
 import PlayContextProvider from 'shared/contexts/PlayContext.js'
 import SocketContextProvider from 'shared/contexts/SocketContext.js'
 import 'App.scss'
 
 const PrivateRoute = ({ component: Component, ...options }) => {
-  const { isLoggedIn } = useGameContext()
+  const { isLoggedIn } = useGameState()
 
   switch (isLoggedIn) {
     case true:

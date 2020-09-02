@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useModalActionsContext } from 'shared/contexts/ModalContext'
+import { useModalActions } from 'shared/contexts/ModalContext'
 import { SocketContext } from 'shared/contexts/SocketContext'
 import { Loading } from 'shared/components/Loading'
 import {
@@ -15,15 +15,15 @@ import {
   Title
 } from './styled'
 import Api from 'shared/services'
-import { useGameContext, useGameActionsContext } from 'shared/contexts/GameContext'
+import { useGameState, useGameActions } from 'shared/contexts/GameContext'
 
 export const PageLanding = () => {
   const history = useHistory()
   const [username, setUsername] = useState('')
 
-  const { setError } = useModalActionsContext()
-  const { login, setBanner } = useGameActionsContext()
-  const { isLoggedIn } = useGameContext()
+  const { setError } = useModalActions()
+  const { login, setBanner } = useGameActions()
+  const { isLoggedIn } = useGameState()
   const { spawnNewSocket } = useContext(SocketContext)
 
   useEffect(() => {

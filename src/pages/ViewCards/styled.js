@@ -4,22 +4,12 @@ import { imageCDN } from 'mixins'
 export const PageRoomWrapper = styled.div`
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  justify-content: flex-start;
   margin: 0 auto;
-  align-items: stretch;
-`
-
-export const OuterWrapper = styled.div`
-  width: 75.5%;
 `
 
 export const Container = styled.div`
   width: 100%;
-  height: 92%;
+  height: 100%;
   overflow-y: scroll;
   top: 0;
   border: 0.013rem solid #ddd;

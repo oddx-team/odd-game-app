@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 export const ModalContext = createContext(null, null)
 export const ModalActionsContext = createContext()
 
-export const useModalContext = () => useContext(ModalContext)
-export const useModalActionsContext = () => useContext(ModalActionsContext)
+export const useModalState = () => useContext(ModalContext)
+export const useModalActions = () => useContext(ModalActionsContext)
 
 const setModalState = (modalName, isOpen) => {
   switch (modalName) {

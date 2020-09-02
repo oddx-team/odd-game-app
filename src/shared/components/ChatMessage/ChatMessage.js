@@ -3,11 +3,11 @@ import classNames from 'classnames'
 import PropTypes from 'prop-types'
 import utils from 'utils'
 import { StyledMessage, Avatar, Status, Name, Message, Time } from './styled'
-import { useGameContext } from 'shared/contexts/GameContext'
+import { useGameState } from 'shared/contexts/GameContext'
 
 export const ChatMessage = ({ username, message, time, small }) => {
   const { hours, mins } = utils.parseTime(time)
-  const { online } = useGameContext()
+  const { online } = useGameState()
   const onlineStatus = classNames({ online })
 
   return (

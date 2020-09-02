@@ -2,8 +2,8 @@ import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { useFetch } from 'shared/hooks/fetch'
 import { usePlayActionsContext, usePlayContext } from 'shared/contexts/PlayContext'
-import { useGameActionsContext } from 'shared/contexts/GameContext'
-import { useModalActionsContext } from 'shared/contexts/ModalContext'
+import { useGameActions } from 'shared/contexts/GameContext'
+import { useModalActions } from 'shared/contexts/ModalContext'
 import { PlaygroundWidgets } from './widgets'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'shared/components/Card'
@@ -31,8 +31,8 @@ export const PagePlayground = () => {
   const [cardState, setCardState] = useState('closed')
 
   const { blackCardId, playedCardIds } = usePlayContext()
-  const { setError } = useModalActionsContext()
-  const { setGlobalLoading } = useGameActionsContext()
+  const { setError } = useModalActions()
+  const { setGlobalLoading } = useGameActions()
   const {
     setAllCards, getCardById,
     setPlaygroundData, confirmDealCard

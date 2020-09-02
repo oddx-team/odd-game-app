@@ -5,8 +5,8 @@ import utils from 'utils'
 export const GameContext = createContext(null, null)
 export const GameActionsContext = createContext()
 
-export const useGameContext = () => useContext(GameContext)
-export const useGameActionsContext = () => useContext(GameActionsContext)
+export const useGameState = () => useContext(GameContext)
+export const useGameActions = () => useContext(GameActionsContext)
 
 const gameReducer = (state, action) => {
   switch (action.type) {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useModalActionsContext } from 'shared/contexts/ModalContext'
-import { useGameActionsContext, useGameContext } from 'shared/contexts/GameContext'
+import { useModalActions } from 'shared/contexts/ModalContext'
+import { useGameActions, useGameState } from 'shared/contexts/GameContext'
 import Api from 'shared/services'
 import './style.scss'
 
@@ -11,9 +11,9 @@ export const ModalCreateRoom = () => {
   const [lang, setLang] = useState('en')
   const history = useHistory()
 
-  const { activeRoom } = useGameContext()
-  const { closeModal, setError } = useModalActionsContext()
-  const { createRoom } = useGameActionsContext()
+  const { activeRoom } = useGameState()
+  const { closeModal, setError } = useModalActions()
+  const { createRoom } = useGameActions()
 
   useEffect(() => {
     if (activeRoom) {

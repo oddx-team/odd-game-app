@@ -20,7 +20,7 @@ import {
 } from './styled'
 
 import Api from 'shared/services'
-import { useGameContext, useGameActionsContext } from 'shared/contexts/GameContext'
+import { useGameState, useGameActions } from 'shared/contexts/GameContext'
 
 const HeaderExtra = ({ fullBanner }) => {
   return (
@@ -48,8 +48,8 @@ HeaderExtra.propTypes = {
 export const Header = () => {
   const { slug } = useParams()
   const { socket } = useContext(SocketContext)
-  const { isLoggedIn, fullBanner, username, points } = useGameContext()
-  const { login, logoutGame } = useGameActionsContext()
+  const { isLoggedIn, fullBanner, username, points } = useGameState()
+  const { login, logoutGame } = useGameActions()
   const history = useHistory()
 
   useEffect(() => {
