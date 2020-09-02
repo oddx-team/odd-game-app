@@ -30,26 +30,15 @@ export default () => {
   docEl.setAttribute('data-width-to-height-ratio', `${vmaxSafe / vmin}`)
 
   const baseWidth = 1470
-  const baseHeight = 750
-  const baseRatio = baseWidth / baseHeight
 
   // set size for root element
   function resetRoot () {
-    const imax = Math.max(window.innerHeight, window.innerWidth)
-    const imin = Math.min(window.innerHeight, window.innerWidth)
-    const clientRatio = imax / imin
-    // set root font size for rem
-    let fontSize
-    if (clientRatio > baseRatio) {
-      fontSize = (imin / baseHeight) * 100
-    } else {
-      fontSize = (imax / baseWidth) * 100
-    }
-    docEl.style.fontSize = `${fontSize}px`
-    docEl.style.height = `${imin}px`
-    docEl.style.width = `${imax}px`
+    setTimeout(() => {
+      const imax = window.innerWidth
+      docEl.style.fontSize = `${(imax / baseWidth) * 100}px`
+      docEl.style.width = `${imax}px`
+    }, 200)
   }
-
   resetRoot()
   window.addEventListener('orientationchange', resetRoot)
   window.addEventListener('resize', resetRoot)

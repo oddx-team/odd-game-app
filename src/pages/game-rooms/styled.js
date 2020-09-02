@@ -15,7 +15,7 @@ export const StyledGameRooms = styled.div`
 
 export const Container = styled.div`
   width: 100%;
-  height: 92%;
+  height: 100%;
   overflow-y: scroll;
   top: 0;
   border: 0.013rem solid #ddd;
