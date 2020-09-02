@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useFetch } from 'shared/hooks/fetch'
 import { useGameActionsContext } from 'shared/contexts/GameContext'
 import { Card } from 'shared/components/Card'
-import { TabList } from './TabList'
 import {
   PageRoomWrapper,
   Container,
