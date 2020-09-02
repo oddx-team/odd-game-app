@@ -40,7 +40,7 @@ export const font = {
 
 export const sizes = {
   sizeBarWidth: 2.4,
-  bannerHeight: 0.6
+  bannerHeight: 0.5
 }
 
 export const mixin = {

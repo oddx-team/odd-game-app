@@ -1,9 +1,10 @@
 import styled from 'styled-components/macro'
 import { imageCDN } from 'mixins'
+import { sizes } from 'shared/utils/styles'
 
 export const HeaderWrapper = styled.div`
   width: 100%;
-  height: 0.6rem;
+  height: ${sizes.bannerHeight}rem;
   background: #2D2D2D;
 `
 
@@ -13,7 +14,7 @@ export const MainLogo = styled.div`
   font-weight: bold;
   font-family: 'Orbitron', sans-serif;
   position: absolute;
-  top: 0.1rem;
+  top: 0.05rem;
   left: 1rem;
   cursor: pointer;
 
@@ -26,7 +27,6 @@ export const MainLogo = styled.div`
 
 export const ProfileContainer = styled.div`
   position: absolute;
-  top: 0.04rem;
   right: 0.4rem;
   display: flex;
   justify-content: center;
@@ -53,12 +53,12 @@ export const ProfileContainer = styled.div`
 `
 
 export const IconUser = styled.img`
-  width: 0.4rem;
-  height: 0.4rem;
+  width: 0.36rem;
+  height: 0.36rem;
   border-radius: 50%;
   position: relative;
   left: 0.01rem;
-  top: 0.05rem;
+  top: 0.02rem;
   border-radius: 50%;
   border: 0.02rem solid #fff;
 `
@@ -78,15 +78,6 @@ export const IconBell = styled.div`
     ${imageCDN('icon-bell.png', 0.3, 0.3)};
     display: inline-block;
   }
-`
-
-export const IconSearch = styled.div`
-  ${imageCDN('icon-search.png', 0.27, 0.27)};
-  position: absolute;
-  top: 0.05rem;
-  left: 0.05rem;
-  width: 0.27rem;
-  height: 0.27rem;
 `
 
 export const StyledCircleLogo = styled.div`
