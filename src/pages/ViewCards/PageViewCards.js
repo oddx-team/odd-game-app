@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useFetch } from 'shared/hooks/fetch'
 import { useGameActionsContext } from 'shared/contexts/GameContext'
 import { Card } from 'shared/components/Card'
+import { GlobalChat } from '../GlobalChat'
 import {
   PageRoomWrapper,
   Container,
@@ -19,6 +20,8 @@ export const PageViewCards = () => {
 
   return (
     <PageRoomWrapper>
+      <GlobalChat />
+
       <Container>
         <CardContainer>
           {allCards && allCards.length
