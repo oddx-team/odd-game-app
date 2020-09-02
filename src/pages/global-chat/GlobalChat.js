@@ -5,7 +5,7 @@ import { TextInput } from 'shared/components/TextInput'
 import { ChatMessage } from 'shared/components/ChatMessage'
 import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from './styled'
 import PropTypes from 'prop-types'
-import Api from 'services'
+import Api from 'shared/services'
 
 export const GlobalChat = () => {
   const lastRef = useRef(null)

@@ -4,7 +4,7 @@ import { ChatMessage } from 'shared/components/ChatMessage'
 import { TextInput } from 'shared/components/TextInput'
 import { SocketContext } from 'shared/contexts/SocketContext'
 import styled from 'styled-components/macro'
-import Api from 'services'
+import Api from 'shared/services'
 
 export const PanelChat = () => {
   const lastRef = useRef(null)

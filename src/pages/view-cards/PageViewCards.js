@@ -11,7 +11,7 @@ import {
   CardContainer
 } from './styled'
 
-import Api from 'services'
+import Api from 'shared/services'
 
 export const PageViewCards = () => {
   const [activeTab, setActiveTab] = useState(0)

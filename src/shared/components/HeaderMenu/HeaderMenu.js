@@ -12,7 +12,7 @@ import {
   LinkItem,
   LinkText
 } from './styled'
-import Api from 'services'
+import Api from 'shared/services'
 
 export const HeaderMenu = () => {
   const match = useRouteMatch()
@@ -40,7 +40,7 @@ export const HeaderMenu = () => {
         {renderLinkItem(match, 'Profile', 'task')}
         {renderLinkItem(match, 'View all cards', 'link', '/view-cards')}
         {renderLinkItem(match, 'View rooms', 'attach', '/rooms')}
-        <LinkItem onClick={() => logout()}>
+        <LinkItem onClick={logout}>
           <Icon type='close' />
           <LinkText>Logout</LinkText>
         </LinkItem>

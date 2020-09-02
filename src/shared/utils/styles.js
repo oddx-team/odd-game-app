@@ -62,6 +62,7 @@ export const mixin = {
     align-items: center;
     justify-content: center;
     vertical-align: middle;
+    flex-direction: row;
   `,
   clickable: css`
       cursor: pointer;

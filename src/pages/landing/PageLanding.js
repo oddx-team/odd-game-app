@@ -14,7 +14,7 @@ import {
   ButtonStart,
   Title
 } from './styled'
-import Api from 'services'
+import Api from 'shared/services'
 import { useGameContext, useGameActionsContext } from 'shared/contexts/GameContext'
 
 export const PageLanding = () => {
