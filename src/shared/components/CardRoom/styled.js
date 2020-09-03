@@ -26,7 +26,7 @@ export const StyledCardRoom = styled.div`
   ${mixin.boxShadowMedium}
 
   button {
-    margin-top: 0.1rem;
+    margin-top: 0.12rem;
     margin-left: 0.2rem;
     width: 1.15rem;
     height: 0.36rem;
