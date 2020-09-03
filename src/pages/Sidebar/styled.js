@@ -5,7 +5,7 @@ import { color, sizes, mixin, font } from 'shared/utils/styles'
 export const GameSidebar = styled.div`
   position: fixed;
   z-index: 1;
-  top: ${sizes.bannerHeight}rem;
+  top: 0;
   left: 0;
   height: 100vh;
   width: ${sizes.sizeBarWidth}rem;

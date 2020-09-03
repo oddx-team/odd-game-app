@@ -5,7 +5,7 @@ import { mixin, font, color, sizes } from 'shared/utils/styles'
 import { imageCDN } from 'mixins'
 
 export const ButtonHamburger = styled(Button)`
-  ${imageCDN('icon-hamburger.png', 0.27, 0.27)};
+  ${imageCDN('icon-menu.png', 0.27, 0.27)};
   position: absolute;
   top: 0.12rem;
   right: 0.15rem;

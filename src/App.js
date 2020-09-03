@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Header } from 'shared/components/Header'
 import { Loading } from 'shared/components/Loading'
 import { Popups } from 'shared/components/Popups'
+import { Sidebar } from 'pages/Sidebar'
 import { PageLanding } from 'pages/Landing'
 import { PageGameRooms } from 'pages/GameRooms'
 import { PageNotFound } from 'pages/NotFound'
@@ -38,6 +39,7 @@ const App = () => {
               <div id='app'>
                 <div className='header-bg' />
                 <div className='main'>
+                  <Sidebar />
                   <Header />
                   <Loading />
                   <Popups />

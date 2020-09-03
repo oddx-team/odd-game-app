@@ -41,7 +41,7 @@ export const font = {
 }
 
 export const sizes = {
-  sizeBarWidth: 2.4,
+  sizeBarWidth: 2.6,
   bannerHeight: 0.5
 }
 
