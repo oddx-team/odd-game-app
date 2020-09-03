@@ -1,6 +1,4 @@
 import React, { useEffect, useContext } from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
 import { useParams, useHistory } from 'react-router-dom'
 import { SocketContext } from 'shared/contexts/SocketContext'
 
@@ -11,34 +9,16 @@ import {
   MainLogo,
   ProfileContainer,
   IconBell,
-  IconUser,
-  StyledCircleLogo,
-  Wrapper
+  IconUser
 } from './styled'
 
 import Api from 'shared/services'
 import { useGameState, useGameActions } from 'shared/contexts/GameContext'
 
-const HeaderExtra = ({ fullBanner }) => {
-  return (
-    <div>
-      <Wrapper className={classNames({ hidden: fullBanner })}>
-        <StyledCircleLogo>
-          <img alt='logo' src={OddLogo} />
-        </StyledCircleLogo>
-      </Wrapper>
-    </div>
-  )
-}
-
-HeaderExtra.propTypes = {
-  fullBanner: PropTypes.bool.isRequired
-}
-
 export const Header = () => {
   const { slug } = useParams()
   const { socket } = useContext(SocketContext)
-  const { isLoggedIn, fullBanner, username, points } = useGameState()
+  const { isLoggedIn, username, points } = useGameState()
   const { login, logoutGame } = useGameActions()
   const history = useHistory()
 
@@ -67,7 +47,6 @@ export const Header = () => {
         <img alt='logo' src={OddLogo} />
         <span>Oddx</span>
       </MainLogo>
-      <HeaderExtra fullBanner={fullBanner} />
 
       {isLoggedIn &&
         <div>

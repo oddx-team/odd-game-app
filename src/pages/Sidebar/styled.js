@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-
 import { color, sizes, mixin, font } from 'shared/utils/styles'
+import bgSidebar from '../../assets/bg-sidebar.jpg'
 
 export const GameSidebar = styled.div`
   position: fixed;
@@ -9,17 +9,23 @@ export const GameSidebar = styled.div`
   left: 0;
   height: 100vh;
   width: ${sizes.sizeBarWidth}rem;
-  background: ${color.backgroundMenuDark};
   border-right: 1px solid ${color.borderLightest};
   ${mixin.scrollableY}
   ${mixin.boxShadowMedium}
   ${mixin.customScrollbar()}
+  ${mixin.backgroundImage(bgSidebar)}
+
+  &::before {
+    ${mixin.cover}
+    content: '';
+    background: rgba(0, 0, 0, 0.75);
+  }
 `
 
 export const Divider = styled.div`
   margin-top: 0.05rem;
   padding-top: 0.05rem;
-  border-top: 0.01rem solid ${color.borderLight};
+  border-top: 0.01rem solid ${color.borderDark};
 `
 
 export const LinkItem = styled.div`

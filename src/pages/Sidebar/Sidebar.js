@@ -1,11 +1,15 @@
 import React from 'react'
 
-import { GameSidebar, LinkItem, LinkText } from './styled'
+import { GameSidebar, LinkItem, LinkText, Divider } from './styled'
 import { Icon } from 'shared/components/Icon'
 
 const Sidebar = () => {
   return (
     <GameSidebar>
+      <LinkItem>
+        <LinkText>Menu</LinkText>
+      </LinkItem>
+      <Divider />
       <LinkItem>
         <Icon type='calendar' />
         <LinkText>Regions</LinkText>

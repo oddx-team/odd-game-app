@@ -29,6 +29,7 @@ export const color = {
 
   borderLightest: '#dfe1e6',
   borderLight: '#C1C7D0',
+  borderDark: '#424242',
   borderInputFocus: '#4c9aff'
 }
 
@@ -81,6 +82,13 @@ export const mixin = {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+  `,
+  backgroundImage: imageURL => css`
+    background-image: url("${imageURL}");
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: ${color.backgroundLight};
   `,
   cover: css`
     position: absolute;

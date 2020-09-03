@@ -56,14 +56,14 @@ export const ProfileContainer = styled.div`
 `
 
 export const IconUser = styled.img`
-  width: 0.36rem;
-  height: 0.36rem;
+  width: 0.37rem;
+  height: 0.37rem;
   border-radius: 50%;
   position: relative;
   left: 0.01rem;
   top: 0.02rem;
   border-radius: 50%;
-  border: 0.02rem solid #fff;
+  border: 0.02rem solid #E0E0E0;
 `
 
 export const IconBell = styled.div`
@@ -93,32 +93,5 @@ export const IconBell = styled.div`
       background: red;
       border-radius: 100%;
     }
-  }
-`
-
-export const StyledCircleLogo = styled.div`
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 1rem;
-  height: 1rem;
-  margin-top: 0.1rem;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 2px 7px 8px 0px #ddd;
-  z-index: 2;
-  img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 0.5rem;
-    height: 0.5rem;
-  }
-`
-
-export const Wrapper = styled.div`
-  &.hidden {
-    visibility: hidden;
   }
 `
