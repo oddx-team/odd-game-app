@@ -1,12 +1,20 @@
 import styled from 'styled-components/macro'
 import { imageCDN } from 'mixins'
 import { mixin } from 'shared/utils/styles'
+import { Button } from 'shared/components/Button'
 
 export const StyledGameRooms = styled.div`
   ${mixin.flexCenter}
   width: 100%;
   height: 100%;
   margin: 0 auto;
+`
+
+export const ButtonCreate = styled(Button)`
+  width: 1.25rem;
+  font-weight: bold;
+  font-size: 0.2rem;
+  text-transform: uppercase;
 `
 
 export const Container = styled.div`
@@ -19,6 +27,12 @@ export const Container = styled.div`
   padding-left: 0.8rem;
   padding-bottom: 0.5rem;
   position: relative;
+
+  ${ButtonCreate} {
+    position: absolute;
+    right: 1.9rem;
+    top: 0.45rem;
+  }
 `
 
 export const Title = styled.div`
@@ -46,27 +60,27 @@ export const Subtitle = styled.div`
   text-align: left;
 `
 
-export const ButtonCreate = styled.button`
-  position: absolute;
-  top: 0.1rem;
-  left: 8.8rem;
-  color: #fff;
-  font-size: 0.22rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  display: flex;
+// export const ButtonCreate = styled.button`
+//   position: absolute;
+//   top: 0.1rem;
+//   left: 8.8rem;
+//   color: #fff;
+//   font-size: 0.22rem;
+//   font-weight: bold;
+//   text-transform: uppercase;
+//   display: flex;
 
-  i {
-    ${imageCDN('icon-plus.png', 0.23, 0.23)};
-    margin-left: -0.1rem;
-    margin-right: 0.02rem;
-    display: inline-block;
-  }
-  span {
-    position: relative;
-    top: 0.01rem;
-  }
-`
+//   i {
+//     ${imageCDN('icon-plus.png', 0.23, 0.23)};
+//     margin-left: -0.1rem;
+//     margin-right: 0.02rem;
+//     display: inline-block;
+//   }
+//   span {
+//     position: relative;
+//     top: 0.01rem;
+//   }
+// `
 
 export const RoomContainer = styled.div`
   ${mixin.flexCenter}

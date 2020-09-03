@@ -39,10 +39,7 @@ export const PageGameRooms = () => {
         <Breadcrumbs items={['Oddx', 'Game rooms', 'English Rooms']} />
         <Title>Game rooms</Title>
         <Subtitle>Select any room:</Subtitle>
-        <ButtonCreate className='block blue' onClick={() => openModal('create')}>
-          <i />
-          <span>Create</span>
-        </ButtonCreate>
+        <ButtonCreate variant='primary' icon='plus' iconSize={0.29} onClick={() => openModal('create')}>Create</ButtonCreate>
 
         <RoomContainer>
           {currentRoomList && currentRoomList.length
