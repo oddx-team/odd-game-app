@@ -23,9 +23,9 @@ export const GameSidebar = styled.div`
 `
 
 export const Divider = styled.div`
-  margin-top: 0.05rem;
   padding-top: 0.05rem;
   border-top: 0.01rem solid ${color.borderDark};
+  margin: 0.05rem 0.15rem 0;
 `
 
 export const LinkItem = styled.div`

@@ -1,10 +1,12 @@
 import styled from 'styled-components/macro'
+import { sizes } from 'shared/utils/styles'
 
 export const PlaygroundWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
-  background: #F9F9F9;
+  background: #F1F2F5;
+  margin-left: ${sizes.sizeBarWidth}rem;
 `
 
 export const Header = styled.div`
@@ -64,7 +66,7 @@ export const CardsList = styled.div`
 `
 
 export const CollectionWrapper = styled.div`
-  width: 10.9rem;
+  width: 12rem;
   height: 1.85rem;
   background: #fff;
   position: absolute;

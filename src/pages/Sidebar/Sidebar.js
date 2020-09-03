@@ -7,7 +7,7 @@ const Sidebar = () => {
   return (
     <GameSidebar>
       <LinkItem>
-        <LinkText>Menu</LinkText>
+        <LinkText>ODDX</LinkText>
       </LinkItem>
       <Divider />
       <LinkItem>

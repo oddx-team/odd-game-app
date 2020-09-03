@@ -29,7 +29,7 @@ export const color = {
 
   borderLightest: '#dfe1e6',
   borderLight: '#C1C7D0',
-  borderDark: '#424242',
+  borderDark: '#E0E0E0',
   borderInputFocus: '#4c9aff'
 }
 

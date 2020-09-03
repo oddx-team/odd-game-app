@@ -4,7 +4,6 @@ import { useFetch } from 'shared/hooks/fetch'
 import { usePlayActionsContext, usePlayContext } from 'shared/contexts/PlayContext'
 import { useGameActions } from 'shared/contexts/GameContext'
 import { useModalActions } from 'shared/contexts/ModalContext'
-import { PlaygroundWidgets } from './widgets'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'shared/components/Card'
 import { SocketContext } from 'shared/contexts/SocketContext'
@@ -123,7 +122,6 @@ export const PagePlayground = () => {
           </WhiteCardContainer>
         </Container>
 
-        <PlaygroundWidgets />
         <PlaygroundCollection
           dealCard={dealCard}
           selectDealCard={cardId => setDealCard(cardId)}
