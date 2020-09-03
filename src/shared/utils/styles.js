@@ -12,6 +12,7 @@ export const color = {
   textDark: '#42526E',
   textMedium: '#5E6C84',
   textLight: '#8993a4',
+  textLighter: '#757575',
   textLink: '#0052cc',
   textMenu: '#656565',
   textMenuSidebar: '#C7C6C5',

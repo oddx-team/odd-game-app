@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useModalActions } from 'shared/contexts/ModalContext'
 import { CardRoom } from 'shared/components/CardRoom'
+import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import {
   StyledGameRooms,
   Container,
@@ -35,6 +36,7 @@ export const PageGameRooms = () => {
   return (
     <StyledGameRooms>
       <Container>
+        <Breadcrumbs items={['Oddx', 'Game rooms', 'English Rooms']} />
         <Title>Game rooms</Title>
         <Subtitle>Select any room:</Subtitle>
         <ButtonCreate className='block blue' onClick={() => openModal('create')}>

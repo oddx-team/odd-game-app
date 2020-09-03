@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useFetch } from 'shared/hooks/fetch'
 import { useGameActions } from 'shared/contexts/GameContext'
 import { Card } from 'shared/components/Card'
+import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import {
   PageRoomWrapper,
   Container,
@@ -20,6 +21,7 @@ export const PageViewCards = () => {
   return (
     <PageRoomWrapper>
       <Container>
+        <Breadcrumbs items={['Oddx', 'View cards', 'EN']} />
         <CardContainer>
           {allCards && allCards.length
             ? allCards.map((card, i) => (

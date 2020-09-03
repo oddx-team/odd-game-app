@@ -5,10 +5,12 @@ export const PlaygroundWrapper = styled.div`
   height: 100%;
   position: relative;
   background: #F1F2F5;
+  padding-left: 0.3rem;
+  padding-top: 0.1rem;
 `
 
 export const Header = styled.div`
-  padding: 0.1rem 0 0 0.2rem;
+  padding-top: 0.1rem;
   color: #000;
   font-size: 0.23rem;
   font-weight: bold;
@@ -24,7 +26,7 @@ export const Container = styled.div`
 `
 
 export const BlackCardContainer = styled.div`
-  padding: 0.1rem 0 0 0.2rem;
+  padding-top: 0.1rem;
   text-align: left;
 `
 
@@ -39,6 +41,7 @@ export const LeftTitle = styled.div`
 export const RightTitle = styled(LeftTitle)`
   position: absolute;
   top: 0.48rem;
+  margin-left: 0.15rem;
 `
 
 export const ButtonConfirm = styled.button`

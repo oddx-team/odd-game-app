@@ -6,6 +6,7 @@ import { useGameActions } from 'shared/contexts/GameContext'
 import { useModalActions } from 'shared/contexts/ModalContext'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'shared/components/Card'
+import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import { SocketContext } from 'shared/contexts/SocketContext'
 
 import {
@@ -14,7 +15,6 @@ import {
   Container,
   BlackCardContainer,
   WhiteCardContainer,
-  LeftTitle,
   RightTitle,
   ButtonConfirm,
   CardsList
@@ -87,23 +87,21 @@ export const PagePlayground = () => {
   return (
     <PlaygroundWrapper>
       <div>
+        <Breadcrumbs items={['Oddx', 'Playground', slug]} />
         <Header>Select a card to play!</Header>
         <Container>
-          {blackCard &&
-            <BlackCardContainer>
-              <LeftTitle>*Black card:</LeftTitle>
-              <Card
-                color='black'
-                size='large'
-                text={blackCard.text} onClick={() => {}}
-              />
-              <ButtonConfirm className='block dark-blue' onClick={() => confirmSelection()}>
+          <BlackCardContainer>
+            {blackCard
+              ? <Card color='black' size='large' text={blackCard.text} onClick={() => {}} />
+              : <Card color='black' size='large' text='Loading...' />}
+
+            <ButtonConfirm className='block dark-blue' onClick={confirmSelection}>
                   Confirm
-              </ButtonConfirm>
-              <ButtonConfirm className='block dark-green' onClick={() => revealCards()}>
-                  Toggle
-              </ButtonConfirm>
-            </BlackCardContainer>}
+            </ButtonConfirm>
+            <ButtonConfirm className='block dark-green' onClick={revealCards}>
+                  Reveal
+            </ButtonConfirm>
+          </BlackCardContainer>
 
           <WhiteCardContainer>
             <RightTitle>The white cards played this round:</RightTitle>
