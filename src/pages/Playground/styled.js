@@ -96,4 +96,5 @@ export const CollectionContent = styled.div`
   justify-content: flex-start;
   overflow-y: auto;
   height: 1.55rem;
+  background: #FAFAFA;
 `

@@ -6,7 +6,7 @@ import classNames from 'classnames'
 import './styled.scss'
 
 export const Card = ({ color, size, text, closed, onClick }) => {
-  const cardClasses = classNames('block odd-card', color, size, closed)
+  const cardClasses = classNames('odd-card', color, size, closed)
 
   return (
     <div className={cardClasses} onClick={() => onClick && onClick()}>
