@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 import { imageCDN } from 'mixins'
-import { mixin, sizes } from 'shared/utils/styles'
+import { mixin } from 'shared/utils/styles'
 
 export const StyledGameRooms = styled.div`
   ${mixin.flexCenter}
@@ -12,7 +12,6 @@ export const StyledGameRooms = styled.div`
 export const Container = styled.div`
   width: 100%;
   height: 100%;
-  margin-left: ${sizes.sizeBarWidth - 0.05}rem;
   overflow-y: scroll;
   top: 0;
   border: 0.013rem solid #ddd;

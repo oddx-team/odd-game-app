@@ -1,12 +1,10 @@
 import styled from 'styled-components/macro'
-import { sizes } from 'shared/utils/styles'
 
 export const PlaygroundWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
   background: #F1F2F5;
-  margin-left: ${sizes.sizeBarWidth}rem;
 `
 
 export const Header = styled.div`

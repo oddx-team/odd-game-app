@@ -17,7 +17,7 @@ export const MainLogo = styled.div`
   font-family: 'Orbitron', sans-serif;
   position: absolute;
   top: 0.05rem;
-  left: ${sizes.sizeBarWidth + 0.3}rem;
+  margin-left: 0.3rem;
   cursor: pointer;
 
   img {

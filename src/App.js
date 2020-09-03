@@ -1,4 +1,6 @@
 import React from 'react'
+import styled from 'styled-components/macro'
+import { sizes } from 'shared/utils/styles'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Header } from 'shared/components/Header'
 import { Loading } from 'shared/components/Loading'
@@ -40,14 +42,16 @@ const App = () => {
                 <div className='header-bg' />
                 <div className='main'>
                   <Sidebar />
-                  <Header />
-                  <Switch>
-                    <Route exact path='/' component={PageLanding} />
-                    <PrivateRoute exact path='/rooms' component={PageGameRooms} />
-                    <PrivateRoute exact path='/rooms/:slug' component={PagePlayground} />
-                    <PrivateRoute exact path='/view-cards' component={PageViewCards} />
-                    <Route component={PageNotFound} />
-                  </Switch>
+                  <Container>
+                    <Header />
+                    <Switch>
+                      <Route exact path='/' component={PageLanding} />
+                      <PrivateRoute exact path='/rooms' component={PageGameRooms} />
+                      <PrivateRoute exact path='/rooms/:slug' component={PagePlayground} />
+                      <PrivateRoute exact path='/view-cards' component={PageViewCards} />
+                      <Route component={PageNotFound} />
+                    </Switch>
+                  </Container>
                   <Loading />
                   <Popups />
                 </div>
@@ -59,5 +63,12 @@ const App = () => {
     </SocketContextProvider>
   )
 }
+
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  padding-left: ${sizes.sizeBarWidth - 0.05}rem;
+  position: relative;
+`
 
 export default App
