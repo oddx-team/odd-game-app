@@ -1,8 +1,11 @@
 import React from 'react'
+import styled from 'styled-components/macro'
+import { sizes } from 'shared/utils/styles'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Header } from 'shared/components/Header'
 import { Loading } from 'shared/components/Loading'
 import { Popups } from 'shared/components/Popups'
+import { Sidebar } from 'pages/Sidebar'
 import { PageLanding } from 'pages/Landing'
 import { PageGameRooms } from 'pages/GameRooms'
 import { PageNotFound } from 'pages/NotFound'
@@ -38,16 +41,19 @@ const App = () => {
               <div id='app'>
                 <div className='header-bg' />
                 <div className='main'>
-                  <Header />
+                  <Sidebar />
+                  <Container>
+                    <Header />
+                    <Switch>
+                      <Route exact path='/' component={PageLanding} />
+                      <PrivateRoute exact path='/rooms' component={PageGameRooms} />
+                      <PrivateRoute exact path='/rooms/:slug' component={PagePlayground} />
+                      <PrivateRoute exact path='/view-cards' component={PageViewCards} />
+                      <Route component={PageNotFound} />
+                    </Switch>
+                  </Container>
                   <Loading />
                   <Popups />
-                  <Switch>
-                    <Route exact path='/' component={PageLanding} />
-                    <PrivateRoute exact path='/rooms' component={PageGameRooms} />
-                    <PrivateRoute exact path='/rooms/:slug' component={PagePlayground} />
-                    <PrivateRoute exact path='/view-cards' component={PageViewCards} />
-                    <Route component={PageNotFound} />
-                  </Switch>
                 </div>
               </div>
             </BrowserRouter>
@@ -57,5 +63,12 @@ const App = () => {
     </SocketContextProvider>
   )
 }
+
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  padding-left: ${sizes.sizeBarWidth - 0.05}rem;
+  position: relative;
+`
 
 export default App

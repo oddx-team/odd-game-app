@@ -1,32 +1,36 @@
 import styled from 'styled-components/macro'
 import { imageCDN } from 'mixins'
+import { sizes, mixin } from 'shared/utils/styles'
 
 export const HeaderWrapper = styled.div`
   width: 100%;
-  height: 0.6rem;
-  background: #2D2D2D;
+  height: ${sizes.bannerHeight}rem;
+  background: #FFFFFF;
+  ${mixin.boxShadowMedium}
+
 `
 
 export const MainLogo = styled.div`
-  color: #fff;
-  font-size: 0.33rem;
+  color: #424242;
+  font-size: 0.3rem;
   font-weight: bold;
   font-family: 'Orbitron', sans-serif;
   position: absolute;
-  top: 0.1rem;
-  left: 1rem;
+  top: 0.05rem;
+  margin-left: 0.3rem;
   cursor: pointer;
 
   img {
     width: 0.3rem;
     height: 0.3rem;
     margin-right: 0.05rem;
+    position: relative;
+    top: 0.03rem;
   }
 `
 
 export const ProfileContainer = styled.div`
   position: absolute;
-  top: 0.04rem;
   right: 0.4rem;
   display: flex;
   justify-content: center;
@@ -38,14 +42,15 @@ export const ProfileContainer = styled.div`
     width: 1.4rem;
     text-align: left;
     .name {
-      color: #fff;
+      color: #000;
+      font-weight: bold;
       font-size: 0.17rem;
       margin-left: 0.08rem;
       text-align: left;
     }
   
     .points {
-      color: #D9DEE0;
+      color: #424242;
       font-size: 0.14rem;
       margin-left: 0.08rem;
     }
@@ -53,14 +58,14 @@ export const ProfileContainer = styled.div`
 `
 
 export const IconUser = styled.img`
-  width: 0.4rem;
-  height: 0.4rem;
+  width: 0.37rem;
+  height: 0.37rem;
   border-radius: 50%;
   position: relative;
   left: 0.01rem;
-  top: 0.05rem;
+  top: 0.02rem;
   border-radius: 50%;
-  border: 0.02rem solid #fff;
+  border: 0.02rem solid #E0E0E0;
 `
 
 export const IconBell = styled.div`
@@ -69,76 +74,26 @@ export const IconBell = styled.div`
   margin-right: 0.07rem;
   transition: background-color 0.4s;
   border-radius: 50%;
-  background: #212121;
   width: 0.4rem;
   height: 0.4rem;
   padding: 0.05rem;
 
   i {
-    ${imageCDN('icon-bell.png', 0.3, 0.3)};
+    ${imageCDN('icon-bell1.png', 0.23, 0.23)};
     display: inline-block;
+
+    &::before {
+      content: '5';
+      font-size: 0.15rem;
+      padding-top: 0.02rem;
+      color: #fff;
+      position: absolute;
+      top: -0.02rem;
+      left: -0.02rem;
+      width: 0.2rem;
+      height: 0.2rem;
+      background: red;
+      border-radius: 100%;
+    }
   }
-`
-
-export const IconSearch = styled.div`
-  ${imageCDN('icon-search.png', 0.27, 0.27)};
-  position: absolute;
-  top: 0.05rem;
-  left: 0.05rem;
-  width: 0.27rem;
-  height: 0.27rem;
-`
-
-export const StyledCircleLogo = styled.div`
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 1rem;
-  height: 1rem;
-  margin-top: 0.1rem;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 2px 7px 8px 0px #ddd;
-  z-index: 2;
-  img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 0.5rem;
-    height: 0.5rem;
-  }
-`
-
-export const Wrapper = styled.div`
-  &.hidden {
-    visibility: hidden;
-  }
-`
-
-export const StyledSearchBar = styled.div`
-  width: 2.5rem;
-  height: 0.38rem;
-  position: absolute;
-  top: 0.1rem;
-  left: 4.05rem;
-  color: #000;
-  font-size: 0.2rem;
-  display: flex;
-  flex-direction: row;
-  background: #bdbdbd;
-  border-radius: 0.03rem;
-  transition: width 0.3s;
-  &:hover {
-    background: #fafafa;
-    width: 4.48rem;
-  }
-`
-
-export const StyledInput = styled.input`
-  position: absolute;
-  top: 0.05rem;
-  left: 0.05rem;
-  width: 89%;
-  margin-left: 0.2rem;
 `

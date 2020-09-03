@@ -1,27 +1,26 @@
 import styled from 'styled-components'
 
 import { Button } from 'shared/components/Button'
-import { mixin, font, color } from 'shared/utils/styles'
+import { mixin, font, color, sizes } from 'shared/utils/styles'
 import { imageCDN } from 'mixins'
 
 export const ButtonHamburger = styled(Button)`
-  ${imageCDN('icon-hamburger.png', 0.27, 0.27)};
+  ${imageCDN('icon-menu.png', 0.27, 0.27)};
   position: absolute;
-  top: 0.19rem;
+  top: 0.12rem;
   right: 0.15rem;
   cursor: pointer;
   transition: background-image 0.25s ease-out;
 `
 
 export const MenuContent = styled.div`
+  ${mixin.boxShadowMedium}
   position: relative;
-  top: 0.6rem;
+  top: ${sizes.bannerHeight}rem;
   width: 2.2rem;
   height: auto;
   display: none;
   z-index: 2;
-  box-shadow: 0 0.02rem 0.02rem 0 rgba(160, 159, 159, 0.2), 
-              0 0.03rem 0.08rem 0 rgba(174, 172, 172, 0.19);
   background: #fff;
 `
 

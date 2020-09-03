@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useModalActions } from 'shared/contexts/ModalContext'
 import { CardRoom } from 'shared/components/CardRoom'
+import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import {
   StyledGameRooms,
   Container,
@@ -35,12 +36,10 @@ export const PageGameRooms = () => {
   return (
     <StyledGameRooms>
       <Container>
+        <Breadcrumbs items={['Oddx', 'Game rooms', 'English Rooms']} />
         <Title>Game rooms</Title>
         <Subtitle>Select any room:</Subtitle>
-        <ButtonCreate className='block accent' onClick={() => openModal('create')}>
-          <i />
-          <span>Create</span>
-        </ButtonCreate>
+        <ButtonCreate variant='primary' icon='plus' iconSize={0.29} onClick={() => openModal('create')}>Create</ButtonCreate>
 
         <RoomContainer>
           {currentRoomList && currentRoomList.length

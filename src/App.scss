@@ -15,7 +15,8 @@
 }
 
 .header-bg {
-  @include sizeWH(100%, 0.6rem);
+  @include sizeWH(100%, 0.5rem);
   @include position(absolute, 0);
+  @include boxShadow();
   background: #2d2d2d;
 }

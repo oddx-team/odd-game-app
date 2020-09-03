@@ -2,10 +2,11 @@
 
 .odd-card {
   @include sizeWH(2.4rem, 2.1rem);
+  @include boxShadow();
   background: #212121;
-  border-radius: 0.05rem;
   padding: 0.2rem;
   margin-right: 0.2rem;
+  margin-bottom: 0.2rem;
   position: relative;
   text-align: left;
 

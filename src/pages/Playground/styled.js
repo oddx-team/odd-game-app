@@ -4,11 +4,13 @@ export const PlaygroundWrapper = styled.div`
   width: 100%;
   height: 100%;
   position: relative;
-  background: #F9F9F9;
+  background: #F1F2F5;
+  padding-left: 0.3rem;
+  padding-top: 0.1rem;
 `
 
 export const Header = styled.div`
-  padding: 0.1rem 0 0 0.2rem;
+  padding-top: 0.1rem;
   color: #000;
   font-size: 0.23rem;
   font-weight: bold;
@@ -24,7 +26,7 @@ export const Container = styled.div`
 `
 
 export const BlackCardContainer = styled.div`
-  padding: 0.1rem 0 0 0.2rem;
+  padding-top: 0.1rem;
   text-align: left;
 `
 
@@ -39,6 +41,7 @@ export const LeftTitle = styled.div`
 export const RightTitle = styled(LeftTitle)`
   position: absolute;
   top: 0.48rem;
+  margin-left: 0.15rem;
 `
 
 export const ButtonConfirm = styled.button`
@@ -64,7 +67,7 @@ export const CardsList = styled.div`
 `
 
 export const CollectionWrapper = styled.div`
-  width: 10.9rem;
+  width: 12rem;
   height: 1.85rem;
   background: #fff;
   position: absolute;
@@ -94,4 +97,5 @@ export const CollectionContent = styled.div`
   justify-content: flex-start;
   overflow-y: auto;
   height: 1.55rem;
+  background: #FAFAFA;
 `

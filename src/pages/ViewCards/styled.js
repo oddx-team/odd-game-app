@@ -1,7 +1,9 @@
 import styled from 'styled-components/macro'
 import { imageCDN } from 'mixins'
+import { mixin } from 'shared/utils/styles'
 
 export const PageRoomWrapper = styled.div`
+  ${mixin.flexCenter}
   width: 100%;
   height: 100%;
   margin: 0 auto;
@@ -13,7 +15,7 @@ export const Container = styled.div`
   overflow-y: scroll;
   top: 0;
   border: 0.013rem solid #ddd;
-  background: #fff;
+  background: #F1F2F5;
   padding-left: 0.3rem;
   padding-bottom: 0.5rem;
   position: relative;
