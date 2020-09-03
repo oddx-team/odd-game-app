@@ -41,8 +41,6 @@ const App = () => {
                 <div className='main'>
                   <Sidebar />
                   <Header />
-                  <Loading />
-                  <Popups />
                   <Switch>
                     <Route exact path='/' component={PageLanding} />
                     <PrivateRoute exact path='/rooms' component={PageGameRooms} />
@@ -50,6 +48,8 @@ const App = () => {
                     <PrivateRoute exact path='/view-cards' component={PageViewCards} />
                     <Route component={PageNotFound} />
                   </Switch>
+                  <Loading />
+                  <Popups />
                 </div>
               </div>
             </BrowserRouter>

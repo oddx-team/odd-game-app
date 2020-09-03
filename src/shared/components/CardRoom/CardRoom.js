@@ -35,7 +35,7 @@ export const CardRoom = props => {
   return (
     <Route
       render={({ history }) => (
-        <StyledCardRoom className='wrapper block'>
+        <StyledCardRoom className='wrapper'>
           <CardRoomInner>
             <Title>{props.name}</Title>
             <Text title='Host' value={host} />
@@ -44,7 +44,7 @@ export const CardRoom = props => {
             <Text title='Status' value={status} />
           </CardRoomInner>
 
-          <Button variant='success' icon='attach' onClick={() => tryJoining(history, slug)}>
+          <Button variant='success' onClick={() => tryJoining(history, slug)}>
             Join
           </Button>
           <Button variant='primary' onClick={() => trySpectating(history, slug)}>
