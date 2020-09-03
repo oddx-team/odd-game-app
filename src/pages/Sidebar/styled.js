@@ -9,7 +9,7 @@ export const GameSidebar = styled.div`
   left: 0;
   height: 100vh;
   width: ${sizes.sizeBarWidth}rem;
-  background: ${color.backgroundWhite};
+  background: ${color.backgroundMenuDark};
   border-right: 1px solid ${color.borderLightest};
   ${mixin.scrollableY}
   ${mixin.boxShadowMedium}
@@ -27,7 +27,9 @@ export const LinkItem = styled.div`
   display: flex;
   padding: 0.12rem 0rem 0.12rem 0.2rem;
   text-decoration: none;
+  color: ${color.textMenuSidebar};
   ${mixin.clickable}
+  
   i {
     position: relative;
     top: -0.03rem;
@@ -35,9 +37,8 @@ export const LinkItem = styled.div`
     font-size: 0.23rem;
   }
   &:hover {
-    background: ${color.backgroundSidebarMenu};
     cursor: pointer;
-    color: #1A8FFF;
+    color: #0477BD;
 
     &::before {
       content: '';
@@ -46,7 +47,7 @@ export const LinkItem = styled.div`
       right: 0;
       width: 0.04rem;
       height: 100%;
-      background: #1A8FFF;
+      background: #0477BD;
     }
   }
 

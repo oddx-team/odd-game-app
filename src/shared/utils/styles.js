@@ -14,6 +14,7 @@ export const color = {
   textLight: '#8993a4',
   textLink: '#0052cc',
   textMenu: '#656565',
+  textMenuSidebar: '#C7C6C5',
 
   backgroundDarkPrimary: '#0747A6',
   backgroundMedium: '#dfe1e6',
@@ -24,6 +25,7 @@ export const color = {
   backgroundLightSuccess: '#E4FCEF',
   backgroundWhite: '#FFFFFF',
   backgroundSidebarMenu: '#E6F7FF',
+  backgroundMenuDark: '#212120',
 
   borderLightest: '#dfe1e6',
   borderLight: '#C1C7D0',
