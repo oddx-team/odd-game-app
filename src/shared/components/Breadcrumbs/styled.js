@@ -10,7 +10,7 @@ export const Container = styled.div`
 
 export const Divider = styled.span`
   position: relative;
-  top: 2px;
-  margin: 0 10px;
+  top: 0.02rem;
+  margin: 0 0.07rem;
   ${font.size(0.25)};
 `
