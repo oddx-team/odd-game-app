@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
-import { SocketContext } from 'shared/contexts/SocketContext'
+import { SocketContext } from 'contexts/SocketContext'
 
 import OddLogo from 'assets/logo.png'
 import { HeaderMenu } from '../HeaderMenu'
@@ -12,9 +12,9 @@ import {
   IconUser
 } from './styled'
 
-import Api from 'shared/services'
+import Api from 'services'
 import { toggleSidebar } from 'shared/utils/styles'
-import { useGameState, useGameActions } from 'shared/contexts/GameContext'
+import { useGameState, useGameActions } from 'contexts/GameContext'
 
 export const Header = () => {
   const { slug } = useParams()

@@ -12,10 +12,10 @@ import { PageNotFound } from 'pages/NotFound'
 import { PagePlayground } from 'pages/Playground'
 import { PageViewCards } from 'pages/ViewCards'
 
-import GameContextProvider, { useGameState } from 'shared/contexts/GameContext.js'
-import ModalContextProvider from 'shared/contexts/ModalContext.js'
-import PlayContextProvider from 'shared/contexts/PlayContext.js'
-import SocketContextProvider from 'shared/contexts/SocketContext.js'
+import GameContextProvider, { useGameState } from 'contexts/GameContext.js'
+import ModalContextProvider from 'contexts/ModalContext.js'
+import PlayContextProvider from 'contexts/PlayContext.js'
+import SocketContextProvider from 'contexts/SocketContext.js'
 import 'App.scss'
 
 const PrivateRoute = ({ component: Component, ...options }) => {

@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
-import { useFetch } from 'shared/hooks/fetch'
-import { useGameActions } from 'shared/contexts/GameContext'
+import { useFetch } from 'hooks/fetch'
+import { useGameActions } from 'contexts/GameContext'
 import { Card } from 'shared/components/Card'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import { PageRoomWrapper, Container, CardContainer } from './styled'
 
-import Api from 'shared/services'
+import Api from 'services'
 
 export const PageViewCards = () => {
   const [allCards, loading] = useFetch(Api.getAllCards)

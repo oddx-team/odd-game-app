@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useModalActions } from 'shared/contexts/ModalContext'
+import { useModalActions } from 'contexts/ModalContext'
 import { CardRoom } from 'shared/components/CardRoom'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import {
@@ -11,8 +11,8 @@ import {
   RoomContainer
 } from './styled'
 
-import Api from 'shared/services'
-import { useGameActions } from 'shared/contexts/GameContext'
+import Api from 'services'
+import { useGameActions } from 'contexts/GameContext'
 
 export const PageGameRooms = () => {
   const { openModal } = useModalActions()

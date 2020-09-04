@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState, useContext } from 'react'
-import { SocketContext } from 'shared/contexts/SocketContext'
-import { useFetch } from 'shared/hooks/fetch'
+import { useFetch } from 'hooks/fetch'
+import { SocketContext } from 'contexts/SocketContext'
 import { TextInput } from 'shared/components/TextInput'
 import { ChatMessage } from 'shared/components/ChatMessage'
 import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from './styled'
 import PropTypes from 'prop-types'
-import Api from 'shared/services'
+import Api from 'services'
 
 export const GlobalChat = () => {
   const lastRef = useRef(null)
