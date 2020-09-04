@@ -1,5 +1,5 @@
 import React from 'react'
-import { useModalState, useModalActions } from 'shared/contexts/ModalContext'
+import { useModalState, useModalActions } from 'contexts/ModalContext'
 import './style.scss'
 
 export const ModalError = () => {

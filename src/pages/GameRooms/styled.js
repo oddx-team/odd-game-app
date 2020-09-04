@@ -49,7 +49,7 @@ export const Title = styled.div`
     left: 1.6rem;
     top: 0rem;
     cursor: pointer;
-    ${imageCDN('icon-play.png', 0.38, 0.38)};
+    ${imageCDN('icon-arrow-right.png', 0.38, 0.38)};
   }
 `
 
@@ -60,30 +60,9 @@ export const Subtitle = styled.div`
   text-align: left;
 `
 
-// export const ButtonCreate = styled.button`
-//   position: absolute;
-//   top: 0.1rem;
-//   left: 8.8rem;
-//   color: #fff;
-//   font-size: 0.22rem;
-//   font-weight: bold;
-//   text-transform: uppercase;
-//   display: flex;
-
-//   i {
-//     ${imageCDN('icon-plus.png', 0.23, 0.23)};
-//     margin-left: -0.1rem;
-//     margin-right: 0.02rem;
-//     display: inline-block;
-//   }
-//   span {
-//     position: relative;
-//     top: 0.01rem;
-//   }
-// `
-
 export const RoomContainer = styled.div`
   ${mixin.flexCenter}
   flex-wrap: wrap;
   justify-content: left;
+  align-items: flex-start;
 `

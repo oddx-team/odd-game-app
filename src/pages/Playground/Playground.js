@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import { useFetch } from 'shared/hooks/fetch'
-import { usePlayActionsContext, usePlayContext } from 'shared/contexts/PlayContext'
-import { useGameActions } from 'shared/contexts/GameContext'
-import { useModalActions } from 'shared/contexts/ModalContext'
+import { useFetch } from 'hooks/fetch'
+import { usePlayActionsContext, usePlayContext } from 'contexts/PlayContext'
+import { useGameActions } from 'contexts/GameContext'
+import { useModalActions } from 'contexts/ModalContext'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'shared/components/Card'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
-import { SocketContext } from 'shared/contexts/SocketContext'
+import { SocketContext } from 'contexts/SocketContext'
 
 import {
   PlaygroundWrapper,
@@ -20,7 +20,7 @@ import {
   CardsList
 } from './styled'
 
-import Api from 'shared/services'
+import Api from 'services'
 
 export const PagePlayground = () => {
   const { slug } = useParams()

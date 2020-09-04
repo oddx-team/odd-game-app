@@ -1,22 +1,26 @@
 import React from 'react'
-
-import { GameSidebar, LinkItem, LinkText, Divider } from './styled'
+import { useGameState } from 'contexts/GameContext'
+import { GameSidebar, Header, LinkItem, LinkText, Divider, OddLogo } from './styled'
 import { Icon } from 'shared/components/Icon'
+import Logo from 'assets/logo.png'
 
 const Sidebar = () => {
+  const { fullSidebar } = useGameState()
   return (
-    <GameSidebar>
-      <LinkItem>
-        <LinkText>ODDX</LinkText>
-      </LinkItem>
+    <GameSidebar open={fullSidebar}>
+      <Header>
+        <OddLogo alt='logo' src={Logo} />
+        <LinkText>ODD Card Game</LinkText>
+      </Header>
       <Divider />
+
       <LinkItem>
         <Icon type='calendar' />
-        <LinkText>Regions</LinkText>
+        <LinkText>Rooms</LinkText>
       </LinkItem>
       <LinkItem>
         <Icon type='settings' />
-        <LinkText>Settings</LinkText>
+        <LinkText>Game Settings</LinkText>
       </LinkItem>
     </GameSidebar>
   )

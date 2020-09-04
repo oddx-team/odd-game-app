@@ -1,25 +1,24 @@
 import React, { useEffect, useContext } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
-import { SocketContext } from 'shared/contexts/SocketContext'
-
-import OddLogo from 'assets/logo.png'
+import { useGameState, useGameActions } from 'contexts/GameContext'
+import { SocketContext } from 'contexts/SocketContext'
 import { HeaderMenu } from '../HeaderMenu'
 import {
   HeaderWrapper,
-  MainLogo,
+  MainTitle,
+  Arrow,
+  Text,
   ProfileContainer,
   IconBell,
   IconUser
 } from './styled'
-
-import Api from 'shared/services'
-import { useGameState, useGameActions } from 'shared/contexts/GameContext'
+import Api from 'services'
 
 export const Header = () => {
   const { slug } = useParams()
   const { socket } = useContext(SocketContext)
-  const { isLoggedIn, username, points } = useGameState()
-  const { login, logoutGame } = useGameActions()
+  const { isLoggedIn, username, points, fullSidebar } = useGameState()
+  const { login, logoutGame, toggleSidebar } = useGameActions()
   const history = useHistory()
 
   useEffect(() => {
@@ -43,10 +42,10 @@ export const Header = () => {
 
   return (
     <HeaderWrapper>
-      <MainLogo onClick={quitRoom}>
-        <img alt='logo' src={OddLogo} />
-        <span>Oddx</span>
-      </MainLogo>
+      <MainTitle>
+        <Arrow onClick={toggleSidebar} sidebar={fullSidebar} />
+        <Text onClick={quitRoom}>Oddx</Text>
+      </MainTitle>
 
       {isLoggedIn &&
         <div>

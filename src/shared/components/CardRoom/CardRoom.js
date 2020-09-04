@@ -40,7 +40,7 @@ export const CardRoom = props => {
             <Title>{props.name}</Title>
             <Text title='Host' value={host} />
             <Text title='Room' value={`${current}/10`} />
-            <Text title='Spectate' value={`${guest}`} />
+            <Text title='Viewers' value={`${guest}`} />
             <Text title='Status' value={status} />
           </CardRoomInner>
 

@@ -2,9 +2,9 @@ import React, { useContext } from 'react'
 import { useHistory, NavLink, useRouteMatch } from 'react-router-dom'
 
 import { Icon } from 'shared/components/Icon'
-import { useGameActions } from 'shared/contexts/GameContext'
-import { useModalActions } from 'shared/contexts/ModalContext'
-import { SocketContext } from 'shared/contexts/SocketContext'
+import { useGameActions } from 'contexts/GameContext'
+import { useModalActions } from 'contexts/ModalContext'
+import { SocketContext } from 'contexts/SocketContext'
 import {
   StyledMenu,
   ButtonHamburger,
@@ -12,7 +12,7 @@ import {
   LinkItem,
   LinkText
 } from './styled'
-import Api from 'shared/services'
+import Api from 'services'
 
 export const HeaderMenu = () => {
   const match = useRouteMatch()

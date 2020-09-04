@@ -1,5 +1,5 @@
 import React from 'react'
-import { useModalState } from 'shared/contexts/ModalContext'
+import { useModalState } from 'contexts/ModalContext'
 import { ModalError } from './ModalError'
 import { ModalCreateRoom } from './ModalCreateRoom'
 

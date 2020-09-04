@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useModalActions } from 'shared/contexts/ModalContext'
-import { useGameActions, useGameState } from 'shared/contexts/GameContext'
-import Api from 'shared/services'
+import { useModalActions } from 'contexts/ModalContext'
+import { useGameActions, useGameState } from 'contexts/GameContext'
+import Api from 'services'
 import './style.scss'
 
 export const ModalCreateRoom = () => {
