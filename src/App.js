@@ -42,7 +42,7 @@ const App = () => {
                 <div className='header-bg' />
                 <div className='main'>
                   <Sidebar />
-                  <Container>
+                  <MainContent>
                     <Header />
                     <Switch>
                       <Route exact path='/' component={PageLanding} />
@@ -51,7 +51,7 @@ const App = () => {
                       <PrivateRoute exact path='/view-cards' component={PageViewCards} />
                       <Route component={PageNotFound} />
                     </Switch>
-                  </Container>
+                  </MainContent>
                   <Loading />
                   <Popups />
                 </div>
@@ -64,10 +64,24 @@ const App = () => {
   )
 }
 
+const MainContent = ({ children }) => {
+  const { fullSidebar } = useGameState()
+
+  return (
+    <Container openSidebar={fullSidebar}>
+      {children}
+    </Container>
+  )
+}
+
 const Container = styled.div`
   width: 100%;
   height: 100%;
-  padding-left: ${sizes.sizeBarWidth - 0.05}rem;
+  padding-left: 
+    ${props => props.openSidebar
+    ? sizes.sizeBarWidthOpen - 0.05
+    : sizes.sizeBarWidth - 0.05}rem;
+  transition: padding-left 0.35s;
   position: relative;
 `
 

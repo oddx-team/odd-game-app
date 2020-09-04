@@ -20,6 +20,8 @@ const gameReducer = (state, action) => {
       return { ...state, eRooms: action.payload.eRooms, vRooms: action.payload.vRooms }
     case 'SET_FULL_BANNER':
       return { ...state, fullBanner: action.fullBanner }
+    case 'SET_FULL_SIDEBAR':
+      return { ...state, fullSidebar: action.fullSidebar }
     case 'SET_LOADING_STATUS':
       return { ...state, isLoading: action.isLoading }
     case 'SET_ACTIVE_ROOM':
@@ -43,7 +45,8 @@ const GameContextProvider = ({ children }) => {
     eRooms: [],
     vRooms: [],
     online: false,
-    fullBanner: true
+    fullBanner: true,
+    fullSidebar: true
   }, undefined)
 
   const actions = {
@@ -56,6 +59,9 @@ const GameContextProvider = ({ children }) => {
     setBanner: useCallback((banner) => {
       dispatch({ type: 'SET_FULL_BANNER', fullBanner: banner })
     }, []),
+    toggleSidebar: useCallback(() => {
+      dispatch({ type: 'SET_FULL_SIDEBAR', fullSidebar: !state.fullSidebar })
+    }, [state.fullSidebar]),
     setActiveRoom: useCallback((room) => {
       dispatch({ type: 'SET_ACTIVE_ROOM', room })
     }, []),

@@ -1,8 +1,7 @@
 import React, { useEffect, useContext } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
+import { useGameState, useGameActions } from 'contexts/GameContext'
 import { SocketContext } from 'contexts/SocketContext'
-
-import OddLogo from 'assets/logo.png'
 import { HeaderMenu } from '../HeaderMenu'
 import {
   HeaderWrapper,
@@ -11,16 +10,14 @@ import {
   IconBell,
   IconUser
 } from './styled'
-
+import OddLogo from 'assets/logo.png'
 import Api from 'services'
-import { toggleSidebar } from 'shared/utils/styles'
-import { useGameState, useGameActions } from 'contexts/GameContext'
 
 export const Header = () => {
   const { slug } = useParams()
   const { socket } = useContext(SocketContext)
   const { isLoggedIn, username, points } = useGameState()
-  const { login, logoutGame } = useGameActions()
+  const { login, logoutGame, toggleSidebar } = useGameActions()
   const history = useHistory()
 
   useEffect(() => {

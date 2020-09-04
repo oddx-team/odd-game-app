@@ -8,7 +8,7 @@ export const GameSidebar = styled.div`
   top: 0;
   left: 0;
   height: 100vh;
-  width: ${sizes.sizeBarWidth}rem;
+  width: ${props => (props.open ? sizes.sizeBarWidthOpen : sizes.sizeBarWidth)}rem;
   border-right: 1px solid ${color.borderLightest};
   transition: width 0.35s;
   ${mixin.scrollableY}
