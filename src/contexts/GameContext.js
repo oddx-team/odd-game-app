@@ -46,7 +46,7 @@ const GameContextProvider = ({ children }) => {
     vRooms: [],
     online: false,
     fullBanner: true,
-    fullSidebar: true
+    fullSidebar: false
   }, undefined)
 
   const actions = {

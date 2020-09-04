@@ -27,7 +27,7 @@ export const Logo = styled.div`
 export const LeftOverlay = styled.div`
   ${imageCDN('bg-extra-left.svg', 2.6, 4)};
   position: absolute;
-  left: 0;
+  left: 0.1rem;
   z-index: 1;
 `
 
