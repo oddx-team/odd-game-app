@@ -7,10 +7,19 @@ export const HeaderWrapper = styled.div`
   height: ${sizes.bannerHeight}rem;
   background: #FFFFFF;
   ${mixin.boxShadowMedium}
-
 `
 
-export const MainLogo = styled.div`
+export const Arrow = styled.div`
+  ${props => props.sidebar
+    ? imageCDN('icon-arrow-left.png', 0.38, 0.38)
+    : imageCDN('icon-arrow-right.png', 0.38, 0.38)}
+  transition: background-image 0.3s;
+  margin-right: 0.05rem;
+`
+
+export const Text = styled.div``
+
+export const MainTitle = styled.div`
   color: #424242;
   font-size: 0.3rem;
   font-weight: bold;
@@ -19,14 +28,7 @@ export const MainLogo = styled.div`
   top: 0.05rem;
   margin-left: 0.3rem;
   cursor: pointer;
-
-  img {
-    width: 0.3rem;
-    height: 0.3rem;
-    margin-right: 0.05rem;
-    position: relative;
-    top: 0.03rem;
-  }
+  display: flex;
 `
 
 export const ProfileContainer = styled.div`

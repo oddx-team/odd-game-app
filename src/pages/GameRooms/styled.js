@@ -49,7 +49,7 @@ export const Title = styled.div`
     left: 1.6rem;
     top: 0rem;
     cursor: pointer;
-    ${imageCDN('icon-play.png', 0.38, 0.38)};
+    ${imageCDN('icon-arrow-right.png', 0.38, 0.38)};
   }
 `
 

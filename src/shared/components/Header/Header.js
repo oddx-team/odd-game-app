@@ -5,18 +5,19 @@ import { SocketContext } from 'contexts/SocketContext'
 import { HeaderMenu } from '../HeaderMenu'
 import {
   HeaderWrapper,
-  MainLogo,
+  MainTitle,
+  Arrow,
+  Text,
   ProfileContainer,
   IconBell,
   IconUser
 } from './styled'
-import OddLogo from 'assets/logo.png'
 import Api from 'services'
 
 export const Header = () => {
   const { slug } = useParams()
   const { socket } = useContext(SocketContext)
-  const { isLoggedIn, username, points } = useGameState()
+  const { isLoggedIn, username, points, fullSidebar } = useGameState()
   const { login, logoutGame, toggleSidebar } = useGameActions()
   const history = useHistory()
 
@@ -41,10 +42,10 @@ export const Header = () => {
 
   return (
     <HeaderWrapper>
-      <MainLogo onClick={quitRoom}>
-        <img alt='logo' src={OddLogo} onClick={toggleSidebar} />
-        <span>Oddx</span>
-      </MainLogo>
+      <MainTitle>
+        <Arrow onClick={toggleSidebar} sidebar={fullSidebar} />
+        <Text onClick={quitRoom}>Oddx</Text>
+      </MainTitle>
 
       {isLoggedIn &&
         <div>
