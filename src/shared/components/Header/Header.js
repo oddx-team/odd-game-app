@@ -13,6 +13,7 @@ import {
 } from './styled'
 
 import Api from 'shared/services'
+import { toggleSidebar } from 'shared/utils/styles'
 import { useGameState, useGameActions } from 'shared/contexts/GameContext'
 
 export const Header = () => {
@@ -44,7 +45,7 @@ export const Header = () => {
   return (
     <HeaderWrapper>
       <MainLogo onClick={quitRoom}>
-        <img alt='logo' src={OddLogo} />
+        <img alt='logo' src={OddLogo} onClick={toggleSidebar} />
         <span>Oddx</span>
       </MainLogo>
 

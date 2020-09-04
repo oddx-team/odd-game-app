@@ -43,8 +43,17 @@ export const font = {
 }
 
 export const sizes = {
-  sizeBarWidth: 2.6,
+  sizeBarWidth: 0.72,
+  sizeBarWidthOpen: 2.6,
   bannerHeight: 0.5
+}
+
+export const toggleSidebar = () => {
+  if (sizes.sizeBarWidth === 2.6) {
+    sizes.sizeBarWidth = 0.72
+  } else {
+    sizes.sizeBarWidth = 2.6
+  }
 }
 
 export const mixin = {

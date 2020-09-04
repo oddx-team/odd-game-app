@@ -10,6 +10,7 @@ export const GameSidebar = styled.div`
   height: 100vh;
   width: ${sizes.sizeBarWidth}rem;
   border-right: 1px solid ${color.borderLightest};
+  transition: width 0.35s;
   ${mixin.scrollableY}
   ${mixin.boxShadowMedium}
   ${mixin.customScrollbar()}
@@ -19,6 +20,10 @@ export const GameSidebar = styled.div`
     ${mixin.cover}
     content: '';
     background: rgba(0, 0, 0, 0.75);
+  }
+
+  &:hover {
+    width: 2.6rem;
   }
 `
 
