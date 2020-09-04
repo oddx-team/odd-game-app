@@ -43,7 +43,7 @@ export const LinkItem = styled.div`
   
   i {
     position: relative;
-    top: -0.03rem;
+    top: -0.03rem;  
     margin-right: 0.18rem;
     font-size: 0.35rem;
   }

@@ -82,6 +82,7 @@ const Container = styled.div`
     ? sizes.sizeBarWidthOpen - 0.05
     : sizes.sizeBarWidth - 0.05}rem;
   transition: padding-left 0.35s;
+
   position: relative;
 `
 
