@@ -3,8 +3,7 @@ import { imageCDN } from 'mixins'
 import { mixin } from 'shared/utils/styles'
 
 export const PageRoomWrapper = styled.div`
-  ${mixin.flexCenter}
-  width: 100%;
+  ${mixin.flexCenter} width: 100%;
   height: 100%;
   margin: 0 auto;
 `
@@ -14,9 +13,8 @@ export const Container = styled.div`
   height: 100%;
   overflow-y: scroll;
   top: 0;
-  border: 0.013rem solid #ddd;
-  background: #F1F2F5;
-  padding-left: 0.3rem;
+  background: #f1f2f5;
+  padding-left: 0.5rem;
   padding-bottom: 0.5rem;
   position: relative;
 `

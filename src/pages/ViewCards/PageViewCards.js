@@ -3,11 +3,7 @@ import { useFetch } from 'shared/hooks/fetch'
 import { useGameActions } from 'shared/contexts/GameContext'
 import { Card } from 'shared/components/Card'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
-import {
-  PageRoomWrapper,
-  Container,
-  CardContainer
-} from './styled'
+import { PageRoomWrapper, Container, CardContainer } from './styled'
 
 import Api from 'shared/services'
 
@@ -23,13 +19,15 @@ export const PageViewCards = () => {
       <Container>
         <Breadcrumbs items={['Oddx', 'View cards', 'EN']} />
         <CardContainer>
-          {allCards && allCards.length
-            ? allCards.map((card, i) => (
+          {allCards && allCards.length ? (
+            allCards.map((card, i) => (
               <div key={i}>
                 <Card {...card} />
               </div>
             ))
-            : <div>Loading cards...</div>}
+          ) : (
+            <div>Loading cards...</div>
+          )}
         </CardContainer>
       </Container>
     </PageRoomWrapper>
