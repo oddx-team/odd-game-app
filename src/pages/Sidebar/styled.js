@@ -39,8 +39,8 @@ export const LinkItem = styled.div`
   i {
     position: relative;
     top: -0.03rem;
-    margin-right: 0.1rem;
-    font-size: 0.23rem;
+    margin-right: 0.18rem;
+    font-size: 0.35rem;
   }
   &:hover {
     cursor: pointer;
@@ -67,5 +67,25 @@ export const LinkItem = styled.div`
 `
 
 export const LinkText = styled.div`
-  ${font.size(0.17)}
+  ${font.size(0.18)}
+  margin-top: 0.07rem;
+  width: 2rem;
+  position: absolute;
+  left: 0.7rem;
+  text-align: left;
+`
+
+export const Header = styled(LinkItem)`
+  ${LinkText} {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    ${font.size(0.19)}
+  }
+`
+
+export const OddLogo = styled.img`
+  width: 0.35rem;
+  height: 0.35rem;
+  margin-right: 0.18rem;
 `
