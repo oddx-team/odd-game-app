@@ -18,18 +18,20 @@ export const ButtonCreate = styled(Button)`
 `
 
 export const Container = styled.div`
+  transition: all 0.4s;
   width: 100%;
   height: 100%;
   overflow-y: scroll;
   top: 0;
   background: #F1F2F5;
-  padding-left: 0.8rem;
+  padding-left: ${props => props.openSidebar ? 0.8 : 1.7}rem;
   padding-bottom: 0.5rem;
   position: relative;
 
   ${ButtonCreate} {
+    transition: left 0.4s;
     position: absolute;
-    right: 1.9rem;
+    left: ${props => props.openSidebar ? 8.96 : 9.9}rem;
     top: 0.45rem;
   }
 `

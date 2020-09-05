@@ -33,12 +33,12 @@ const Sidebar = () => {
 
       <Section>
         <LinkItem className='children'>
-          <Icon type='calendar' />
+          <Icon type='story' />
           <LinkText>Rooms</LinkText>
         </LinkItem>
         <LinkSubItem>
-          <Character>E</Character>
-          <LinkText>English</LinkText>
+          <Character>G</Character>
+          <LinkText>Global</LinkText>
         </LinkSubItem>
         <LinkSubItem>
           <Character>V</Character>

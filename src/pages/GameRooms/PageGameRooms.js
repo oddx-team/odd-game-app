@@ -12,10 +12,11 @@ import {
 } from './styled'
 
 import Api from 'services'
-import { useGameActions } from 'contexts/GameContext'
+import { useGameActions, useGameState } from 'contexts/GameContext'
 
 export const PageGameRooms = () => {
   const { openModal } = useModalActions()
+  const { fullSidebar } = useGameState()
   const { setBanner, setGlobalLoading, quitCurrentRoom } = useGameActions()
   const [allRooms, setAllRooms] = useState({ eRooms: [], vRooms: [] })
 
@@ -35,7 +36,7 @@ export const PageGameRooms = () => {
 
   return (
     <StyledGameRooms>
-      <Container>
+      <Container openSidebar={fullSidebar}>
         <Breadcrumbs items={['Oddx', 'Game rooms', 'English Rooms']} />
         <Title>Game rooms</Title>
         <Subtitle>Select any room:</Subtitle>
