@@ -151,7 +151,7 @@ export const GameSidebar = styled.div`
       width: 2.45rem;
     }
     ${LinkItem}::after {
-      display: inline-block;
+      opacity: 1;
     }
   }
 
@@ -160,7 +160,8 @@ export const GameSidebar = styled.div`
       width: ${props => (props.open ? 2.45 : 0.63)}rem; 
     }
     &::after {
-      display: ${props => props.open ? 'inline-block' : 'none'};
+      transition: opacity 0.4s;
+      opacity: ${props => props.open ? 1 : 0};
     }
   }
 `
