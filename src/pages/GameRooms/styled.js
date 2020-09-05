@@ -22,7 +22,6 @@ export const Container = styled.div`
   height: 100%;
   overflow-y: scroll;
   top: 0;
-  border: 0.013rem solid #ddd;
   background: #F1F2F5;
   padding-left: 0.8rem;
   padding-bottom: 0.5rem;
@@ -63,6 +62,7 @@ export const Subtitle = styled.div`
 export const RoomContainer = styled.div`
   ${mixin.flexCenter}
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;
 `
