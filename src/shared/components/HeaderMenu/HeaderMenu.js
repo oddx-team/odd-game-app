@@ -37,9 +37,9 @@ export const HeaderMenu = () => {
       <ButtonHamburger />
 
       <MenuContent>
-        {renderLinkItem(match, 'Profile', 'task')}
-        {renderLinkItem(match, 'View all cards', 'link', '/view-cards')}
-        {renderLinkItem(match, 'View rooms', 'attach', '/rooms')}
+        {renderLinkItem(match, 'Profile', 'story')}
+        {/* {renderLinkItem(match, 'View all cards', 'link', '/view-cards')}
+        {renderLinkItem(match, 'View rooms', 'attach', '/rooms')} */}
         <LinkItem onClick={logout}>
           <Icon type='close' />
           <LinkText>Logout</LinkText>

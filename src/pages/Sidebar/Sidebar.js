@@ -17,9 +17,9 @@ import {
 import Logo from 'assets/logo.png'
 
 const Sidebar = () => {
-  const { fullSidebar } = useGameState()
+  const { fullSidebar, isLoggedIn } = useGameState()
   return (
-    <GameSidebar open={fullSidebar}>
+    <GameSidebar open={fullSidebar} show={isLoggedIn}>
       <Header>
         <OddLogo alt='logo' src={Logo} />
         <LinkText>ODD Card Game</LinkText>

@@ -17,6 +17,12 @@ export const Arrow = styled.div`
   margin-right: 0.05rem;
 `
 
+export const Logo = styled.div`
+  ${imageCDN('event-logo.png', 0.33, 0.33)}
+  margin-top: 0.02rem;
+  margin-right: 0.07rem;
+`
+
 export const MainText = styled.div`
   font-family: 'Orbitron', sans-serif;
   font-size: 0.3rem;

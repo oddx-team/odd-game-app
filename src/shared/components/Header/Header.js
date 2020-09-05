@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { Fragment, useEffect, useContext } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { useGameState, useGameActions } from 'contexts/GameContext'
 import { SocketContext } from 'contexts/SocketContext'
@@ -7,6 +7,7 @@ import {
   HeaderWrapper,
   NavBar,
   Arrow,
+  Logo,
   Text,
   MainText,
   ProfileContainer,
@@ -44,10 +45,14 @@ export const Header = () => {
   return (
     <HeaderWrapper>
       <NavBar>
-        <Arrow onClick={toggleSidebar} sidebar={fullSidebar} />
-        <MainText>Oddx</MainText>
-        <Text onClick={quitRoom}>Rooms</Text>
-        <Text onClick={() => history.push('/view-cards')}>View Cards</Text>
+        {!isLoggedIn && <><Logo /><MainText>Oddx</MainText></>}
+        {isLoggedIn &&
+          <Fragment key={0}>
+            <Arrow onClick={toggleSidebar} sidebar={fullSidebar} />
+            <MainText>Oddx</MainText>
+            <Text onClick={quitRoom}>Rooms</Text>
+            <Text onClick={() => history.push('/view-cards')}>View Cards</Text>
+          </Fragment>}
       </NavBar>
 
       {isLoggedIn &&
