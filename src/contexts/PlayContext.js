@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 export const PlayContext = createContext(null, null)
 export const PlayActionsContext = createContext()
 
-export const usePlayContext = () => useContext(PlayContext)
-export const usePlayActionsContext = () => useContext(PlayActionsContext)
+export const usePlayState = () => useContext(PlayContext)
+export const usePlayActions = () => useContext(PlayActionsContext)
 
 const playReducer = (state, action) => {
   switch (action.type) {

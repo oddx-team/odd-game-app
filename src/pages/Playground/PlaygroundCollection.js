@@ -1,11 +1,11 @@
 import React from 'react'
 import { Card } from 'shared/components/Card'
-import { usePlayContext, usePlayActionsContext } from 'contexts/PlayContext'
+import { usePlayState, usePlayActions } from 'contexts/PlayContext'
 import { CollectionWrapper, CollectionHeader, CollectionContent } from './styled'
 
 export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
-  const { collectionCardIds } = usePlayContext()
-  const { getCardById } = usePlayActionsContext()
+  const { collectionCardIds } = usePlayState()
+  const { getCardById } = usePlayActions()
 
   const collectionCards = collectionCardIds?.map((cardId) => ({
     ...cardId,

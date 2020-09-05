@@ -127,10 +127,9 @@ html {
 }
 
 button {
-  transition: all 0.13s;
+  transition: all 0.2s;
 
   &:active {
-    transition: all 0s;
-    transform: scale(1.07);
+    transform: scale(1.05);
   }
 }
