@@ -63,7 +63,6 @@ export const LinkItem = styled.div`
 
   &:hover {
     color: #fff;
-
     &::before {
       ${mixin.cover}
       opacity: 0.2;
