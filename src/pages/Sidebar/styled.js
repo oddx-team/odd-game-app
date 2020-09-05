@@ -133,8 +133,9 @@ export const GameSidebar = styled.div`
   height: 100vh;
   width: ${props => (props.open ? sizes.sizeBarWidthOpen : sizes.sizeBarWidth)}rem;
   width: ${props => !props.show && 0}rem;
+  opacity: ${props => props.show ? 1 : 0};
   border-right: 1px solid ${color.borderLightest};
-  transition: width 0.35s;
+  transition: width 0.35s, opacity 0.2s;
   ${mixin.scrollableY}
   ${mixin.boxShadowMedium}
   ${mixin.customScrollbar()}
