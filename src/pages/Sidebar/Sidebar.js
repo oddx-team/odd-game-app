@@ -1,6 +1,6 @@
 import React from 'react'
 import { useGameState } from 'contexts/GameContext'
-import { GameSidebar, Header, LinkItem, LinkText, Divider, OddLogo } from './styled'
+import { GameSidebar, Header, Footer, LinkItem, LinkText, Divider, OddLogo } from './styled'
 import { Icon } from 'shared/components/Icon'
 import Logo from 'assets/logo.png'
 
@@ -15,13 +15,18 @@ const Sidebar = () => {
       <Divider />
 
       <LinkItem>
+        <Icon type='search' />
+        <LinkText>Search</LinkText>
+      </LinkItem>
+      <LinkItem>
         <Icon type='calendar' />
         <LinkText>Rooms</LinkText>
       </LinkItem>
-      <LinkItem>
+
+      <Footer>
         <Icon type='settings' />
         <LinkText>Settings</LinkText>
-      </LinkItem>
+      </Footer>
     </GameSidebar>
   )
 }
