@@ -1,7 +1,19 @@
 import React from 'react'
 import { useGameState } from 'contexts/GameContext'
-import { GameSidebar, Header, Footer, LinkItem, LinkText, Divider, OddLogo } from './styled'
 import { Icon } from 'shared/components/Icon'
+import {
+  GameSidebar,
+  Header,
+  Footer,
+  Section,
+  LinkItem,
+  LinkSubItem,
+  LinkText,
+  Character,
+  Divider,
+  OddLogo
+} from './styled'
+
 import Logo from 'assets/logo.png'
 
 const Sidebar = () => {
@@ -18,10 +30,21 @@ const Sidebar = () => {
         <Icon type='search' />
         <LinkText>Search</LinkText>
       </LinkItem>
-      <LinkItem>
-        <Icon type='calendar' />
-        <LinkText>Rooms</LinkText>
-      </LinkItem>
+
+      <Section>
+        <LinkItem className='children'>
+          <Icon type='calendar' />
+          <LinkText>Rooms</LinkText>
+        </LinkItem>
+        <LinkSubItem>
+          <Character>E</Character>
+          <LinkText>English</LinkText>
+        </LinkSubItem>
+        <LinkSubItem>
+          <Character>V</Character>
+          <LinkText>Vietnam</LinkText>
+        </LinkSubItem>
+      </Section>
 
       <Footer>
         <Icon type='settings' />
