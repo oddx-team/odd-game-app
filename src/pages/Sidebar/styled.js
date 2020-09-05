@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { color, sizes, mixin, font } from 'shared/utils/styles'
 import bgSidebar from '../../assets/bg-sidebar.jpg'
 
@@ -23,7 +23,7 @@ export const GameSidebar = styled.div`
   }
 
   &:hover {
-    width: 2.6rem;
+    width: ${sizes.sizeBarWidthOpen}rem;
   }
 `
 
@@ -36,7 +36,7 @@ export const Divider = styled.div`
 export const LinkItem = styled.div`
   position: relative;
   display: flex;
-  padding: 0.12rem 0rem 0.12rem 0.2rem;
+  padding: 0.12rem 0rem 0.12rem 0.28rem;
   text-decoration: none;
   color: ${color.textMenuSidebar};
   ${mixin.clickable}
@@ -47,24 +47,32 @@ export const LinkItem = styled.div`
     margin-right: 0.18rem;
     font-size: 0.35rem;
   }
+
+  &::before {
+    ${mixin.cover} 
+    content: '';
+    background: #fff;
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
+    height: 94%;
+    opacity: 0;
+    transition: opacity 0.4s;
+    border-radius: 0.07rem;
+  }
+
   &:hover {
     cursor: pointer;
-    color: #0477BD;
+    color: #fff;
 
     &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 0.04rem;
-      height: 100%;
-      background: #0477BD;
+      ${mixin.cover}
+      opacity: 0.2;
     }
   }
 
   &.active {
     color: ${color.primary};
-    background: ${color.backgroundLight};
+    background: red;
     i {
       color: ${color.primary};
     }
@@ -73,14 +81,16 @@ export const LinkItem = styled.div`
 
 export const LinkText = styled.div`
   ${font.size(0.18)}
+  text-transform: uppercase;
   margin-top: 0.07rem;
   width: 2rem;
   position: absolute;
-  left: 0.7rem;
+  left: 0.82rem;
   text-align: left;
 `
 
 export const Header = styled(LinkItem)`
+  pointer-events: none;
   ${LinkText} {
     font-weight: bold;
     text-transform: uppercase;

@@ -20,7 +20,7 @@ const Sidebar = () => {
       </LinkItem>
       <LinkItem>
         <Icon type='settings' />
-        <LinkText>Game Settings</LinkText>
+        <LinkText>Settings</LinkText>
       </LinkItem>
     </GameSidebar>
   )
