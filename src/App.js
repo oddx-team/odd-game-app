@@ -65,10 +65,10 @@ const App = () => {
 }
 
 const MainContent = ({ children }) => {
-  const { fullSidebar } = useGameState()
+  const { fullSidebar, isLoggedIn } = useGameState()
 
   return (
-    <Container openSidebar={fullSidebar}>
+    <Container openSidebar={fullSidebar} showSidebar={isLoggedIn}>
       {children}
     </Container>
   )
@@ -81,6 +81,7 @@ const Container = styled.div`
     ${props => props.openSidebar
     ? sizes.sizeBarWidthOpen - 0.05
     : sizes.sizeBarWidth - 0.05}rem;
+  padding-left: ${props => !props.showSidebar && 0}rem;
   transition: padding-left 0.35s;
 
   position: relative;

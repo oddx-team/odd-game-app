@@ -1,13 +1,16 @@
-import React, { useEffect, useContext } from 'react'
+import React, { Fragment, useEffect, useContext } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { useGameState, useGameActions } from 'contexts/GameContext'
+import { usePlayActions } from 'contexts/PlayContext'
 import { SocketContext } from 'contexts/SocketContext'
 import { HeaderMenu } from '../HeaderMenu'
 import {
   HeaderWrapper,
-  MainTitle,
+  NavBar,
   Arrow,
+  Logo,
   Text,
+  MainText,
   ProfileContainer,
   IconBell,
   IconUser
@@ -19,6 +22,7 @@ export const Header = () => {
   const { socket } = useContext(SocketContext)
   const { isLoggedIn, username, points, fullSidebar } = useGameState()
   const { login, logoutGame, toggleSidebar } = useGameActions()
+  const { clearPlaygroundData } = usePlayActions()
   const history = useHistory()
 
   useEffect(() => {
@@ -35,6 +39,7 @@ export const Header = () => {
 
   const quitRoom = () => {
     (() => {
+      clearPlaygroundData()
       window.socket.emit('leave-room', slug)
       history.push(isLoggedIn ? '/rooms' : '/')
     })()
@@ -42,10 +47,16 @@ export const Header = () => {
 
   return (
     <HeaderWrapper>
-      <MainTitle>
-        <Arrow onClick={toggleSidebar} sidebar={fullSidebar} />
-        <Text onClick={quitRoom}>Oddx</Text>
-      </MainTitle>
+      <NavBar>
+        {!isLoggedIn && <><Logo /><MainText>Oddx</MainText></>}
+        {isLoggedIn &&
+          <Fragment key={0}>
+            <Arrow onClick={toggleSidebar} sidebar={fullSidebar} />
+            <MainText>Oddx</MainText>
+            <Text onClick={quitRoom}>Rooms</Text>
+            <Text onClick={() => history.push('/view-cards')}>View Cards</Text>
+          </Fragment>}
+      </NavBar>
 
       {isLoggedIn &&
         <div>

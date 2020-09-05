@@ -1,13 +1,6 @@
 import styled from 'styled-components/macro'
-
-export const PlaygroundWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background: #F1F2F5;
-  padding-left: 0.3rem;
-  padding-top: 0.1rem;
-`
+import { mixin } from 'shared/utils/styles'
+import { Button } from 'shared/components/Button'
 
 export const Header = styled.div`
   padding-top: 0.1rem;
@@ -25,13 +18,6 @@ export const Container = styled.div`
   justify-content: flex-start;
 `
 
-export const BlackCardContainer = styled.div`
-  padding-top: 0.1rem;
-  text-align: left;
-`
-
-export const WhiteCardContainer = styled(BlackCardContainer)``
-
 export const LeftTitle = styled.div`
   color: #000;
   font-size: 0.2rem;
@@ -44,30 +30,45 @@ export const RightTitle = styled(LeftTitle)`
   margin-left: 0.15rem;
 `
 
-export const ButtonConfirm = styled.button`
+export const ButtonConfirm = styled(Button)`
   width: 2.42rem;
+  height: 0.4rem;
   color: #fff;
   font-size: 0.21rem;
   font-weight: bold;
   text-transform: uppercase;
 `
 
+export const BlackCardContainer = styled.div`
+  padding-top: 0.1rem;
+  text-align: left;
+
+  ${ButtonConfirm} {
+    margin-top: -0.1rem;
+  }
+`
+
+export const WhiteCardContainer = styled(BlackCardContainer)`
+`
+
 export const CardsList = styled.div`
   position: absolute;
-  top: 0.5rem;
-  left: 2.96rem;
+  top: 0.6rem;
+  margin-left: 0.1rem;
   display: flex;
   padding-left: 0.1rem;
   padding-top: 0.05rem;
   margin-top: 0.2rem;
   height: 3.55rem;
+  width: 9rem;
   overflow-y: auto;
   flex-wrap: wrap;
   justify-content: flex-start;
 `
 
 export const CollectionWrapper = styled.div`
-  width: 12rem;
+  ${mixin.boxShadowMedium}
+  width: 11.5rem;
   height: 1.85rem;
   background: #fff;
   position: absolute;
@@ -98,4 +99,19 @@ export const CollectionContent = styled.div`
   overflow-y: auto;
   height: 1.55rem;
   background: #FAFAFA;
+`
+
+export const PlaygroundWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #F1F2F5;
+  padding-top: 0.1rem;
+  padding-left: ${props => props.openSidebar ? 0.3 : 0.8}rem; 
+  transition: all 0.4s;
+
+  ${CollectionWrapper} {
+    transition: all 0.4s;
+    margin-left: ${props => props.openSidebar ? 0.3 : 0.8}rem; 
+  }
 `

@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 import { imageCDN } from 'mixins'
-import { sizes, mixin } from 'shared/utils/styles'
+import { sizes, mixin, font } from 'shared/utils/styles'
 
 export const HeaderWrapper = styled.div`
   width: 100%;
@@ -17,13 +17,34 @@ export const Arrow = styled.div`
   margin-right: 0.05rem;
 `
 
-export const Text = styled.div``
+export const Logo = styled.div`
+  ${imageCDN('event-logo.png', 0.33, 0.33)}
+  margin-top: 0.02rem;
+  margin-right: 0.07rem;
+`
 
-export const MainTitle = styled.div`
-  color: #424242;
+export const MainText = styled.div`
+  font-family: 'Orbitron', sans-serif;
   font-size: 0.3rem;
   font-weight: bold;
-  font-family: 'Orbitron', sans-serif;
+`
+
+export const Text = styled.div`
+  margin-top: 0.05rem;
+  margin-left: 0.34rem;
+  text-transform: uppercase;
+  padding: 0.07rem 0;
+  ${font.size(0.19)}
+
+  // border-bottom: 0.04rem solid #0477BD;
+
+  &:hover {
+    font-weight: bold;
+  }
+`
+
+export const NavBar = styled.div`
+  color: #424242;
   position: absolute;
   top: 0.05rem;
   margin-left: 0.3rem;

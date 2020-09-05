@@ -13,9 +13,10 @@ export const Container = styled.div`
   overflow-y: scroll;
   top: 0;
   background: #f1f2f5;
-  padding-left: 0.5rem;
+  padding-left: ${props => props.openSidebar ? 0.5 : 1.7}rem; 
   padding-bottom: 0.5rem;
   position: relative;
+  transition: all 0.4s;
 `
 
 export const CardContainer = styled.div`

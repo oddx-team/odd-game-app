@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { useFetch } from 'hooks/fetch'
-import { usePlayActionsContext, usePlayContext } from 'contexts/PlayContext'
-import { useGameActions } from 'contexts/GameContext'
+import { usePlayActions, usePlayState } from 'contexts/PlayContext'
+import { useGameActions, useGameState } from 'contexts/GameContext'
 import { useModalActions } from 'contexts/ModalContext'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'shared/components/Card'
@@ -25,17 +25,18 @@ import Api from 'services'
 export const PagePlayground = () => {
   const { slug } = useParams()
   const { socket } = useContext(SocketContext)
+  const { fullSidebar } = useGameState()
   const [allCards, loading] = useFetch(Api.getAllCards)
   const [dealCard, setDealCard] = useState(null)
   const [cardState, setCardState] = useState('closed')
 
-  const { blackCardId, playedCardIds } = usePlayContext()
+  const { blackCardId, playedCardIds } = usePlayState()
   const { setError } = useModalActions()
-  const { setGlobalLoading } = useGameActions()
+  const { setGlobalLoading, setSidebar } = useGameActions()
   const {
     setAllCards, getCardById,
     setPlaygroundData, confirmDealCard
-  } = usePlayActionsContext()
+  } = usePlayActions()
 
   // Card data to display
   const blackCard = getCardById(blackCardId)
@@ -44,6 +45,10 @@ export const PagePlayground = () => {
     ...getCardById(card.Id)
   }))
 
+  useEffect(() => {
+    revealCards()
+    setSidebar(false)
+  }, [])
   useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
   useEffect(() => { if (allCards) setAllCards(allCards) }, [allCards, setAllCards])
   useEffect(() => {
@@ -85,7 +90,7 @@ export const PagePlayground = () => {
   }
 
   return (
-    <PlaygroundWrapper>
+    <PlaygroundWrapper openSidebar={fullSidebar}>
       <div>
         <Breadcrumbs items={['Oddx', 'Playground', slug]} />
         <Header>Select a card to play!</Header>
@@ -95,11 +100,8 @@ export const PagePlayground = () => {
               ? <Card color='black' size='large' text={blackCard.text} onClick={() => {}} />
               : <Card color='black' size='large' text='Loading...' />}
 
-            <ButtonConfirm className='block dark-blue' onClick={confirmSelection}>
+            <ButtonConfirm variant='primary' icon='plus' iconSize={0.29} onClick={confirmSelection}>
                   Confirm
-            </ButtonConfirm>
-            <ButtonConfirm className='block dark-green' onClick={revealCards}>
-                  Reveal
             </ButtonConfirm>
           </BlackCardContainer>
 
@@ -118,12 +120,12 @@ export const PagePlayground = () => {
               ))}
             </CardsList>
           </WhiteCardContainer>
-        </Container>
 
-        <PlaygroundCollection
-          dealCard={dealCard}
-          selectDealCard={cardId => setDealCard(cardId)}
-        />
+          <PlaygroundCollection
+            dealCard={dealCard}
+            selectDealCard={cardId => setDealCard(cardId)}
+          />
+        </Container>
       </div>
     </PlaygroundWrapper>
   )

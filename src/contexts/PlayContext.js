@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 export const PlayContext = createContext(null, null)
 export const PlayActionsContext = createContext()
 
-export const usePlayContext = () => useContext(PlayContext)
-export const usePlayActionsContext = () => useContext(PlayActionsContext)
+export const usePlayState = () => useContext(PlayContext)
+export const usePlayActions = () => useContext(PlayActionsContext)
 
 const playReducer = (state, action) => {
   switch (action.type) {
@@ -52,6 +52,14 @@ const PlayContextProvider = ({ children }) => {
 
     setPlaygroundData: useCallback((mode, collectionCardIds, playedCardIds, blackCardId) => {
       dispatch({ type: 'UPDATE_MODE', mode })
+      dispatch({ type: 'UPDATE_COLLECTION_CARDS', collectionCardIds })
+      dispatch({ type: 'UPDATE_PLAYED_CARDS', playedCardIds })
+      dispatch({ type: 'UPDATE_BLACK_CARD', blackCardId })
+    }, []),
+    clearPlaygroundData: useCallback(() => {
+      const collectionCardIds = []
+      const playedCardIds = []
+      const blackCardId = null
       dispatch({ type: 'UPDATE_COLLECTION_CARDS', collectionCardIds })
       dispatch({ type: 'UPDATE_PLAYED_CARDS', playedCardIds })
       dispatch({ type: 'UPDATE_BLACK_CARD', blackCardId })

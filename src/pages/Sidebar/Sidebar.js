@@ -1,13 +1,25 @@
 import React from 'react'
 import { useGameState } from 'contexts/GameContext'
-import { GameSidebar, Header, LinkItem, LinkText, Divider, OddLogo } from './styled'
 import { Icon } from 'shared/components/Icon'
+import {
+  GameSidebar,
+  Header,
+  Footer,
+  Section,
+  LinkItem,
+  LinkSubItem,
+  LinkText,
+  Character,
+  Divider,
+  OddLogo
+} from './styled'
+
 import Logo from 'assets/logo.png'
 
 const Sidebar = () => {
-  const { fullSidebar } = useGameState()
+  const { fullSidebar, isLoggedIn } = useGameState()
   return (
-    <GameSidebar open={fullSidebar}>
+    <GameSidebar open={fullSidebar} show={isLoggedIn}>
       <Header>
         <OddLogo alt='logo' src={Logo} />
         <LinkText>ODD Card Game</LinkText>
@@ -15,13 +27,29 @@ const Sidebar = () => {
       <Divider />
 
       <LinkItem>
-        <Icon type='calendar' />
-        <LinkText>Rooms</LinkText>
+        <Icon type='search' />
+        <LinkText>Search</LinkText>
       </LinkItem>
-      <LinkItem>
+
+      <Section>
+        <LinkItem className='children'>
+          <Icon type='story' />
+          <LinkText>Rooms</LinkText>
+        </LinkItem>
+        <LinkSubItem>
+          <Character>G</Character>
+          <LinkText>Global</LinkText>
+        </LinkSubItem>
+        <LinkSubItem>
+          <Character>V</Character>
+          <LinkText>Vietnam</LinkText>
+        </LinkSubItem>
+      </Section>
+
+      <Footer>
         <Icon type='settings' />
-        <LinkText>Game Settings</LinkText>
-      </LinkItem>
+        <LinkText>Settings</LinkText>
+      </Footer>
     </GameSidebar>
   )
 }

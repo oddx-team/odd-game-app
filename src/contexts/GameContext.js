@@ -46,7 +46,7 @@ const GameContextProvider = ({ children }) => {
     vRooms: [],
     online: false,
     fullBanner: true,
-    fullSidebar: false
+    fullSidebar: true
   }, undefined)
 
   const actions = {
@@ -58,6 +58,9 @@ const GameContextProvider = ({ children }) => {
     }, []),
     setBanner: useCallback((banner) => {
       dispatch({ type: 'SET_FULL_BANNER', fullBanner: banner })
+    }, []),
+    setSidebar: useCallback((sidebar) => {
+      dispatch({ type: 'SET_FULL_SIDEBAR', fullSidebar: sidebar })
     }, []),
     toggleSidebar: useCallback(() => {
       dispatch({ type: 'SET_FULL_SIDEBAR', fullSidebar: !state.fullSidebar })

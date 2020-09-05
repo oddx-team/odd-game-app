@@ -11,20 +11,24 @@ export const Card = ({ color, size, text, closed, onClick }) => {
   return (
     <div className={cardClasses} onClick={() => onClick && onClick()}>
       <div className='card-inner'>
-        <div className='card-title'>{ReactHtmlParser(text)}</div>
-        <div className='card-question' />
-        <div className='card-logo'>
-          <img alt='IconLogo' src={IconLogo} />
-          <span>Oddx</span>
-        </div>
-
-        {color === 'black' && size === 'large' && (
-          <div className='card-picker'>
-            <div>Pick</div>
-            <div>2</div>
+        <div className='card back' />
+        <div className='card front'>
+          <div className='card-title'>{ReactHtmlParser(text)}</div>
+          <div className='card-question' />
+          <div className='card-logo'>
+            <img alt='IconLogo' src={IconLogo} />
+            <span>Oddx</span>
           </div>
-        )}
+
+          {color === 'black' && size === 'large' && (
+            <div className='card-picker'>
+              <div>Pick</div>
+              <div>2</div>
+            </div>
+          )}
+        </div>
       </div>
+
     </div>
   )
 }
