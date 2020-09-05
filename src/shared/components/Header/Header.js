@@ -5,9 +5,10 @@ import { SocketContext } from 'contexts/SocketContext'
 import { HeaderMenu } from '../HeaderMenu'
 import {
   HeaderWrapper,
-  MainTitle,
+  NavBar,
   Arrow,
   Text,
+  MainText,
   ProfileContainer,
   IconBell,
   IconUser
@@ -42,10 +43,12 @@ export const Header = () => {
 
   return (
     <HeaderWrapper>
-      <MainTitle>
+      <NavBar>
         <Arrow onClick={toggleSidebar} sidebar={fullSidebar} />
-        <Text onClick={quitRoom}>Oddx</Text>
-      </MainTitle>
+        <MainText>Oddx</MainText>
+        <Text onClick={quitRoom}>Rooms</Text>
+        <Text onClick={() => history.push('/view-cards')}>View Cards</Text>
+      </NavBar>
 
       {isLoggedIn &&
         <div>

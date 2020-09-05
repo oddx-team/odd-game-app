@@ -24,14 +24,14 @@ export const Container = styled.div`
   overflow-y: scroll;
   top: 0;
   background: #F1F2F5;
-  padding-left: ${props => props.openSidebar ? 0.8 : 1.7}rem;
+  padding-left: ${props => props.openSidebar ? 0.8 : 2}rem;
   padding-bottom: 0.5rem;
   position: relative;
 
   ${ButtonCreate} {
     transition: left 0.4s;
     position: absolute;
-    left: ${props => props.openSidebar ? 8.96 : 9.9}rem;
+    left: ${props => props.openSidebar ? 8.96 : 10.2}rem;
     top: 0.45rem;
   }
 `
