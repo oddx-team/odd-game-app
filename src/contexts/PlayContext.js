@@ -56,6 +56,14 @@ const PlayContextProvider = ({ children }) => {
       dispatch({ type: 'UPDATE_PLAYED_CARDS', playedCardIds })
       dispatch({ type: 'UPDATE_BLACK_CARD', blackCardId })
     }, []),
+    clearPlaygroundData: useCallback(() => {
+      const collectionCardIds = []
+      const playedCardIds = []
+      const blackCardId = null
+      dispatch({ type: 'UPDATE_COLLECTION_CARDS', collectionCardIds })
+      dispatch({ type: 'UPDATE_PLAYED_CARDS', playedCardIds })
+      dispatch({ type: 'UPDATE_BLACK_CARD', blackCardId })
+    }, []),
 
     getCardById: useCallback((Id) => {
       return state.allCards

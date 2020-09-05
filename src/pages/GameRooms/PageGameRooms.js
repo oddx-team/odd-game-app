@@ -22,7 +22,6 @@ export const PageGameRooms = () => {
 
   const currentRoomList = allRooms.eRooms
 
-  // fetch data
   useEffect(() => {
     (async () => {
       quitCurrentRoom()
