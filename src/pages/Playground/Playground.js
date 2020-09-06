@@ -30,6 +30,7 @@ export const PagePlayground = () => {
   const [allCards, loading] = useFetch(Api.getAllCards)
   const [dealCard, setDealCard] = useState(null)
   const [cardState, setCardState] = useState('closed')
+  const [showFake, setShowFake] = useState(false)
 
   const { blackCardId, playedCardIds } = usePlayState()
   const { setError } = useModalActions()
@@ -55,7 +56,12 @@ export const PagePlayground = () => {
     }
   }
 
+  const onDragUpdate = (update) => {
+    setShowFake(true)
+  }
+
   const onDragEnd = (result) => {
+    setShowFake(false)
     const { source, destination } = result
     if (!destination) return
     if (source.droppableId === destination.droppableId) return
@@ -91,19 +97,6 @@ export const PagePlayground = () => {
     })()
   }, [setPlaygroundData, slug, socket])
 
-  const getStyle = (style, snapshot) => {
-    if (!snapshot.isDragging) return {}
-    if (!snapshot.isDropAnimating) {
-      return style
-    }
-
-    return {
-      ...style,
-      // cannot be 0, but make it super tiny
-      transitionDuration: '0.001s'
-    }
-  }
-
   return (
     <PlaygroundWrapper openSidebar={fullSidebar}>
       <div>
@@ -124,7 +117,7 @@ export const PagePlayground = () => {
             </ButtonConfirm>
           </BlackCardContainer>
 
-          <DragDropContext onDragEnd={onDragEnd}>
+          <DragDropContext onDragEnd={onDragEnd} onDragUpdate={onDragUpdate}>
             <WhiteCardContainer>
               <RightTitle>The white cards played this round:</RightTitle>
               <Droppable droppableId='card-play' direction='horizontal'>
@@ -146,7 +139,7 @@ export const PagePlayground = () => {
                               ref={cardProvided.innerRef}
                               {...cardProvided.draggableProps}
                               {...cardProvided.dragHandleProps}
-                              style={getStyle(cardProvided.draggableProps.style, cardSnapshot)}
+                              style={{}}
                             >
                               <Card
                                 {...card}
@@ -159,6 +152,13 @@ export const PagePlayground = () => {
                         </Draggable>
                       </div>
                     ))}
+                    <Card
+                      isFake
+                      showFake={showFake}
+                      color='white'
+                      onClick={() => {}}
+                      size={playedCards.length <= 3 ? 'medium' : 'small'}
+                    />
                     <span style={{ display: 'none' }}>
                       {provided.placeholder}
                     </span>
