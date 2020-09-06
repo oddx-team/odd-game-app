@@ -115,3 +115,9 @@ export const PlaygroundWrapper = styled.div`
     margin-left: ${props => props.openSidebar ? 0.3 : 0.8}rem; 
   }
 `
+
+export const CardWrapper = styled.div`
+  &:focus {
+    outline: none;
+  }
+`

@@ -72,9 +72,13 @@ const PlayContextProvider = ({ children }) => {
     }, [state.allCards]),
 
     confirmDealCard: useCallback((cardId) => {
+      const index = state.collectionCardIds.indexOf(cardId)
+      const newCollectionIds = Array.from(state.collectionCardIds)
+      newCollectionIds.splice(index, 1)
+
       dispatch({
         type: 'UPDATE_COLLECTION_CARDS',
-        collectionCardIds: state.collectionCardIds.filter(id => id !== cardId)
+        collectionCardIds: newCollectionIds
       })
       dispatch({
         type: 'UPDATE_PLAYED_CARDS',
