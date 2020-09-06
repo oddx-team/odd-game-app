@@ -11,7 +11,7 @@
 }
 
 .main {
-  @include sizeWH(14.7rem, calc(100vmin - 0.6rem), $pos: relative);
+  @include sizeWH(14.7rem, calc(100vmin - 0.5rem), $pos: relative);
 }
 
 .header-bg {
