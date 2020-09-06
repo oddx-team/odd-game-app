@@ -133,3 +133,12 @@ button {
     transform: scale(1.05);
   }
 }
+
+input,
+select {
+  box-shadow: none;
+  padding-left: 0.1rem;
+  -webkit-user-select:text;
+}
+
+

@@ -8,6 +8,7 @@ import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'shared/components/Card'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import { SocketContext } from 'contexts/SocketContext'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 import {
   PlaygroundWrapper,
@@ -29,6 +30,7 @@ export const PagePlayground = () => {
   const [allCards, loading] = useFetch(Api.getAllCards)
   const [dealCard, setDealCard] = useState(null)
   const [cardState, setCardState] = useState('closed')
+  const [showFake, setShowFake] = useState(false)
 
   const { blackCardId, playedCardIds } = usePlayState()
   const { setError } = useModalActions()
@@ -45,10 +47,33 @@ export const PagePlayground = () => {
     ...getCardById(card.Id)
   }))
 
+  const confirmSelection = () => {
+    if (!dealCard) {
+      setError("You haven't selected any cards!!!")
+    } else {
+      confirmDealCard(dealCard)
+      setDealCard(null)
+    }
+  }
+
+  const onDragUpdate = (update) => {
+    setShowFake(true)
+  }
+
+  const onDragEnd = (result) => {
+    setShowFake(false)
+    const { source, destination } = result
+    if (!destination) return
+    if (source.droppableId === destination.droppableId) return
+
+    const movedCard = result.draggableId
+    confirmDealCard(movedCard)
+  }
+
   useEffect(() => {
-    revealCards()
+    setCardState('reveal')
     setSidebar(false)
-  }, [])
+  }, [setSidebar])
   useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
   useEffect(() => { if (allCards) setAllCards(allCards) }, [allCards, setAllCards])
   useEffect(() => {
@@ -72,23 +97,6 @@ export const PagePlayground = () => {
     })()
   }, [setPlaygroundData, slug, socket])
 
-  const confirmSelection = () => {
-    if (!dealCard) {
-      setError("You haven't selected any cards!!!")
-    } else {
-      confirmDealCard(dealCard)
-      setDealCard(null)
-    }
-  }
-
-  const revealCards = () => {
-    if (cardState === 'closed') {
-      setCardState('reveal')
-    } else {
-      setCardState('closed')
-    }
-  }
-
   return (
     <PlaygroundWrapper openSidebar={fullSidebar}>
       <div>
@@ -100,31 +108,70 @@ export const PagePlayground = () => {
               ? <Card color='black' size='large' text={blackCard.text} onClick={() => {}} />
               : <Card color='black' size='large' text='Loading...' />}
 
-            <ButtonConfirm variant='primary' icon='plus' iconSize={0.29} onClick={confirmSelection}>
-                  Confirm
+            <ButtonConfirm
+              variant='primary'
+              icon='plus'
+              iconSize={0.29}
+              onClick={confirmSelection}
+            >Confirm
             </ButtonConfirm>
           </BlackCardContainer>
 
-          <WhiteCardContainer>
-            <RightTitle>The white cards played this round:</RightTitle>
-            <CardsList>
-              {playedCards && playedCards.map((card, i) => (
-                <div key={i}>
-                  <Card
-                    {...card}
-                    onClick={() => {}}
-                    size={playedCards.length <= 4 ? 'medium' : 'small'}
-                    closed={cardState}
-                  />
-                </div>
-              ))}
-            </CardsList>
-          </WhiteCardContainer>
+          <DragDropContext onDragEnd={onDragEnd} onDragUpdate={onDragUpdate}>
+            <WhiteCardContainer>
+              <RightTitle>The white cards played this round:</RightTitle>
+              <Droppable droppableId='card-play' direction='horizontal'>
+                {(provided, snapshot) => (
+                  <CardsList
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                    isDraggingOver={snapshot.isDraggingOver}
+                  >
+                    {playedCards && playedCards.map((card, i) => (
+                      <div key={card.Id}>
+                        <Draggable
+                          draggableId={card.Id}
+                          index={i}
+                          isDragDisabled
+                        >
+                          {(cardProvided, cardSnapshot) => (
+                            <div
+                              ref={cardProvided.innerRef}
+                              {...cardProvided.draggableProps}
+                              {...cardProvided.dragHandleProps}
+                              style={{}}
+                            >
+                              <Card
+                                {...card}
+                                onClick={() => {}}
+                                size={playedCards.length <= 3 ? 'medium' : 'small'}
+                                closed={cardState}
+                              />
+                            </div>
+                          )}
+                        </Draggable>
+                      </div>
+                    ))}
+                    <Card
+                      isFake
+                      showFake={showFake}
+                      color='white'
+                      onClick={() => {}}
+                      size={playedCards.length <= 3 ? 'medium' : 'small'}
+                    />
+                    <span style={{ display: 'none' }}>
+                      {provided.placeholder}
+                    </span>
+                  </CardsList>
+                )}
+              </Droppable>
+            </WhiteCardContainer>
 
-          <PlaygroundCollection
-            dealCard={dealCard}
-            selectDealCard={cardId => setDealCard(cardId)}
-          />
+            <PlaygroundCollection
+              dealCard={dealCard}
+              selectDealCard={cardId => setDealCard(cardId)}
+            />
+          </DragDropContext>
         </Container>
       </div>
     </PlaygroundWrapper>

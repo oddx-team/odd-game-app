@@ -4,11 +4,29 @@
   @include sizeWH(2.4rem, 2.1rem);
   @include boxShadow();
   background: #212121;
-  padding: 0.2rem;
+  padding: 0.15rem;
   margin-right: 0.2rem;
   margin-bottom: 0.2rem;
   position: relative;
   text-align: left;
+
+  &.isFake {
+    @include sizeWH(100%, 100%);
+    transition: opacity 0s;
+    border: 0.03rem dashed #616161;
+    opacity: 0;
+
+    &::before {
+      content: '';
+      @include alignCenter();
+      @include imageCDN('icon-plus-big.png', 1rem, 1rem);
+    }
+
+    &.showFake {
+      transition: opacity 0.3s;
+      opacity: 0.45;
+    }
+  }
 
   .card-title {
     @include textMixin(#fff, 0.22rem, $align: left);

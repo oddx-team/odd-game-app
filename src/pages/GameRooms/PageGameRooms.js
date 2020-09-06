@@ -36,7 +36,7 @@ export const PageGameRooms = () => {
   return (
     <StyledGameRooms>
       <Container openSidebar={fullSidebar}>
-        <Breadcrumbs items={['Oddx', 'Game rooms', 'English Rooms']} />
+        <Breadcrumbs items={['Oddx', 'Game rooms', 'Global server']} />
         <Title>Game rooms</Title>
         <Subtitle>Select any room:</Subtitle>
         <ButtonCreate

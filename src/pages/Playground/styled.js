@@ -56,14 +56,17 @@ export const CardsList = styled.div`
   top: 0.6rem;
   margin-left: 0.1rem;
   display: flex;
-  padding-left: 0.1rem;
-  padding-top: 0.05rem;
+  padding-left: 0.08rem;
+  padding-top: 0.08rem;
   margin-top: 0.2rem;
   height: 3.55rem;
   width: 9rem;
   overflow-y: auto;
   flex-wrap: wrap;
   justify-content: flex-start;
+  transition: background-color 0.35s;
+  opacity: ${props => props.isDraggingOver ? 0.65 : 1};
+  background-color: ${props => props.isDraggingOver ? '#81D4FA' : 'transparent'};
 `
 
 export const CollectionWrapper = styled.div`
@@ -113,5 +116,11 @@ export const PlaygroundWrapper = styled.div`
   ${CollectionWrapper} {
     transition: all 0.4s;
     margin-left: ${props => props.openSidebar ? 0.3 : 0.8}rem; 
+  }
+`
+
+export const CardWrapper = styled.div`
+  &:focus {
+    outline: none;
   }
 `
