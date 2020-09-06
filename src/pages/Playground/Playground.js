@@ -100,8 +100,12 @@ export const PagePlayground = () => {
               ? <Card color='black' size='large' text={blackCard.text} onClick={() => {}} />
               : <Card color='black' size='large' text='Loading...' />}
 
-            <ButtonConfirm variant='primary' icon='plus' iconSize={0.29} onClick={confirmSelection}>
-                  Confirm
+            <ButtonConfirm
+              variant='primary'
+              icon='plus'
+              iconSize={0.29}
+              onClick={confirmSelection}
+            >Confirm
             </ButtonConfirm>
           </BlackCardContainer>
 
