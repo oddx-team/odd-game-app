@@ -91,6 +91,19 @@ export const PagePlayground = () => {
     })()
   }, [setPlaygroundData, slug, socket])
 
+  const getStyle = (style, snapshot) => {
+    if (!snapshot.isDragging) return {}
+    if (!snapshot.isDropAnimating) {
+      return style
+    }
+
+    return {
+      ...style,
+      // cannot be 0, but make it super tiny
+      transitionDuration: '0.001s'
+    }
+  }
+
   return (
     <PlaygroundWrapper openSidebar={fullSidebar}>
       <div>
@@ -123,29 +136,32 @@ export const PagePlayground = () => {
                   >
                     {playedCards && playedCards.map((card, i) => (
                       <div key={card.Id}>
-                        <Draggable draggableId={card.Id} index={i} isDragDisabled>
+                        <Draggable
+                          draggableId={card.Id}
+                          index={i}
+                          isDragDisabled
+                        >
                           {(cardProvided, cardSnapshot) => (
                             <div
                               ref={cardProvided.innerRef}
                               {...cardProvided.draggableProps}
                               {...cardProvided.dragHandleProps}
-                              isDragging={cardSnapshot.isDragging}
-                              isDragDisabled
+                              style={getStyle(cardProvided.draggableProps.style, cardSnapshot)}
                             >
                               <Card
                                 {...card}
                                 onClick={() => {}}
-                                size={playedCards.length <= 4 ? 'medium' : 'small'}
+                                size={playedCards.length <= 3 ? 'medium' : 'small'}
                                 closed={cardState}
                               />
                             </div>
-
                           )}
-
                         </Draggable>
                       </div>
                     ))}
-                    {provided.placeholder}
+                    <span style={{ display: 'none' }}>
+                      {provided.placeholder}
+                    </span>
                   </CardsList>
                 )}
               </Droppable>

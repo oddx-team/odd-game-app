@@ -56,8 +56,8 @@ export const CardsList = styled.div`
   top: 0.6rem;
   margin-left: 0.1rem;
   display: flex;
-  padding-left: 0.1rem;
-  padding-top: 0.05rem;
+  padding-left: 0.08rem;
+  padding-top: 0.08rem;
   margin-top: 0.2rem;
   height: 3.55rem;
   width: 9rem;

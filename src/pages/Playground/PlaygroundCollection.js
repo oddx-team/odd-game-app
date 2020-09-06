@@ -13,6 +13,17 @@ export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
     ...getCardById(cardId)
   }))
 
+  function getStyle (style, snapshot) {
+    if (!snapshot.isDropAnimating) {
+      return style
+    }
+    return {
+      ...style,
+      // cannot be 0, but make it super tiny
+      transitionDuration: '0.01s'
+    }
+  }
+
   return (
     <CollectionWrapper>
       <CollectionHeader>Player Collection</CollectionHeader>
@@ -32,6 +43,7 @@ export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
                       {...cardProvided.draggableProps}
                       {...cardProvided.dragHandleProps}
                       isDragging={cardSnapshot.isDragging}
+                      style={getStyle(cardProvided.draggableProps.style, cardSnapshot)}
                     >
                       <Card
                         {...card}
