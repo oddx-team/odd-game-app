@@ -60,7 +60,7 @@ export const PageLanding = () => {
 
           <Container>
             <Title>Play now</Title>
-            <StyledNamePanel className='wrapper block'>
+            <StyledNamePanel>
               <TextInput
                 type='text'
                 placeholder='Enter your name'

@@ -8,7 +8,7 @@ import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'shared/components/Card'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import { SocketContext } from 'contexts/SocketContext'
-import { DragDropContext, Droppable } from 'react-beautiful-dnd'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 import {
   PlaygroundWrapper,
@@ -56,7 +56,10 @@ export const PagePlayground = () => {
   }
 
   const onDragEnd = (result) => {
-    // TODO
+    const { source, destination } = result
+    if (!destination) return
+    if (source.droppableId === destination.droppableId) return
+
     const movedCard = result.draggableId
     confirmDealCard(movedCard)
   }
@@ -111,7 +114,7 @@ export const PagePlayground = () => {
           <DragDropContext onDragEnd={onDragEnd}>
             <WhiteCardContainer>
               <RightTitle>The white cards played this round:</RightTitle>
-              <Droppable droppableId='card-play'>
+              <Droppable droppableId='card-play' direction='horizontal'>
                 {(provided, snapshot) => (
                   <CardsList
                     ref={provided.innerRef}
@@ -120,12 +123,26 @@ export const PagePlayground = () => {
                   >
                     {playedCards && playedCards.map((card, i) => (
                       <div key={card.Id}>
-                        <Card
-                          {...card}
-                          onClick={() => {}}
-                          size={playedCards.length <= 4 ? 'medium' : 'small'}
-                          closed={cardState}
-                        />
+                        <Draggable draggableId={card.Id} index={i} isDragDisabled>
+                          {(cardProvided, cardSnapshot) => (
+                            <div
+                              ref={cardProvided.innerRef}
+                              {...cardProvided.draggableProps}
+                              {...cardProvided.dragHandleProps}
+                              isDragging={cardSnapshot.isDragging}
+                              isDragDisabled
+                            >
+                              <Card
+                                {...card}
+                                onClick={() => {}}
+                                size={playedCards.length <= 4 ? 'medium' : 'small'}
+                                closed={cardState}
+                              />
+                            </div>
+
+                          )}
+
+                        </Draggable>
                       </div>
                     ))}
                     {provided.placeholder}

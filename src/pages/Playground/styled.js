@@ -64,6 +64,9 @@ export const CardsList = styled.div`
   overflow-y: auto;
   flex-wrap: wrap;
   justify-content: flex-start;
+  transition: background-color 0.35s;
+  opacity: ${props => props.isDraggingOver ? 0.65 : 1};
+  background-color: ${props => props.isDraggingOver ? '#81D4FA' : 'transparent'};
 `
 
 export const CollectionWrapper = styled.div`
