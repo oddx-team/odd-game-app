@@ -34,7 +34,14 @@ export class Card extends Component {
               )}
             </div>
           </div>
-        )}
+
+          {color === 'black' && size === 'large' && (
+            <div className='card-picker'>
+              <div>Pick</div>
+              <div>2</div>
+            </div>
+          )}
+        </div>
       </div>
     )
   }

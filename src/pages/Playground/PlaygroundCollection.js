@@ -3,7 +3,6 @@ import { Card } from 'shared/components/Card'
 import { usePlayState, usePlayActions } from 'contexts/PlayContext'
 import { CollectionWrapper, CollectionHeader, CollectionContent, CardWrapper } from './styled'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
-
 export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
   const { collectionCardIds } = usePlayState()
   const { getCardById } = usePlayActions()
