@@ -13,7 +13,7 @@ export class Card extends Component {
     return (
       <div className={cardClasses} onClick={() => onClick && onClick()}>
         {isFake && (
-          <div />
+          <div className='fake' />
         )}
         {!isFake && (
           <div className='card-inner'>
@@ -34,14 +34,7 @@ export class Card extends Component {
               )}
             </div>
           </div>
-
-          {color === 'black' && size === 'large' && (
-            <div className='card-picker'>
-              <div>Pick</div>
-              <div>2</div>
-            </div>
-          )}
-        </div>
+        )}
       </div>
     )
   }
