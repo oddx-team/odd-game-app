@@ -3,7 +3,6 @@ import ReactHtmlParser from 'react-html-parser'
 import PropTypes from 'prop-types'
 import IconLogo from 'assets/logo.png'
 import { StyledCard, FakeCard, Title, Brand, Logo, LogoText, Picker } from './styled'
-import './styled.scss'
 
 const propTypes = {
   color: PropTypes.string.isRequired,
