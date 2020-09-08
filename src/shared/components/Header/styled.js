@@ -6,7 +6,7 @@ export const HeaderWrapper = styled.div`
   width: 100%;
   height: ${sizes.bannerHeight}rem;
   background: #FFFFFF;
-  ${mixin.boxShadowMedium}
+  ${mixin.boxShadow}
 `
 
 export const Arrow = styled.div`

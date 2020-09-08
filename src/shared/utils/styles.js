@@ -8,6 +8,11 @@ export const color = {
   warning: '#F89C1C', // orange
   secondary: '#F4F5F7', // light grey
 
+  // card color
+  black: '#212121',
+  white: '#fff',
+  blue: '#0088cc',
+
   textDarkest: '#172b4d',
   textDark: '#42526E',
   textMedium: '#5E6C84',
@@ -91,6 +96,10 @@ export const mixin = {
     background-repeat: no-repeat;
     background-size: cover;
   `,
+  size: (width, height) => css`
+    width: ${width}rem;
+    height: ${height}rem;
+  `,
   cover: css`
     position: absolute;
     top: 0;
@@ -98,12 +107,18 @@ export const mixin = {
     bottom: 0;
     left: 0;
   `,
+  alignCenter: css`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  `,
   scrollableY: css`
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
   `,
-  boxShadowMedium: css`
+  boxShadow: css`
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.08);
   `,
   customScrollbar: ({ width = 8, background = color.backgroundMedium } = {}) => css`

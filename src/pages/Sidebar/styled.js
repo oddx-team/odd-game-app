@@ -136,7 +136,7 @@ export const GameSidebar = styled.div`
   opacity: ${props => props.show ? 1 : 0};
   transition: width 0.35s, opacity 0.2s;
   ${mixin.scrollableY}
-  ${mixin.boxShadowMedium}
+  ${mixin.boxShadow}
   ${mixin.customScrollbar()}
   ${mixin.backgroundImage(bgSidebar)}
 

@@ -105,7 +105,7 @@ export const PagePlayground = () => {
         <Container>
           <BlackCardContainer>
             {blackCard
-              ? <Card color='black' size='large' text={blackCard.text} onClick={() => {}} />
+              ? <Card color='black' size='large' {...blackCard} onClick={() => {}} />
               : <Card color='black' size='large' text='Loading...' />}
 
             <ButtonConfirm
@@ -143,6 +143,7 @@ export const PagePlayground = () => {
                             >
                               <Card
                                 {...card}
+                                color='white'
                                 onClick={() => {}}
                                 size={playedCards.length <= 3 ? 'medium' : 'small'}
                                 closed={cardState}

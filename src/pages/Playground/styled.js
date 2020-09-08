@@ -70,7 +70,7 @@ export const CardsList = styled.div`
 `
 
 export const CollectionWrapper = styled.div`
-  ${mixin.boxShadowMedium}
+  ${mixin.boxShadow}
   width: 11.5rem;
   height: 1.85rem;
   background: #fff;
