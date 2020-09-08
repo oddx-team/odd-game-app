@@ -86,12 +86,6 @@
 
 .odd-card.blue {
   background: #0088cc;
-  .card-title {
-    @include textMixin(#fff, $align: left);
-  }
-  .card-logo span {
-    color: #fff;
-  }
 }
 
 

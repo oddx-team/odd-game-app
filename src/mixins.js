@@ -16,7 +16,7 @@ export const textMixin = ({
 }) => {
   return `
     color: ${color};
-    font-size: ${size};
+    font-size: ${size}rem;
     font-weight: ${weight};
     text-transform: ${transform};
     text-decoration: ${decoration};

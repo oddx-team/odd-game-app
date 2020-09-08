@@ -23,7 +23,7 @@ export const StyledCardRoom = styled.div`
   font-size: 0.2rem;
   text-align: left;
   background: #fff;
-  ${mixin.boxShadowMedium}
+  ${mixin.boxShadow}
 
   button {
     margin-top: 0.12rem;

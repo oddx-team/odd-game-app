@@ -14,7 +14,7 @@ export const ButtonHamburger = styled(Button)`
 `
 
 export const MenuContent = styled.div`
-  ${mixin.boxShadowMedium}
+  ${mixin.boxShadow}
   position: relative;
   top: ${sizes.bannerHeight}rem;
   width: 2.2rem;
