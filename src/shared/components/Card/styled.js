@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from 'styled-components/macro'
 import { color, font, mixin } from 'shared/utils/styles'
-import { textMixin } from 'mixins'
+import { textMixin, imageCDN } from 'mixins'
 
 export const Logo = styled.img``
 
@@ -15,6 +15,18 @@ export const Title = styled.div`
   padding: 0.05rem 0.13rem;
 `
 
+export const FakeCard = styled.div`
+  ${mixin.cover}
+  transition: opacity 0s;
+  border: 0.03rem dashed #616161;
+
+  &::before {
+    content: '';
+    ${mixin.alignCenter}
+    ${imageCDN('icon-plus-big.png', 1, 1)}
+  }
+`
+
 export const StyledCard = styled.div`
   padding: 0.05rem;
   position: relative;
@@ -24,6 +36,7 @@ export const StyledCard = styled.div`
   ${mixin.boxShadow}
   ${props => cardSizes[props.size]}
   ${props => cardColors[props.color]}
+  opacity: ${props => props.isFake ? (props.showFake ? 0.45 : 0) : 1};
 
   ${Title} {
     ${props => titleSizes[props.size]}
@@ -95,10 +108,10 @@ const colored = css`
   background: ${props => color[props.color]};
   &:not(:disabled) {
     &:hover {
-      background: ${props => mixin.lighten(color[props.variant], 0.15)};
+      background: ${props => mixin.lighten(color[props.color], 0.15)};
     }
     &:active {
-      background: ${props => mixin.darken(color[props.variant], 0.1)};
+      background: ${props => mixin.darken(color[props.color], 0.1)};
     }
   }
 `
