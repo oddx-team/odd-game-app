@@ -30,8 +30,7 @@ const defaultTypes = {
 
 export class Card extends Component {
   render () {
-    const { color, size, text, isFake, onClick } = this.props
-    const showPicker = color === 'black' && size === 'large'
+    const { text, isFake, onClick, gaps } = this.props
 
     return (
       <StyledCard onClick={() => onClick && onClick()} {...this.props}>
@@ -44,10 +43,10 @@ export class Card extends Component {
               <LogoText>Oddx</LogoText>
             </Brand>
 
-            {showPicker && (
+            {gaps && (
               <Picker>
                 <div>Pick</div>
-                <div>2</div>
+                <div>{gaps}</div>
               </Picker>
             )}
           </Fragment>}
