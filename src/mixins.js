@@ -1,3 +1,5 @@
+import { css } from 'styled-components'
+
 export const sizeWH = (width, height) => {
   return `
     width: ${width};
@@ -5,23 +7,17 @@ export const sizeWH = (width, height) => {
   `
 }
 
-export const textMixin = ({
+export const textMixin = (
   color = null,
   size = null,
   weight = null,
-  transform = null,
-  decoration = null,
-  align = null,
-  style = null
-}) => {
-  return `
+  transform = null
+) => {
+  return css`
     color: ${color};
     font-size: ${size}rem;
     font-weight: ${weight};
     text-transform: ${transform};
-    text-decoration: ${decoration};
-    text-align: ${align};
-    font-style: ${style};
   `
 }
 

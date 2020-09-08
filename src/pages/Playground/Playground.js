@@ -143,6 +143,7 @@ export const PagePlayground = () => {
                             >
                               <Card
                                 {...card}
+                                color='white'
                                 onClick={() => {}}
                                 size={playedCards.length <= 3 ? 'medium' : 'small'}
                                 closed={cardState}

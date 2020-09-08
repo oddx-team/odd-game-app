@@ -2,45 +2,10 @@ import React, { Component } from 'react'
 import ReactHtmlParser from 'react-html-parser'
 import PropTypes from 'prop-types'
 import IconLogo from 'assets/logo.png'
-import classNames from 'classnames'
+import { StyledCard, Title, Brand, Logo, LogoText, Picker } from './styled'
 import './styled.scss'
 
-export class Card extends Component {
-  render () {
-    const { color, size, text, isFake, showFake, closed, onClick } = this.props
-    const cardClasses = classNames('odd-card', color, size, closed, { showFake, isFake })
-
-    return (
-      <div className={cardClasses} onClick={() => onClick && onClick()}>
-        {isFake && (
-          <div className='fake' />
-        )}
-        {!isFake && (
-          <div className='card-inner'>
-            <div className='card back' />
-            <div className='card front'>
-              <div className='card-title'>{ReactHtmlParser(text)}</div>
-              <div className='card-question' />
-              <div className='card-logo'>
-                <img alt='IconLogo' src={IconLogo} />
-                <span>Oddx</span>
-              </div>
-
-              {color === 'black' && size === 'large' && (
-                <div className='card-picker'>
-                  <div>Pick</div>
-                  <div>2</div>
-                </div>
-              )}
-            </div>
-          </div>
-        )}
-      </div>
-    )
-  }
-}
-
-Card.propTypes = {
+const propTypes = {
   color: PropTypes.string.isRequired,
   size: PropTypes.string,
   text: PropTypes.string,
@@ -51,3 +16,42 @@ Card.propTypes = {
   closed: PropTypes.string,
   onClick: PropTypes.func
 }
+
+const defaultTypes = {
+  text: undefined,
+  color: undefined,
+  size: 'large',
+  gaps: 0,
+  isFake: false,
+  showFake: false,
+  language: 'en',
+  closed: 'closed',
+  onClick: () => {}
+}
+
+export class Card extends Component {
+  render () {
+    const { color, size, text, onClick } = this.props
+    const showPicker = color === 'black' && size === 'large'
+
+    return (
+      <StyledCard onClick={() => onClick && onClick()} {...this.props}>
+        <Title>{ReactHtmlParser(text)}</Title>
+        <Brand>
+          <Logo src={IconLogo} alt='IconLogo' />
+          <LogoText>Oddx</LogoText>
+        </Brand>
+
+        {showPicker && (
+          <Picker>
+            <div>Pick</div>
+            <div>2</div>
+          </Picker>
+        )}
+      </StyledCard>
+    )
+  }
+}
+
+Card.propTypes = propTypes
+Card.defaultTypes = defaultTypes

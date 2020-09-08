@@ -23,7 +23,7 @@ export const PageViewCards = () => {
           {allCards && allCards.length ? (
             allCards.slice(0, 15).map((card, i) => (
               <div key={i}>
-                <Card {...card} />
+                <Card {...card} size='large' />
               </div>
             ))
           ) : (
