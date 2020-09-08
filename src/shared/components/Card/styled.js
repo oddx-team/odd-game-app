@@ -15,16 +15,11 @@ export const Title = styled.div`
   padding: 0.05rem 0.13rem;
 `
 
-export const FakeCard = styled.div`
-  ${mixin.cover}
-  transition: opacity 0s;
-  border: 0.03rem dashed #616161;
-
-  &::before {
-    content: '';
-    ${mixin.alignCenter}
-    ${imageCDN('icon-plus-big.png', 1, 1)}
-  }
+export const Brand = styled.div`
+  ${mixin.flexCenter}
+  position: absolute;
+  bottom: 0.12rem;
+  left: 0.2rem;
 `
 
 export const StyledCard = styled.div`
@@ -48,13 +43,21 @@ export const StyledCard = styled.div`
     ${props => logoTextSizes[props.size]}
     color: ${props => props.color === 'white' ? color.black : color.white}
   }
+  ${Brand} {
+    margin-left: ${props => props.size === 'small' ? -0.1 : 0}rem;
+  }
 `
 
-export const Brand = styled.div`
-  ${mixin.flexCenter}
-  position: absolute;
-  bottom: 0.12rem;
-  left: 0.2rem;
+export const FakeCard = styled.div`
+  ${mixin.cover}
+  transition: opacity 0s;
+  border: 0.03rem dashed #616161;
+
+  &::before {
+    content: '';
+    ${mixin.alignCenter}
+    ${imageCDN('icon-plus-big.png', 1, 1)}
+  }
 `
 
 export const Picker = styled.div`
