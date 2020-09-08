@@ -134,7 +134,7 @@ export const PagePlayground = () => {
                           index={i}
                           isDragDisabled
                         >
-                          {(cardProvided, cardSnapshot) => (
+                          {(cardProvided) => (
                             <div
                               ref={cardProvided.innerRef}
                               {...cardProvided.draggableProps}

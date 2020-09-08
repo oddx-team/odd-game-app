@@ -26,7 +26,7 @@ export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
   return (
     <CollectionWrapper>
       <CollectionHeader>Player Collection</CollectionHeader>
-      <Droppable droppableId='card-collection' direction='horizontal' isDropDisabled>
+      <Droppable droppableId='card-collection' direction='horizontal'>
         {(provided, snapshot) => (
           <CollectionContent
             ref={provided.innerRef}

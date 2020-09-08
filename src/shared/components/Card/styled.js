@@ -46,6 +46,10 @@ export const StyledCard = styled.div`
   ${Brand} {
     margin-left: ${props => props.size === 'small' ? -0.1 : 0}rem;
   }
+
+  &:hover {
+    transform: scale(1.1);
+  }
 `
 
 export const FakeCard = styled.div`
