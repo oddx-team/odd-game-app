@@ -89,7 +89,7 @@ const Container = styled.div`
   ${Wrapper} {
     transition: all 0.3s;
     background: #F1F2F5;
-    padding-left: ${props => props.openSidebar ? 0.9 : 1.6}rem;
+    padding-left: ${props => !props.showSidebar ? 0 : props.openSidebar ? 0.9 : 1.6}rem;
     overflow-y: auto;
     height: 100%;
   }

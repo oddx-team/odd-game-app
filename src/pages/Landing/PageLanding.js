@@ -51,8 +51,8 @@ export const PageLanding = () => {
 
   return (
     <LandingWrapper>
-      {isLoggedIn === null && <Loading />}
-      {isLoggedIn === false &&
+      {isLoggedIn && <Loading />}
+      {!isLoggedIn &&
         <div>
           <Logo />
           <LeftOverlay />
