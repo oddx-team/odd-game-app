@@ -38,8 +38,6 @@ export const HeaderMenu = () => {
 
       <MenuContent>
         {renderLinkItem(match, 'Profile', 'story')}
-        {/* {renderLinkItem(match, 'View all cards', 'link', '/view-cards')}
-        {renderLinkItem(match, 'View rooms', 'attach', '/rooms')} */}
         <LinkItem onClick={logout}>
           <Icon type='close' />
           <LinkText>Logout</LinkText>

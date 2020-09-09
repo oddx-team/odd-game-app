@@ -46,10 +46,6 @@ export const StyledCard = styled.div`
   ${Brand} {
     margin-left: ${props => props.size === 'small' ? -0.1 : 0}rem;
   }
-
-  &:hover {
-    transform: scale(1.1);
-  }
 `
 
 export const FakeCard = styled.div`
@@ -107,7 +103,11 @@ const logoTextSizes = {
 const cardSizes = {
   large: css`${mixin.size(2.4, 2.1)}`,
   medium: css`${mixin.size(2, 1.7)}`,
-  small: css`${mixin.size(1.5, 1.3)} padding: 0.01rem;`
+  small: css`${mixin.size(1.5, 1.3)} 
+    padding: 0.01rem;
+    &:hover {
+      transform: scale(1.1);
+    }`
 }
 
 const colored = css`

@@ -5,7 +5,7 @@ import IconLogo from 'assets/logo.png'
 import { StyledCard, FakeCard, Title, Brand, Logo, LogoText, Picker } from './styled'
 
 const propTypes = {
-  color: PropTypes.string.isRequired,
+  color: PropTypes.oneOf(['white', 'black', 'blue']),
   size: PropTypes.string,
   text: PropTypes.string,
   gaps: PropTypes.number,
