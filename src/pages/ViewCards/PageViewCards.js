@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useFetch } from 'hooks/fetch'
-import { useGameActions, useGameState } from 'contexts/GameContext'
+import { useGameActions } from 'contexts/GameContext'
 import { Card } from 'shared/components/Card'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import { PageRoomWrapper, Container, CardContainer } from './styled'
@@ -9,7 +9,6 @@ import Api from 'services'
 
 export const PageViewCards = () => {
   const [allCards, loading] = useFetch(Api.getAllCards)
-  const { fullSidebar } = useGameState()
   const { setBanner, setGlobalLoading } = useGameActions()
 
   useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
@@ -17,7 +16,7 @@ export const PageViewCards = () => {
 
   return (
     <PageRoomWrapper>
-      <Container openSidebar={fullSidebar}>
+      <Container>
         <Breadcrumbs items={['Oddx', 'View cards', 'EN']} />
         <CardContainer>
           {allCards && allCards.length ? (

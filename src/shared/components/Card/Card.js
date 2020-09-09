@@ -33,9 +33,7 @@ export class Card extends Component {
     const { text, isFake, onClick, closed, gaps } = this.props
 
     const clickCard = () => {
-      if (onClick) {
-        onClick()
-      }
+      onClick && onClick()
     }
 
     return (
