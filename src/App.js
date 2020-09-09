@@ -43,7 +43,6 @@ const App = () => {
                 <div className='main'>
                   <Sidebar />
                   <MainContent>
-                    <Header />
                     <Switch>
                       <Route exact path='/' component={PageLanding} />
                       <PrivateRoute exact path='/rooms' component={PageGameRooms} />
@@ -69,12 +68,15 @@ const MainContent = ({ children }) => {
 
   return (
     <Container openSidebar={fullSidebar} showSidebar={isLoggedIn}>
-      {children}
+      <Header />
+      <Wrapper>{children}</Wrapper>
     </Container>
   )
 }
 
+const Wrapper = styled.div``
 const Container = styled.div`
+  position: relative;
   width: 100%;
   height: 100%;
   padding-left: 
@@ -84,7 +86,13 @@ const Container = styled.div`
   padding-left: ${props => !props.showSidebar && 0}rem;
   transition: padding-left 0.35s;
 
-  position: relative;
+  ${Wrapper} {
+    transition: all 0.3s;
+    background: #F1F2F5;
+    padding-left: ${props => props.openSidebar ? 0.9 : 1.6}rem;
+    overflow-y: auto;
+    height: 100%;
+  }
 `
 
 export default App

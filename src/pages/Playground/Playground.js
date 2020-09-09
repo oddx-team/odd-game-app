@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { useFetch } from 'hooks/fetch'
 import { usePlayActions, usePlayState } from 'contexts/PlayContext'
-import { useGameActions, useGameState } from 'contexts/GameContext'
+import { useGameActions } from 'contexts/GameContext'
 import { useModalActions } from 'contexts/ModalContext'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'shared/components/Card'
@@ -26,10 +26,9 @@ import Api from 'services'
 export const PagePlayground = () => {
   const { slug } = useParams()
   const { socket } = useContext(SocketContext)
-  const { fullSidebar } = useGameState()
   const [allCards, loading] = useFetch(Api.getAllCards)
   const [dealCard, setDealCard] = useState(null)
-  const [cardState, setCardState] = useState('closed')
+  const [cardClosed, setCardClosed] = useState(true)
   const [showFake, setShowFake] = useState(false)
 
   const { blackCardId, playedCardIds } = usePlayState()
@@ -71,9 +70,10 @@ export const PagePlayground = () => {
   }
 
   useEffect(() => {
-    setCardState('reveal')
-    setSidebar(false)
-  }, [setSidebar])
+    setTimeout(() => setCardClosed(!cardClosed), 3000)
+  }, [cardClosed])
+
+  useEffect(() => setSidebar(false), [setSidebar])
   useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
   useEffect(() => { if (allCards) setAllCards(allCards) }, [allCards, setAllCards])
   useEffect(() => {
@@ -98,7 +98,7 @@ export const PagePlayground = () => {
   }, [setPlaygroundData, slug, socket])
 
   return (
-    <PlaygroundWrapper openSidebar={fullSidebar}>
+    <PlaygroundWrapper>
       <div>
         <Breadcrumbs items={['Oddx', 'Playground', slug]} />
         <Header>Select a card to play!</Header>
@@ -134,7 +134,7 @@ export const PagePlayground = () => {
                           index={i}
                           isDragDisabled
                         >
-                          {(cardProvided, cardSnapshot) => (
+                          {(cardProvided) => (
                             <div
                               ref={cardProvided.innerRef}
                               {...cardProvided.draggableProps}
@@ -146,7 +146,7 @@ export const PagePlayground = () => {
                                 color='white'
                                 onClick={() => {}}
                                 size={playedCards.length <= 3 ? 'medium' : 'small'}
-                                closed={cardState}
+                                closed={cardClosed}
                               />
                             </div>
                           )}

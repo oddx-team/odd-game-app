@@ -8,6 +8,7 @@ export const StyledGameRooms = styled.div`
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  margin-left: 0.2rem;
 `
 
 export const ButtonCreate = styled(Button)`
@@ -23,15 +24,13 @@ export const Container = styled.div`
   height: 100%;
   overflow-y: scroll;
   top: 0;
-  background: #F1F2F5;
-  padding-left: ${props => props.openSidebar ? 0.8 : 2}rem;
   padding-bottom: 0.5rem;
   position: relative;
 
   ${ButtonCreate} {
     transition: left 0.4s;
     position: absolute;
-    left: ${props => props.openSidebar ? 8.96 : 10.2}rem;
+    left: 8.15rem;
     top: 0.45rem;
   }
 `

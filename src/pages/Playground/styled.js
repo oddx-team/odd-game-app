@@ -107,16 +107,10 @@ export const CollectionContent = styled.div`
 export const PlaygroundWrapper = styled.div`
   width: 100%;
   height: 100%;
+  margin-left: -0.55rem;
   position: relative;
   background: #F1F2F5;
   padding-top: 0.1rem;
-  padding-left: ${props => props.openSidebar ? 0.3 : 0.8}rem; 
-  transition: all 0.4s;
-
-  ${CollectionWrapper} {
-    transition: all 0.4s;
-    margin-left: ${props => props.openSidebar ? 0.3 : 0.8}rem; 
-  }
 `
 
 export const CardWrapper = styled.div`

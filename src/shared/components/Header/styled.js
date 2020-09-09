@@ -1,12 +1,11 @@
 import styled from 'styled-components/macro'
 import { imageCDN } from 'mixins'
-import { sizes, mixin, font } from 'shared/utils/styles'
+import { sizes, font } from 'shared/utils/styles'
 
 export const HeaderWrapper = styled.div`
   width: 100%;
   height: ${sizes.bannerHeight}rem;
   background: #FFFFFF;
-  ${mixin.boxShadow}
 `
 
 export const Arrow = styled.div`
@@ -35,8 +34,6 @@ export const Text = styled.div`
   text-transform: uppercase;
   padding: 0.07rem 0;
   ${font.size(0.19)}
-
-  // border-bottom: 0.04rem solid #0477BD;
 
   &:hover {
     font-weight: bold;
