@@ -52,26 +52,16 @@ export const CardInner = styled.div`
 `
 
 export const FaceFront = styled.div`
-  backface-visibility: hidden;
-`
-
-export const FaceBack = styled.div`
-  backface-visibility: hidden;
-  position: absolute;
-  top: 0;
-  transform: rotateY(180deg);
-`
-
-export const StyledCard = styled.div`
   padding: 0.05rem;
   position: relative;
   text-align: left;
   margin-right: 0.2rem;
   margin-bottom: 0.2rem;
+  backface-visibility: hidden;
   ${mixin.boxShadow}
   ${props => cardSizes[props.size]}
   ${props => cardColors[props.color]}
-  opacity: ${props => props.isFake ? (props.showFake ? 0.45 : 0) : 1};
+
 
   ${Title} {
     ${props => titleSizes[props.size]}
@@ -85,23 +75,34 @@ export const StyledCard = styled.div`
   }
   ${Brand} {
     margin-left: ${props => props.size === 'small' ? -0.1 : 0}rem;
+    opacity: ${props => props.closed ? 0 : 1}
   }
+`
 
+export const FaceBack = styled.div`
+  ${mixin.boxShadow}
+  ${props => cardSizes[props.size]}
+  margin-bottom: 0.2rem;
+  backface-visibility: hidden;
+  position: absolute;
+  right: 0rem;
+  transform: rotateY(180deg);
+  background: #fff;
+`
+
+export const StyledCard = styled.div`
+  position: relative;
   ${CardInner} {
     ${props => props.closed
         ? css`transform: translateZ(0rem) rotateY(180deg);`
         : ''}
   }
-
-  ${FaceFront} {
-    ${Brand} {
-      opacity: ${props => props.closed ? 0 : 1}
-    }
-  }
 `
 
 export const FakeCard = styled.div`
   ${mixin.cover}
+  ${props => cardSizes[props.size]}
+  opacity: ${props => props.isFake ? (props.showFake ? 0.45 : 0) : 1};
   transition: opacity 0s;
   border: 0.03rem dashed #616161;
 

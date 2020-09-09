@@ -71,7 +71,7 @@ export const PagePlayground = () => {
   }
 
   useEffect(() => {
-    setCardClosed(true)
+    setCardClosed(false)
     setSidebar(false)
   }, [setSidebar])
 

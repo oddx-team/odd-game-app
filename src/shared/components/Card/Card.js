@@ -30,16 +30,16 @@ const defaultTypes = {
 
 export class Card extends Component {
   render () {
-    const { text, isFake, onClick, gaps } = this.props
+    const { text, isFake, onClick, closed, gaps } = this.props
 
     return (
-      <StyledCard onClick={() => onClick && onClick()} {...this.props}>
-        {isFake && <FakeCard />}
+      <StyledCard closed={closed} onClick={() => onClick && onClick()}>
+        {isFake && <FakeCard {...this.props} />}
         {!isFake &&
           <Fragment key='real'>
             <CardInner>
-              <FaceBack />
-              <FaceFront>
+              <FaceBack {...this.props} />
+              <FaceFront {...this.props}>
                 <Title>{ReactHtmlParser(text)}</Title>
                 <Brand>
                   <Logo src={IconLogo} alt='IconLogo' />
