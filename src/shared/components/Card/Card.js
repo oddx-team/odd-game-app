@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import ReactHtmlParser from 'react-html-parser'
 import PropTypes from 'prop-types'
 import IconLogo from 'assets/logo.png'
-import { StyledCard, FakeCard, Title, Brand, Logo, LogoText, Picker } from './styled'
+import { StyledCard, FakeCard, CardInner, FaceFront, FaceBack, Title, Brand, Logo, LogoText, Picker } from './styled'
 
 const propTypes = {
   color: PropTypes.oneOf(['white', 'black', 'blue']),
@@ -12,7 +12,7 @@ const propTypes = {
   isFake: PropTypes.bool,
   showFake: PropTypes.bool,
   language: PropTypes.string,
-  closed: PropTypes.string,
+  closed: PropTypes.bool,
   onClick: PropTypes.func
 }
 
@@ -24,7 +24,7 @@ const defaultTypes = {
   isFake: false,
   showFake: false,
   language: 'en',
-  closed: 'closed',
+  closed: false,
   onClick: () => {}
 }
 
@@ -37,18 +37,23 @@ export class Card extends Component {
         {isFake && <FakeCard />}
         {!isFake &&
           <Fragment key='real'>
-            <Title>{ReactHtmlParser(text)}</Title>
-            <Brand>
-              <Logo src={IconLogo} alt='IconLogo' />
-              <LogoText>Oddx</LogoText>
-            </Brand>
+            <CardInner>
+              <FaceBack />
+              <FaceFront>
+                <Title>{ReactHtmlParser(text)}</Title>
+                <Brand>
+                  <Logo src={IconLogo} alt='IconLogo' />
+                  <LogoText>Oddx</LogoText>
+                </Brand>
 
-            {gaps && (
-              <Picker>
-                <div>Pick</div>
-                <div>{gaps}</div>
-              </Picker>
-            )}
+                {gaps && (
+                  <Picker>
+                    <div>Pick</div>
+                    <div>{gaps}</div>
+                  </Picker>
+                )}
+              </FaceFront>
+            </CardInner>
           </Fragment>}
       </StyledCard>
     )

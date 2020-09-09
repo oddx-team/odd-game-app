@@ -22,6 +22,46 @@ export const Brand = styled.div`
   left: 0.2rem;
 `
 
+export const Picker = styled.div`
+  ${mixin.flexCenter}
+  position: absolute;
+  bottom: 0.12rem;
+  left: 1.53rem;
+
+  div:first-child {
+    ${textMixin(color.white, 0.2, 'bold', 'uppercase')}
+    margin-right: 0.06rem;
+  }
+
+  div:last-child {
+    ${textMixin(color.black, 0.19)}
+    ${mixin.size(0.24, 0.24)}
+    background: #fff;
+    border-radius: 50%;
+    padding-top: 0.02rem;
+    text-align: center;
+  }
+`
+
+// FOR REVEAL EFFECT
+export const CardInner = styled.div`
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+`
+
+export const FaceFront = styled.div`
+  backface-visibility: hidden;
+`
+
+export const FaceBack = styled.div`
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  transform: rotateY(180deg);
+`
+
 export const StyledCard = styled.div`
   padding: 0.05rem;
   position: relative;
@@ -46,6 +86,18 @@ export const StyledCard = styled.div`
   ${Brand} {
     margin-left: ${props => props.size === 'small' ? -0.1 : 0}rem;
   }
+
+  ${CardInner} {
+    ${props => props.closed
+        ? css`transform: translateZ(0rem) rotateY(180deg);`
+        : ''}
+  }
+
+  ${FaceFront} {
+    ${Brand} {
+      opacity: ${props => props.closed ? 0 : 1}
+    }
+  }
 `
 
 export const FakeCard = styled.div`
@@ -57,27 +109,6 @@ export const FakeCard = styled.div`
     content: '';
     ${mixin.alignCenter}
     ${imageCDN('icon-plus-big.png', 1, 1)}
-  }
-`
-
-export const Picker = styled.div`
-  ${mixin.flexCenter}
-  position: absolute;
-  bottom: 0.12rem;
-  left: 1.53rem;
-
-  div:first-child {
-    ${textMixin(color.white, 0.2, 'bold', 'uppercase')}
-    margin-right: 0.06rem;
-  }
-
-  div:last-child {
-    ${textMixin(color.black, 0.19)}
-    ${mixin.size(0.24, 0.24)}
-    background: #fff;
-    border-radius: 50%;
-    padding-top: 0.02rem;
-    text-align: center;
   }
 `
 

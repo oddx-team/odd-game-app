@@ -29,7 +29,7 @@ export const PagePlayground = () => {
   const { fullSidebar } = useGameState()
   const [allCards, loading] = useFetch(Api.getAllCards)
   const [dealCard, setDealCard] = useState(null)
-  const [cardState, setCardState] = useState('closed')
+  const [cardClosed, setCardClosed] = useState(true)
   const [showFake, setShowFake] = useState(false)
 
   const { blackCardId, playedCardIds } = usePlayState()
@@ -71,9 +71,10 @@ export const PagePlayground = () => {
   }
 
   useEffect(() => {
-    setCardState('reveal')
+    setCardClosed(true)
     setSidebar(false)
   }, [setSidebar])
+
   useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
   useEffect(() => { if (allCards) setAllCards(allCards) }, [allCards, setAllCards])
   useEffect(() => {
@@ -146,7 +147,7 @@ export const PagePlayground = () => {
                                 color='white'
                                 onClick={() => {}}
                                 size={playedCards.length <= 3 ? 'medium' : 'small'}
-                                closed={cardState}
+                                closed={cardClosed}
                               />
                             </div>
                           )}
