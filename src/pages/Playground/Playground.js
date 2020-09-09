@@ -71,9 +71,9 @@ export const PagePlayground = () => {
   }
 
   useEffect(() => {
-    setCardClosed(false)
+    setTimeout(() => setCardClosed(!cardClosed), 3000)
     setSidebar(false)
-  }, [setSidebar])
+  }, [setSidebar, cardClosed])
 
   useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
   useEffect(() => { if (allCards) setAllCards(allCards) }, [allCards, setAllCards])

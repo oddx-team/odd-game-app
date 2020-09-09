@@ -88,6 +88,7 @@ export const FaceBack = styled.div`
   right: 0rem;
   transform: rotateY(180deg);
   background: #fff;
+  pointer-events: none;
 `
 
 export const StyledCard = styled.div`
@@ -100,11 +101,11 @@ export const StyledCard = styled.div`
 `
 
 export const FakeCard = styled.div`
-  ${mixin.cover}
   ${props => cardSizes[props.size]}
   opacity: ${props => props.isFake ? (props.showFake ? 0.45 : 0) : 1};
   transition: opacity 0s;
   border: 0.03rem dashed #616161;
+  position: relative;
 
   &::before {
     content: '';

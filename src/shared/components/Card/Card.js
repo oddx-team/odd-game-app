@@ -32,8 +32,14 @@ export class Card extends Component {
   render () {
     const { text, isFake, onClick, closed, gaps } = this.props
 
+    const clickCard = () => {
+      if (onClick) {
+        onClick()
+      }
+    }
+
     return (
-      <StyledCard closed={closed} onClick={() => onClick && onClick()}>
+      <StyledCard closed={closed} onClick={clickCard}>
         {isFake && <FakeCard {...this.props} />}
         {!isFake &&
           <Fragment key='real'>
