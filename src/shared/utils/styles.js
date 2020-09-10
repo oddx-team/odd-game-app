@@ -85,6 +85,9 @@ export const mixin = {
       cursor: pointer;
       user-select: none;
     `,
+  hardwareAccelerate: css`
+    transform: translateZ(0);
+  `,
   truncateText: css`
     overflow: hidden;
     white-space: nowrap;
