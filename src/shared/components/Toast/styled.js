@@ -7,7 +7,7 @@ export const Container = styled.div`
   z-index: 1;
   position: fixed;
   right: 0.3rem;
-  top: 0.5rem;
+  top: 0.3rem;
 `
 
 export const Title = styled.div`

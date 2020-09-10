@@ -42,6 +42,8 @@ export const PageLanding = () => {
       await Api.registerUsername(username)
       login(username)
       spawnNewSocket()
+      toast.success('login_successful')
+
       history.push('/rooms')
     } catch (err) {
       toast.error('username_picked')
