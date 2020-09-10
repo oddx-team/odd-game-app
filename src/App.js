@@ -4,6 +4,7 @@ import { sizes } from 'shared/utils/styles'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Header } from 'shared/components/Header'
 import { Loading } from 'shared/components/Loading'
+import { Toast } from 'shared/components/Toast'
 import { Popups } from 'shared/components/Popups'
 import { Sidebar } from 'pages/Sidebar'
 import { PageLanding } from 'pages/Landing'
@@ -52,6 +53,7 @@ const App = () => {
                     </Switch>
                   </MainContent>
                   <Loading />
+                  <Toast />
                   <Popups />
                 </div>
               </div>

@@ -30,11 +30,11 @@ export const PanelChat = () => {
             message,
             time: new Date().getTime() / 1000
           }
-          setRoomChat([...roomChat, newMessage])
+          setRoomChat(currentChats => [...currentChats, newMessage])
         }
       })
     })()
-  }, [roomChat, slug, socket])
+  }, [slug, socket])
 
   const scrollToBottom = () => {
     lastRef.current.scrollIntoView()

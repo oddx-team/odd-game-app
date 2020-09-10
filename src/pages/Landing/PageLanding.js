@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useHistory } from 'react-router-dom'
-import { useModalActions } from 'contexts/ModalContext'
+import { useGameState, useGameActions } from 'contexts/GameContext'
 import { SocketContext } from 'contexts/SocketContext'
 import { Loading } from 'shared/components/Loading'
 import {
@@ -15,13 +15,12 @@ import {
   Title
 } from './styled'
 import Api from 'services'
-import { useGameState, useGameActions } from 'contexts/GameContext'
+import toast from 'shared/utils/toast'
 
 export const PageLanding = () => {
   const history = useHistory()
   const [username, setUsername] = useState('')
 
-  const { setError } = useModalActions()
   const { login, setBanner } = useGameActions()
   const { isLoggedIn } = useGameState()
   const { spawnNewSocket } = useContext(SocketContext)
@@ -35,7 +34,7 @@ export const PageLanding = () => {
 
   const startGame = async () => {
     if (!username || username.length < 3) {
-      setError('Username must be from three characters!')
+      toast.error('username_len_short')
       return
     }
 
@@ -45,7 +44,7 @@ export const PageLanding = () => {
       spawnNewSocket()
       history.push('/rooms')
     } catch (err) {
-      setError('username is picked already!')
+      toast.error('username_picked')
     }
   }
 
