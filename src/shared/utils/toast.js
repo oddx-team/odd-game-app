@@ -1,5 +1,3 @@
-import pubsub from 'sweet-pubsub'
-
 const ERROR_CODES = {
   username_len_short: 'Username must be from three characters!',
   username_picked: 'Username is picked already',
@@ -11,7 +9,11 @@ const SUCCESS_CODES = {
   logout_successful: 'Logout successfully!'
 }
 
-const show = toast => pubsub.emit('toast', toast)
+// const show = toast => pubsub.emit('toast', toast)
+
+const show = toast => {
+  console.log(toast)
+}
 
 const success = title => {
   show({
