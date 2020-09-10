@@ -26,7 +26,7 @@ const error = err => {
     type: 'danger',
     title: 'Error',
     message: ERROR_CODES[err] || 'error',
-    duration: 0.8
+    duration: 1
   })
 }
 

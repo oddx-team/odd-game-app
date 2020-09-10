@@ -9,13 +9,10 @@ const Toast = () => {
   const [toasts, setToasts] = useState([])
 
   useEffect(() => {
-    const addToast = ({ type = 'success', title, message, duration = 5 }) => {
+    const addToast = (toast) => {
       const id = uniqueId('toast-')
-
-      setToasts(currentToasts => [...currentToasts, { id, type, title, message }])
-      if (duration) {
-        setTimeout(() => removeToast(id), duration * 1000)
-      }
+      setToasts(currentToasts => [...currentToasts, { id, ...toast }])
+      setTimeout(() => removeToast(id), toast.duration * 1000)
     }
 
     pubsub.on('toast', addToast)
