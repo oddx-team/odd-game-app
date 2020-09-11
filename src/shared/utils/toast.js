@@ -9,10 +9,17 @@ const SUCCESS_CODES = {
   logout_successful: 'Logout successfully!'
 }
 
-// const show = toast => pubsub.emit('toast', toast)
-
 const show = toast => {
-  console.log(toast)
+  const toastDom = document.createElement('div')
+  toastDom.classList.add('toast')
+  toastDom.classList.add(toast.type)
+  toastDom.innerText = toast.title + ': ' + toast.message
+
+  document.body.appendChild(toastDom)
+
+  setTimeout(() => {
+    document.body.removeChild(toastDom)
+  }, toast.duration * 1000)
 }
 
 const success = title => {
