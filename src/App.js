@@ -4,6 +4,7 @@ import { sizes } from 'shared/utils/styles'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { Header } from 'shared/components/Header'
 import { Loading } from 'shared/components/Loading'
+import { Toast } from 'shared/components/Toast'
 import { Popups } from 'shared/components/Popups'
 import { Sidebar } from 'pages/Sidebar'
 import { PageLanding } from 'pages/Landing'
@@ -52,6 +53,7 @@ const App = () => {
                     </Switch>
                   </MainContent>
                   <Loading />
+                  <Toast />
                   <Popups />
                 </div>
               </div>
@@ -89,7 +91,7 @@ const Container = styled.div`
   ${Wrapper} {
     transition: all 0.3s;
     background: #F1F2F5;
-    padding-left: ${props => props.openSidebar ? 0.9 : 1.6}rem;
+    padding-left: ${props => !props.showSidebar ? 0 : props.openSidebar ? 0.9 : 1.6}rem;
     overflow-y: auto;
     height: 100%;
   }

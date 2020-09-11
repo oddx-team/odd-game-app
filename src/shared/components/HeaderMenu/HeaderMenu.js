@@ -3,7 +3,6 @@ import { useHistory, NavLink, useRouteMatch } from 'react-router-dom'
 
 import { Icon } from 'shared/components/Icon'
 import { useGameActions } from 'contexts/GameContext'
-import { useModalActions } from 'contexts/ModalContext'
 import { SocketContext } from 'contexts/SocketContext'
 import {
   StyledMenu,
@@ -13,13 +12,13 @@ import {
   LinkText
 } from './styled'
 import Api from 'services'
+import toast from 'shared/utils/toast'
 
 export const HeaderMenu = () => {
   const match = useRouteMatch()
   const history = useHistory()
   const { closeSocket } = useContext(SocketContext)
   const { logoutGame } = useGameActions()
-  const { setError } = useModalActions()
 
   const logout = async () => {
     try {
@@ -27,8 +26,10 @@ export const HeaderMenu = () => {
       history.push('/')
       logoutGame()
       closeSocket()
+
+      toast.success('logout_successful')
     } catch (err) {
-      setError('Something went wrong!')
+      toast.error('error')
     }
   }
 

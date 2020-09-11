@@ -24,17 +24,14 @@ export const GlobalChat = () => {
           message,
           time: new Date().getTime() / 1000
         }
-
-        if (globalChat !== null) {
-          setGlobalChat([...globalChat, newMessage])
-        }
+        setGlobalChat(currentChats => [...currentChats, newMessage])
       })
 
       window.socket.on('pong', (ms) => {
         window.latency = ms
       })
     })()
-  }, [globalChat, socket])
+  }, [socket])
 
   const scrollToBottom = () => {
     lastRef.current.scrollIntoView()
