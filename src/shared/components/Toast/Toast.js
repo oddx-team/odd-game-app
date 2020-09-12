@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
-// import { uniqueId } from 'lodash'
+import { uniqueId } from 'lodash'
 import { Container, StyledToast, CloseIcon, Title, Message } from './styled'
+import { eventBus } from 'shared/utils/eventBus'
 
 const Toast = () => {
   const [toasts, setToasts] = useState([])
 
   useEffect(() => {
-    // const addToast = (toast) => {
-    //   const id = uniqueId('toast-')
-    //   setToasts(currentToasts => [...currentToasts, { id, ...toast }])
-    //   setTimeout(() => removeToast(id), toast.duration * 1000)
-    // }
+    const addToast = (toast) => {
+      const id = uniqueId('toast-')
+      setToasts(currentToasts => [...currentToasts, { id, ...toast }])
+      setTimeout(() => removeToast(id), toast.duration * 1000)
+    }
+
+    eventBus.subscribe('toast', addToast)
+    return () => {
+      eventBus.unsubscribe('toast')
+    }
   }, [])
 
   const removeToast = id => {
