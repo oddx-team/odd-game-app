@@ -10,7 +10,7 @@ const Toast = () => {
   useEffect(() => {
     const addToast = (toast) => {
       const id = uniqueId('toast-')
-      setToasts(currentToasts => [...currentToasts, { id, ...toast }])
+      setToasts((currentToasts) => [...currentToasts, { id, ...toast }])
       setTimeout(() => removeToast(id), toast.duration * 1000)
     }
 
@@ -20,14 +20,14 @@ const Toast = () => {
     }
   }, [])
 
-  const removeToast = id => {
-    setToasts(currentToasts => currentToasts.filter(toast => toast.id !== id))
+  const removeToast = (id) => {
+    setToasts((currentToasts) => currentToasts.filter((toast) => toast.id !== id))
   }
 
   return (
     <Container>
       <TransitionGroup>
-        {toasts.map(toast => (
+        {toasts.map((toast) => (
           <CSSTransition key={toast.id} classNames='odd-toast' timeout={200}>
             <StyledToast key={toast.id} type={toast.type} onClick={() => removeToast(toast.id)}>
               <CloseIcon type='close' />
