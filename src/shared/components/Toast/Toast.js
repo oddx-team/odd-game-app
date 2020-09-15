@@ -14,9 +14,9 @@ const Toast = () => {
       setTimeout(() => removeToast(id), toast.duration * 1000)
     }
 
-    eventBus.subscribe('toast', addToast)
+    const unsubscribe = eventBus.subscribe('toast', addToast)
     return () => {
-      eventBus.unsubscribe('toast')
+      unsubscribe()
     }
   }, [])
 
