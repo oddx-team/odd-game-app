@@ -2,7 +2,8 @@ import styled from 'styled-components/macro'
 import { mixin } from 'shared/utils/styles'
 
 export const PageRoomWrapper = styled.div`
-  ${mixin.flexCenter} width: 100%;
+  ${mixin.flexCenter} 
+  width: 100%;
   height: 100%;
   margin: 0 auto;
 `
@@ -15,7 +16,6 @@ export const Container = styled.div`
   background: #f1f2f5;
   padding-bottom: 0.5rem;
   position: relative;
-  transition: all 0.4s;
 `
 
 export const CardContainer = styled.div`

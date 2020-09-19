@@ -20,7 +20,7 @@ export const PageViewCards = () => {
         <Breadcrumbs items={['Oddx', 'View cards', 'EN']} />
         <CardContainer>
           {allCards && allCards.length ? (
-            allCards.slice(0, 15).map((card, i) => (
+            allCards.slice(0, 4).map((card, i) => (
               <div key={i}>
                 <Card {...card} size='large' />
               </div>
