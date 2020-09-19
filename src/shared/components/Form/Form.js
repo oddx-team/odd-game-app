@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import { Formik, Field as FormikField } from 'formik'
+import Field from './Field'
+
 import { Formik } from 'formik'
 import { is, generateErrors } from 'shared/utils/validation'
 
@@ -28,6 +29,7 @@ const Form = ({ validations, ...otherProps }) => (
   />
 )
 
+Form.Field = Field
 Form.is = is
 Form.propTypes = propTypes
 Form.defaultProps = defaultProps

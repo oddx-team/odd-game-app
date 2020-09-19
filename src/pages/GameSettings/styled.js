@@ -1,22 +1,25 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { font, mixin } from 'shared/utils/styles'
+import { Button } from 'shared/components/Button'
+import { Form } from 'formik'
 
-export const FormCont = styled.div`
+export const FormCont = styled(Form)`
   ${mixin.flexCenter} 
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  justify-content: flex-start;
 `
 
 export const FormElement = styled.div`
-  width: 100%;
   height: 100%;
-  overflow-y: scroll;
   top: 0;
   background: #f1f2f5;
   padding-bottom: 0.5rem;
   position: relative;
   text-align: left;
+  display: flex;
+  flex-direction: column;
 `
 
 export const Title = styled.div`
@@ -35,9 +38,6 @@ export const Subtitle = styled.div`
   text-align: left;
 `
 
-export const FormHeading = styled.h1`
-  position: relative;
-  padding: 0.06rem 0 0.15rem;
-  ${font.size(0.2)}
-  ${font.medium}
+export const ActionButton = styled(Button)`
+  margin-top: 0.3rem;
 `

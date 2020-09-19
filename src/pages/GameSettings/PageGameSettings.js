@@ -1,9 +1,8 @@
 import React from 'react'
-// import PropTypes from 'prop-types'
 
 import { Form } from 'shared/components/Form'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
-import { FormCont, FormElement, Title, Subtitle } from './styled'
+import { FormCont, FormElement, Title, Subtitle, ActionButton } from './styled'
 
 export const PageGameSettings = () => {
   return (
@@ -20,6 +19,9 @@ export const PageGameSettings = () => {
         name: Form.is.required(),
         theme: Form.is.required()
       }}
+      onSubmit={(values) => {
+        console.log(values)
+      }}
     >
       <FormCont>
         <FormElement>
@@ -27,6 +29,12 @@ export const PageGameSettings = () => {
           <Title>Game settings</Title>
           <Subtitle>Customize your settings:</Subtitle>
 
+          <Form.Field.Input name='name' label='Name' />
+          <Form.Field.Input name='theme' label='Theme' />
+
+          <ActionButton type='submit' variant='primary' icon='plus' iconSize={0.25}>
+            Save changes
+          </ActionButton>
         </FormElement>
       </FormCont>
     </Form>

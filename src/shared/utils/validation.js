@@ -14,17 +14,14 @@ const isNilOrEmptyString = value => value === undefined || value === null || val
 export const generateErrors = (fieldValues, fieldValidators) => {
   const errors = {}
 
-  // console.log(fieldValues, fieldValidators)
-
   Object.entries(fieldValidators).forEach(([fieldName, validators]) => {
     [validators].flat().forEach(validator => {
-      console.log(fieldName, fieldValues[fieldName])
-
       const errorMessage = validator(fieldValues[fieldName], fieldValues)
       if (errorMessage && !errors[fieldName]) {
         errors[fieldName] = errorMessage
       }
     })
   })
+
   return errors
 }
