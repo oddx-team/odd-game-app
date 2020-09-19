@@ -21,7 +21,7 @@ const defaultProps = {
   children: undefined,
   variant: 'secondary',
   icon: undefined,
-  iconSize: 0.2,
+  iconSize: 0.23,
   disabled: false,
   isWorking: false,
   onClick: () => {}

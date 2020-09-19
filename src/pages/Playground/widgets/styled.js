@@ -25,7 +25,7 @@ export const Tab = styled.div`
   text-transform: uppercase;
   background: #ececec;
   padding-top: 0.07rem;
-  font-family: 'Shentox', sans-serif;
+  font-family: 'Oswald', sans-serif;
   cursor: pointer;
 
   &.active {

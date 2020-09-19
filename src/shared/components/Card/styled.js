@@ -2,9 +2,7 @@ import styled, { css } from 'styled-components/macro'
 import { color, font, mixin } from 'shared/utils/styles'
 import { textMixin, imageCDN } from 'mixins'
 
-export const Logo = styled.img``
-
-export const LogoText = styled.span`
+export const Text = styled.span`
   font-family: 'Orbitron', sans-serif;
   position: relative;
   left: 0.05rem;
@@ -66,10 +64,7 @@ export const FaceFront = styled.div`
   ${Title} {
     ${props => titleSizes[props.size]}
   }
-  ${Logo} {
-    ${props => logoSizes[props.size]}
-  }
-  ${LogoText} {
+  ${Text} {
     ${props => logoTextSizes[props.size]}
     color: ${props => props.color === 'white' ? color.black : color.white}
   }
@@ -119,12 +114,6 @@ const titleSizes = {
   large: css`${font.size(0.22)}`,
   medium: css`${font.size(0.2)}`,
   small: css`${font.size(0.15)}`
-}
-
-const logoSizes = {
-  large: css`${mixin.size(0.25, 0.25)}`,
-  medium: css`${mixin.size(0.22, 0.22)}`,
-  small: css`${mixin.size(0.18, 0.18)}`
 }
 
 const logoTextSizes = {
