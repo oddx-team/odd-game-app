@@ -11,11 +11,8 @@ import {
   LinkSubItem,
   LinkText,
   Character,
-  Divider,
-  OddLogo
+  Divider
 } from './styled'
-
-import Logo from 'assets/logo.png'
 
 const Sidebar = () => {
   const history = useHistory()
@@ -24,7 +21,7 @@ const Sidebar = () => {
   return (
     <GameSidebar open={fullSidebar} show={isLoggedIn}>
       <Header>
-        <OddLogo alt='logo' src={Logo} />
+        <Icon type='odd' />
         <LinkText>ODD Card Game</LinkText>
       </Header>
       <Divider />
@@ -50,7 +47,7 @@ const Sidebar = () => {
       </Section>
 
       <Footer onClick={() => history.push('/settings')}>
-        <Icon type='settings' />
+        <Icon type='setting' />
         <LinkText>Settings</LinkText>
       </Footer>
     </GameSidebar>

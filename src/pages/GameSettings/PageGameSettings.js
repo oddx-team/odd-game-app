@@ -3,7 +3,7 @@ import React, { useEffect } from 'react'
 import { useGameActions } from 'contexts/GameContext'
 import { Form } from 'shared/components/Form'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
-import { FormCont, FormElement, Title, Subtitle, ActionButton } from './styled'
+import { FormCont, FormElement, Title, ActionButton } from './styled'
 
 export const PageGameSettings = () => {
   const { setSidebar } = useGameActions()
@@ -31,8 +31,7 @@ export const PageGameSettings = () => {
       <FormCont>
         <FormElement>
           <Breadcrumbs items={['Oddx', 'Game Settings']} />
-          <Title>Game settings</Title>
-          <Subtitle>Customize your settings:</Subtitle>
+          <Title>GAME SETTINGS</Title>
 
           <Form.Field.Input name='name' label='Name' />
           <Form.Field.Input name='theme' label='Theme' />

@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import ReactHtmlParser from 'react-html-parser'
 import PropTypes from 'prop-types'
-import IconLogo from 'assets/logo.png'
-import { StyledCard, FakeCard, CardInner, FaceFront, FaceBack, Title, Brand, Logo, LogoText, Picker } from './styled'
+import { Icon } from 'shared/components/Icon'
+import { StyledCard, FakeCard, CardInner, FaceFront, FaceBack, Title, Brand, Text, Picker } from './styled'
 
 const propTypes = {
   color: PropTypes.oneOf(['white', 'black', 'blue']),
@@ -46,8 +46,8 @@ export class Card extends Component {
               <FaceFront {...this.props}>
                 <Title>{ReactHtmlParser(text)}</Title>
                 <Brand>
-                  <Logo src={IconLogo} alt='IconLogo' />
-                  <LogoText>Oddx</LogoText>
+                  <Icon size={0.23} type='odd' />
+                  <Text>Oddx</Text>
                 </Brand>
 
                 {gaps && (

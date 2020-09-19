@@ -31,13 +31,6 @@ export const Title = styled.div`
   position: relative;
 `
 
-export const Subtitle = styled.div`
-  ${font.size(0.18)}
-  color: #000;
-  font-weight: normal;
-  text-align: left;
-`
-
 export const ActionButton = styled(Button)`
   margin-top: 0.3rem;
 `
