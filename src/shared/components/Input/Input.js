@@ -30,7 +30,7 @@ const Input = forwardRef(({ icon, className, filter, onChange, ...inputProps }, 
 
   return (
     <StyledInput className={className}>
-      {icon && <StyledIcon type={icon} size={0.15} />}
+      {icon && <StyledIcon type={icon} size={0.25} />}
       <InputElement {...inputProps} onChange={handleChange} hasIcon={!!icon} ref={ref} />
     </StyledInput>
   )
