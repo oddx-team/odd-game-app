@@ -9,8 +9,9 @@
   z-index: 2;
 
   .dialog {
-    @include imageCDN('modals/popup-bg.png', 7rem, 4.38rem);
+    @include sizeWH(7.2rem, 4.38rem);
     @include flexCenter(column);
+    background-image: linear-gradient(#fff, #8C8C8C);
     position: relative;
   }
 }
@@ -18,7 +19,7 @@
 .header {
   @include sizeWH(100%, 0.52rem);
   @include textMixin(#fff, 0.3rem, normal, uppercase, $align: center);
-  padding-top: 0.1rem;
+  padding-top: 0.05rem;
   background: #0477BD;
   font-family: 'Oswald-Medium', sans-serif;
   display: inline-block;
@@ -59,7 +60,7 @@
     @include position(absolute, 0.4rem, $left: 3.2rem);
   }
   input {
-    @include sizeWH(2.7rem, 0.4rem);
+    @include sizeWH(2.6rem, 0.4rem);
     padding-right: 0.1rem;
     font-size: 0.28rem;
     color: #212121;
@@ -68,14 +69,14 @@
 
 .room-size {
   @extend .room-name;
-  .text { top: 1.05rem; left: 2rem;}
-  .panel { top: 0.95rem;}
+  .text { top: 1.1rem; left: 2rem;}
+  .panel { top: 1rem;}
 }
 
 .room-lang {
   @extend .room-name;
   .text { top: 1.6rem; left: 1.85rem;}
-  .panel { 
+  .panel {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;

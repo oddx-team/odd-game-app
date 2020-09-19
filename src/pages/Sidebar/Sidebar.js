@@ -1,5 +1,6 @@
 import React from 'react'
 import { useGameState } from 'contexts/GameContext'
+import { useHistory } from 'react-router-dom'
 import { Icon } from 'shared/components/Icon'
 import {
   GameSidebar,
@@ -17,7 +18,9 @@ import {
 import Logo from 'assets/logo.png'
 
 const Sidebar = () => {
+  const history = useHistory()
   const { fullSidebar, isLoggedIn } = useGameState()
+
   return (
     <GameSidebar open={fullSidebar} show={isLoggedIn}>
       <Header>
@@ -46,7 +49,7 @@ const Sidebar = () => {
         </LinkSubItem>
       </Section>
 
-      <Footer>
+      <Footer onClick={() => history.push('/settings')}>
         <Icon type='settings' />
         <LinkText>Settings</LinkText>
       </Footer>

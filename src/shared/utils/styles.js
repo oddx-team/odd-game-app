@@ -41,7 +41,7 @@ export const color = {
 
 export const font = {
   regular: 'font-weight: normal;',
-  medium: 'font-weight: 300;',
+  medium: 'font-weight: 500;',
   bold: 'font-weight: 600;',
   black: 'font-weight: 900;',
   size: size => `font-size: ${size}rem;`
