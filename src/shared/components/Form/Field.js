@@ -17,10 +17,9 @@ const InputField = ({ label, ...props }) => {
         id={fieldId}
         name={name}
         invalid={!!error && touched}
-        onChange={(val, e) => {
+        onChange={(_, e) => {
           field.onChange(e)
           field.onBlur(e)
-          e.target.value = val
         }}
       />
       {touched && error && <FieldError>{error}</FieldError>}

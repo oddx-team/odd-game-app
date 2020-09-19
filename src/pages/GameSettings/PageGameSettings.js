@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
+import { useGameActions } from 'contexts/GameContext'
 import { Form } from 'shared/components/Form'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import { FormCont, FormElement, Title, Subtitle, ActionButton } from './styled'
 
 export const PageGameSettings = () => {
+  const { setSidebar } = useGameActions()
+
+  useEffect(() => setSidebar(true), [setSidebar])
+
   return (
     <Form
       initialValues={{
