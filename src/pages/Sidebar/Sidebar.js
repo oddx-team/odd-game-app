@@ -50,7 +50,7 @@ const Sidebar = () => {
       </Section>
 
       <Footer onClick={() => history.push('/settings')}>
-        <Icon type='settings' />
+        <Icon type='setting' />
         <LinkText>Settings</LinkText>
       </Footer>
     </GameSidebar>
