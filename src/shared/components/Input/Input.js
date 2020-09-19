@@ -4,32 +4,26 @@ import PropTypes from 'prop-types'
 import { StyledInput, InputElement, StyledIcon } from './styled'
 
 const propTypes = {
-  className: PropTypes.string,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   icon: PropTypes.string,
   invalid: PropTypes.bool,
-  filter: PropTypes.instanceOf(RegExp),
   onChange: PropTypes.func
 }
 
 const defaultProps = {
-  className: undefined,
   value: undefined,
   icon: undefined,
   invalid: false,
-  filter: undefined,
   onChange: () => {}
 }
 
-const Input = forwardRef(({ icon, className, filter, onChange, ...inputProps }, ref) => {
+const Input = forwardRef(({ icon, onChange, ...inputProps }, ref) => {
   const handleChange = event => {
-    if (!filter || filter.test(event.target.value)) {
-      onChange(event.target.value, event)
-    }
+    onChange(event.target.value, event)
   }
 
   return (
-    <StyledInput className={className}>
+    <StyledInput>
       {icon && <StyledIcon type={icon} size={0.25} />}
       <InputElement {...inputProps} onChange={handleChange} hasIcon={!!icon} ref={ref} />
     </StyledInput>
