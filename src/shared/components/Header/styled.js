@@ -17,7 +17,7 @@ export const Arrow = styled.div`
 `
 
 export const Logo = styled.div`
-  ${imageCDN('event-logo.png', 0.33, 0.33)}
+  ${imageCDN('game-logo.png', 0.33, 0.33)}
   margin-top: 0.02rem;
   margin-right: 0.07rem;
 `
@@ -99,7 +99,7 @@ export const IconBell = styled.div`
   padding: 0.05rem;
 
   i {
-    ${imageCDN('icon-bell1.png', 0.23, 0.23)};
+    ${imageCDN('icon-bell.png', 0.23, 0.23)};
     display: inline-block;
 
     &::before {

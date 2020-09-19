@@ -63,5 +63,5 @@ const buttonVariants = {
 }
 
 export const Text = styled.div`
-  padding-left: ${props => (props.withPadding ? 0.02 : 0)}rem;
+  padding-left: ${props => (props.withPadding ? 0.05 : 0)}rem;
 `

@@ -7,7 +7,7 @@ export const StyledIcon = styled.i`
     props.left || props.top ? `transform: translate(${props.left}rem, ${props.top}rem);` : ''}
   &:before {
     content: "${props => props.code}";
-    font-family: "odd-font" !important;
+    font-family: "Oddx" !important;
     speak: none;
     font-style: normal;
     font-weight: normal;

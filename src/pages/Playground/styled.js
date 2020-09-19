@@ -87,7 +87,7 @@ export const CollectionHeader = styled.div`
   background: #0277bd;
   height: 0.3rem;
   padding-top: 0.07rem;
-  font-family: 'Shentox', sans-serif;
+  font-family: 'Oswald', sans-serif;
 `
 
 export const CollectionContent = styled.div`

@@ -44,10 +44,10 @@ export const CardRoom = props => {
             <Text title='Status' value={status} />
           </CardRoomInner>
 
-          <Button variant='success' icon='feedback' onClick={() => tryJoining(history, slug)}>
+          <Button variant='success' icon='game' onClick={() => tryJoining(history, slug)}>
             Join
           </Button>
-          <Button variant='primary' icon='search' onClick={() => trySpectating(history, slug)}>
+          <Button variant='primary' icon='inside' onClick={() => trySpectating(history, slug)}>
             View
           </Button>
         </StyledCardRoom>
