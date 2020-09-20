@@ -5,6 +5,8 @@ import { Form } from 'shared/components/Form'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import { FormCont, FormElement, Title, ActionButton } from './styled'
 
+import toast from 'shared/utils/toast'
+
 export const PageGameSettings = () => {
   const { setSidebar } = useGameActions()
 
@@ -24,6 +26,7 @@ export const PageGameSettings = () => {
       }}
       onSubmit={(values) => {
         console.log(values)
+        toast.success('save_success')
       }}
     >
       <FormCont>
