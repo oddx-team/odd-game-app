@@ -9,7 +9,7 @@ const propTypes = {
 }
 
 const defaultProps = {
-  value: undefined,
+  value: false,
   onChange: () => {}
 }
 

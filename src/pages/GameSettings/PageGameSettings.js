@@ -16,10 +16,10 @@ export const PageGameSettings = () => {
     <Form
       initialValues={{
         theme: false,
-        nsfw: false,
-        animation: false,
-        language: '',
-        strangerInvite: false
+        nsfw: true,
+        animation: true,
+        language: false,
+        strangerInvite: true
       }}
       validations={{
         // language: Form.is.required()
