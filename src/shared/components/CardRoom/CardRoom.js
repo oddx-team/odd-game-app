@@ -22,7 +22,7 @@ export const CardRoom = ({ name, host, current, guest, status, slug }) => {
   const viewRoom = () => {
     history.push(`/rooms/${slug}`)
   }
-  const joinRoom = async () => {
+  const joinRoom = () => {
     history.push(`/rooms/${slug}`)
   }
 
@@ -36,12 +36,8 @@ export const CardRoom = ({ name, host, current, guest, status, slug }) => {
         <Text title='Status' value={status} />
       </CardRoomInner>
 
-      <Button variant='success' icon='game' onClick={joinRoom}>
-          Join
-      </Button>
-      <Button variant='primary' icon='inside' onClick={viewRoom}>
-          View
-      </Button>
+      <Button variant='success' icon='game' onClick={joinRoom}>Join</Button>
+      <Button variant='primary' icon='inside' onClick={viewRoom}>View</Button>
     </StyledCardRoom>
   )
 }

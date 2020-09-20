@@ -7,7 +7,7 @@ import { StyledField, FieldError, FieldLabel } from './styled'
 
 const withField = Child => ({ label, ...props }) => {
   const [field, meta] = useField(props)
-  const { name } = field
+  const { name, value } = field
   const { error, touched } = meta
   const fieldId = uniqueId('form-field-')
 
@@ -17,6 +17,7 @@ const withField = Child => ({ label, ...props }) => {
       <Child
         id={fieldId}
         name={name}
+        value={value}
         invalid={!!error && touched}
         onChange={(_, e) => {
           field.onChange(e)
