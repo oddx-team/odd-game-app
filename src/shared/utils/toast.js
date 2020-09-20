@@ -7,8 +7,9 @@ const ERROR_CODES = {
 }
 
 const SUCCESS_CODES = {
-  login_successful: 'Login successfully!',
-  logout_successful: 'Logout successfully!'
+  login_success: 'Login successfully!',
+  logout_success: 'Logout successfully!',
+  save_success: 'Save successfully!'
 }
 
 const show = toast => eventBus.publish('toast', toast)

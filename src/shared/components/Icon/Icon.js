@@ -69,7 +69,8 @@ const fontIconCodes = {
   loading: '\\E82F',
   play: '\\F144',
   play1: '\\E830',
-  profile: '\\E831'
+  profile: '\\E831',
+  close: '\\E833'
 }
 
 const propTypes = {

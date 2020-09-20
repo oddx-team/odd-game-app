@@ -16,15 +16,7 @@ const Text = ({ title, value }) => {
   )
 }
 
-export const CardRoom = props => {
-  const {
-    host,
-    current,
-    guest,
-    status,
-    slug
-  } = props
-
+export const CardRoom = ({ name, host, current, guest, status, slug }) => {
   const trySpectating = (history, slug) => {
     history.push(`/rooms/${slug}`)
   }
@@ -37,17 +29,25 @@ export const CardRoom = props => {
       render={({ history }) => (
         <StyledCardRoom className='wrapper'>
           <CardRoomInner>
-            <Title>{props.name}</Title>
+            <Title>{name}</Title>
             <Text title='Host' value={host} />
             <Text title='Room' value={`${current}/10`} />
             <Text title='Viewers' value={`${guest}`} />
             <Text title='Status' value={status} />
           </CardRoomInner>
 
-          <Button variant='success' icon='game' onClick={() => tryJoining(history, slug)}>
+          <Button
+            variant='success'
+            icon='game'
+            onClick={() => tryJoining(history, slug)}
+          >
             Join
           </Button>
-          <Button variant='primary' icon='inside' onClick={() => trySpectating(history, slug)}>
+          <Button
+            variant='primary'
+            icon='inside'
+            onClick={() => trySpectating(history, slug)}
+          >
             View
           </Button>
         </StyledCardRoom>

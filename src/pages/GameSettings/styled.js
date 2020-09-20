@@ -6,19 +6,21 @@ import { Form } from 'formik'
 export const FormCont = styled(Form)`
   ${mixin.flexCenter} 
   width: 100%;
-  height: 100%;
-  margin: 0 auto;
+  margin: 0.3rem auto;
+  margin-left: -0.7rem;
   justify-content: flex-start;
 `
 
 export const FormElement = styled.div`
+  ${mixin.boxShadow}
+  width: 5rem;
   height: 100%;
   top: 0;
-  background: #f1f2f5;
-  padding-bottom: 0.5rem;
+  padding: 0.15rem 0.3rem 0.4rem 0.3rem;
   position: relative;
   text-align: left;
   display: flex;
+  background: #fff;
   flex-direction: column;
 `
 

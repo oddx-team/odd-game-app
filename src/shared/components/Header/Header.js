@@ -48,7 +48,11 @@ export const Header = () => {
   return (
     <HeaderWrapper>
       <NavBar>
-        {!isLoggedIn && <><Logo /><MainText>Oddx</MainText></>}
+        {!isLoggedIn &&
+          <div>
+            <Logo />
+            <MainText>Oddx</MainText>
+          </div>}
         {isLoggedIn &&
           <Fragment key={0}>
             <Arrow onClick={toggleSidebar} sidebar={fullSidebar} />

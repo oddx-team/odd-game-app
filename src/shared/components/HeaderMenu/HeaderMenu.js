@@ -27,7 +27,7 @@ export const HeaderMenu = () => {
       logoutGame()
       closeSocket()
 
-      toast.success('logout_successful')
+      toast.success('logout_success')
     } catch (err) {
       toast.error('error')
     }
