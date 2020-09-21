@@ -5,7 +5,7 @@ import { Input } from 'shared/components/Input'
 import { Toggle } from 'shared/components/Toggle'
 import { StyledField, FieldError, FieldLabel } from './styled'
 
-const InputField = ({ label, ...props }) => {
+const withField = Child => ({ label, ...props }) => {
   const [field, meta] = useField(props)
   const { name } = field
   const { error, touched } = meta
@@ -14,7 +14,7 @@ const InputField = ({ label, ...props }) => {
   return (
     <StyledField>
       {label && <FieldLabel htmlFor={fieldId}>{label}</FieldLabel>}
-      <Input
+      <Child
         id={fieldId}
         name={name}
         invalid={!!error && touched}
@@ -28,27 +28,7 @@ const InputField = ({ label, ...props }) => {
   )
 }
 
-const ToggleField = ({ label, ...props }) => {
-  const [field] = useField(props)
-  const { name } = field
-  const fieldId = uniqueId('form-field-')
-
-  return (
-    <StyledField horizontal>
-      <FieldLabel htmlFor={fieldId}>{label}</FieldLabel>
-      <Toggle
-        id={fieldId}
-        name={name}
-        onChange={(_, e) => {
-          field.onChange(e)
-          field.onBlur(e)
-        }}
-      />
-    </StyledField>
-  )
-}
-
 export default {
-  Input: InputField,
-  Toggle: ToggleField
+  Input: withField(Input),
+  Toggle: withField(Toggle)
 }
