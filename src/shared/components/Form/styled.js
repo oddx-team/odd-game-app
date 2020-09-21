@@ -4,7 +4,7 @@ import { color, font } from 'shared/utils/styles'
 export const StyledField = styled.div`
   margin-top: 0.2rem;
 
-  ${props => props.horizontal &&
+  ${props => !props.vertical &&
     css`
       display: flex;
       justify-content: space-between;

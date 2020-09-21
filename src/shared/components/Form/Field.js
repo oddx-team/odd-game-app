@@ -5,14 +5,14 @@ import { Input } from 'shared/components/Input'
 import { Toggle } from 'shared/components/Toggle'
 import { StyledField, FieldError, FieldLabel } from './styled'
 
-const withField = Child => ({ label, ...props }) => {
+const withField = Child => ({ label, vertical, ...props }) => {
   const [field, meta] = useField(props)
   const { name, value } = field
   const { error, touched } = meta
   const fieldId = uniqueId('form-field-')
 
   return (
-    <StyledField>
+    <StyledField vertical={vertical}>
       {label && <FieldLabel htmlFor={fieldId}>{label}</FieldLabel>}
       <Child
         id={fieldId}
