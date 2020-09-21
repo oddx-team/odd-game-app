@@ -8,7 +8,7 @@ export const Title = styled.div`
   margin-bottom: 0.08rem;
 `
 
-export const CardRoomInner = styled.div`
+export const CardCont = styled.div`
   padding: 0.1rem 0 0 0.2rem;
   color: #000;
   font-size: 0.19rem;
