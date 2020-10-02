@@ -1,7 +1,19 @@
 import styled, { css } from 'styled-components'
 import { color, font, mixin } from 'shared/utils/styles'
+import { Variants } from 'shared/utils/constants';
 
-export const StyledButton = styled.button`
+// TYPED SECTIONS
+type ButtonProps = {
+  iconOnly: boolean;
+  variant: Variants;
+}
+
+type TextProps = {
+  withPadding: boolean;
+}
+
+// STYLED SECTIONS
+export const StyledButton = styled.button<ButtonProps>`
   ${mixin.flexCenter}
   line-height: 1.6;
   padding: 
@@ -20,7 +32,11 @@ export const StyledButton = styled.button`
   }
 `
 
-const colored = css`
+export const Text = styled.div<TextProps>`
+  padding-left: ${props => (props.withPadding ? 0.05 : 0)}rem;
+`
+
+const colored = css<ButtonProps>`
   color: #fff;
   background: ${props => color[props.variant]};
   ${font.medium}
@@ -62,6 +78,4 @@ const buttonVariants = {
   `
 }
 
-export const Text = styled.div`
-  padding-left: ${props => (props.withPadding ? 0.05 : 0)}rem;
-`
+

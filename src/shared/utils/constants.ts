@@ -1,9 +1,4 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
-import { StyledIcon } from './styled'
-
-const fontIconCodes = {
+export const fontIconCodes = {
   music: '\\e801',
   search: '\\e802',
   heart1: '\\E804',
@@ -71,28 +66,7 @@ const fontIconCodes = {
   play1: '\\E830',
   profile: '\\E831',
   close: '\\E833'
-}
+} as const;
 
-const propTypes = {
-  className: PropTypes.string,
-  type: PropTypes.oneOf(Object.keys(fontIconCodes)).isRequired,
-  size: PropTypes.number,
-  left: PropTypes.number,
-  top: PropTypes.number
-}
-
-const defaultProps = {
-  className: undefined,
-  size: 0.25,
-  left: 0,
-  top: -0.01
-}
-
-const Icon = ({ type, ...iconProps }) => (
-  <StyledIcon {...iconProps} code={fontIconCodes[type]} />
-)
-
-Icon.propTypes = propTypes
-Icon.defaultProps = defaultProps
-
-export default Icon
+export type IconType = keyof typeof fontIconCodes;
+export type Variants = 'primary' | 'secondary' | 'success' | 'danger' | 'empty';

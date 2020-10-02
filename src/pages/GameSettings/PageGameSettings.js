@@ -19,13 +19,17 @@ export const PageGameSettings = () => {
         nsfw: true,
         animation: true,
         language: false,
-        strangerInvite: true
+        strangerInvite: true,
+        email: '',
+        password: ''
       }}
       validations={{
         // language: Form.is.required()
+        email: [Form.is.required(), Form.is.minLength(3)],
+        password: Form.is.required()
       }}
       onSubmit={(values) => {
-        console.log(values)
+        // console.log(values)
         toast.success('save_success')
       }}
     >
@@ -39,6 +43,9 @@ export const PageGameSettings = () => {
           <Form.Field.Toggle name='animation' label='Animation effect' />
           <Form.Field.Toggle name='strangerInvite' label='Stranger invite' />
           <Form.Field.Toggle name='language' label='Language' />
+
+          <Form.Field.Input name='email' label='Email' />
+          <Form.Field.Input name='password' label='Password' />
 
           <ActionButton type='submit' variant='primary' icon='plus' iconSize={0.25}>
             Save changes
