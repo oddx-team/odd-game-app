@@ -1,7 +1,7 @@
 import { css } from 'styled-components'
 import Color from 'color'
 
-export const color = {
+export const color: Record<string, string> = {
   primary: '#0277BD', // Blue
   success: '#0B875B', // green
   danger: '#E13C3C', // red
@@ -44,7 +44,7 @@ export const font = {
   medium: 'font-weight: 500;',
   bold: 'font-weight: 600;',
   black: 'font-weight: 900;',
-  size: size => `font-size: ${size}rem;`
+  size: (size: number) => `font-size: ${size}rem;`
 }
 
 export const sizes = {
@@ -54,19 +54,19 @@ export const sizes = {
 }
 
 export const mixin = {
-  darken: (colorValue, amount) =>
+  darken: (colorValue: string, amount: number) =>
     Color(colorValue)
       .darken(amount)
       .string(),
-  lighten: (colorValue, amount) =>
+  lighten: (colorValue: string, amount: number) =>
     Color(colorValue)
       .lighten(amount)
       .string(),
-  rgba: (colorValue, opacity) =>
+  rgba: (colorValue: string, opacity: number) =>
     Color(colorValue)
       .alpha(opacity)
       .string(),
-  getImage: (path, width, height) => {
+  getImage: (path: string, width: number, height: number) => {
     const cdn = '../../assets'
     return `
       width: ${width}rem;
@@ -93,13 +93,13 @@ export const mixin = {
     white-space: nowrap;
     text-overflow: ellipsis;
   `,
-  backgroundImage: imageURL => css`
+  backgroundImage: (imageURL: string) => css`
     background-image: url("${imageURL}");
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
   `,
-  size: (width, height) => css`
+  size: (width: number, height: number) => css`
     width: ${width}rem;
     height: ${height}rem;
   `,

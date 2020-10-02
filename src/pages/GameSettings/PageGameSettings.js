@@ -16,16 +16,20 @@ export const PageGameSettings = () => {
     <Form
       initialValues={{
         theme: false,
-        nsfw: false,
-        animation: false,
-        language: '',
-        strangerInvite: false
+        nsfw: true,
+        animation: true,
+        language: false,
+        strangerInvite: true,
+        email: '',
+        password: ''
       }}
       validations={{
         // language: Form.is.required()
+        email: [Form.is.required(), Form.is.minLength(3)],
+        password: Form.is.required()
       }}
       onSubmit={(values) => {
-        console.log(values)
+        // console.log(values)
         toast.success('save_success')
       }}
     >

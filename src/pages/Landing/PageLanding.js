@@ -42,7 +42,7 @@ export const PageLanding = () => {
       await Api.registerUsername(username)
       login(username)
       spawnNewSocket()
-      toast.success('login_successful')
+      toast.success('login_success')
 
       history.push('/rooms')
     } catch (err) {

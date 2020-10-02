@@ -1,6 +1,13 @@
 import styled from 'styled-components'
 
-export const StyledIcon = styled.i`
+type IconProps = {
+  size?: number;
+  left?: number;
+  top?: number;
+  code: string;
+}
+
+export const StyledIcon = styled.i<IconProps>`
   display: inline-block;
   font-size: ${props => `${props.size}rem`};
   ${props =>
@@ -8,7 +15,6 @@ export const StyledIcon = styled.i`
   &:before {
     content: "${props => props.code}";
     font-family: "Oddx" !important;
-    speak: none;
     font-style: normal;
     font-weight: normal;
     font-variant: normal;

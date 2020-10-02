@@ -13,7 +13,7 @@ export const FormCont = styled(Form)`
 
 export const FormElement = styled.div`
   ${mixin.boxShadow}
-  width: 5rem;
+  width: 4rem;
   height: 100%;
   top: 0;
   padding: 0.15rem 0.3rem 0.4rem 0.3rem;

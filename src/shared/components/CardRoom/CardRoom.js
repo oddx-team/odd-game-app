@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Route } from 'react-router-dom'
 import { Button } from '../Button'
-import { Title, StyledCardRoom, CardRoomInner } from './styled'
+import { Title, StyledCardRoom, CardCont } from './styled'
+import { useHistory } from 'react-router-dom'
 
 const Text = ({ title, value }) => {
   const textStyle = {
@@ -17,42 +17,28 @@ const Text = ({ title, value }) => {
 }
 
 export const CardRoom = ({ name, host, current, guest, status, slug }) => {
-  const trySpectating = (history, slug) => {
+  const history = useHistory()
+
+  const viewRoom = () => {
     history.push(`/rooms/${slug}`)
   }
-  const tryJoining = async (history, slug) => {
+  const joinRoom = () => {
     history.push(`/rooms/${slug}`)
   }
 
   return (
-    <Route
-      render={({ history }) => (
-        <StyledCardRoom className='wrapper'>
-          <CardRoomInner>
-            <Title>{name}</Title>
-            <Text title='Host' value={host} />
-            <Text title='Room' value={`${current}/10`} />
-            <Text title='Viewers' value={`${guest}`} />
-            <Text title='Status' value={status} />
-          </CardRoomInner>
+    <StyledCardRoom className='wrapper'>
+      <CardCont>
+        <Title>{name}</Title>
+        <Text title='Host' value={host} />
+        <Text title='Room' value={`${current}/10`} />
+        <Text title='Viewers' value={`${guest}`} />
+        <Text title='Status' value={status} />
+      </CardCont>
 
-          <Button
-            variant='success'
-            icon='game'
-            onClick={() => tryJoining(history, slug)}
-          >
-            Join
-          </Button>
-          <Button
-            variant='primary'
-            icon='inside'
-            onClick={() => trySpectating(history, slug)}
-          >
-            View
-          </Button>
-        </StyledCardRoom>
-      )}
-    />
+      <Button variant='success' icon='game' onClick={joinRoom}>Join</Button>
+      <Button variant='primary' icon='inside' onClick={viewRoom}>View</Button>
+    </StyledCardRoom>
   )
 }
 

@@ -86,7 +86,7 @@ export const CollectionHeader = styled.div`
   text-transform: uppercase;
   background: #0277bd;
   height: 0.3rem;
-  padding-top: 0.07rem;
+  padding-top: 0.01rem;
   font-family: 'Oswald', sans-serif;
 `
 
