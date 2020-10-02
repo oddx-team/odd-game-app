@@ -44,9 +44,6 @@ export const PageGameSettings = () => {
           <Form.Field.Toggle name='strangerInvite' label='Stranger invite' />
           <Form.Field.Toggle name='language' label='Language' />
 
-          <Form.Field.Input name='email' label='Email' />
-          <Form.Field.Input name='password' label='Password' />
-
           <ActionButton type='submit' variant='primary' icon='plus' iconSize={0.25}>
             Save changes
           </ActionButton>
