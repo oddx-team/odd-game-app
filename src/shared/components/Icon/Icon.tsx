@@ -12,7 +12,7 @@ type IconProps = {
   color: string;
 }
 
-const defaultProps = {
+const defaultProps: IconProps = {
   className: '',
   size: 0.25,
   left: 0,

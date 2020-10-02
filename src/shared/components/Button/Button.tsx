@@ -16,11 +16,11 @@ type ButtonProps = {
   onClick: (event: React.MouseEvent<HTMLElement>) => void
 }
 
-const defaultProps = {
+const defaultProps: ButtonProps = {
   className: '',
   children: null,
-  variant: 'primary' as Variants,
-  icon: 'code' as IconType,
+  variant: 'primary',
+  icon: 'code',
   iconSize: 0.23,
   disabled: false,
   isWorking: false,
