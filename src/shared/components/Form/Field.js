@@ -10,8 +10,6 @@ const withField = Child => ({ label, vertical, ...props }) => {
   const { error, touched } = meta
   const fieldId = uniqueId('form-field-')
 
-  // { name, value } = field
-
   return (
     <StyledField vertical={vertical}>
       {label && <FieldLabel htmlFor={fieldId}>{label}</FieldLabel>}
