@@ -1,13 +1,12 @@
 import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
 
 import { Container, Divider } from './styled'
 
-const propTypes = {
-  items: PropTypes.array.isRequired
+type BreadcrumbsProps = {
+  items: string[]
 }
 
-const Breadcrumbs = ({ items }) => (
+const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ items }) => (
   <Container>
     {items.map((item, index) => (
       <Fragment key={item}>
@@ -17,7 +16,5 @@ const Breadcrumbs = ({ items }) => (
     ))}
   </Container>
 )
-
-Breadcrumbs.propTypes = propTypes
 
 export default Breadcrumbs
