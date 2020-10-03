@@ -6,7 +6,7 @@ import { IconType, fontIconCodes } from 'shared/utils/constants'
 type IconProps = {
   type: IconType;
   className?: string;
-  size: number;
+  size?: number;
   left?: number;
   top?: number;
   color?: string;

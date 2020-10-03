@@ -23,7 +23,7 @@ export const Message = styled.div`
   ${font.medium}
 `
 
-export const StyledToast = styled.div`
+export const StyledToast = styled.div<{ type: string }>`
   position: relative;
   margin-bottom: 0.1rem;
   width: 3rem;
@@ -49,11 +49,11 @@ export const StyledToast = styled.div`
 
   ${Title} {
     ${props => props.type === 'success'
-      ? font.medium
-      : font.bold}
+    ? font.medium
+    : font.bold}
     ${props => props.type === 'success'
-      ? font.size(0.19)
-      : font.size(0.21)}
+    ? font.size(0.19)
+    : font.size(0.21)}
   }
 `
 

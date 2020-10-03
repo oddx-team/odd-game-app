@@ -7,7 +7,8 @@ export const TOAST_CODES: Record<string, string> = {
   error: 'Something went wrong!'
 }
 
-export interface Toast {
+export type Toast = {
+  id?: string;
   type: string;
   title: string;
   duration: number;
