@@ -1,6 +1,6 @@
 import { css } from 'styled-components'
 
-export const sizeWH = (width, height) => {
+export const sizeWH = (width: number, height: number) => {
   return `
     width: ${width};
     height: ${height};
@@ -21,7 +21,7 @@ export const textMixin = (
   `
 }
 
-export const imageCDN = (path, width, height, mode = 'contain', pos = 'center') => {
+export const imageCDN = (path: string, width: number, height: number, mode = 'contain', pos = 'center') => {
   const cdn = './assets'
   return `
     width: ${width}rem;
@@ -39,22 +39,11 @@ export const alignCenter = () => {
   `
 }
 
-export const flexCenter = direction => {
+export const flexCenter = (direction: string) => {
   return `
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: ${direction};
-  `
-}
-
-export const position = ({ pos, top = null, right = null, bottom = null, left = null, zIndex = null }) => {
-  return `
-    position: ${pos};
-    top: ${top};
-    right: ${right};
-    bottom: ${bottom};
-    left: ${left};
-    z-index: ${zIndex};
   `
 }

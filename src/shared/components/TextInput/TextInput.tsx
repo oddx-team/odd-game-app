@@ -1,17 +1,23 @@
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { FormEvent, useState } from 'react'
 import classNames from 'classnames'
 import { StyledInput } from './styled'
 
-export const TextInput = props => {
+type TextInputProps = {
+  placeholder: string;
+  disabled: boolean;
+  small: Boolean;
+  onSubmit: (val: string) => void;
+}
+
+export const TextInput: React.FC<TextInputProps> = props => {
   const [value, setValue] = useState('')
 
-  const handleChange = event => {
-    setValue(event.target.value)
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value)
   }
 
-  const handleSubmit = event => {
-    event.preventDefault()
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     if (props.onSubmit) {
       props.onSubmit(value)
       setValue('')
@@ -40,9 +46,3 @@ export const TextInput = props => {
   )
 }
 
-TextInput.propTypes = {
-  placeholder: PropTypes.string,
-  onSubmit: PropTypes.func,
-  disabled: PropTypes.bool,
-  small: PropTypes.bool
-}
