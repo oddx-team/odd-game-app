@@ -3,6 +3,11 @@ import styled, { css } from 'styled-components'
 import { color, font } from 'shared/utils/styles'
 import { Icon } from 'shared/components/Icon'
 
+type InputProps = {
+  hasIcon: boolean;
+  invalid: boolean;
+}
+
 export const StyledInput = styled.div`
   position: relative;
   display: inline-block;
@@ -10,7 +15,7 @@ export const StyledInput = styled.div`
   width: 100%;
 `
 
-export const InputElement = styled.input`
+export const InputElement = styled.input<InputProps>`
   height: 100%;
   width: 100%;
   padding: 0 0.07rem;

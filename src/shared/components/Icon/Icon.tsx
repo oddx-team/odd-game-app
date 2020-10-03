@@ -9,7 +9,7 @@ type IconProps = {
   size: number;
   left?: number;
   top?: number;
-  color: string;
+  color?: string;
 }
 
 const defaultProps: IconProps = {
