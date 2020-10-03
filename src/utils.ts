@@ -1,6 +1,6 @@
 import slugify from 'slugify'
 
-function getParam (paramName, url) {
+function getParam(paramName: string, url: string) {
   const href = url || window.location.href
   const name = paramName.replace(/[[]]/g, '\\$&')
   const regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`)
@@ -10,19 +10,19 @@ function getParam (paramName, url) {
   return decodeURIComponent(results[2].replace(/\+/g, ' '))
 }
 
-function camelizeStr (str) {
+function camelizeStr(str: string) {
   return str.replace(/[_.-](\w|$)/g, (_, x) => x.toUpperCase())
 }
 
-function snakifyStr (str) {
+function snakifyStr(str: string) {
   return str.replace(/(?:^|\.?)([A-Z])/g, (_, x) => `_${x.toLowerCase()}`)
 }
 
-function slugifyStr (str) {
+function slugifyStr(str: string) {
   return slugify(str.toLowerCase())
 }
 
-function parseTime (timer) {
+function parseTime(timer: number) {
   const parsedDate = new Date(timer * 1000)
   const d = parsedDate.getDate()
   const h = parsedDate.getHours()
@@ -37,13 +37,16 @@ function parseTime (timer) {
   }
 }
 
-function convertCase (convertFunc) {
-  function converter (thing) {
+type Function = (str: string) => string;
+type GenericObject = Record<string, string>
+
+function convertCase(convertFunc: Function) {
+  function converter(thing: any | GenericObject): any {
     if (thing instanceof Array) {
       return thing.map(i => converter(i))
     }
     if (thing instanceof Object) {
-      const newObj = {}
+      const newObj: GenericObject = {}
       Object.keys(thing).forEach(k => {
         newObj[convertFunc(k)] = converter(thing[k])
       })
@@ -54,11 +57,11 @@ function convertCase (convertFunc) {
   return converter
 }
 
-function delay (ms) {
+function delay(ms: number) {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
 
-function convertChar (num) {
+function convertChar(num: number) {
   return String.fromCharCode(num + 65)
 }
 
