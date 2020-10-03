@@ -6,13 +6,13 @@ import { color } from 'shared/utils/styles';
 import { StyledButton, Text } from './styled';
 
 type ButtonProps = {
-  className: string;
+  className?: string;
   children?: React.ReactNode;
   variant: Variants;
   icon: IconType;
-  iconSize: number;
-  disabled: boolean;
-  isWorking: boolean;
+  iconSize?: number;
+  disabled?: boolean;
+  isWorking?: boolean;
   onClick: (event: React.MouseEvent<HTMLElement>) => void
 }
 
