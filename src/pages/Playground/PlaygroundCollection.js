@@ -1,10 +1,12 @@
 import React from 'react'
 import { Card } from 'shared/components/Card'
+import { useGameState } from 'contexts/GameContext'
 import { usePlayState, usePlayActions } from 'contexts/PlayContext'
 import { CollectionWrapper, CollectionHeader, CollectionContent, CardWrapper } from './styled'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 
 export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
+  const { fullSidebar } = useGameState()
   const { collectionCardIds } = usePlayState()
   const { getCardById } = usePlayActions()
 
@@ -25,7 +27,7 @@ export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
   }
 
   return (
-    <CollectionWrapper>
+    <CollectionWrapper slide={fullSidebar}>
       <CollectionHeader>Player Collection</CollectionHeader>
       <Droppable droppableId='card-collection' direction='horizontal'>
         {(provided, snapshot) => (

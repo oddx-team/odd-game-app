@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components/macro'
 import { color, font } from 'shared/utils/styles'
 
-export const StyledField = styled.div`
+export const StyledField = styled.div<{ vertical: boolean }>`
   margin-top: 0.2rem;
 
   ${props => !props.vertical &&

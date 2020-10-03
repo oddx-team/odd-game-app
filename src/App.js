@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import { sizes } from 'shared/utils/styles'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
@@ -13,11 +13,13 @@ import { PageNotFound } from 'pages/NotFound'
 import { PagePlayground } from 'pages/Playground'
 import { PageViewCards } from 'pages/ViewCards'
 import { PageGameSettings } from 'pages/GameSettings'
+import { PageRotation } from 'pages/Rotation'
 
 import GameContextProvider, { useGameState } from 'contexts/GameContext.js'
 import ModalContextProvider from 'contexts/ModalContext.js'
 import PlayContextProvider from 'contexts/PlayContext.js'
 import SocketContextProvider from 'contexts/SocketContext.js'
+import 'styles/global.scss'
 import 'App.scss'
 
 const PrivateRoute = ({ component: Component, ...options }) => {
@@ -34,6 +36,16 @@ const PrivateRoute = ({ component: Component, ...options }) => {
 }
 
 const App = () => {
+  const [rotation, setRotation] = useState(false)
+  useEffect(() => {
+    const checkState = () => {
+      const check = window.innerWidth < window.innerHeight
+      setRotation(check)
+    }
+    checkState()
+    window.addEventListener('resize', checkState)
+  }, [])
+
   return (
     <SocketContextProvider>
       <GameContextProvider>
@@ -41,7 +53,7 @@ const App = () => {
           <PlayContextProvider>
             <BrowserRouter>
               <div id='app'>
-                <div className='header-bg' />
+                {rotation && <PageRotation />}
                 <div className='main'>
                   <Sidebar />
                   <MainContent>
@@ -90,8 +102,9 @@ const Container = styled.div`
   padding-left: ${props => !props.showSidebar && 0}rem;
   transition: padding-left 0.35s;
 
+
   ${Wrapper} {
-    transition: all 0.3s;
+    transition: all 0.3s ease-in-out;
     background: #F1F2F5;
     padding-left: ${props => !props.showSidebar ? 0 : props.openSidebar ? 0.9 : 1.6}rem;
     overflow-y: auto;

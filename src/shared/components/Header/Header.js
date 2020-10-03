@@ -8,7 +8,6 @@ import {
   HeaderWrapper,
   NavBar,
   Arrow,
-  Logo,
   Text,
   MainText,
   ProfileContainer,
@@ -46,13 +45,9 @@ export const Header = () => {
   }
 
   return (
-    <HeaderWrapper>
+    <HeaderWrapper show={isLoggedIn}>
       <NavBar>
-        {!isLoggedIn &&
-          <div>
-            <Logo />
-            <MainText>Oddx</MainText>
-          </div>}
+        {!isLoggedIn && <div />}
         {isLoggedIn &&
           <Fragment key={0}>
             <Arrow onClick={toggleSidebar} sidebar={fullSidebar} />

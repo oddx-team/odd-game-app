@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
 import { imageCDN } from 'mixins'
 import { sizes, font } from 'shared/utils/styles'
 
@@ -6,6 +6,11 @@ export const HeaderWrapper = styled.div`
   width: 100%;
   height: ${sizes.bannerHeight}rem;
   background: #FFFFFF;
+
+  ${props => !props.show && css`
+    background: #FAFBFD;
+    display: none;
+  `}
 `
 
 export const Arrow = styled.div`
@@ -20,12 +25,14 @@ export const Logo = styled.div`
   ${imageCDN('game-logo.png', 0.33, 0.33)}
   margin-top: 0.02rem;
   margin-right: 0.07rem;
+  display: inline-block;
 `
 
 export const MainText = styled.div`
   font-family: 'Orbitron', sans-serif;
   font-size: 0.3rem;
   font-weight: bold;
+  display: inline-block;
 `
 
 export const Text = styled.div`

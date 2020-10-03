@@ -1,81 +1,36 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { useHistory } from 'react-router-dom'
-import { useGameState, useGameActions } from 'contexts/GameContext'
-import { SocketContext } from 'contexts/SocketContext'
+import React, { useEffect, useState } from 'react'
+import { useGameState } from 'contexts/GameContext'
 import { Loading } from 'shared/components/Loading'
-import {
-  LandingWrapper,
-  Logo,
-  LeftOverlay,
-  RightOverlay,
-  Container,
-  StyledNamePanel,
-  TextInput,
-  ButtonStart,
-  Title
-} from './styled'
-import Api from 'services'
-import toast from 'shared/utils/toast'
+import { LandingWrapper } from './styled'
+import Div1 from './sections/Div1'
+import Div2 from './sections/Div2'
 
-export const PageLanding = () => {
-  const history = useHistory()
-  const [username, setUsername] = useState('')
-
-  const { login, setBanner } = useGameActions()
+export const PageLanding = ({ history }) => {
   const { isLoggedIn } = useGameState()
-  const { spawnNewSocket } = useContext(SocketContext)
+  const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
-    setBanner(false)
     if (isLoggedIn) {
       history.push('/rooms')
     }
-  }, [history, isLoggedIn, setBanner])
+  }, [isLoggedIn, history])
 
-  const startGame = async () => {
-    if (!username || username.length < 3) {
-      toast.error('username_len_short')
-      return
-    }
-
-    try {
-      await Api.registerUsername(username)
-      login(username)
-      spawnNewSocket()
-      toast.success('login_success')
-
-      history.push('/rooms')
-    } catch (err) {
-      toast.error('username_picked')
-    }
+  const handleScroll = (e) => {
+    const { scrollTop } = e.target
+    setScrollY(scrollTop)
   }
 
   return (
-    <LandingWrapper>
+    <LandingWrapper onScroll={handleScroll}>
       {isLoggedIn && <Loading />}
-      {!isLoggedIn &&
+      {!isLoggedIn && (
         <div>
-          <Logo />
-          <LeftOverlay />
-          <RightOverlay />
-
-          <Container>
-            <Title>Play now</Title>
-            <StyledNamePanel>
-              <TextInput
-                type='text'
-                placeholder='Enter your name'
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-                onKeyDown={e => e.key === 'Enter' && startGame()}
-              />
-            </StyledNamePanel>
-            <ButtonStart className='block blue' onClick={() => startGame()}>
-              <span>Start</span>
-            </ButtonStart>
-          </Container>
-        </div>}
-
+          <Div1 scrollY={scrollY} />
+          <Div2 />
+          <Div2 />
+          <Div2 />
+        </div>
+      )}
     </LandingWrapper>
   )
 }

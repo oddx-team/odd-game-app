@@ -9,10 +9,9 @@ import Api from 'services'
 
 export const PageViewCards = () => {
   const [allCards, loading] = useFetch(Api.getAllCards)
-  const { setBanner, setGlobalLoading } = useGameActions()
+  const { setGlobalLoading } = useGameActions()
 
   useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
-  useEffect(() => setBanner(true), [setBanner])
 
   return (
     <PageRoomWrapper>

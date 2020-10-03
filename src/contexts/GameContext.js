@@ -18,8 +18,6 @@ const gameReducer = (state, action) => {
       return { ...state, globalChat: [...state.globalChat, ...action.messages] }
     case 'UPDATE_ALL_ROOMS':
       return { ...state, eRooms: action.payload.eRooms, vRooms: action.payload.vRooms }
-    case 'SET_FULL_BANNER':
-      return { ...state, fullBanner: action.fullBanner }
     case 'SET_FULL_SIDEBAR':
       return { ...state, fullSidebar: action.fullSidebar }
     case 'SET_LOADING_STATUS':
@@ -45,7 +43,6 @@ const GameContextProvider = ({ children }) => {
     eRooms: [],
     vRooms: [],
     online: false,
-    fullBanner: true,
     fullSidebar: true
   }, undefined)
 
@@ -55,9 +52,6 @@ const GameContextProvider = ({ children }) => {
     }, []),
     logoutGame: useCallback(() => {
       dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: false, username: null })
-    }, []),
-    setBanner: useCallback((banner) => {
-      dispatch({ type: 'SET_FULL_BANNER', fullBanner: banner })
     }, []),
     setSidebar: useCallback((sidebar) => {
       dispatch({ type: 'SET_FULL_SIDEBAR', fullSidebar: sidebar })

@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
 import { mixin } from 'shared/utils/styles'
 import { Button } from 'shared/components/Button'
 
@@ -74,9 +74,12 @@ export const CollectionWrapper = styled.div`
   width: 11.5rem;
   height: 1.85rem;
   background: #fff;
-  position: absolute;
+  position: fixed;
   bottom: 0rem;
-  left: 0rem;
+  left: 1.8rem;
+  transition: left 0.3s;
+
+  ${props => props.slide && css`left: 2.9rem;`}
 `
 
 export const CollectionHeader = styled.div`

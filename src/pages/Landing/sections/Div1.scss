@@ -1,0 +1,300 @@
+@import 'styles/global.scss';
+
+#div1 {
+  @include imageCDN('landing.svg', 100%, 100vh);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: relative;
+  font-family: refrigerator-deluxe, sans-serif;
+
+  &::before {
+    content: '';
+    @include position(absolute, $bottom: -0.9rem, $left: -0.2rem);
+    @include sizeWH(70%, 1.2rem);
+    transform: rotate(5deg);
+    background: #F3F3F3;
+  }
+
+  &::after {
+    content: '';
+    @include position(absolute, $bottom: -0.8rem, $right: -0.2rem);
+    @include sizeWH(45%, 1.2rem);
+    transform: rotate(-7deg);
+    background: #F3F3F3;
+  }
+
+  .nav {
+    @include sizeWH(1.7rem, 100vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+
+    .logo {
+      @include textMixin(#fff, 0.3rem, normal, uppercase);
+      @include flexCenter(column);
+      @include sizeWH(1.7rem, 4rem);
+      background: #0477bd;
+      line-height: 2;
+      font-weight: bold;
+      font-size: 0.6rem;
+      line-height: 1;
+    }
+
+    .menu-links {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      text-align: right;
+      padding-top: 0.5rem;
+      z-index: 1;
+
+      ul {
+        width: 100%;
+        li {
+          @include textMixin(#494949, 0.25rem, 600, uppercase);
+          padding: 0.1rem;
+          cursor: pointer;
+          transition: background 0.25s ease-in-out;
+        }
+        li:hover,
+        li.active {
+          background: #494949;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .cards {
+    .card-1,
+    .card-2 {
+      @include sizeWH(1.6rem, 1.9rem);
+      @include boxShadow();
+      margin-right: 0.2rem;
+      background: #212121;
+      padding: 0.15rem;
+
+      h1 {
+        color: #fff;
+        text-align: left;
+        font-size: 0.22rem;
+      }
+      .logo {
+        @include position(absolute, $bottom: 0.1rem, $left: 0.1rem);
+        @include flexCenter(row);
+        color: #fff;
+
+        span {
+          margin-left: 0.05rem;
+          font-family: 'Orbitron';
+        }
+      }
+      
+      .odd {
+        @include textMixin(#fff, 0.32rem, bold);
+        @include alignCenter();
+        @include flexCenter(row);
+        font-family: 'Orbitron';
+
+        span {
+          margin-left: 0.05rem;
+        }
+      }
+    }
+
+    .card-1 {
+      @include position(absolute, $top: 2.3rem, $left: 3.4rem);
+      background: #fff;
+      transform: rotate(-25deg);
+      z-index: 1;
+      animation: float1 2s ease-in-out infinite;
+
+      h1,.logo, .odd {
+        color: #000;
+      }
+    }
+    .card-2 {
+      @include position(absolute, $top: 3.1rem, $left: 5.1rem);
+      background: #212121;
+      transform: rotate(-25deg);
+      z-index: 2;
+      animation: float2 2s ease-in-out infinite;
+    }
+  }
+
+  .tagline {
+    @include position(absolute, 0.3rem, 1.5rem);
+    text-align: right;
+    color: #494949;
+    z-index: 1;
+
+    .title {
+      font-family: 'Orbitron';
+      font-weight: bold;
+      font-size: 1.3rem;
+    }
+    .subtitle {
+      @include position(relative, -0.1rem);
+      text-align: center;
+      font-size: 0.3rem;
+    }
+  }
+
+  .ellipse-container {
+    @include sizeWH(5.2rem, 5.2rem);
+    @include position(absolute, $top: 1.1rem, $left: 2.4rem);
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+  
+  .ellipse {
+    position: absolute;
+    top: 0;
+    border-radius: 50%;
+    border-style: solid;
+
+    &.thin {
+      width: 100%;
+      height: 100%;
+      border-width: 1px;
+      border-color: #494949;
+      opacity: .5;
+    }
+
+    &.thick {
+      @include sizeWH(95%, 95%);
+      border-width: 0.1rem;
+      border-color: #fff;
+      transform: rotate(-45deg);
+      top: 0.16rem;
+      left: 0.12rem;
+    }
+
+    &.blue {
+      @include sizeWH(95%, 95%);
+      border-width: 0.1rem;
+      border-color: #0477bd transparent;
+      transform: rotate(-45deg);
+      top: 0.16rem;
+      left: 0.12rem;
+      animation: ellipseRotate 3s ease-in-out infinite;
+    }
+  }
+
+  .playnow {
+    @include position(absolute, $top: 4.5rem, $right: -0.5rem);
+    background: #0477bd;
+    width: 5.2rem;
+    height: 0.9rem;
+    opacity: 0.85;
+
+    &.type {
+      a {
+        opacity: 0;
+      }
+      input {
+        opacity: 1;
+      }
+    }
+
+    i {
+      @include textMixin(#fff, 0.3rem);
+      @include position(absolute, 0.3rem, $left: 0.2rem);
+      display: inline-block;
+      margin-right: 0.1rem;
+      font-style: normal;
+      cursor: pointer;
+      transition: all 0.3s;
+
+      &:before {
+        content: '\E830';
+        font-family: 'Oddx' !important;
+      }
+
+      &:active {
+        transform: scale(1.4);
+      }
+    }
+
+    a {
+      @include textMixin(#fff, 0.25rem, 600, uppercase);
+      @include position(absolute, 0.3rem, $left: 0.5rem);
+      text-decoration: none;
+      border-bottom: 0.03rem solid #fff;
+      padding-bottom: 0.05rem;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+
+    input {
+      @include textMixin(#fff, 0.25rem, 600);
+      @include position(absolute, 0.3rem, $left: 0.5rem);
+      width: 2rem;
+      border-bottom: 0.03rem solid #fff;
+      padding-bottom: 0.05rem;
+      padding-left: 0;
+      background-color: transparent;
+      opacity: 0;
+      transition: opacity 0.3s;
+
+      &::placeholder {
+        color: #ddd;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  .overlay {
+    @include sizeWH(100%, 100vh);
+    @include position(absolute, 0%);
+    @include flexCenter(column);
+    background: #0477bd;
+    z-index: 3;
+    color: #fff;
+    h1 {
+      @include textMixin(#fff, 0.9rem, bold, uppercase);
+      font-family: 'Orbitron';
+    }
+    span {
+      font-size: 0.4rem;
+    }
+  }
+
+  .circle {
+    @include imageCDN('circle-shape.png', 1.38rem, 1.89rem);
+    @include position(absolute, $top: 1rem, $right: 0.7rem);
+    animation: ellipseRotate 30s linear infinite;
+  }
+
+  .btn-video {
+    @include position(absolute, $top: 3.6rem, $left: 5rem);
+    background-color: transparent;
+    z-index: 2;
+
+    .bubble {
+      @include alignCenter();
+      @include sizeWH(0.75rem, 0.75rem);
+      background: #0477bd;
+      border-radius: 50%;
+      color: #fff;
+      z-index: 2;
+
+      i {
+        @include alignCenter();
+        margin-left: 0.02rem;
+      }
+    }
+
+    .pulse {
+      @include alignCenter();
+      @include sizeWH(0.9rem, 0.9rem);
+      background: #c5c7cd;
+      border-radius: 50%;
+      z-index: 1;
+      opacity: 0;
+    }
+  }
+}

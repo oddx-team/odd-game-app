@@ -3,14 +3,15 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import { uniqueId } from 'lodash'
 import { Container, StyledToast, CloseIcon, Title, Message } from './styled'
 import { eventBus } from 'shared/utils/eventBus'
+import { Toast } from 'shared/models'
 
-const Toast = () => {
-  const [toasts, setToasts] = useState([])
+const ToastBox: React.FC = () => {
+  const [toasts, setToasts] = useState<Toast[]>([])
 
   useEffect(() => {
-    const addToast = (toast) => {
+    const addToast = (toast: Toast) => {
       const id = uniqueId('toast-')
-      setToasts((currentToasts) => [...currentToasts, { id, ...toast }])
+      setToasts((currentToasts: Toast[]) => [...currentToasts, { id, ...toast }])
       setTimeout(() => removeToast(id), toast.duration * 1000)
     }
 
@@ -20,7 +21,7 @@ const Toast = () => {
     }
   }, [])
 
-  const removeToast = (id) => {
+  const removeToast = (id: string) => {
     setToasts((currentToasts) => currentToasts.filter((toast) => toast.id !== id))
   }
 
@@ -29,7 +30,7 @@ const Toast = () => {
       <TransitionGroup>
         {toasts.map((toast) => (
           <CSSTransition key={toast.id} classNames='odd-toast' timeout={200}>
-            <StyledToast key={toast.id} type={toast.type} onClick={() => removeToast(toast.id)}>
+            <StyledToast key={toast.id} type={toast.type} onClick={() => removeToast(toast.id as string)}>
               <CloseIcon type='close' />
               {toast.title && <Title>{toast.title}</Title>}
               {toast.message && <Message>{toast.message}</Message>}
@@ -41,4 +42,4 @@ const Toast = () => {
   )
 }
 
-export default Toast
+export default ToastBox
