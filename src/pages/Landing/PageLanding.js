@@ -12,7 +12,7 @@ export const PageLanding = ({ history }) => {
     if (isLoggedIn) {
       history.push('/rooms')
     }
-  }, [isLoggedIn])
+  }, [isLoggedIn, history])
 
   return (
     <LandingWrapper>
