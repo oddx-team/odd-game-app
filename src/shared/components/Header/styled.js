@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro'
+import styled, { css } from 'styled-components/macro'
 import { imageCDN } from 'mixins'
 import { sizes, font } from 'shared/utils/styles'
 
@@ -6,6 +6,11 @@ export const HeaderWrapper = styled.div`
   width: 100%;
   height: ${sizes.bannerHeight}rem;
   background: #FFFFFF;
+
+  ${props => !props.show && css`
+    background: #FAFBFD;
+    /* display: none; */
+  `}
 `
 
 export const Arrow = styled.div`

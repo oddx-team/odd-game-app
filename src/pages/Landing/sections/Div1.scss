@@ -1,3 +1,149 @@
-div {
-  // @include textMixin(#000, 0.5rem, bold, uppercase);
+@import 'styles/global.scss';
+
+section#div1 {
+  @include sizeWH(100%, 100vh);
+  position: relative;
+  font-family: refrigerator-deluxe, sans-serif;
+
+  .nav {
+    @include sizeWH(1.7rem, 100vh);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+    position: relative;
+
+    .logo {
+      @include textMixin(#fff, 0.3rem, normal, uppercase);
+      @include flexCenter(column);
+      @include sizeWH(1.7rem, 4rem);
+      background: #0477bd;
+      line-height: 2;
+      font-weight: bold;
+      font-size: 0.6rem;
+      line-height: 1;
+    }
+
+    .menu-links {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      text-align: right;
+      padding-top: 0.5rem;
+      z-index: 1;
+
+      ul {
+        width: 100%;
+        li {
+          @include textMixin(#494949, 0.25rem, 600, uppercase);
+          padding: 0.1rem;
+          cursor: pointer;
+          transition: background 0.25s ease-in-out;
+        }
+        li:hover,
+        li:active {
+          background: #494949;
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .scrolldown {
+    @include textMixin(#000, 0.2rem, normal);
+    @include position(relative, -0.4rem, $left: 0.2rem);
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    transform: rotate(-90deg);
+
+    &::before {
+      display: inline-block;
+      content: '';
+      border-top: 0.02rem solid #000;
+      width: 0.65rem;
+      margin: 0 0.1rem 0 0;
+      transform: translateY(0.1rem);
+    }
+  }
+
+  .tagline {
+    @include position(absolute, 0.5rem, 1.8rem);
+    text-align: right;
+    color: #494949;
+
+    .title {
+      font-size: 1.8rem;
+    }
+    .subtitle {
+      font-size: 0.3rem;
+    }
+  }
+
+  .playnow {
+    @include position(absolute, 4rem, 0);
+    background: #0477bd;
+    width: 4.3rem;
+    height: 0.9rem;
+
+    i {
+      @include textMixin(#fff, 0.25rem);
+      @include position(absolute, 0.3rem, $left: 0.2rem);
+      display: inline-block;
+      margin-right: 0.1rem;
+      font-style: normal;
+      cursor: pointer;
+
+      &:before {
+        content: '\E830';
+        font-family: 'Oddx' !important;
+      }
+    }
+
+    a {
+      @include textMixin(#fff, 0.25rem, 600, uppercase);
+      @include position(absolute, 0.3rem, $left: 0.5rem);
+      text-decoration: none;
+      border-bottom: 0.03rem solid #fff;
+      padding-bottom: 0.05rem;
+    }
+
+    input {
+      @include textMixin(#fff, 0.25rem, 600);
+      @include position(absolute, 0.3rem, $left: 0.5rem);
+      width: 2rem;
+      border-bottom: 0.03rem solid #fff;
+      padding-bottom: 0.05rem;
+      padding-left: 0;
+      background-color: transparent;
+
+      &::placeholder {
+        color: #eee;
+        text-transform: uppercase;
+      }
+    }
+  }
+
+  // .overlay {
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 100vh;
+  //   background: #FFEB00;
+  //   top: 0%;
+  //   z-index: 1;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
+
+  // .overlay h1 {
+  //   font-size: 100px;
+  //   letter-spacing: 20px;
+  // }
+
+  // .overlay span {
+  //   font-size: 30px;
+  //   letter-spacing: 3px;
+  // }
 }

@@ -42,7 +42,6 @@ const App = () => {
           <PlayContextProvider>
             <BrowserRouter>
               <div id='app'>
-                <div className='header-bg' />
                 <div className='main'>
                   <Sidebar />
                   <MainContent>
