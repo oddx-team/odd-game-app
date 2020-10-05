@@ -3,17 +3,8 @@ import { useHistory } from 'react-router-dom'
 import { useGameState, useGameActions } from 'contexts/GameContext'
 import { SocketContext } from 'contexts/SocketContext'
 import { Loading } from 'shared/components/Loading'
-import {
-  LandingWrapper,
-  Logo,
-  LeftOverlay,
-  RightOverlay,
-  Container,
-  StyledNamePanel,
-  TextInput,
-  ButtonStart,
-  Title
-} from './styled'
+import { LandingWrapper } from './styled'
+import Div1 from './sections/Div1'
 import Api from 'services'
 import toast from 'shared/utils/toast'
 
@@ -55,25 +46,9 @@ export const PageLanding = () => {
       {isLoggedIn && <Loading />}
       {!isLoggedIn &&
         <div>
-          <Logo />
-          <LeftOverlay />
-          <RightOverlay />
-
-          <Container>
-            <Title>Play now</Title>
-            <StyledNamePanel>
-              <TextInput
-                type='text'
-                placeholder='Enter your name'
-                value={username}
-                onChange={e => setUsername(e.target.value)}
-                onKeyDown={e => e.key === 'Enter' && startGame()}
-              />
-            </StyledNamePanel>
-            <ButtonStart className='block blue' onClick={() => startGame()}>
-              <span>Start</span>
-            </ButtonStart>
-          </Container>
+          <Div1 />
+          <Div1 />
+          <Div1 />
         </div>}
 
     </LandingWrapper>

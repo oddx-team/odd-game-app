@@ -18,6 +18,7 @@ import GameContextProvider, { useGameState } from 'contexts/GameContext.js'
 import ModalContextProvider from 'contexts/ModalContext.js'
 import PlayContextProvider from 'contexts/PlayContext.js'
 import SocketContextProvider from 'contexts/SocketContext.js'
+import 'styles/global.scss'
 import 'App.scss'
 
 const PrivateRoute = ({ component: Component, ...options }) => {
