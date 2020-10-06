@@ -1,0 +1,34 @@
+@import 'styles/global.scss';
+
+.page-rotation {
+  @include sizeWH(100%, 100vh);
+  position: fixed;
+  background: #091222;
+  z-index: 2;
+
+  .content {
+    @include position(absolute, 40%, $left: 50%);
+    transform: translate(-50%, -50%);
+
+    .rotation {
+      @include imageCDN('rotate.png', 7rem, 5rem);
+  
+      animation: rotateA 1.25s ease-in-out infinite alternate;
+      transform-origin: center center;
+      transform: rotate(-90deg) ;
+    }
+    .text {
+      @include textMixin(#fff, 0.68rem, bold, uppercase);
+      @include position(absolute, $top: 6.8rem, $left: 50%);
+      transform: translate(-50%, 0);
+      width: 8.8rem;
+      font-family: refrigerator-deluxe, sans-serif;
+    }
+  }
+}
+
+@keyframes rotateA {
+  100% {
+    transform: rotate(0deg);
+  }
+}

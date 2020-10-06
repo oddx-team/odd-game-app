@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import { sizes } from 'shared/utils/styles'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
@@ -13,6 +13,7 @@ import { PageNotFound } from 'pages/NotFound'
 import { PagePlayground } from 'pages/Playground'
 import { PageViewCards } from 'pages/ViewCards'
 import { PageGameSettings } from 'pages/GameSettings'
+import { PageRotation } from 'pages/Rotation'
 
 import GameContextProvider, { useGameState } from 'contexts/GameContext.js'
 import ModalContextProvider from 'contexts/ModalContext.js'
@@ -35,6 +36,16 @@ const PrivateRoute = ({ component: Component, ...options }) => {
 }
 
 const App = () => {
+  const [rotation, setRotation] = useState(false)
+  useEffect(() => {
+    const checkState = () => {
+      const check = window.innerWidth < window.innerHeight
+      setRotation(check)
+    }
+    checkState()
+    window.addEventListener('resize', checkState)
+  }, [])
+
   return (
     <SocketContextProvider>
       <GameContextProvider>
@@ -42,6 +53,7 @@ const App = () => {
           <PlayContextProvider>
             <BrowserRouter>
               <div id='app'>
+                {rotation && <PageRotation />}
                 <div className='main'>
                   <Sidebar />
                   <MainContent>
