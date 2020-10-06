@@ -74,9 +74,9 @@ export const CollectionWrapper = styled.div`
   width: 11.5rem;
   height: 1.85rem;
   background: #fff;
-  position: absolute;
+  position: fixed;
   bottom: 0rem;
-  left: 0rem;
+  left: 1.8rem;
 `
 
 export const CollectionHeader = styled.div`

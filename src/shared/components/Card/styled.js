@@ -10,14 +10,14 @@ export const Text = styled.span`
 
 export const Title = styled.div`
   margin-top: 0.03rem;
-  padding: 0.05rem 0.13rem;
+  padding: 0.05rem 0.1rem;
 `
 
 export const Brand = styled.div`
   ${mixin.flexCenter}
   position: absolute;
-  bottom: 0.12rem;
-  left: 0.2rem;
+  bottom: 0.07rem;
+  left: 0.12rem;
 `
 
 export const Picker = styled.div`
@@ -69,7 +69,6 @@ export const FaceFront = styled.div`
     color: ${props => props.color === 'white' ? color.black : color.white}
   }
   ${Brand} {
-    margin-left: ${props => props.size === 'small' ? -0.1 : 0}rem;
     opacity: ${props => props.closed ? 0 : 1}
   }
 `
