@@ -6,7 +6,7 @@ export const SocketContext = React.createContext()
 const SocketContextProvider = props => {
   const [socket, setSocket] = useState(io())
 
-  const spawnNewSocket = () => {
+  const createSocket = () => {
     console.log('spawn socket')
     setSocket(io())
   }
@@ -18,7 +18,7 @@ const SocketContextProvider = props => {
   }
 
   return (
-    <SocketContext.Provider value={{ socket, spawnNewSocket, closeSocket }}>
+    <SocketContext.Provider value={{ socket, createSocket, closeSocket }}>
       {props.children}
     </SocketContext.Provider>
   )

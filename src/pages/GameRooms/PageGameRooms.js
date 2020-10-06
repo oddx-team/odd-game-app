@@ -16,7 +16,7 @@ import { useGameActions } from 'contexts/GameContext'
 
 export const PageGameRooms = () => {
   const { openModal } = useModalActions()
-  const { setBanner, setGlobalLoading, quitCurrentRoom } = useGameActions()
+  const { setSidebar, setGlobalLoading, quitCurrentRoom } = useGameActions()
   const [allRooms, setAllRooms] = useState({ eRooms: [], vRooms: [] })
 
   const currentRoomList = allRooms.eRooms
@@ -24,13 +24,13 @@ export const PageGameRooms = () => {
   useEffect(() => {
     (async () => {
       quitCurrentRoom()
-      setBanner(true)
+      setSidebar(false)
       setGlobalLoading(true)
       const [eRooms, vRooms] = await Promise.all([Api.getGlobalRooms(), Api.getVnRooms()])
       setAllRooms({ eRooms, vRooms })
       setGlobalLoading(false)
     })()
-  }, [setBanner, setGlobalLoading, quitCurrentRoom])
+  }, [setGlobalLoading, quitCurrentRoom, setSidebar])
 
   return (
     <StyledGameRooms>

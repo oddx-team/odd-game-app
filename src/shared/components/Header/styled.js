@@ -9,7 +9,7 @@ export const HeaderWrapper = styled.div`
 
   ${props => !props.show && css`
     background: #FAFBFD;
-    /* display: none; */
+    display: none;
   `}
 `
 

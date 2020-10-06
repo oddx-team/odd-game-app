@@ -2,6 +2,10 @@
 
 section#div1 {
   @include sizeWH(100%, 100vh);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   position: relative;
   font-family: refrigerator-deluxe, sans-serif;
 
@@ -10,7 +14,6 @@ section#div1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    z-index: 1;
     position: relative;
 
     .logo {
@@ -51,7 +54,7 @@ section#div1 {
 
   .scrolldown {
     @include textMixin(#000, 0.2rem, normal);
-    @include position(relative, -0.4rem, $left: 0.2rem);
+    @include position(relative, -0.1rem, $left: 0.2rem);
     flex: 1;
     display: flex;
     justify-content: center;
@@ -73,9 +76,11 @@ section#div1 {
     color: #494949;
 
     .title {
+      font-weight: bold;
       font-size: 1.8rem;
     }
     .subtitle {
+      text-align: center;
       font-size: 0.3rem;
     }
   }
@@ -83,7 +88,7 @@ section#div1 {
   .playnow {
     @include position(absolute, 4rem, 0);
     background: #0477bd;
-    width: 4.3rem;
+    width: 4.7rem;
     height: 0.9rem;
 
     i {
@@ -124,26 +129,19 @@ section#div1 {
     }
   }
 
-  // .overlay {
-  //   position: absolute;
-  //   width: 100%;
-  //   height: 100vh;
-  //   background: #FFEB00;
-  //   top: 0%;
-  //   z-index: 1;
-  //   display: flex;
-  //   flex-direction: column;
-  //   justify-content: center;
-  //   align-items: center;
-  // }
-
-  // .overlay h1 {
-  //   font-size: 100px;
-  //   letter-spacing: 20px;
-  // }
-
-  // .overlay span {
-  //   font-size: 30px;
-  //   letter-spacing: 3px;
-  // }
+  .overlay {
+    @include sizeWH(100%, 100vh);
+    @include position(absolute, 0%);
+    @include flexCenter(column);
+    background: #0477bd;
+    z-index: 2;
+    color: #fff;
+    h1 {
+      @include textMixin(#fff, 0.9rem, bold, uppercase);
+      font-family: 'Orbitron';
+    }
+    span {
+      font-size: 0.4rem;
+    }
+  }
 }
