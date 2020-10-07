@@ -23,16 +23,6 @@ const Div1 = ({ scrollY }) => {
     pulseAnimation()
   }, [])
 
-  useEffect(() => {
-    // parallax effect
-    const parallax = document.getElementById('div1')
-    const offset = scrollY
-
-    if (parallax) {
-      parallax.style.backgroundPositionY = offset * 0.25 + 'px'
-    }
-  }, [scrollY])
-
   const startGame = async () => {
     if (!username || username.length < 3) {
       toast.error('username_len_short')
@@ -58,8 +48,12 @@ const Div1 = ({ scrollY }) => {
     return classNames({ active: tab === id })
   }
 
+  const sectionScroll = () => {
+    return { backgroundPositionY: scrollY * 0.25 + 'px' }
+  }
+
   return (
-    <section id='div1'>
+    <section id='div1' style={sectionScroll()}>
       <div className='overlay'>
         <h1>Oddx</h1>
         <span>A party game for the freaks</span>
