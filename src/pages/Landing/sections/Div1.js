@@ -137,15 +137,15 @@ const Div1 = ({ scrollY }) => {
           <div className='ellipse thin' />
           <div className='ellipse thick' />
           <div className='ellipse blue' />
+
+          <button className='btn-video'>
+            <div className='bubble'>
+              <Icon type='play1' size={0.3} />
+            </div>
+            <div className='pulse' />
+          </button>
         </div>
         <div className='circle' id='scene' />
-
-        <button className='btn-video'>
-          <div className='bubble'>
-            <Icon type='play1' size={0.3} />
-          </div>
-          <div className='pulse' />
-        </button>
       </section>
 
       <section
