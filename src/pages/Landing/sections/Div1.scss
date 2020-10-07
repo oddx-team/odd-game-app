@@ -1,7 +1,7 @@
 @import 'styles/global.scss';
 
 #div1 {
-  @include imageCDN('error-404.svg', 100%, 100vh);
+  @include imageCDN('landing.svg', 100%, 100vh);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
