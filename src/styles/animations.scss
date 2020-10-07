@@ -11,3 +11,46 @@
   z-index: 1;
   opacity: 1;
 }
+
+@keyframes ellipseRotate {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(-405deg);
+  }
+}
+
+@keyframes circleRotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float1 {
+  0% {
+    transform: translateY(0%) rotate(-25deg)
+  }
+  50% {
+    transform: translateY(8%) rotate(-25deg)
+  }
+  100% {
+    transform: translateY(0%) rotate(-25deg)
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translateY(8%) rotate(-25deg)
+  }
+  50% {
+    transform: translateY(-0%) rotate(-25deg)
+  }
+  100% {
+    transform: translateY(8%) rotate(-25deg)
+  }
+}
+

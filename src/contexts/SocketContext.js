@@ -7,7 +7,7 @@ const SocketContextProvider = props => {
   const [socket, setSocket] = useState(io())
 
   const createSocket = () => {
-    console.log('spawn socket')
+    console.log('create socket')
     setSocket(io())
   }
 

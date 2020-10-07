@@ -4,7 +4,7 @@
   @include sizeWH(100%, 100vh);
   position: fixed;
   background: #091222;
-  z-index: 2;
+  z-index: 3;
 
   .content {
     @include position(absolute, 40%, $left: 50%);
