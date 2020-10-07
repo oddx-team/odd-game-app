@@ -49,7 +49,7 @@ const Div1 = ({ scrollY }) => {
     const offset = scrollY
 
     if (parallax) {
-      parallax.style.backgroundPositionY = offset * 0.25 + 'px'
+      parallax.style.backgroundPositionY = offset * 0.26 + 'px'
     }
   }, [scrollY])
 
