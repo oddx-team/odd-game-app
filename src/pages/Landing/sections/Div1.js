@@ -48,7 +48,9 @@ const Div1 = ({ scrollY }) => {
     const parallax = document.getElementById('div1')
     const offset = scrollY
 
-    parallax.style.backgroundPositionY = offset * 0.25 + 'px'
+    if (parallax) {
+      parallax.style.backgroundPositionY = offset * 0.25 + 'px'
+    }
   }, [scrollY])
 
   const startEffect = () => {
