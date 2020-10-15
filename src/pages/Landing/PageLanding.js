@@ -27,8 +27,6 @@ export const PageLanding = ({ history }) => {
         <div>
           <Div1 scrollY={scrollY} />
           <Div2 />
-          <Div2 />
-          <Div2 />
         </div>
       )}
     </LandingWrapper>

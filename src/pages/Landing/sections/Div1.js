@@ -55,7 +55,7 @@ const Div1 = ({ scrollY }) => {
   return (
     <section id='div1' style={sectionScroll()}>
       <div className='overlay'>
-        <h1>Oddx</h1>
+        <div className='logo' />
         <span>A party game for the freaks</span>
       </div>
 
@@ -93,7 +93,7 @@ const Div1 = ({ scrollY }) => {
       <section className='tagline'>
         <div className='title'>Oddx</div>
         <div className='subtitle'>
-          A playful party board game <br /> to mess with your freaky friends.
+          A playful party board game <br /> to mess with your abnormal friends.
         </div>
       </section>
 
@@ -110,7 +110,8 @@ const Div1 = ({ scrollY }) => {
             <div className='pulse' />
           </button>
         </div>
-        <div className='circle' id='scene' />
+        <div className='circle' />
+        <div className='mascot' />
       </section>
 
       <section

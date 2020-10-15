@@ -1,29 +1,14 @@
 @import 'styles/global.scss';
 
 #div1 {
-  @include imageCDN('landing.svg', 100%, 100vh);
+  @include imageCDN('svg/landing.svg', 100%, 100vh);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
   position: relative;
-  font-family: refrigerator-deluxe, sans-serif;
-
-  &::before {
-    content: '';
-    @include position(absolute, $bottom: -0.9rem, $left: -0.2rem);
-    @include sizeWH(70%, 1.2rem);
-    transform: rotate(5deg);
-    background: #F3F3F3;
-  }
-
-  &::after {
-    content: '';
-    @include position(absolute, $bottom: -0.8rem, $right: -0.2rem);
-    @include sizeWH(45%, 1.2rem);
-    transform: rotate(-7deg);
-    background: #F3F3F3;
-  }
+  font-family: 'Refrigerator', sans-serif;
+  z-index: 1;
 
   .nav {
     @include sizeWH(1.7rem, 100vh);
@@ -92,7 +77,7 @@
           font-family: 'Orbitron';
         }
       }
-      
+
       .odd {
         @include textMixin(#fff, 0.32rem, bold);
         @include alignCenter();
@@ -112,7 +97,9 @@
       z-index: 1;
       animation: float1 2s ease-in-out infinite;
 
-      h1,.logo, .odd {
+      h1,
+      .logo,
+      .odd {
         color: #000;
       }
     }
@@ -149,7 +136,7 @@
     border-radius: 50%;
     margin: 0 auto;
   }
-  
+
   .ellipse {
     position: absolute;
     top: 0;
@@ -161,7 +148,7 @@
       height: 100%;
       border-width: 1px;
       border-color: #494949;
-      opacity: .5;
+      opacity: 0.5;
     }
 
     &.thick {
@@ -185,7 +172,7 @@
   }
 
   .playnow {
-    @include position(absolute, $top: 4.5rem, $right: -0.5rem);
+    @include position(absolute, $top: 3.7rem, $right: -0.5rem);
     background: #0477bd;
     width: 5.2rem;
     height: 0.9rem;
@@ -254,9 +241,9 @@
     background: #0477bd;
     z-index: 3;
     color: #fff;
-    h1 {
-      @include textMixin(#fff, 0.9rem, bold, uppercase);
-      font-family: 'Orbitron';
+    .logo {
+      @include imageCDN('oddx.png', 3.58rem, 1.01rem);
+      margin-bottom: 0.1rem;
     }
     span {
       font-size: 0.4rem;
@@ -267,6 +254,11 @@
     @include imageCDN('circle-shape.png', 1.38rem, 1.89rem);
     @include position(absolute, $top: 1rem, $right: 0.7rem);
     animation: ellipseRotate 30s linear infinite;
+  }
+
+  .mascot {
+    @include imageCDN('svg/mini-odd-kite.svg', 4rem, 1.9rem);
+    @include position(absolute, $top: 5rem, $right: -0.1rem);
   }
 
   .btn-video {
@@ -291,7 +283,7 @@
     .pulse {
       @include alignCenter();
       @include sizeWH(0.9rem, 0.9rem);
-      background: #c5c7cd;
+      background: #0477BD;
       border-radius: 50%;
       z-index: 1;
       opacity: 0;
