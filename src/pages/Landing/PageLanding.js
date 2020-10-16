@@ -4,6 +4,9 @@ import { Loading } from 'shared/components/Loading'
 import { LandingWrapper } from './styled'
 import Div1 from './sections/Div1'
 import Div2 from './sections/Div2'
+import Div3 from './sections/Div3'
+import Div4 from './sections/Div4'
+import Div5 from './sections/Div5'
 
 export const PageLanding = ({ history }) => {
   const { isLoggedIn } = useGameState()
@@ -25,8 +28,11 @@ export const PageLanding = ({ history }) => {
       {isLoggedIn && <Loading />}
       {!isLoggedIn && (
         <div>
-          <Div1 scrollY={scrollY} />
-          <Div2 />
+          <Div1 scrollY={scrollY} /> {/* Animation */}
+          <Div2 />                   {/* Introduction */}
+          <Div3 />                   {/* Gameplay */}
+          <Div4 />                   {/* Opensource */}
+          <Div5 />                   {/* Footer */}
         </div>
       )}
     </LandingWrapper>

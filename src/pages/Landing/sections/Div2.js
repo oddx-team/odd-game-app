@@ -18,7 +18,10 @@ const Div2 = () => {
           <h1>Odd?</h1>
         </div>
         <div className='desc'>
-        Odd là một boardgame sử dụng thẻ bài. Nhưng khác với các trò boardgame khác, Odd cho bạn một trải nghiệm bựa, lạ, hài hước, châm biếm và lắm lúc kì quặc như những người tạo ra nó vậy.
+          <div className='text'>
+            Odd is a boardgame using cards. But unlike other board games, Odd would give you bizarre, strange, funny, ironic feeling, and at times oddly satisfied just like its creators.
+          </div>
+          <button className='btn-gameplay' />
         </div>
         <div className='circle' />
       </div>

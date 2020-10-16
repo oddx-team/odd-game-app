@@ -26,8 +26,8 @@ export const pulseAnimation = () => {
 }
 
 export const startEffect = () => {
-  gsap.to('.playnow', { x: '-0.5rem', duration: 0.3, ease: 'expo.easeInOut' })
-  gsap.to('.playnow', { x: '5rem', duration: 0.5, ease: 'expo.easeInOut', delay: 0.3 })
+  gsap.to('.playnow', { x: '-0.5rem', duration: 0.3, ease: 'expo.easeInOut', skewX: 15 })
+  gsap.to('.playnow', { x: '5rem', duration: 0.5, ease: 'expo.easeInOut', skewX: -5, delay: 0.3 })
 }
 
 export const retryEffect = () => {

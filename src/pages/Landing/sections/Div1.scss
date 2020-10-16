@@ -9,6 +9,7 @@
   position: relative;
   font-family: 'Refrigerator', sans-serif;
   z-index: 1;
+  // background-attachment: fixed;
 
   .nav {
     @include sizeWH(1.7rem, 100vh);
@@ -113,7 +114,7 @@
   }
 
   .tagline {
-    @include position(absolute, 0.3rem, 1.5rem);
+    @include position(absolute, $top: 0.3rem, $right: 2.2rem);
     text-align: right;
     color: #494949;
     z-index: 1;
@@ -124,9 +125,10 @@
       font-size: 1.3rem;
     }
     .subtitle {
-      @include position(relative, -0.1rem);
-      text-align: center;
-      font-size: 0.3rem;
+      @include position(relative, $top: -0.1rem, $left: 0.55rem);
+      font-family: 'Oxamium';
+      text-align: left;
+      font-size: 0.24rem;
     }
   }
 
@@ -217,7 +219,7 @@
     }
 
     input {
-      @include textMixin(#fff, 0.25rem, 600);
+      @include textMixin(#fff, 0.25rem, bold);
       @include position(absolute, 0.3rem, $left: 0.5rem);
       width: 2rem;
       border-bottom: 0.03rem solid #fff;
@@ -251,13 +253,13 @@
   }
 
   .circle {
-    @include imageCDN('circle-shape.png', 1.38rem, 1.89rem);
+    @include imageCDN('dotted-circle.png', 1.38rem, 1.89rem);
     @include position(absolute, $top: 1rem, $right: 0.7rem);
     animation: ellipseRotate 30s linear infinite;
   }
 
   .mascot {
-    @include imageCDN('svg/mini-odd-kite.svg', 4rem, 1.9rem);
+    @include imageCDN('svg/mini-odd-kite.svg', 4.2rem, 2.1rem);
     @include position(absolute, $top: 5rem, $right: -0.1rem);
   }
 

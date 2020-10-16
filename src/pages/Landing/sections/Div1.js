@@ -93,7 +93,7 @@ const Div1 = ({ scrollY }) => {
       <section className='tagline'>
         <div className='title'>Oddx</div>
         <div className='subtitle'>
-          A playful party board game <br /> to mess with your abnormal friends.
+          A playful party board game <br /> to mess with your "abnormal" friends.
         </div>
       </section>
 
