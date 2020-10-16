@@ -1,7 +1,7 @@
 @import 'styles/global.scss';
 
 #div2 {
-  @include sizeWH(100%, 100vh);
+  @include sizeWH(100%, 7.5rem);
   position: relative;
   background: #fff;
 

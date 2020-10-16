@@ -1,7 +1,7 @@
 @import 'styles/global.scss';
 
 #div1 {
-  @include imageCDN('svg/landing.svg', 100%, 100vh);
+  @include imageCDN('svg/landing.svg', 100%, 7.7rem);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -9,7 +9,6 @@
   position: relative;
   font-family: 'Refrigerator', sans-serif;
   z-index: 1;
-  // background-attachment: fixed;
 
   .nav {
     @include sizeWH(1.7rem, 100vh);
@@ -238,7 +237,7 @@
 
   .overlay {
     @include sizeWH(100%, 100vh);
-    @include position(absolute, 0%);
+    @include position(fixed, 0%);
     @include flexCenter(column);
     background: #0477bd;
     z-index: 3;

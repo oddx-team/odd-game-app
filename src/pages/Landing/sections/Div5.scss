@@ -4,7 +4,12 @@
   @include imageCDN('winter.jpg', 100%, 3.7rem);
   position: relative;
   background-size: cover;
-  background-attachment: fixed;
+  background-position: 0 -4rem;
+  
+  @media screen and (min-width: 800px) {
+    background-attachment: fixed;
+    background-position: 0;
+  }
 
   &::before {
     content: '';
@@ -26,6 +31,7 @@
   .arrow {
     @include imageCDN('double-arrow2.png', 1.8rem, 1.83rem);
     @include position(absolute, $top: 0.4rem, $left: 2.2rem);
+    animation: float 5s linear infinite;
   }
 
   .text {
@@ -47,7 +53,6 @@
 
       &:last-child {
         color: #0477BD;
-        font-weight: bold;
         opacity: 1;
       }
     }

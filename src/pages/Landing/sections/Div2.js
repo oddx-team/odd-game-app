@@ -19,7 +19,7 @@ const Div2 = () => {
         </div>
         <div className='desc'>
           <div className='text'>
-            Odd is a boardgame using cards. But unlike other board games, Odd would give you bizarre, strange, funny, ironic feeling, and at times oddly satisfied just like its creators.
+            Odd is a boardgame using cards. But unlike other board games, Odd would give you bizarre, strange, funny, ironic feelings, and at times oddly satisfied just like its creators.
           </div>
           <button className='btn-gameplay' />
         </div>
