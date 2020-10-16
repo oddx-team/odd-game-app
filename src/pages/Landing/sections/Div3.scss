@@ -1,0 +1,86 @@
+@import 'styles/global.scss';
+
+#div3 {
+  @include sizeWH(100%, 7.5rem);
+  position: relative;
+  background: #212121;
+
+  .extra {
+    .black-card {
+      @include imageCDN('gameplay-black-card.png', 3rem, 4.4rem);
+      @include position(absolute, $top: -1.5rem, $right: 3rem);
+    }
+    .white-card {
+      @include imageCDN('gameplay-white-card.png', 3rem, 4.4rem);
+      @include position(absolute, $top: -0.2rem, $right: 1.5rem);
+      z-index: 1;
+    }
+    .blue-card {
+      @include sizeWH(2.5rem, 3rem);
+      @include position(absolute, $top: 1.5rem, $right: 1.3rem);
+      background: rgba(4, 119, 189, 0.54);
+    }
+    .rectangle {
+      @include imageCDN('dotted-rectangle.png', 1.5rem, 1.5rem);
+      @include position(absolute, $top: 4rem, $right: 1.7rem);
+      animation: ellipseRotate 21s linear infinite;
+    }
+    .blob-blue {
+      @include imageCDN('svg/blob-blue.svg', 3.2rem, 1.7rem);
+      @include position(absolute, $bottom: -0.6rem, $left: 0);
+      transform: rotate(180deg);
+      z-index: 0;
+    }
+    .gameplay-decor {
+      @include imageCDN('gameplay-decor.png', 1.1rem, 2.3rem);
+      @include position(absolute, $top: -0.5rem, $left: 0.2rem);
+    }
+  }
+
+  
+}
+
+.container {
+  .title {
+    @include flexCenter(row);
+    @include position(absolute, $top: 0.4rem, $left: 1rem);
+    font-family: 'Orbitron';
+
+    h1 {
+      @include textMixin(#fff, 0.62rem, bold, uppercase);
+      z-index: 1;
+
+      &:nth-child(2) {
+        color: #0477BD;
+      }
+    }
+  }
+
+  .card {
+    &.card-1 {
+      @include imageCDN('gameplay/step-1.png', 3.3rem, 1.63rem);
+      @include position(absolute, $top: 2rem, $left: 1.1rem);
+      image-rendering: auto;
+    }
+
+    &.card-2 {
+      @include imageCDN('gameplay/step-2.png', 3.3rem, 1.6rem);
+      @include position(absolute, $top: 3.1rem, $left: 4.6rem);
+    }
+
+    &.card-3 {
+      @include imageCDN('gameplay/step-3.png', 3.3rem, 1.5rem);
+      @include position(absolute, $top: 4.1rem, $left: 1.1rem);
+    }
+  }
+
+  .btn-rules {
+    @include textMixin(#fff, 0.24rem, bold, uppercase);
+    @include position(absolute, $top: 5.8rem, $left: 6.4rem);
+    padding: 0.07rem 0.5rem;
+    background: #0477BD;
+    border-radius: 0.4rem;
+    font-family: 'Oxamium';
+  }
+}
+

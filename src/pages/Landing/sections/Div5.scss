@@ -1,0 +1,67 @@
+@import 'styles/global.scss';
+
+#div5 {
+  @include imageCDN('winter.jpg', 100%, 3.7rem);
+  position: relative;
+  background-size: cover;
+  background-position: 0 -4rem;
+  
+  @media screen and (min-width: 800px) {
+    background-attachment: fixed;
+    background-position: 0;
+  }
+
+  &::before {
+    content: '';
+    @include sizeWH(100%, 100%);
+    @include position(absolute, 0, 0, 0, 0);
+    background: rgba(0, 0, 0, 0.75);
+  }
+
+  .btn-fb {
+    @include imageCDN('btn-fb-circle.png', 0.6rem, 0.6rem);
+    @include position(absolute, $bottom: 0.2rem, $right: 1.75rem);
+  }
+
+  .btn-github {
+    @include imageCDN('btn-github-circle.png', 0.6rem, 0.6rem);
+    @include position(absolute, $bottom: 0.2rem, $right: 1rem);
+  }
+
+  .arrow {
+    @include imageCDN('double-arrow2.png', 1.8rem, 1.83rem);
+    @include position(absolute, $top: 0.4rem, $left: 2.2rem);
+    animation: float 5s linear infinite;
+  }
+
+  .text {
+    @include position(absolute, $top: 1rem, $left: 3.8rem);
+    @include textMixin(#fff, 0.27rem, normal);
+    width: 7.6rem;
+    opacity: 0.62;
+    font-family: 'Oxamium';
+  }
+
+  .credit {
+    @include textMixin(#fff, 0.28rem);
+    @include position(absolute, $bottom: 0.2rem, $left: 50%);
+    transform: translate(-50%, 0);
+    font-family: 'Oxamium';
+
+    span {
+      opacity: 0.55;
+
+      &:last-child {
+        color: #0477BD;
+        opacity: 1;
+      }
+    }
+
+    i {
+      @include imageCDN('heart.png', 0.3rem, 0.28rem);
+      @include position(relative, 0.05rem);
+      margin: 0 0.06rem;
+      display: inline-block;
+    }
+  }
+}

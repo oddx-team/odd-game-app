@@ -11,6 +11,7 @@ import {
   RoomContainer
 } from './styled'
 
+import toast from 'shared/utils/toast'
 import Api from 'services'
 import { useGameActions } from 'contexts/GameContext'
 
@@ -26,9 +27,15 @@ export const PageGameRooms = () => {
       quitCurrentRoom()
       setSidebar(false)
       setGlobalLoading(true)
-      const [eRooms, vRooms] = await Promise.all([Api.getGlobalRooms(), Api.getVnRooms()])
-      setAllRooms({ eRooms, vRooms })
-      setGlobalLoading(false)
+
+      try {
+        const [eRooms, vRooms] = await Promise.all([Api.getGlobalRooms(), Api.getVnRooms()])
+        setAllRooms({ eRooms, vRooms })
+      } catch (err) {
+        toast.error('error')
+      } finally {
+        setGlobalLoading(false)
+      }
     })()
   }, [setGlobalLoading, quitCurrentRoom, setSidebar])
 

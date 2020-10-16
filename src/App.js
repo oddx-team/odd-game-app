@@ -83,7 +83,7 @@ const MainContent = ({ children }) => {
   const { fullSidebar, isLoggedIn } = useGameState()
 
   return (
-    <Container openSidebar={fullSidebar} showSidebar={isLoggedIn}>
+    <Container fullSidebar={fullSidebar} showSidebar={isLoggedIn}>
       <Header />
       <Wrapper>{children}</Wrapper>
     </Container>
@@ -96,7 +96,7 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   padding-left: 
-    ${props => props.openSidebar
+    ${props => props.fullSidebar
     ? sizes.sizeBarWidthOpen - 0.05
     : sizes.sizeBarWidth - 0.05}rem;
   padding-left: ${props => !props.showSidebar && 0}rem;
@@ -106,7 +106,7 @@ const Container = styled.div`
   ${Wrapper} {
     transition: all 0.3s ease-in-out;
     background: #F1F2F5;
-    padding-left: ${props => !props.showSidebar ? 0 : props.openSidebar ? 0.9 : 1.6}rem;
+    padding-left: ${props => !props.showSidebar ? 0 : props.fullSidebar ? 0.9 : 1.6}rem;
     overflow-y: auto;
     height: 100%;
   }

@@ -1,0 +1,95 @@
+@import 'styles/global.scss';
+
+#div4 {
+  @include sizeWH(100%, 7rem);
+  position: relative;
+  background: #fff;
+
+  .extra {
+    .blob-gray {
+      @include imageCDN('svg/blob-gray2.svg', 1.7rem, 3.2rem);
+      @include position(absolute, $top: 1rem, $left: -0.7rem);
+    }
+    .mini-odd-code {
+      @include imageCDN('svg/mini-odd-code.svg', 5.4rem, 4.2rem);
+      @include position(absolute, $top: 2.2rem, $right: 1.2rem);
+    }
+    .github {
+      @include imageCDN('github-fork-me.png', 1.8rem, 1.8rem);
+      @include position(absolute, $top: -0.05rem, $right: -0.05rem);
+
+      &:hover {
+        filter: brightness(1.3);
+        cursor: pointer;
+      }
+    }
+    .double-arrow {
+      @include imageCDN('double-arrow.png', 1.8rem, 1.83rem);
+      @include position(absolute, $top: 0.4rem, $left: 5.3rem);
+    }
+    .circle {
+      @include imageCDN('dotted-circle.png', 1.38rem, 1.89rem);
+      @include position(absolute, $top: 0.7rem, $right: 1.5rem);
+      animation: ellipseRotate 30s linear infinite;
+    }
+  }
+
+  .frame {
+    .contribute {
+      @include textMixin(#ADADAD, 0.4rem, bold, uppercase);
+      @include position(absolute, 1.6rem, $left: -0.1rem);
+      transform: rotate(-90deg);
+      font-family: 'Refrigerator';
+  
+      &::before {
+        content: '';
+        @include sizeWH(0.6rem, 0.03rem);
+        @include position(absolute, $top: 0.2rem, $left: -0.7rem);
+        background: #ADADAD;
+      }
+    }
+
+    .title {
+      @include flexCenter(row);
+      @include position(absolute, $top: 1rem, $left: 1.3rem);
+      font-family: 'Orbitron';
+  
+      &::after {
+        content: '';
+        @include imageCDN('svg/rectangle.svg', 0.6rem, 0.6rem);
+        @include position(absolute, $top: -0.15rem, $left: -0.2rem);
+      }
+  
+      h1 {
+        @include textMixin(#494949, 0.65rem, bold, uppercase);
+        margin-right: 0.17rem;
+        &:nth-child(2) {
+          color: #0477BD;
+        }
+      }
+    }
+
+    .desc {
+      @include textMixin(#adadad, 0.25rem, $align: left);
+      @include position(absolute, 2.2rem, $left: 1.3rem);
+      width: 6.5rem;
+      font-family: 'Oxamium';
+    }
+
+    .source {
+      @include textMixin(#212121, 0.29rem);
+      @include flexCenter(row);
+      justify-content: flex-start;
+      margin-top: 0.1rem;
+
+      .url {
+        font-family: 'Oxamium';
+        margin-left: 0.1rem;
+
+        span:nth-child(2) {
+          color: #0477BD;
+        }
+      }
+    }
+  }
+}

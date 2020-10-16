@@ -12,17 +12,17 @@
 
     .rotation {
       @include imageCDN('rotate.png', 7rem, 5rem);
-  
+
       animation: rotateA 1.25s ease-in-out infinite alternate;
       transform-origin: center center;
-      transform: rotate(-90deg) ;
+      transform: rotate(-90deg);
     }
     .text {
       @include textMixin(#fff, 0.68rem, bold, uppercase);
       @include position(absolute, $top: 6.8rem, $left: 50%);
       transform: translate(-50%, 0);
       width: 8.8rem;
-      font-family: refrigerator-deluxe, sans-serif;
+      font-family: 'Refrigerator', sans-serif;
     }
   }
 }

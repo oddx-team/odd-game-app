@@ -1,8 +1,100 @@
 @import 'styles/global.scss';
 
-section#div2 {
-  @include sizeWH(100%, 100vh);
+#div2 {
+  @include sizeWH(100%, 7.5rem);
   position: relative;
-  font-family: 'agency fb';
-  background: #F3F3F3;
+  background: #fff;
+
+  .extra {
+    .blob-blue {
+      @include imageCDN('svg/blob-blue.svg', 3.2rem, 1.7rem);
+      @include position(absolute, $top: -0.6rem, $right: 0);
+      z-index: 0;
+    }
+  
+    .blob-gray {
+      @include imageCDN('svg/blob-gray.svg', 2.89rem, 5rem);
+      @include position(absolute, $bottom: -1.5rem, $right: -0.5rem);
+      z-index: 0;
+    }
+
+    .frame-blue {
+      @include sizeWH(2rem, 5.9rem);
+      @include position(absolute, $top: 0.8rem, $left: 0);
+      background: rgba(4, 119, 189, 0.69);
+    }
+
+    .mini-odd-tree {
+      @include imageCDN('svg/mini-odd-tree.svg', 5.2rem, 4.7rem);
+      @include position(absolute, $top: 1rem, $left: 0.3rem);
+    }
+  }
+}
+
+.content {
+  @include position(absolute, $top: 1.8rem, $left: 5rem);
+  @include sizeWH(8rem, 4rem);
+
+  .about {
+    @include textMixin(#ADADAD, 0.4rem, bold, uppercase);
+    @include position(absolute, 0.7rem, $left: 0rem);
+    transform: rotate(-90deg);
+    font-family: 'Refrigerator';
+
+    &::before {
+      content: '';
+      @include sizeWH(0.6rem, 0.03rem);
+      @include position(absolute, $top: 0.2rem, $left: -0.7rem);
+      background: #ADADAD;
+    }
+  }
+
+  .title {
+    @include flexCenter(row);
+    @include position(absolute, $top: 0rem, $left: 1.3rem);
+    font-family: 'Orbitron';
+
+    &::after {
+      content: '';
+      @include imageCDN('svg/rectangle.svg', 0.6rem, 0.6rem);
+      @include position(absolute, $top: -0.15rem, $left: -0.2rem);
+    }
+
+    h1 {
+      @include textMixin(#494949, 0.65rem, bold, uppercase);
+      z-index: 1;
+      margin-right: 0.17rem;
+
+      &:nth-child(2) {
+        color: #0477BD;
+      }
+    }
+  }
+
+  .desc {
+    @include textMixin(#ADADAD, 0.24rem, normal, $align: left);
+    @include position(absolute, $top: 1rem, $left: 1.3rem);
+    font-family: 'Oxamium';
+    z-index: 1;
+  }
+
+  .btn-gameplay {
+    @include imageCDN('svg/btn-gameplay.svg', 2.2rem, 0.6rem);
+    @include textMixin(#fff, 0.23rem, bold, uppercase);
+    @include flexCenter(row);
+    margin-top: 0.3rem;
+    font-family: 'Oxamium';
+    padding-bottom: 0.08rem;
+
+    div {
+      margin-left: 0.07rem;
+    }
+  }
+
+  .circle {
+    @include imageCDN('dotted-circle.png', 1.38rem, 1.89rem);
+    @include position(absolute, $top: 1.6rem, $right: 0.5rem);
+    animation: ellipseRotate 25s linear infinite;
+  }
+  
 }

@@ -1,6 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto:wght@400;700&display=swap');
-@import url('https://use.typekit.net/xns1kdn.css');
-@import url('https://use.typekit.net/gzs4pfq.css');
+@font-face {
+  font-family: 'Refrigerator';
+  font-style: normal;
+  font-weight: 900;
+  src: url(../assets/fonts/refrigerator-deluxe.otf) format('truetype');
+}
 
 @font-face {
   font-family: 'Orbitron';
@@ -24,9 +27,17 @@
 }
 
 @font-face {
+  font-family: 'Oxamium';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../assets/fonts/Oxanium-Regular.ttf) format('truetype');
+}
+
+@font-face {
   font-family: 'Oddx';
   src: url('../assets/fonts/odd.woff') format('truetype'),
-    url('../assets/fonts/odd.ttf') format('woff'), url('../assets/fonts/odd.svg#odd') format('svg');
+    url('../assets/fonts/odd.ttf') format('woff'),
+    url('../assets/fonts/odd.svg#odd') format('svg');
   font-weight: normal;
   font-style: normal;
 }
