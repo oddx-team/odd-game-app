@@ -243,11 +243,8 @@
     z-index: 3;
     color: #fff;
     .logo {
-      @include imageCDN('oddx.png', 3.48rem, 0.9rem);
+      @include imageCDN('oddx-en.png', 4.48rem, 1.8rem);
       margin-bottom: 0.1rem;
-    }
-    span {
-      font-size: 0.4rem;
     }
   }
 
