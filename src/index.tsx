@@ -6,4 +6,6 @@ import './styles/global.scss'
 import setupLayout from './layout'
 
 setupLayout()
-ReactDOM.render(<App />, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'), () => {
+  document.getElementsByClassName('pre-overlay')[0].remove()
+})
