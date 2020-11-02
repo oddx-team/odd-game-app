@@ -32,7 +32,7 @@ export default () => {
   const baseWidth = 1470
 
   // set size for root element
-  function resetRoot() {
+  function resetRoot () {
     const imax = window.innerWidth
     docEl.style.fontSize = `${(imax / baseWidth) * 100}px`
     docEl.style.width = `${imax}px`
