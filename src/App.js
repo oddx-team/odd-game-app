@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components/macro'
 import { sizes } from 'shared/utils/styles'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
@@ -36,16 +36,6 @@ const PrivateRoute = ({ component: Component, ...options }) => {
 }
 
 const App = () => {
-  const [rotation, setRotation] = useState(false)
-  useEffect(() => {
-    const checkState = () => {
-      const check = window.innerWidth < window.innerHeight
-      setRotation(check)
-    }
-    checkState()
-    window.addEventListener('resize', checkState)
-  }, [])
-
   return (
     <SocketContextProvider>
       <GameContextProvider>
@@ -53,7 +43,7 @@ const App = () => {
           <PlayContextProvider>
             <BrowserRouter>
               <div id='app'>
-                {rotation && <PageRotation />}
+                <PageRotation />
                 <div className='main'>
                   <Sidebar />
                   <MainContent>

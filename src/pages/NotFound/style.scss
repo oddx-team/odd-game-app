@@ -15,11 +15,11 @@
     text-align: left;
 
     h1 {
-      @include textMixin(#273167, 0.5rem, bold);
+      @include textMixin(#273167, 0.58rem, bold);
     }
 
     p {
-      @include textMixin(#454655, 0.2rem, thin);
+      @include textMixin(#70717e, 0.2rem, thin);
       margin-top: 0.2rem;
       font-family: 'Oxamium', sans-serif;
     }
@@ -27,7 +27,7 @@
     .btn-home {
       @include sizeWH(1.2rem, 0.4rem);
       @include textMixin(#fff, 0.2rem);
-      margin-top: 0.2rem;
+      margin-top: 0.25rem;
       border-radius: 0.04rem;
       background-image: linear-gradient(to right, #14CCFA, #287CFF);
     }
