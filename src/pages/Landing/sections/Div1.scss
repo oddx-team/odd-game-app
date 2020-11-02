@@ -241,13 +241,8 @@
     @include flexCenter(column);
     background: #0477bd;
     z-index: 3;
-    color: #fff;
     .logo {
-      @include imageCDN('oddx.png', 3.48rem, 0.9rem);
-      margin-bottom: 0.1rem;
-    }
-    span {
-      font-size: 0.4rem;
+      @include imageCDN('oddx-preload.png', 4.48rem, 1.8rem);
     }
   }
 

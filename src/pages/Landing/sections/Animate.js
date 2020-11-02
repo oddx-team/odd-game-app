@@ -3,7 +3,6 @@ import gsap, { Elastic, Back } from 'gsap'
 export const introAnimation = () => {
   // Intro effects
   gsap.to('.overlay .logo', { delay: 0.8, opacity: 0, y: -60 })
-  gsap.to('.overlay span', { delay: 1, opacity: 0, y: -60 })
   gsap.to('.overlay', { delay: 1.35, duration: 0.7, top: '-100%', ease: 'expo.easeInOut' })
   gsap.from('.ellipse-container', { delay: 1.65, opacity: 0, duration: 0.7, ease: 'expo.easeInOut' })
   gsap.from('.card-1', { delay: 1.75, opacity: 0, duration: 0.7, ease: 'expo.easeInOut' })

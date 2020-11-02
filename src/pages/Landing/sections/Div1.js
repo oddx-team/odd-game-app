@@ -56,7 +56,6 @@ const Div1 = ({ scrollY }) => {
     <section id='div1' style={sectionScroll()}>
       <div className='overlay'>
         <div className='logo' />
-        <span>A party game for the freaks</span>
       </div>
 
       <section className='nav'>
