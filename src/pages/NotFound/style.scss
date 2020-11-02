@@ -4,7 +4,7 @@
   @include sizeWH(100%, 100vh);
   background: #F8F9FF;
 
-  .panel-decor {
+  .panel-space {
     @include imageCDN('404bg.webp', 8rem, 6.64rem);
     @include position(absolute, $top: 0, $right: -0.2rem);
   }
