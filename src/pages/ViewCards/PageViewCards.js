@@ -1,17 +1,20 @@
 import React, { useEffect } from 'react'
-import { useFetch } from 'hooks/fetch'
-import { useGameActions } from 'contexts/GameContext'
+import { useDispatch, useSelector } from 'react-redux'
+import { selectAllCards, fetchCards } from 'features/cardsSlice'
 import { Card } from 'shared/components/Card'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import { PageRoomWrapper, Container, CardContainer } from './styled'
 
-import Api from 'services'
-
 export const PageViewCards = () => {
-  const [allCards, loading] = useFetch(Api.getAllCards)
-  const { setGlobalLoading } = useGameActions()
+  const dispatch = useDispatch()
+  const status = useSelector(state => state.cards.status)
+  const allCards = useSelector(selectAllCards)
 
-  useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchCards())
+    }
+  }, [dispatch])
 
   return (
     <PageRoomWrapper>

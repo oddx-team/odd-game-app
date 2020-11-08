@@ -11,6 +11,7 @@ function getParam(paramName: string, url: string) {
 }
 
 function camelizeStr(str: string) {
+  if (str.startsWith('_')) return str.slice(1, str.length);
   return str.replace(/[_.-](\w|$)/g, (_, x) => x.toUpperCase())
 }
 
@@ -76,3 +77,5 @@ export default {
   parseTime,
   convertChar
 }
+
+
