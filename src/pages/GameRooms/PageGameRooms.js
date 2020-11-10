@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useModalActions } from 'contexts/ModalContext'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { CardRoom } from 'shared/components/CardRoom'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import {
@@ -11,28 +11,19 @@ import {
   RoomContainer
 } from './styled'
 
-import toast from 'shared/utils/toast'
-import Api from 'services'
-import { useGameActions } from 'contexts/GameContext'
+import { selectGlobalRooms, fetchRooms, exitRoom } from 'features/roomsSlice'
 
 export const PageGameRooms = () => {
-  const { openModal } = useModalActions()
-  const { quitCurrentRoom } = useGameActions()
-  const [allRooms, setAllRooms] = useState({ eRooms: [], vRooms: [] })
-
-  const currentRoomList = allRooms.eRooms
+  const dispatch = useDispatch()
+  const status = useSelector(state => state.rooms.status)
+  const roomsList = useSelector(selectGlobalRooms)
 
   useEffect(() => {
-    (async () => {
-      quitCurrentRoom()
-      try {
-        const [eRooms, vRooms] = await Promise.all([Api.getGlobalRooms(), Api.getVnRooms()])
-        setAllRooms({ eRooms, vRooms })
-      } catch (err) {
-        toast.error('error')
-      }
-    })()
-  }, [quitCurrentRoom])
+    dispatch(exitRoom())
+    if (status === 'idle') {
+      dispatch(fetchRooms('en'))
+    }
+  }, [dispatch, status])
 
   return (
     <StyledGameRooms>
@@ -44,13 +35,12 @@ export const PageGameRooms = () => {
           variant='primary'
           icon='plus'
           iconSize={0.29}
-          onClick={() => openModal('create')}
         >Create
         </ButtonCreate>
 
         <RoomContainer>
-          {currentRoomList && currentRoomList.length
-            ? currentRoomList.map((room, i) => (
+          {roomsList && roomsList.length
+            ? roomsList.map((room, i) => (
               <div key={i}>
                 <CardRoom {...room} />
               </div>))

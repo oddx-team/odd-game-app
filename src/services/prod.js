@@ -36,11 +36,8 @@ export default {
   async getAllCards () {
     return api('get', 'cards/en')
   },
-  getGlobalRooms () {
-    return api('get', 'rooms/en')
-  },
-  getVnRooms () {
-    return api('get', 'rooms/vi')
+  getAllRooms (language) {
+    return api('get', `rooms/${language}`)
   },
   createRoom (payload, language) {
     return api('post', `rooms/${language}`, payload)

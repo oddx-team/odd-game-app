@@ -118,7 +118,7 @@ const Div1 = ({ scrollY }) => {
         onClick={() => setInput(true)}
       >
         <i onClick={startGame} />
-        <a href='#'>Yo, Play now!!</a>
+        <div>Yo, Play now!!</div>
         <input
           type='text'
           placeholder='Enter username?'

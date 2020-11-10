@@ -16,10 +16,6 @@ const gameReducer = (state, action) => {
       return { ...state, online: !state.online }
     case 'UPDATE_GLOBAL_CHAT':
       return { ...state, globalChat: [...state.globalChat, ...action.messages] }
-    case 'UPDATE_ALL_ROOMS':
-      return { ...state, eRooms: action.payload.eRooms, vRooms: action.payload.vRooms }
-    case 'SET_FULL_SIDEBAR':
-      return { ...state, fullSidebar: action.fullSidebar }
     case 'SET_LOADING_STATUS':
       return { ...state, isLoading: action.isLoading }
     case 'SET_ACTIVE_ROOM':
@@ -36,14 +32,10 @@ const GameContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(gameReducer, {
     isLoggedIn: null,
     isLoading: false,
-    activeRoom: null,
     username: null,
     points: 0,
     globalChat: [],
-    eRooms: [],
-    vRooms: [],
-    online: false,
-    fullSidebar: true
+    online: false
   }, undefined)
 
   const actions = {
@@ -53,12 +45,6 @@ const GameContextProvider = ({ children }) => {
     logoutGame: useCallback(() => {
       dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: false, username: null })
     }, []),
-    setSidebar: useCallback((sidebar) => {
-      dispatch({ type: 'SET_FULL_SIDEBAR', fullSidebar: sidebar })
-    }, []),
-    toggleSidebar: useCallback(() => {
-      dispatch({ type: 'SET_FULL_SIDEBAR', fullSidebar: !state.fullSidebar })
-    }, [state.fullSidebar]),
     setActiveRoom: useCallback((room) => {
       dispatch({ type: 'SET_ACTIVE_ROOM', room })
     }, []),
@@ -73,9 +59,6 @@ const GameContextProvider = ({ children }) => {
           slug: utils.slugifyStr(name)
         }
       })
-    }, []),
-    quitCurrentRoom: useCallback(() => {
-      dispatch({ type: 'QUIT_ROOM' })
     }, []),
     setGlobalLoading: useCallback((isLoading) => {
       dispatch({ type: 'SET_LOADING_STATUS', isLoading })

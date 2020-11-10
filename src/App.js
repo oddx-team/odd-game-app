@@ -35,10 +35,10 @@ const PrivateRoute = ({ component: Component, ...options }) => {
 }
 
 const MainContent = ({ children }) => {
-  const { fullSidebar, isLoggedIn } = useGameState()
+  const { isLoggedIn } = useGameState()
 
   return (
-    <Container fullSidebar={fullSidebar} showSidebar={isLoggedIn}>
+    <Container showSidebar={isLoggedIn}>
       <Header />
       <Wrapper>{children}</Wrapper>
     </Container>

@@ -17,14 +17,7 @@ const cardsSlice = createSlice({
   }),
   reducers: {},
   extraReducers: {
-    [fetchCards.fulfilled]: cardsAdapter.setAll,
-    [fetchCards.pending]: (state) => {
-      state.status = 'loading'
-    },
-    [fetchCards.rejected]: (state, action) => {
-      state.status = 'failed'
-      state.error = action.error.message
-    }
+    [fetchCards.fulfilled]: cardsAdapter.setAll
   }
 })
 

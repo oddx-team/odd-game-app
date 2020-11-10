@@ -131,36 +131,35 @@ export default {
     ])
   },
 
-  async getGlobalRooms () {
+  async getAllRooms (language) {
     await utils.delay(100)
-    return utils.camelizeKeys(
-      new Array(26).fill(null).map((_, i) => ({
-        _id: `room-${i + 26}`,
-        name: `Room ${utils.convertChar(i)}`,
-        slug: utils.slugifyStr(`room-${utils.convertChar(i)}`),
-        host: `Player${(i % 3) + 1}`,
-        total: 10,
-        current: Math.floor(Math.random() * 10),
-        guest: Math.floor(Math.random() * 15),
-        status: i % 2 === 0 ? 'Not started' : 'Playing'
-      }))
-    )
-  },
-
-  async getVnRooms () {
-    await utils.delay(100)
-    return utils.camelizeKeys(
-      new Array(26).fill(null).map((_, i) => ({
-        _id: `phong-${i + 26}`,
-        name: `Phòng ${utils.convertChar(i)}`,
-        slug: utils.slugifyStr(`phong-${utils.convertChar(i)}`),
-        host: `Player${(i % 3) + 1}`,
-        total: 10,
-        current: Math.floor(Math.random() * 10),
-        guest: Math.floor(Math.random() * 15),
-        status: i % 2 === 0 ? 'Not started' : 'Playing'
-      }))
-    )
+    if (language === 'en') {
+      return utils.camelizeKeys(
+        new Array(26).fill(null).map((_, i) => ({
+          _id: `room-${i + 26}`,
+          name: `Room ${utils.convertChar(i)}`,
+          slug: utils.slugifyStr(`room-${utils.convertChar(i)}`),
+          host: `Player${(i % 3) + 1}`,
+          total: 10,
+          current: Math.floor(Math.random() * 10),
+          guest: Math.floor(Math.random() * 15),
+          status: i % 2 === 0 ? 'Not started' : 'Playing'
+        }))
+      )
+    } else {
+      return utils.camelizeKeys(
+        new Array(26).fill(null).map((_, i) => ({
+          _id: `phong-${i + 26}`,
+          name: `Phòng ${utils.convertChar(i)}`,
+          slug: utils.slugifyStr(`phong-${utils.convertChar(i)}`),
+          host: `Player${(i % 3) + 1}`,
+          total: 10,
+          current: Math.floor(Math.random() * 10),
+          guest: Math.floor(Math.random() * 15),
+          status: i % 2 === 0 ? 'Not started' : 'Playing'
+        }))
+      )
+    }
   },
 
   async getRoomChat (slug) {

@@ -14,7 +14,7 @@ export const PageViewCards = () => {
     if (status === 'idle') {
       dispatch(fetchCards())
     }
-  }, [dispatch])
+  }, [dispatch, status])
 
   return (
     <PageRoomWrapper>
