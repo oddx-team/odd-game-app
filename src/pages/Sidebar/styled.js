@@ -131,9 +131,7 @@ export const GameSidebar = styled.div`
   top: 0;
   left: 0;
   height: 100vh;
-  width: ${props => (props.open ? sizes.sizeBarWidthOpen : sizes.sizeBarWidth)}rem;
-  width: ${props => !props.show && 0}rem;
-  opacity: ${props => props.show ? 1 : 0};
+  width: ${sizes.sizeBarWidth};
   transition: width 0.35s, opacity 0.2s;
   ${mixin.scrollableY}
   ${mixin.boxShadow}
@@ -146,23 +144,12 @@ export const GameSidebar = styled.div`
     background: rgba(0, 0, 0, 0.75);
   }
 
-  &:hover {
-    width: ${sizes.sizeBarWidthOpen}rem;
-    ${LinkItem}::before {
-      width: 2.45rem;
-    }
-    ${LinkItem}::after {
-      opacity: 1;
-    }
-  }
-
   ${LinkItem} {
     &::before {
-      width: ${props => (props.open ? 2.45 : 0.63)}rem; 
+      width: 0.63rem;
     }
     &::after {
       transition: opacity 0.4s;
-      opacity: ${props => props.open ? 1 : 0};
     }
   }
 `

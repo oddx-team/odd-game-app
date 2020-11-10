@@ -33,7 +33,7 @@ export const PagePlayground = () => {
 
   const { blackCardId, playedCardIds } = usePlayState()
   const { setError } = useModalActions()
-  const { setGlobalLoading, setSidebar } = useGameActions()
+  const { setGlobalLoading } = useGameActions()
   const {
     setAllCards, getCardById,
     setPlaygroundData, confirmDealCard
@@ -73,7 +73,6 @@ export const PagePlayground = () => {
     setTimeout(() => setCardClosed(cardClosed => !cardClosed), 3000)
   }, [])
 
-  useEffect(() => setSidebar(false), [setSidebar])
   useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
   useEffect(() => { if (allCards) setAllCards(allCards) }, [allCards, setAllCards])
   useEffect(() => {
