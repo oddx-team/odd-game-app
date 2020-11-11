@@ -18,11 +18,8 @@ const gameReducer = (state, action) => {
       return { ...state, globalChat: [...state.globalChat, ...action.messages] }
     case 'SET_LOADING_STATUS':
       return { ...state, isLoading: action.isLoading }
-    case 'SET_ACTIVE_ROOM':
     case 'CREATE_ROOM':
       return { ...state, activeRoom: action.room }
-    case 'QUIT_ROOM':
-      return { ...state, activeRoom: null }
     default:
       return state
   }
@@ -44,9 +41,6 @@ const GameContextProvider = ({ children }) => {
     }, []),
     logoutGame: useCallback(() => {
       dispatch({ type: 'UPDATE_LOGIN', isLoggedIn: false, username: null })
-    }, []),
-    setActiveRoom: useCallback((room) => {
-      dispatch({ type: 'SET_ACTIVE_ROOM', room })
     }, []),
     createRoom: useCallback((Id, name, size, lang) => {
       dispatch({

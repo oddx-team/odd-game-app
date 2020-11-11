@@ -7,9 +7,7 @@ import { HeaderMenu } from '../HeaderMenu'
 import {
   HeaderWrapper,
   NavBar,
-  Arrow,
   Text,
-  MainText,
   ProfileContainer,
   IconBell,
   IconUser
@@ -19,8 +17,8 @@ import Api from 'services'
 export const Header = () => {
   const { slug } = useParams()
   const { socket } = useContext(SocketContext)
-  const { isLoggedIn, username, points, fullSidebar } = useGameState()
-  const { login, logoutGame, toggleSidebar } = useGameActions()
+  const { isLoggedIn, username, points } = useGameState()
+  const { login, logoutGame } = useGameActions()
   const { clearPlaygroundData } = usePlayActions()
   const history = useHistory()
 
@@ -50,10 +48,7 @@ export const Header = () => {
         {!isLoggedIn && <div />}
         {isLoggedIn &&
           <Fragment key={0}>
-            <Arrow onClick={toggleSidebar} sidebar={fullSidebar} />
-            <MainText>Oddx</MainText>
-            <Text onClick={quitRoom}>Rooms</Text>
-            <Text onClick={() => history.push('/view-cards')}>View Cards</Text>
+            <Text onClick={quitRoom}>Game rooms</Text>
           </Fragment>}
       </NavBar>
 

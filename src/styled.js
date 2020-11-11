@@ -6,12 +6,11 @@ export const Container = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  padding-left: ${sizes.sizeBarWidth}rem;
+  padding-left: ${props => props.loggedIn ? sizes.sizeBarWidth - 0.05 : 0}rem; 
 
   ${Wrapper} {
-    transition: all 0.3s ease-in-out;
-    background: #F1F2F5;
-    padding-left: 1.6rem;
+    background: #F8F9FB;
+    padding-left: ${props => props.loggedIn ? 1.6 : 0}rem; 
     overflow-y: auto;
     height: 100%;
   }

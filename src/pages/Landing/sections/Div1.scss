@@ -180,7 +180,7 @@
     opacity: 0.85;
 
     &.type {
-      a {
+      div {
         opacity: 0;
       }
       input {
@@ -207,7 +207,7 @@
       }
     }
 
-    a {
+    div {
       @include textMixin(#fff, 0.25rem, 600, uppercase);
       @include position(absolute, 0.3rem, $left: 0.5rem);
       text-decoration: none;

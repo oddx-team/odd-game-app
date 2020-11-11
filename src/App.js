@@ -38,7 +38,7 @@ const MainContent = ({ children }) => {
   const { isLoggedIn } = useGameState()
 
   return (
-    <Container showSidebar={isLoggedIn}>
+    <Container loggedIn={isLoggedIn}>
       <Header />
       <Wrapper>{children}</Wrapper>
     </Container>

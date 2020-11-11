@@ -112,7 +112,6 @@ export const PlaygroundWrapper = styled.div`
   height: 100%;
   margin-left: -0.55rem;
   position: relative;
-  background: #F1F2F5;
   padding-top: 0.1rem;
 `
 

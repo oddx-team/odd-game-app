@@ -36,15 +36,14 @@ export const MainText = styled.div`
 `
 
 export const Text = styled.div`
-  margin-top: 0.05rem;
-  margin-left: 0.34rem;
+  margin-top: 0.02rem;
+  margin-left: -0.07rem;
   text-transform: uppercase;
   padding: 0.07rem 0;
-  ${font.size(0.19)}
-
-  &:hover {
-    font-weight: bold;
-  }
+  font-family: 'Oxamium-Bold', sans-serif;
+  font-weight: 900;
+  color: #000;
+  ${font.size(0.25)}
 `
 
 export const NavBar = styled.div`
