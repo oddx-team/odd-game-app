@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useContext } from 'react'
+import React, { Fragment, useEffect, useContext, useState } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 import { useGameState, useGameActions } from 'contexts/GameContext'
 import { usePlayActions } from 'contexts/PlayContext'
@@ -17,10 +17,16 @@ import Api from 'services'
 export const Header = () => {
   const { slug } = useParams()
   const { socket } = useContext(SocketContext)
-  const { isLoggedIn, username, points } = useGameState()
+  const { isLoggedIn, username } = useGameState()
   const { login, logoutGame } = useGameActions()
   const { clearPlaygroundData } = usePlayActions()
+  const [openMenu, setOpenMenu] = useState()
   const history = useHistory()
+
+  const firstChar = () => {
+    if (typeof username !== 'string') return ''
+    return username.charAt(0).toUpperCase()
+  }
 
   useEffect(() => {
     Api.getMe().then(data => {
@@ -55,15 +61,14 @@ export const Header = () => {
       {isLoggedIn &&
         <div>
           <ProfileContainer>
-            <IconBell><i /></IconBell>
-            <IconUser alt='Avatar' src={`https://www.tinygraphs.com/spaceinvaders/${Date.now()}?size=100`} />
-
-            <div className='info'>
-              <div className='name'>{username}</div>
-              <div className='points'>Points: {points}</div>
-            </div>
+            <IconBell type='bell' size={0.21} />
+            <IconUser
+              onMouseEnter={() => setOpenMenu(true)}
+              onMouseLeave={() => setOpenMenu(false)}
+            >{firstChar()}
+            </IconUser>
           </ProfileContainer>
-          <HeaderMenu />
+          <HeaderMenu open={openMenu} />
         </div>}
     </HeaderWrapper>
   )

@@ -6,7 +6,6 @@ import { useGameActions } from 'contexts/GameContext'
 import { SocketContext } from 'contexts/SocketContext'
 import {
   StyledMenu,
-  ButtonHamburger,
   MenuContent,
   LinkItem,
   LinkText
@@ -14,7 +13,7 @@ import {
 import Api from 'services'
 import toast from 'shared/utils/toast'
 
-export const HeaderMenu = () => {
+export const HeaderMenu = ({ open }) => {
   const match = useRouteMatch()
   const history = useHistory()
   const { closeSocket } = useContext(SocketContext)
@@ -34,9 +33,7 @@ export const HeaderMenu = () => {
   }
 
   return (
-    <StyledMenu>
-      <ButtonHamburger />
-
+    <StyledMenu open={open}>
       <MenuContent>
         {renderLinkItem(match, 'Profile', 'face-cool')}
         <LinkItem onClick={logout}>

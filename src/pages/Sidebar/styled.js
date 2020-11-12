@@ -57,9 +57,10 @@ export const ButtonCreate = styled.a`
   position: relative;
   display: flex;
   background: #0377BD;
-  margin-left: 0.13rem;
   padding: 0.09rem 0rem 0rem 0.16rem;
   border-radius: 0.07rem;
+  margin-left: 0.13rem;
+  margin-bottom: 0.05rem;
   cursor: pointer;
 
   i {
@@ -67,6 +68,9 @@ export const ButtonCreate = styled.a`
     top: -0.03rem;  
     margin-right: 0.18rem;
     color: #fff;
+  }
+  &:hover {
+    filter: brightness(1.2);
   }
 `
 

@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components/macro'
 import { imageCDN } from 'mixins'
-import { sizes, font } from 'shared/utils/styles'
+import { sizes, font, mixin } from 'shared/utils/styles'
+import { Icon } from '../Icon'
 
 export const HeaderWrapper = styled.div`
   width: 100%;
@@ -57,7 +58,7 @@ export const NavBar = styled.div`
 
 export const ProfileContainer = styled.div`
   position: absolute;
-  right: 0.4rem;
+  right: 0.3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,43 +84,39 @@ export const ProfileContainer = styled.div`
   }
 `
 
-export const IconUser = styled.img`
-  width: 0.37rem;
-  height: 0.37rem;
-  border-radius: 50%;
+export const IconUser = styled.div`
+  ${mixin.size(0.4, 0.4)}
   position: relative;
-  left: 0.01rem;
-  top: 0.02rem;
+  left: 0.05rem;
+  top: 0.07rem;
   border-radius: 50%;
-  border: 0.02rem solid #E0E0E0;
+  background: #0377BD;
+  padding-top: 0.07rem;
+  color: #fff;
 `
 
-export const IconBell = styled.div`
+export const IconBell = styled(Icon)`
+  ${mixin.size(0.4, 0.4)}
   position: relative;
-  top: 0.05rem;
-  margin-right: 0.07rem;
-  transition: background-color 0.4s;
+  top: 0.07rem;
+  left: -0.03rem;
+  padding-top: 0.07rem;
+  border: 0.01rem solid #8f8f8f;
   border-radius: 50%;
-  width: 0.4rem;
-  height: 0.4rem;
-  padding: 0.05rem;
+  cursor: pointer;
 
-  i {
-    ${imageCDN('icon-bell.png', 0.23, 0.23)};
-    display: inline-block;
+  &:hover {
+    background: #f8f9fb;
+  }
 
-    &::before {
-      content: '5';
-      font-size: 0.15rem;
-      padding-top: 0.02rem;
-      color: #fff;
-      position: absolute;
-      top: -0.02rem;
-      left: -0.02rem;
-      width: 0.2rem;
-      height: 0.2rem;
-      background: red;
-      border-radius: 100%;
-    }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0.09rem;
+    right: 0.07rem;
+    ${mixin.size(0.08, 0.08)}
+    background: red;
+    border-radius: 50%;
+    border: 0.02rem solid #fff;
   }
 `
