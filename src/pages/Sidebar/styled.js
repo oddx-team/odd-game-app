@@ -30,8 +30,7 @@ export const LinkItem = styled.a`
   text-decoration: none;
   color: #585859;
   ${mixin.clickable}
-  height: 0.53rem;
-  width: 0.55rem;
+  ${mixin.size(0.53, 0.53)}
   margin-bottom: 0.03rem;
   
   i {
@@ -53,14 +52,20 @@ export const LinkItem = styled.a`
   }
 `
 
-export const ButtonCreate = styled(LinkItem)`
+export const ButtonCreate = styled.a`
+  ${mixin.size(0.53, 0.53)}
+  position: relative;
+  display: flex;
   background: #0377BD;
   margin-left: 0.13rem;
-  padding: 0.09rem 0rem 0rem 0.18rem;
+  padding: 0.09rem 0rem 0rem 0.16rem;
   border-radius: 0.07rem;
-  margin-bottom: 0.1rem;
-  margin-top: 0.15rem;
+  cursor: pointer;
+
   i {
+    position: relative;
+    top: -0.03rem;  
+    margin-right: 0.18rem;
     color: #fff;
   }
 `
