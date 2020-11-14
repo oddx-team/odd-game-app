@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'shared/components/Card'
+import { Icon } from 'shared/components/Icon'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { headerTitleUpdated } from 'features/gameSlice'
@@ -10,13 +11,18 @@ import { selectAllCards } from 'features/cardsSlice'
 
 import {
   PlaygroundWrapper,
-  Header,
   Container,
   BlackCardContainer,
   WhiteCardContainer,
-  RightTitle,
   ButtonConfirm,
-  CardsList
+  ButtonInvite,
+  DropzoneTitle,
+  DropzoneOddx,
+  DropHereText,
+  ImgCard,
+  ImgSpaceship,
+  CardsList,
+  Text
 } from './styled'
 
 export const PagePlayground = () => {
@@ -30,8 +36,18 @@ export const PagePlayground = () => {
   const [showFake, setShowFake] = useState(false)
 
   const playedCards = []
-  const blackCard = null
+  const blackCard = {
+    id: 10,
+    text: 'Dolores Umbridge made it her mission at Hogwarts to crack down on ________.',
+    color: 'black'
+  }
 
+  // -------- JOIN ROOM ------------
+  useEffect(() => {
+    dispatch(headerTitleUpdated('Playground'))
+  }, [dispatch])
+
+  // -------- DRAGGING FUNCTIONS ---------
   const onDragUpdate = (update) => {
     setShowFake(true)
   }
@@ -47,16 +63,10 @@ export const PagePlayground = () => {
     // confirmDealCard(movedCard)
   }
 
-  useEffect(() => {
-    // join room
-    dispatch(headerTitleUpdated('Playground'))
-  }, [dispatch])
-
   return (
     <PlaygroundWrapper>
       <div>
         <Breadcrumbs items={['Oddx', 'Playground', slug]} />
-        <Header>Select a card to play!</Header>
         <Container>
           <BlackCardContainer>
             {blackCard
@@ -73,7 +83,19 @@ export const PagePlayground = () => {
 
           <DragDropContext onDragEnd={onDragEnd} onDragUpdate={onDragUpdate}>
             <WhiteCardContainer>
-              <RightTitle>The white cards played this round:</RightTitle>
+              <DropzoneTitle>The white cards played this round:</DropzoneTitle>
+              <ButtonInvite>
+                <Icon type='plus' size={0.23} top={0.01} />
+                <Text>Invite</Text>
+              </ButtonInvite>
+
+              {!showFake &&
+                <DropzoneOddx>
+                  <ImgCard />
+                  <ImgSpaceship />
+                  <DropHereText>Drop your cards here</DropHereText>
+                </DropzoneOddx>}
+
               <Droppable droppableId='card-play' direction='horizontal'>
                 {(provided, snapshot) => (
                   <CardsList

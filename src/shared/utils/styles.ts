@@ -80,6 +80,7 @@ export const mixin = {
     justify-content: center;
     vertical-align: middle;
     flex-direction: row;
+    flex-wrap: wrap;
   `,
   clickable: css`
       cursor: pointer;
@@ -122,7 +123,7 @@ export const mixin = {
     -webkit-overflow-scrolling: touch;
   `,
   boxShadow: css`
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: 0 5px 10px 0 rgba(4, 119, 189, 0.2);
   `,
   customScrollbar: ({ width = 8, background = color.backgroundMedium } = {}) => css`
     &::-webkit-scrollbar {

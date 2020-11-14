@@ -1,10 +1,57 @@
 import React from 'react'
 import { Card } from 'shared/components/Card'
-import { CollectionWrapper, CollectionHeader, CollectionContent, CardWrapper } from './styled'
+import {
+  CollectionWrapper,
+  CollectionTitle,
+  CollectionContent,
+  CardWrapper,
+  TopBar,
+  LeftBar,
+  CountDown,
+  CardsImage
+} from './styled'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
+import IconCards from 'assets/icon-cards.png'
 
 export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
-  const collectionCards = []
+  const collectionCards = [
+    {
+      id: '1',
+      text: 'Magical bondage.',
+      color: 'white',
+      language: 'en'
+    },
+    {
+      id: '2',
+      text: 'Getting a blowjob from the monster book of monsters.',
+      color: 'white',
+      language: 'en'
+    },
+    {
+      id: '3',
+      text: 'Using the Quibber as toilet paper.',
+      color: 'white',
+      language: 'en'
+    },
+    {
+      id: '4',
+      text: 'Hardcore BDSM in the Room of Requirement.',
+      color: 'white',
+      language: 'en'
+    },
+    {
+      id: '5',
+      text: 'Teaching wizards how to code.',
+      color: 'white',
+      language: 'en'
+    },
+    {
+      id: '6',
+      text: 'Ahihi',
+      color: 'white',
+      language: 'en'
+    }
+  ]
 
   const getStyle = (style, snapshot) => {
     if (!snapshot.isDropAnimating) return style
@@ -16,7 +63,12 @@ export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
 
   return (
     <CollectionWrapper>
-      <CollectionHeader>Player Collection</CollectionHeader>
+      <TopBar />
+      <LeftBar />
+      <CountDown>Time: 06</CountDown>
+      <CardsImage src={IconCards} />
+      <CollectionTitle>Collection</CollectionTitle>
+
       <Droppable droppableId='card-collection' direction='horizontal'>
         {(provided, snapshot) => (
           <CollectionContent
@@ -25,8 +77,8 @@ export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
             isDraggingOver={snapshot.isDraggingOver}
           >
             {collectionCards && collectionCards.map((card, i) => (
-              <div key={card.Id}>
-                <Draggable draggableId={card.Id} index={i}>
+              <div key={card.id}>
+                <Draggable draggableId={card.id} index={i}>
                   {(cardProvided, cardSnapshot) => (
                     <CardWrapper
                       ref={cardProvided.innerRef}
@@ -38,9 +90,9 @@ export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
                       <Card
                         {...card}
                         size='small'
-                        color={dealCard === card.Id ? 'blue' : 'white'}
+                        color={dealCard === card.id ? 'blue' : 'white'}
                         onClick={() => {
-                          selectDealCard(card.Id)
+                          selectDealCard(card.id)
                         }}
                       />
                     </CardWrapper>

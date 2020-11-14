@@ -39,7 +39,7 @@ const Sidebar = () => {
       </LinkItem>
 
       <Footer onClick={() => history.push('/settings')}>
-        <Icon type='setting' size={0.37} />
+        <Icon type='setting' size={0.42} left={-0.03} />
       </Footer>
     </GameSidebar>
   )
