@@ -1,8 +1,6 @@
-import React, { Fragment, useEffect, useContext, useState } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
-import { useGameState, useGameActions } from 'contexts/GameContext'
-import { usePlayActions } from 'contexts/PlayContext'
-import { SocketContext } from 'contexts/SocketContext'
+import React, { Fragment, useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import { HeaderMenu } from '../HeaderMenu'
 import {
   HeaderWrapper,
@@ -12,14 +10,13 @@ import {
   IconBell,
   IconUser
 } from './styled'
+
+import { selectHeaderInfo, playerUpdated, logoutGame } from 'features/gameSlice'
 import Api from 'services'
 
 export const Header = () => {
-  const { slug } = useParams()
-  const { socket } = useContext(SocketContext)
-  const { isLoggedIn, username } = useGameState()
-  const { login, logoutGame } = useGameActions()
-  const { clearPlaygroundData } = usePlayActions()
+  const dispatch = useDispatch()
+  const { username, headerTitle, isLoggedIn } = useSelector(selectHeaderInfo)
   const [openMenu, setOpenMenu] = useState()
   const history = useHistory()
 
@@ -30,20 +27,14 @@ export const Header = () => {
 
   useEffect(() => {
     Api.getMe().then(data => {
-      login(data.username)
+      dispatch(playerUpdated(data.username))
     }).catch(() => {
-      logoutGame()
+      dispatch(logoutGame())
     })
-  }, [login, logoutGame])
-
-  useEffect(() => {
-    window.socket = socket
-  }, [socket])
+  }, [dispatch])
 
   const quitRoom = () => {
     (() => {
-      clearPlaygroundData()
-      window.socket.emit('leave-room', slug)
       history.push(isLoggedIn ? '/rooms' : '/')
     })()
   }
@@ -54,7 +45,7 @@ export const Header = () => {
         {!isLoggedIn && <div />}
         {isLoggedIn &&
           <Fragment key={0}>
-            <Text onClick={quitRoom}>Game rooms</Text>
+            <Text onClick={quitRoom}>{headerTitle}</Text>
           </Fragment>}
       </NavBar>
 

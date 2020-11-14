@@ -1,9 +1,9 @@
 import React from 'react'
-import { useGameState } from 'contexts/GameContext'
+import { useSelector } from 'react-redux'
 import './style.scss'
 
 export const Loading = () => {
-  const { isLoading } = useGameState()
+  const isLoading = useSelector(state => state.game.isLoading)
   return isLoading ? (
     <div className='loading-overlay' />
   ) : null

@@ -1,14 +1,12 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
-import { useFetch } from 'hooks/fetch'
-import { usePlayActions, usePlayState } from 'contexts/PlayContext'
-import { useGameActions } from 'contexts/GameContext'
-import { useModalActions } from 'contexts/ModalContext'
 import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'shared/components/Card'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
-import { SocketContext } from 'contexts/SocketContext'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import { headerTitleUpdated } from 'features/gameSlice'
+import { selectAllCards } from 'features/cardsSlice'
 
 import {
   PlaygroundWrapper,
@@ -21,39 +19,18 @@ import {
   CardsList
 } from './styled'
 
-import Api from 'services'
-
 export const PagePlayground = () => {
+  const dispatch = useDispatch()
+  const allCards = useSelector(selectAllCards)
+
+  console.log(allCards)
+
   const { slug } = useParams()
-  const { socket } = useContext(SocketContext)
-  const [allCards, loading] = useFetch(Api.getAllCards)
   const [dealCard, setDealCard] = useState(null)
-  const [cardClosed, setCardClosed] = useState(true)
   const [showFake, setShowFake] = useState(false)
 
-  const { blackCardId, playedCardIds } = usePlayState()
-  const { setError } = useModalActions()
-  const { setGlobalLoading } = useGameActions()
-  const {
-    setAllCards, getCardById,
-    setPlaygroundData, confirmDealCard
-  } = usePlayActions()
-
-  // Card data to display
-  const blackCard = getCardById(blackCardId)
-  const playedCards = playedCardIds?.map(card => ({
-    ...card,
-    ...getCardById(card.Id)
-  }))
-
-  const confirmSelection = () => {
-    if (!dealCard) {
-      setError("You haven't selected any cards!!!")
-    } else {
-      confirmDealCard(dealCard)
-      setDealCard(null)
-    }
-  }
+  const playedCards = []
+  const blackCard = null
 
   const onDragUpdate = (update) => {
     setShowFake(true)
@@ -66,35 +43,14 @@ export const PagePlayground = () => {
     if (source.droppableId === destination.droppableId) return
 
     const movedCard = result.draggableId
-    confirmDealCard(movedCard)
+    console.log(movedCard)
+    // confirmDealCard(movedCard)
   }
 
   useEffect(() => {
-    setTimeout(() => setCardClosed(cardClosed => !cardClosed), 3000)
-  }, [])
-
-  useEffect(() => setGlobalLoading(loading), [loading, setGlobalLoading])
-  useEffect(() => { if (allCards) setAllCards(allCards) }, [allCards, setAllCards])
-  useEffect(() => {
     // join room
-    (() => {
-      window.socket = socket
-      window.socket.emit('join-room', { operation: 'join', slug })
-      window.socket.on(`session-${slug}`, (data) => {
-        const {
-          mode,
-          roomInfo,
-          collectionCards: collectionCardIds,
-          playedCards: playedCardIds,
-          blackCard: blackCardId
-        } = data
-
-        if (roomInfo.slug === slug) {
-          setPlaygroundData(mode, collectionCardIds, playedCardIds, blackCardId)
-        }
-      })
-    })()
-  }, [setPlaygroundData, slug, socket])
+    dispatch(headerTitleUpdated('Playground'))
+  }, [dispatch])
 
   return (
     <PlaygroundWrapper>
@@ -111,7 +67,6 @@ export const PagePlayground = () => {
               variant='primary'
               icon='plus'
               iconSize={0.29}
-              onClick={confirmSelection}
             >Confirm
             </ButtonConfirm>
           </BlackCardContainer>
@@ -145,7 +100,7 @@ export const PagePlayground = () => {
                                 color='white'
                                 onClick={() => {}}
                                 size={playedCards.length <= 3 ? 'medium' : 'small'}
-                                closed={cardClosed}
+                                closed={false}
                               />
                             </div>
                           )}

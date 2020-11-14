@@ -16,7 +16,7 @@ export default {
   async getMe () {
     await utils.delay(100)
     return utils.camelizeKeys({
-      username: 'Mocmeo'
+      username: 'Lam'
     })
     // return null
   },

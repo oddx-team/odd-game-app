@@ -1,34 +1,27 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import { useDispatch } from 'react-redux'
 import { useHistory, NavLink, useRouteMatch } from 'react-router-dom'
-
 import { Icon } from 'shared/components/Icon'
-import { useGameActions } from 'contexts/GameContext'
-import { SocketContext } from 'contexts/SocketContext'
 import {
   StyledMenu,
   MenuContent,
   LinkItem,
   LinkText
 } from './styled'
-import Api from 'services'
+import { logoutGame } from 'features/gameSlice'
 import toast from 'shared/utils/toast'
 
 export const HeaderMenu = ({ open }) => {
+  const dispatch = useDispatch()
   const match = useRouteMatch()
   const history = useHistory()
-  const { closeSocket } = useContext(SocketContext)
-  const { logoutGame } = useGameActions()
 
   const logout = async () => {
     try {
-      await Api.logout()
+      dispatch(logoutGame())
       history.push('/')
-      logoutGame()
-      closeSocket()
-
-      toast.success('logout_success')
     } catch (err) {
-      toast.error('error')
+      toast.error(err.response?.data?.msg || 'error-message')
     }
   }
 

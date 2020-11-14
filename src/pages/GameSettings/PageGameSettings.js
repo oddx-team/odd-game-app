@@ -23,7 +23,6 @@ export const PageGameSettings = () => {
         password: Form.is.required()
       }}
       onSubmit={(values) => {
-        // console.log(values)
         toast.success('save_success')
       }}
     >

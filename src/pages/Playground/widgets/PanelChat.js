@@ -1,15 +1,13 @@
-import React, { useEffect, useState, useContext, useRef } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { ChatMessage } from 'shared/components/ChatMessage'
 import { TextInput } from 'shared/components/TextInput'
-import { SocketContext } from 'contexts/SocketContext'
 import styled from 'styled-components/macro'
 import Api from 'services'
 
 export const PanelChat = () => {
   const lastRef = useRef(null)
   const { slug } = useParams()
-  const { socket } = useContext(SocketContext)
   const [roomChat, setRoomChat] = useState([])
 
   useEffect(() => scrollToBottom(), [roomChat])
@@ -19,22 +17,6 @@ export const PanelChat = () => {
       setRoomChat(messages)
     })()
   }, [slug])
-
-  useEffect(() => {
-    (() => {
-      window.socket = socket
-      window.socket.on(slug, (action, username, message) => {
-        if (action === 'chat') {
-          const newMessage = {
-            username,
-            message,
-            time: new Date().getTime() / 1000
-          }
-          setRoomChat(currentChats => [...currentChats, newMessage])
-        }
-      })
-    })()
-  }, [slug, socket])
 
   const scrollToBottom = () => {
     lastRef.current.scrollIntoView()

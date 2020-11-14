@@ -12,6 +12,7 @@ import {
 } from './styled'
 
 import { selectGlobalRooms, fetchRooms, exitRoom } from 'features/roomsSlice'
+import { headerTitleUpdated } from 'features/gameSlice'
 
 export const PageGameRooms = () => {
   const dispatch = useDispatch()
@@ -19,6 +20,7 @@ export const PageGameRooms = () => {
   const roomsList = useSelector(selectGlobalRooms)
 
   useEffect(() => {
+    dispatch(headerTitleUpdated('Game Rooms'))
     dispatch(exitRoom())
     if (status === 'idle') {
       dispatch(fetchRooms('en'))

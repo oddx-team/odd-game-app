@@ -1,4 +1,5 @@
 import gsap, { Elastic, Back } from 'gsap'
+import utils from 'utils'
 
 export const introAnimation = () => {
   // Intro effects
@@ -24,11 +25,12 @@ export const pulseAnimation = () => {
   tl.to('.pulse', { duration: 1, scale: 2, opacity: 0, ease: 'expo.easeOut' }, '-=1.2')
 }
 
-export const startEffect = () => {
+export const startAnimation = async () => {
   gsap.to('.playnow', { x: '-0.5rem', duration: 0.3, ease: 'expo.easeInOut', skewX: 10 })
   gsap.to('.playnow', { x: '5rem', duration: 0.5, ease: 'expo.easeInOut', skewX: -5, delay: 0.3 })
+  await utils.delay(800)
 }
 
-export const retryEffect = () => {
+export const retryAnimation = () => {
   gsap.to('.playnow', { x: 0, duration: 0.5, ease: 'expo.easeInOut', delay: 0.3 })
 }

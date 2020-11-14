@@ -1,9 +1,9 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { Header } from 'shared/components/Header'
 import { Loading } from 'shared/components/Loading'
 import { Toast } from 'shared/components/Toast'
-import { Popups } from 'shared/components/Popups'
 import { Sidebar } from 'pages/Sidebar'
 import { PageLanding } from 'pages/Landing'
 import { PageGameRooms } from 'pages/GameRooms'
@@ -13,16 +13,13 @@ import { PageViewCards } from 'pages/ViewCards'
 import { PageGameSettings } from 'pages/GameSettings'
 import { PageRotation } from 'pages/Rotation'
 
-import GameContextProvider, { useGameState } from 'contexts/GameContext.js'
-import ModalContextProvider from 'contexts/ModalContext.js'
-import PlayContextProvider from 'contexts/PlayContext.js'
-import SocketContextProvider from 'contexts/SocketContext.js'
+import { selectAuth } from 'features/gameSlice'
 import { Wrapper, Container } from './styled'
 import 'styles/global.scss'
 import 'App.scss'
 
 const PrivateRoute = ({ component: Component, ...options }) => {
-  const { isLoggedIn } = useGameState()
+  const isLoggedIn = useSelector(selectAuth)
 
   switch (isLoggedIn) {
     case true:
@@ -35,7 +32,7 @@ const PrivateRoute = ({ component: Component, ...options }) => {
 }
 
 const MainContent = ({ children }) => {
-  const { isLoggedIn } = useGameState()
+  const isLoggedIn = useSelector(selectAuth)
 
   return (
     <Container loggedIn={isLoggedIn}>
@@ -47,35 +44,26 @@ const MainContent = ({ children }) => {
 
 const App = () => {
   return (
-    <SocketContextProvider>
-      <GameContextProvider>
-        <ModalContextProvider>
-          <PlayContextProvider>
-            <BrowserRouter>
-              <div id='app'>
-                <PageRotation />
-                <div className='main'>
-                  <Sidebar />
-                  <MainContent>
-                    <Switch>
-                      <Route exact path='/' component={PageLanding} />
-                      <PrivateRoute exact path='/rooms' component={PageGameRooms} />
-                      <PrivateRoute exact path='/rooms/:slug' component={PagePlayground} />
-                      <PrivateRoute exact path='/view-cards' component={PageViewCards} />
-                      <PrivateRoute exact path='/settings' component={PageGameSettings} />
-                      <Route component={PageNotFound} />
-                    </Switch>
-                  </MainContent>
-                  <Loading />
-                  <Toast />
-                  <Popups />
-                </div>
-              </div>
-            </BrowserRouter>
-          </PlayContextProvider>
-        </ModalContextProvider>
-      </GameContextProvider>
-    </SocketContextProvider>
+    <BrowserRouter>
+      <div id='app'>
+        <PageRotation />
+        <div className='main'>
+          <Sidebar />
+          <MainContent>
+            <Switch>
+              <Route exact path='/' component={PageLanding} />
+              <PrivateRoute exact path='/rooms' component={PageGameRooms} />
+              <PrivateRoute exact path='/rooms/:slug' component={PagePlayground} />
+              <PrivateRoute exact path='/view-cards' component={PageViewCards} />
+              <PrivateRoute exact path='/settings' component={PageGameSettings} />
+              <Route component={PageNotFound} />
+            </Switch>
+          </MainContent>
+          <Loading />
+          <Toast />
+        </div>
+      </div>
+    </BrowserRouter>
   )
 }
 

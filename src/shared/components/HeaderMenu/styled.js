@@ -36,7 +36,7 @@ export const LinkText = styled.div`
 export const StyledMenu = styled.div`
   position: absolute;
   top: 0;
-  right: 0.07rem;
+  right: 0.1rem;
   text-align: left;
   &:hover {
     ${MenuContent} {

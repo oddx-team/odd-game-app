@@ -1,19 +1,17 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { useGameActions } from 'contexts/GameContext'
-import { SocketContext } from 'contexts/SocketContext'
 import { Icon } from 'shared/components/Icon'
-import { introAnimation, pulseAnimation, startEffect, retryEffect } from './Animate'
-import Api from 'services'
+import { introAnimation, pulseAnimation, startAnimation, retryAnimation } from './Animate'
 import toast from 'shared/utils/toast'
-import utils from 'utils'
 import classNames from 'classnames'
+
+import { register } from 'features/gameSlice'
 import './Div1.scss'
 
-const Div1 = ({ scrollY }) => {
+const Div1 = () => {
   const history = useHistory()
-  const { login } = useGameActions()
-  const { createSocket } = useContext(SocketContext)
+  const dispatch = useDispatch()
   const [username, setUsername] = useState('')
   const [input, setInput] = useState(false)
   const [tab, setTab] = useState(0)
@@ -30,17 +28,13 @@ const Div1 = ({ scrollY }) => {
     }
 
     try {
-      startEffect()
-      await utils.delay(800)
-      await Api.registerUsername(username)
-      login(username)
-      createSocket()
+      await startAnimation()
+      dispatch(register(username))
 
       history.push('/rooms')
-      toast.success('login_success')
     } catch (err) {
-      toast.error('username_picked')
-      retryEffect()
+      retryAnimation()
+      toast.error(err.response?.data?.msg || 'error-message')
     }
   }
 
@@ -48,12 +42,8 @@ const Div1 = ({ scrollY }) => {
     return classNames({ active: tab === id })
   }
 
-  const sectionScroll = () => {
-    return { backgroundPositionY: scrollY * 0.25 + 'px' }
-  }
-
   return (
-    <section id='div1' style={sectionScroll()}>
+    <section id='div1'>
       <div className='overlay'>
         <div className='logo' />
       </div>

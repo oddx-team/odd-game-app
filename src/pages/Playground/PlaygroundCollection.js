@@ -1,25 +1,15 @@
 import React from 'react'
 import { Card } from 'shared/components/Card'
-import { usePlayState, usePlayActions } from 'contexts/PlayContext'
 import { CollectionWrapper, CollectionHeader, CollectionContent, CardWrapper } from './styled'
 import { Droppable, Draggable } from 'react-beautiful-dnd'
 
 export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
-  const { collectionCardIds } = usePlayState()
-  const { getCardById } = usePlayActions()
-
-  const collectionCards = collectionCardIds?.map((cardId) => ({
-    ...cardId,
-    ...getCardById(cardId)
-  }))
+  const collectionCards = []
 
   const getStyle = (style, snapshot) => {
-    if (!snapshot.isDropAnimating) {
-      return style
-    }
+    if (!snapshot.isDropAnimating) return style
     return {
       ...style,
-      // cannot be 0, but make it super tiny
       transitionDuration: '0.0001s'
     }
   }

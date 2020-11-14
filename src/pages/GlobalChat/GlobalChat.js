@@ -1,37 +1,18 @@
-import React, { useEffect, useRef, useState, useContext } from 'react'
-import { useFetch } from 'hooks/fetch'
-import { SocketContext } from 'contexts/SocketContext'
+import React, { useEffect, useRef } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { TextInput } from 'shared/components/TextInput'
 import { ChatMessage } from 'shared/components/ChatMessage'
 import { GlobalChatWrapper, StyledTab, StyledContainer, ChatContent } from './styled'
+import { fetchGlobalChat } from 'features/gameSlice'
 import PropTypes from 'prop-types'
-import Api from 'services'
 
 export const GlobalChat = () => {
   const lastRef = useRef(null)
-  const { socket } = useContext(SocketContext)
-  const [messages] = useFetch(Api.getChats)
-  const [globalChat, setGlobalChat] = useState([])
+  const dispatch = useDispatch()
+  const globalChat = useSelector(state => state.game.globalChat)
 
-  useEffect(() => setGlobalChat(messages), [messages])
+  useEffect(() => dispatch(fetchGlobalChat()), [dispatch])
   useEffect(() => scrollToBottom(), [globalChat])
-  useEffect(() => {
-    (() => {
-      window.socket = socket
-      window.socket.on('chat-global', (username, message) => {
-        const newMessage = {
-          username,
-          message,
-          time: new Date().getTime() / 1000
-        }
-        setGlobalChat(currentChats => [...currentChats, newMessage])
-      })
-
-      window.socket.on('pong', (ms) => {
-        window.latency = ms
-      })
-    })()
-  }, [socket])
 
   const scrollToBottom = () => {
     lastRef.current.scrollIntoView()
