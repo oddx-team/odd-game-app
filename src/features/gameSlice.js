@@ -22,6 +22,11 @@ const initialState = {
   }
 }
 
+export const fetchUser = createAsyncThunk('game/fetchUser', async () => {
+  const res = await Api.getMe()
+  return res.username
+})
+
 export const register = createAsyncThunk('game/register', async username => {
   const res = await Api.registerUsername(username)
 
@@ -43,13 +48,13 @@ const gameSlice = createSlice({
   name: 'game',
   initialState,
   reducers: {
-    playerUpdated (state, action) {
-      state.isLoggedIn = true
-      state.profile = {
-        ...state.profile,
-        username: action.payload
-      }
-    },
+    // playerUpdated (state, action) {
+    //   state.isLoggedIn = true
+    //   state.profile = {
+    //     ...state.profile,
+    //     username: action.payload
+    //   }
+    // },
     globalChatUpdated (state, action) {
       state.globalChat = [...state.globalChat, ...action.payload]
     },
@@ -61,6 +66,13 @@ const gameSlice = createSlice({
     }
   },
   extraReducers: {
+    [fetchUser.fulfilled]: (state, action) => {
+      state.isLoggedIn = true
+      state.prifile = {
+        ...state.prifile,
+        username: action.payload
+      }
+    },
     [register.fulfilled]: (state, action) => {
       state.profile = { ...state.profile, ...action.payload }
       state.isLoggedIn = true
@@ -76,7 +88,6 @@ const gameSlice = createSlice({
 })
 
 export const {
-  playerUpdated,
   globalChatUpdated,
   globalLoadingUpdated,
   headerTitleUpdated

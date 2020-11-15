@@ -47,7 +47,7 @@ export const CardsList = styled.div`
   margin-top: 0.08rem;
   height: 3.55rem;
   width: 9rem;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   flex-wrap: wrap;
   justify-content: flex-start;
   transition: background-color 0.35s;

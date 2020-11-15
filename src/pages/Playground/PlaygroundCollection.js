@@ -50,6 +50,12 @@ export const PlaygroundCollection = ({ dealCard, selectDealCard }) => {
       text: 'Ahihi',
       color: 'white',
       language: 'en'
+    },
+    {
+      id: '7',
+      text: 'Ahihi',
+      color: 'white',
+      language: 'en'
     }
   ]
 
