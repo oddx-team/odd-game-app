@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectAllCards, fetchCards } from 'features/cardsSlice'
+import { headerTitleUpdated } from 'features/gameSlice'
 import { Card } from 'shared/components/Card'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
 import { BaseLayout } from 'pages/BaseLayout'
@@ -12,6 +13,7 @@ export const PageViewCards = () => {
   const allCards = useSelector(selectAllCards)
 
   useEffect(() => {
+    dispatch(headerTitleUpdated('View cards'))
     if (status === 'idle') {
       dispatch(fetchCards())
     }
