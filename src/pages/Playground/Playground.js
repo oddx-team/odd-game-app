@@ -5,6 +5,7 @@ import { PlaygroundCollection } from './PlaygroundCollection'
 import { Card } from 'shared/components/Card'
 import { Icon } from 'shared/components/Icon'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
+import { BaseLayout } from 'pages/BaseLayout'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { headerTitleUpdated } from 'features/gameSlice'
 import { selectAllCards } from 'features/cardsSlice'
@@ -62,93 +63,95 @@ export const PagePlayground = () => {
   }
 
   return (
-    <PlaygroundWrapper>
-      <div>
-        <Breadcrumbs items={['Oddx', 'Playground', slug]} />
-        <Container>
-          <BlackCardContainer>
-            {blackCard
-              ? <Card color='black' size='large' {...blackCard} onClick={() => {}} />
-              : <Card color='black' size='large' text='Loading..' />}
+    <BaseLayout>
+      <PlaygroundWrapper>
+        <div>
+          <Breadcrumbs items={['Oddx', 'Playground', slug]} />
+          <Container>
+            <BlackCardContainer>
+              {blackCard
+                ? <Card color='black' size='large' {...blackCard} onClick={() => {}} />
+                : <Card color='black' size='large' text='Loading..' />}
 
-            <ButtonConfirm
-              variant='primary'
-              icon='plus'
-              iconSize={0.29}
-            >Confirm
-            </ButtonConfirm>
-          </BlackCardContainer>
+              <ButtonConfirm
+                variant='primary'
+                icon='plus'
+                iconSize={0.29}
+              >Confirm
+              </ButtonConfirm>
+            </BlackCardContainer>
 
-          <DragDropContext onDragEnd={onDragEnd} onDragUpdate={onDragUpdate}>
-            <WhiteCardContainer>
-              <DropzoneTitle>The white cards played this round:</DropzoneTitle>
-              <ButtonInvite>
-                <Icon type='plus' size={0.23} top={0.01} />
-                <Text>Invite</Text>
-              </ButtonInvite>
+            <DragDropContext onDragEnd={onDragEnd} onDragUpdate={onDragUpdate}>
+              <WhiteCardContainer>
+                <DropzoneTitle>The white cards played this round:</DropzoneTitle>
+                <ButtonInvite>
+                  <Icon type='plus' size={0.23} top={0.01} />
+                  <Text>Invite</Text>
+                </ButtonInvite>
 
-              {(!showFake || allCards.length > 0) &&
-                <DropzoneOddx>
-                  <ImgCard />
-                  <ImgSpaceship />
-                  <DropHereText>Drop your cards here</DropHereText>
-                </DropzoneOddx>}
+                {(!showFake || allCards.length > 0) &&
+                  <DropzoneOddx>
+                    <ImgCard />
+                    <ImgSpaceship />
+                    <DropHereText>Drop your cards here</DropHereText>
+                  </DropzoneOddx>}
 
-              <Droppable droppableId='card-play' direction='horizontal'>
-                {(provided, snapshot) => (
-                  <CardsList
-                    ref={provided.innerRef}
-                    {...provided.droppableProps}
-                    isDraggingOver={snapshot.isDraggingOver}
-                  >
-                    {playedCards && playedCards.map((card, i) => (
-                      <div key={card.Id}>
-                        <Draggable
-                          draggableId={card.Id}
-                          index={i}
-                          isDragDisabled
-                        >
-                          {(cardProvided) => (
-                            <div
-                              ref={cardProvided.innerRef}
-                              {...cardProvided.draggableProps}
-                              {...cardProvided.dragHandleProps}
-                              style={{}}
-                            >
-                              <Card
-                                {...card}
-                                color='white'
-                                onClick={() => {}}
-                                size={playedCards.length <= 3 ? 'medium' : 'small'}
-                                closed={false}
-                              />
-                            </div>
-                          )}
-                        </Draggable>
-                      </div>
-                    ))}
-                    <Card
-                      isFake
-                      showFake={showFake}
-                      color='white'
-                      onClick={() => {}}
-                      size={playedCards.length <= 3 ? 'medium' : 'small'}
-                    />
-                    <span style={{ display: 'none' }}>
-                      {provided.placeholder}
-                    </span>
-                  </CardsList>
-                )}
-              </Droppable>
-            </WhiteCardContainer>
+                <Droppable droppableId='card-play' direction='horizontal'>
+                  {(provided, snapshot) => (
+                    <CardsList
+                      ref={provided.innerRef}
+                      {...provided.droppableProps}
+                      isDraggingOver={snapshot.isDraggingOver}
+                    >
+                      {playedCards && playedCards.map((card, i) => (
+                        <div key={card.Id}>
+                          <Draggable
+                            draggableId={card.Id}
+                            index={i}
+                            isDragDisabled
+                          >
+                            {(cardProvided) => (
+                              <div
+                                ref={cardProvided.innerRef}
+                                {...cardProvided.draggableProps}
+                                {...cardProvided.dragHandleProps}
+                                style={{}}
+                              >
+                                <Card
+                                  {...card}
+                                  color='white'
+                                  onClick={() => {}}
+                                  size={playedCards.length <= 3 ? 'medium' : 'small'}
+                                  closed={false}
+                                />
+                              </div>
+                            )}
+                          </Draggable>
+                        </div>
+                      ))}
+                      <Card
+                        isFake
+                        showFake={showFake}
+                        color='white'
+                        onClick={() => {}}
+                        size={playedCards.length <= 3 ? 'medium' : 'small'}
+                      />
+                      <span style={{ display: 'none' }}>
+                        {provided.placeholder}
+                      </span>
+                    </CardsList>
+                  )}
+                </Droppable>
+              </WhiteCardContainer>
 
-            <PlaygroundCollection
-              dealCard={dealCard}
-              selectDealCard={cardId => setDealCard(cardId)}
-            />
-          </DragDropContext>
-        </Container>
-      </div>
-    </PlaygroundWrapper>
+              <PlaygroundCollection
+                dealCard={dealCard}
+                selectDealCard={cardId => setDealCard(cardId)}
+              />
+            </DragDropContext>
+          </Container>
+        </div>
+      </PlaygroundWrapper>
+    </BaseLayout>
   )
 }

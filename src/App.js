@@ -1,10 +1,8 @@
 import React from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { Header } from 'shared/components/Header'
 import { Loading } from 'shared/components/Loading'
 import { Toast } from 'shared/components/Toast'
-import { Sidebar } from 'pages/Sidebar'
 import { PageLanding } from 'pages/Landing'
 import { PageGameRooms } from 'pages/GameRooms'
 import { PageNotFound } from 'pages/NotFound'
@@ -38,16 +36,10 @@ const App = () => {
         <div className='main'>
           <Switch>
             <Route exact path='/' component={PageLanding} />
-            <div className='layout'>
-              <Header />
-              <Sidebar />
-              <div className='layout-content'>
-                <PrivateRoute exact path='/rooms' component={PageGameRooms} />
-                <PrivateRoute exact path='/rooms/:slug' component={PagePlayground} />
-                <PrivateRoute exact path='/view-cards' component={PageViewCards} />
-                <PrivateRoute exact path='/settings' component={PageGameSettings} />
-              </div>
-            </div>
+            <PrivateRoute exact path='/rooms' component={PageGameRooms} />
+            <PrivateRoute exact path='/rooms/:slug' component={PagePlayground} />
+            <PrivateRoute exact path='/view-cards' component={PageViewCards} />
+            <PrivateRoute exact path='/settings' component={PageGameSettings} />
             <Route component={PageNotFound} />
           </Switch>
           <Loading />
