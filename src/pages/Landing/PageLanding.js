@@ -13,7 +13,7 @@ const Landing = ({ history }) => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      history.push('/rooms/lala')
+      history.push('/rooms')
     }
   }, [isLoggedIn, history])
 

@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Loading } from 'shared/components/Loading'
 import { Toast } from 'shared/components/Toast'
 import { PageLanding } from 'pages/Landing'
@@ -11,7 +11,8 @@ import { PageViewCards } from 'pages/ViewCards'
 import { PageGameSettings } from 'pages/GameSettings'
 import { PageRotation } from 'pages/Rotation'
 
-import { selectAuth } from 'features/gameSlice'
+import { playerUpdated, selectAuth } from 'features/gameSlice'
+import Api from 'services'
 import 'styles/global.scss'
 import 'App.scss'
 
@@ -29,6 +30,16 @@ const PrivateRoute = ({ component: Component, ...options }) => {
 }
 
 const App = () => {
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    Api.getMe().then(data => {
+      dispatch(playerUpdated(data.username))
+    }).catch(err => {
+      console.log(err)
+    })
+  }, [dispatch])
+
   return (
     <BrowserRouter>
       <div id='app'>

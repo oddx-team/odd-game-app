@@ -66,6 +66,11 @@ function convertChar(num: number) {
   return String.fromCharCode(num + 65)
 }
 
+function firstChar(str: string) {
+  if (typeof str !== 'string') return ''
+  return str.charAt(0).toUpperCase()
+}
+
 export default {
   getParam,
   camelizeStr,
@@ -75,7 +80,8 @@ export default {
   camelizeKeys: convertCase(camelizeStr),
   snakifyKeys: convertCase(snakifyStr),
   parseTime,
-  convertChar
+  convertChar,
+  firstChar
 }
 
 
