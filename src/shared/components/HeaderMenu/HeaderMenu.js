@@ -10,17 +10,15 @@ import {
 } from './styled'
 import { logoutGame } from 'features/gameSlice'
 import toast from 'shared/utils/toast'
-import utils from 'utils'
 
 export const HeaderMenu = ({ open }) => {
   const dispatch = useDispatch()
-  const match = useRouteMatch()
   const history = useHistory()
+  const match = useRouteMatch()
 
   const logout = async () => {
     try {
       dispatch(logoutGame())
-      await utils.delay(50)
       history.push('/')
     } catch (err) {
       toast.error(err.response?.data?.msg || 'error-message')

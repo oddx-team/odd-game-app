@@ -66,7 +66,7 @@ export const PagePlayground = () => {
     <BaseLayout>
       <PlaygroundWrapper>
         <div>
-          <Breadcrumbs items={['Oddx', 'Playground', slug]} />
+          <Breadcrumbs items={['Playground', slug]} />
           <Container>
             <BlackCardContainer>
               {blackCard

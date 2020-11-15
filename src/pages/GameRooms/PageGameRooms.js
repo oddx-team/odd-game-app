@@ -8,7 +8,6 @@ import {
   Container,
   Title,
   Subtitle,
-  ButtonCreate,
   RoomContainer
 } from './styled'
 
@@ -32,15 +31,9 @@ export const PageGameRooms = () => {
     <BaseLayout>
       <StyledGameRooms>
         <Container>
-          <Breadcrumbs items={['Oddx', 'Game rooms', 'Global server']} />
+          <Breadcrumbs items={['VN Games', 'Global games']} />
           <Title>Game rooms</Title>
           <Subtitle>Select any room:</Subtitle>
-          <ButtonCreate
-            variant='primary'
-            icon='plus'
-            iconSize={0.29}
-          >Create
-          </ButtonCreate>
 
           <RoomContainer>
             {roomsList && roomsList.length

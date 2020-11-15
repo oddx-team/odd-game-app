@@ -11,7 +11,6 @@ import {
 } from './styled'
 
 import Logo from 'assets/oddx-logo.png'
-import IconFriends from 'assets/icon-friends.png'
 import IconCards from 'assets/icon-cards.png'
 import IconContribute from 'assets/icon-contribute.png'
 
@@ -27,9 +26,6 @@ const Sidebar = () => {
       </ButtonCreate>
       <LinkItem className='selected'>
         <Icon type='home' size={0.35} />
-      </LinkItem>
-      <LinkItem>
-        <IconImage src={IconFriends} />
       </LinkItem>
       <LinkItem>
         <IconImage src={IconCards} />

@@ -36,7 +36,6 @@ export const register = createAsyncThunk('game/register', async username => {
 
 export const logoutGame = createAsyncThunk('game/logoutGame', async () => {
   await Api.logout()
-  toast.success('logout_success')
 })
 
 export const fetchGlobalChat = createAsyncThunk('game/fetchGlobalChat', async () => {
