@@ -31,7 +31,7 @@ const Text: React.FC<TextProps> = ({ title, value }) => {
 }
 
 export const CardRoom: React.FC<CardRoomProps> =
-  ({ name, host, current, guest, status, slug }) => {
+  ({ name, host, current, status, slug }) => {
     const history = useHistory()
 
     const viewRoom = () => {
@@ -47,7 +47,6 @@ export const CardRoom: React.FC<CardRoomProps> =
           <Title>{name}</Title>
           <Text title='Host' value={host} />
           <Text title='Room' value={`${current}/10`} />
-          <Text title='Viewers' value={`${guest}`} />
           <Text title='Status' value={status} />
         </CardCont>
 

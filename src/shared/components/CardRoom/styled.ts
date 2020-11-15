@@ -3,7 +3,7 @@ import { mixin } from 'shared/utils/styles'
 
 export const Title = styled.div`
   color: #000;
-  font-size: 0.3rem;
+  font-size: 0.23rem;
   font-weight: bold;
   margin-bottom: 0.08rem;
 `
@@ -16,8 +16,7 @@ export const CardCont = styled.div`
 `
 
 export const StyledCardRoom = styled.div`
-  width: 2.8rem;
-  height: 2.4rem;
+  ${mixin.size(2.8, 2)}
   margin: 0.22rem 0.5rem 0 0;
   color: #000;
   font-size: 0.2rem;
@@ -26,25 +25,14 @@ export const StyledCardRoom = styled.div`
   ${mixin.boxShadow}
 
   button {
+    ${mixin.size(1, 0.36)}
     margin-top: 0.12rem;
     margin-left: 0.2rem;
-    width: 1.15rem;
-    height: 0.36rem;
-    font-size: 0.18rem;
+    font-size: 0.17rem;
     font-weight: bold;
     text-transform: uppercase;
   }
   button + button {
     margin-left: 0.1rem;
   }
-`
-
-export const StyledButton = styled.button`
-  color: #fff;
-  font-size: 0.17rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  position: absolute;
-  top: 1.94rem;
-  height: 0.4rem;
 `

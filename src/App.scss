@@ -13,4 +13,20 @@
 
 .main {
   @include sizeWH(14.7rem, 100vh, $pos: relative);
+
+  .layout {
+    @include sizeWH(100%, 100%);
+    position: relative;
+    padding-left: 0.8rem;
+
+    .layout-content {
+      background: #F8F9FB;
+      overflow-y: auto;
+      height: 100%;
+      padding-left: 1.6rem;
+      border-top-right-radius: 0.2rem;
+      border-top-left-radius: 0.2rem;
+      margin-right: 0.2rem;
+    }
+  }
 }

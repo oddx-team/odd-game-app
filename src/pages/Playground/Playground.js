@@ -29,8 +29,6 @@ export const PagePlayground = () => {
   const dispatch = useDispatch()
   const allCards = useSelector(selectAllCards)
 
-  console.log(allCards)
-
   const { slug } = useParams()
   const [dealCard, setDealCard] = useState(null)
   const [showFake, setShowFake] = useState(false)
@@ -89,7 +87,7 @@ export const PagePlayground = () => {
                 <Text>Invite</Text>
               </ButtonInvite>
 
-              {!showFake &&
+              {(!showFake || allCards.length > 0) &&
                 <DropzoneOddx>
                   <ImgCard />
                   <ImgSpaceship />

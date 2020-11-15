@@ -52,7 +52,7 @@ export const LinkItem = styled.a`
   }
 `
 
-export const ButtonCreate = styled.a`
+export const ButtonCreate = styled.button`
   ${mixin.size(0.53, 0.53)}
   position: relative;
   display: flex;

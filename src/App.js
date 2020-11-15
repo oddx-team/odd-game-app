@@ -14,7 +14,6 @@ import { PageGameSettings } from 'pages/GameSettings'
 import { PageRotation } from 'pages/Rotation'
 
 import { selectAuth } from 'features/gameSlice'
-import { Wrapper, Container } from './styled'
 import 'styles/global.scss'
 import 'App.scss'
 
@@ -31,34 +30,26 @@ const PrivateRoute = ({ component: Component, ...options }) => {
   }
 }
 
-const MainContent = ({ children }) => {
-  const isLoggedIn = useSelector(selectAuth)
-
-  return (
-    <Container loggedIn={isLoggedIn}>
-      <Header />
-      <Wrapper>{children}</Wrapper>
-    </Container>
-  )
-}
-
 const App = () => {
   return (
     <BrowserRouter>
       <div id='app'>
         <PageRotation />
         <div className='main'>
-          <Sidebar />
-          <MainContent>
-            <Switch>
-              <Route exact path='/' component={PageLanding} />
-              <PrivateRoute exact path='/rooms' component={PageGameRooms} />
-              <PrivateRoute exact path='/rooms/:slug' component={PagePlayground} />
-              <PrivateRoute exact path='/view-cards' component={PageViewCards} />
-              <PrivateRoute exact path='/settings' component={PageGameSettings} />
-              <Route component={PageNotFound} />
-            </Switch>
-          </MainContent>
+          <Switch>
+            <Route exact path='/' component={PageLanding} />
+            <div className='layout'>
+              <Header />
+              <Sidebar />
+              <div className='layout-content'>
+                <PrivateRoute exact path='/rooms' component={PageGameRooms} />
+                <PrivateRoute exact path='/rooms/:slug' component={PagePlayground} />
+                <PrivateRoute exact path='/view-cards' component={PageViewCards} />
+                <PrivateRoute exact path='/settings' component={PageGameSettings} />
+              </div>
+            </div>
+            <Route component={PageNotFound} />
+          </Switch>
           <Loading />
           <Toast />
         </div>
