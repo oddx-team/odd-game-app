@@ -13,7 +13,6 @@ export const Container = styled.div`
   height: 100%;
   overflow-y: scroll;
   top: 0;
-  background: #f1f2f5;
   padding-bottom: 0.5rem;
   position: relative;
 `

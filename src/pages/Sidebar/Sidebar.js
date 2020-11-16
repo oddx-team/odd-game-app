@@ -1,57 +1,41 @@
 import React from 'react'
-import { useGameState } from 'contexts/GameContext'
 import { useHistory } from 'react-router-dom'
 import { Icon } from 'shared/components/Icon'
 import {
   GameSidebar,
-  Header,
   Footer,
-  Section,
   LinkItem,
-  LinkSubItem,
-  LinkText,
-  Character,
-  Divider,
-  OddLogo
+  ButtonCreate,
+  OddLogo,
+  IconImage
 } from './styled'
 
-import Logo from 'assets/logo.png'
+import Logo from 'assets/oddx-logo.png'
+import IconCards from 'assets/icon-cards.png'
+import IconContribute from 'assets/icon-contribute.png'
 
 const Sidebar = () => {
   const history = useHistory()
-  const { fullSidebar, isLoggedIn } = useGameState()
 
   return (
-    <GameSidebar open={fullSidebar} show={isLoggedIn}>
-      <Header>
-        <OddLogo alt='logo' src={Logo} />
-        <LinkText>ODD Card Game</LinkText>
-      </Header>
-      <Divider />
+    <GameSidebar>
+      <OddLogo alt='logo' src={Logo} />
 
+      <ButtonCreate>
+        <Icon type='plus' size={0.4} />
+      </ButtonCreate>
+      <LinkItem className='selected'>
+        <Icon type='home' size={0.35} />
+      </LinkItem>
       <LinkItem>
-        <Icon type='search' />
-        <LinkText>Search</LinkText>
+        <IconImage src={IconCards} />
+      </LinkItem>
+      <LinkItem>
+        <IconImage src={IconContribute} />
       </LinkItem>
 
-      <Section>
-        <LinkItem className='children'>
-          <Icon type='home' />
-          <LinkText>Rooms</LinkText>
-        </LinkItem>
-        <LinkSubItem>
-          <Character>G</Character>
-          <LinkText>Global</LinkText>
-        </LinkSubItem>
-        <LinkSubItem>
-          <Character>V</Character>
-          <LinkText>Vietnam</LinkText>
-        </LinkSubItem>
-      </Section>
-
       <Footer onClick={() => history.push('/settings')}>
-        <Icon type='setting' />
-        <LinkText>Settings</LinkText>
+        <Icon type='setting' size={0.42} left={-0.03} />
       </Footer>
     </GameSidebar>
   )

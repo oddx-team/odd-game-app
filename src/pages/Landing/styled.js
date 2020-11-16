@@ -15,6 +15,7 @@ export const LandingWrapper = styled.div`
   position: relative;
   overflow-y: auto;
   overflow-x: hidden;
+  z-index: 2;
 `
 
 export const Title = styled.div``

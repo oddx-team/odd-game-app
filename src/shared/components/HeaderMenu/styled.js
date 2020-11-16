@@ -1,17 +1,5 @@
-import styled from 'styled-components'
-
-import { Button } from 'shared/components/Button'
+import styled, { css } from 'styled-components/macro'
 import { mixin, font, color, sizes } from 'shared/utils/styles'
-import { imageCDN } from 'mixins'
-
-export const ButtonHamburger = styled(Button)`
-  ${imageCDN('icon-menu.png', 0.27, 0.27)};
-  position: absolute;
-  top: 0.12rem;
-  right: 0.15rem;
-  cursor: pointer;
-  transition: background-image 0.25s ease-out;
-`
 
 export const MenuContent = styled.div`
   ${mixin.boxShadow}
@@ -48,14 +36,15 @@ export const LinkText = styled.div`
 export const StyledMenu = styled.div`
   position: absolute;
   top: 0;
-  right: 0.07rem;
+  right: 0.1rem;
   text-align: left;
   &:hover {
-    ${ButtonHamburger} {
-      ${imageCDN('icon-close.png', 0.27, 0.27)};
-    }
     ${MenuContent} {
       display: block;
     }
+  }
+
+  ${MenuContent} {
+    ${props => props.open && css`display: block;`}
   }
 `

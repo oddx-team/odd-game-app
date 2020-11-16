@@ -1,67 +1,50 @@
-import React, { useState, useEffect } from 'react'
-import { useModalActions } from 'contexts/ModalContext'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { CardRoom } from 'shared/components/CardRoom'
 import { Breadcrumbs } from 'shared/components/Breadcrumbs'
+import { BaseLayout } from 'pages/BaseLayout'
 import {
   StyledGameRooms,
   Container,
   Title,
   Subtitle,
-  ButtonCreate,
   RoomContainer
 } from './styled'
 
-import toast from 'shared/utils/toast'
-import Api from 'services'
-import { useGameActions } from 'contexts/GameContext'
+import { selectGlobalRooms, fetchRooms, exitRoom } from 'features/roomsSlice'
+import { headerTitleUpdated } from 'features/gameSlice'
 
 export const PageGameRooms = () => {
-  const { openModal } = useModalActions()
-  const { setSidebar, setGlobalLoading, quitCurrentRoom } = useGameActions()
-  const [allRooms, setAllRooms] = useState({ eRooms: [], vRooms: [] })
-
-  const currentRoomList = allRooms.eRooms
+  const dispatch = useDispatch()
+  const status = useSelector(state => state.rooms.status)
+  const roomsList = useSelector(selectGlobalRooms)
 
   useEffect(() => {
-    (async () => {
-      quitCurrentRoom()
-      setSidebar(false)
-      setGlobalLoading(true)
-
-      try {
-        const [eRooms, vRooms] = await Promise.all([Api.getGlobalRooms(), Api.getVnRooms()])
-        setAllRooms({ eRooms, vRooms })
-      } catch (err) {
-        toast.error('error')
-      } finally {
-        setGlobalLoading(false)
-      }
-    })()
-  }, [setGlobalLoading, quitCurrentRoom, setSidebar])
+    dispatch(headerTitleUpdated('Game Rooms'))
+    dispatch(exitRoom())
+    if (status === 'idle') {
+      dispatch(fetchRooms('en'))
+    }
+  }, [dispatch, status])
 
   return (
-    <StyledGameRooms>
-      <Container>
-        <Breadcrumbs items={['Oddx', 'Game rooms', 'Global server']} />
-        <Title>Game rooms</Title>
-        <Subtitle>Select any room:</Subtitle>
-        <ButtonCreate
-          variant='primary'
-          icon='plus'
-          iconSize={0.29}
-          onClick={() => openModal('create')}
-        >Create
-        </ButtonCreate>
+    <BaseLayout>
+      <StyledGameRooms>
+        <Container>
+          <Breadcrumbs items={['VN Games', 'Global games']} />
+          <Title>Game rooms</Title>
+          <Subtitle>Select any room:</Subtitle>
 
-        <RoomContainer>
-          {currentRoomList && currentRoomList.length
-            ? currentRoomList.map((room, i) => (
-              <div key={i}>
-                <CardRoom {...room} />
-              </div>))
-            : <div>Loading rooms...</div>}
-        </RoomContainer>
-      </Container>
-    </StyledGameRooms>
+          <RoomContainer>
+            {roomsList && roomsList.length
+              ? roomsList.map((room, i) => (
+                <div key={i}>
+                  <CardRoom {...room} />
+                </div>))
+              : <div>Loading rooms...</div>}
+          </RoomContainer>
+        </Container>
+      </StyledGameRooms>
+    </BaseLayout>
   )
 }

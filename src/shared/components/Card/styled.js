@@ -56,6 +56,9 @@ export const FaceFront = styled.div`
   margin-right: 0.2rem;
   margin-bottom: 0.2rem;
   backface-visibility: hidden;
+  transition: transform 0.25s;
+  font-family: 'Oxamium', sans-serif;
+  
   ${mixin.boxShadow}
   ${props => cardSizes[props.size]}
   ${props => cardColors[props.color]}
@@ -110,7 +113,7 @@ export const FakeCard = styled.div`
 
 // EXTRA STYLING = SIZES + COLOR
 const titleSizes = {
-  large: css`${font.size(0.22)}`,
+  large: css`${font.size(0.2)}`,
   medium: css`${font.size(0.2)}`,
   small: css`${font.size(0.15)}`
 }

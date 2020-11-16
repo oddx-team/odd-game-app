@@ -101,7 +101,6 @@ div {
   -webkit-tap-highlight-color: transparent; /* for removing the highlight */
 }
 
-a,
 button {
   cursor: pointer;
   border: none;
@@ -123,7 +122,7 @@ html {
 
 * {
   box-sizing: border-box;
-  user-select: none;
+  // user-select: none;
 }
 
 button {

@@ -1,8 +1,19 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './style.scss'
 
 export const PageRotation = () => {
-  return (
+  const [rotation, setRotation] = useState(false)
+
+  useEffect(() => {
+    const checkState = () => {
+      const check = window.innerWidth < window.innerHeight
+      setRotation(check)
+    }
+    checkState()
+    window.addEventListener('resize', checkState)
+  }, [])
+
+  return (rotation &&
     <div className='page-rotation'>
       <section className='content'>
         <div className='rotation' />

@@ -1,0 +1,17 @@
+@import 'styles/global.scss';
+
+.base-layout {
+  @include sizeWH(100%, 100%);
+  position: relative;
+  padding-left: 0.8rem;
+
+  .layout-wrapper {
+    background: #F8F9FB;
+    overflow-y: auto;
+    height: 100%;
+    padding-left: 1.6rem;
+    border-top-right-radius: 0.2rem;
+    border-top-left-radius: 0.2rem;
+    margin-right: 0.2rem;
+  }
+}

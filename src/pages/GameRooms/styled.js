@@ -1,7 +1,6 @@
 import styled from 'styled-components/macro'
 import { imageCDN } from 'mixins'
 import { mixin } from 'shared/utils/styles'
-import { Button } from 'shared/components/Button'
 
 export const StyledGameRooms = styled.div`
   ${mixin.flexCenter}
@@ -9,13 +8,6 @@ export const StyledGameRooms = styled.div`
   height: 100%;
   margin: 0 auto;
   margin-left: 0.2rem;
-`
-
-export const ButtonCreate = styled(Button)`
-  width: 1.25rem;
-  font-weight: bold;
-  font-size: 0.2rem;
-  text-transform: uppercase;
 `
 
 export const Container = styled.div`
@@ -26,13 +18,6 @@ export const Container = styled.div`
   top: 0;
   padding-bottom: 0.5rem;
   position: relative;
-
-  ${ButtonCreate} {
-    transition: left 0.4s;
-    position: absolute;
-    left: 8.15rem;
-    top: 0.45rem;
-  }
 `
 
 export const Title = styled.div`
