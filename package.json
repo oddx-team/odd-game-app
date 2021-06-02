@@ -65,7 +65,7 @@
     "dev": "REACT_APP_NODE_ENV=development react-scripts start",
     "alpha": "REACT_APP_NODE_ENV=alpha react-scripts start",
     "staging": "REACT_APP_NODE_ENV=staging react-scripts start",
-    "build": "REACT_APP_NODE_ENV=production GENERATE_SOURCEMAP=false react-scripts build",
+    "build": "DISABLE_ESLINT_PLUGIN=true REACT_APP_NODE_ENV=production GENERATE_SOURCEMAP=false react-scripts build",
     "test": "react-scripts test",
     "test:coverage": "react-scripts test --coverage",
     "lint": "standard",
