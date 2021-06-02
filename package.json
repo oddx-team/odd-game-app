@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@oddx/pubsub": "1.0.6",
+    "@oddx/pubsub": "git://github.com/tuhuynh27/pubsub.git#b534e5117d2b078301a2cc198eb20796516975da",
     "@reduxjs/toolkit": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
